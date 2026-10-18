@@ -44,3 +44,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:14:44.386538+00:00", "message_id": "msg_083f0162623832c0016ad4d4531664819192777a65ff396337", "next_event_id": null, "previous_event_id": "exp_f9cb2b00c8e842feb1445d1da0a7bc4b", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:16:48.778Z · commentary
+
+    목까지 가린 옷에도 개인적인 이유가 있었네. 겉모습만 보고 엄격한 사람이라고 정리하기엔 아직 모르는 게 많다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:16:49.126362+00:00", "message_id": "msg_083f0162623832c0016ad4d4d04d708191881939d59ece2a99", "next_event_id": null, "previous_event_id": "exp_ac1cd9583f5e4154b7ff45637b254cd9", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
