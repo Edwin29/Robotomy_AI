@@ -50,3 +50,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:16:49.126362+00:00", "message_id": "msg_083f0162623832c0016ad4d4d04d708191881939d59ece2a99", "next_event_id": null, "previous_event_id": "exp_ac1cd9583f5e4154b7ff45637b254cd9", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:18:33.206Z · commentary
+
+    새로 온 네짜흐는 말투도 복장도 예소드와 꽤 대비된다. 이 둘의 대화는 좀 편하게 구경하고 싶다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:18:33.479496+00:00", "message_id": "msg_083f0162623832c0016ad4d539dc98819199cb972033399e61", "next_event_id": null, "previous_event_id": "exp_ec4904ec28ae4884af9135ae51b389a7", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
