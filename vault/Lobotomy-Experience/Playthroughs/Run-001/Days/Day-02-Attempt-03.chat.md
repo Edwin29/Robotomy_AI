@@ -44,3 +44,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:51:49.151960+00:00", "message_id": "msg_083f0162623832c0016ad496b3e2e4819182ca37b74910de92", "next_event_id": null, "previous_event_id": "exp_285dcd0a6317458ab81519a48bd0d2a7", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T09:53:21.586Z · commentary
+
+    퇴사를 배우가 무대에서 내려가는 일에 빗대는구나. 설명을 듣고도 그 직원에게 실제로 무슨 일이 있었는지는 선명하지 않다. 오히려 사람을 ‘역할’로만 보는 말투가 더 눈에 들어와.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:53:22.276496+00:00", "message_id": "msg_083f0162623832c0016ad4970f58b8819180b98924b9ea3312", "next_event_id": null, "previous_event_id": "exp_b557d47a5fbc4b6a9413adc7de35bf12", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
