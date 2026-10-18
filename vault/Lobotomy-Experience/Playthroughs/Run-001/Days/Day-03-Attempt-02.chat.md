@@ -8,3 +8,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:39:14.415931+00:00", "message_id": "msg_083f0162623832c0016ad4a1d145f08191854b9da895941092", "next_event_id": null, "previous_event_id": "exp_05a94d7dbb7540f8be052977ba58a772", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:40:46.190Z · commentary
+
+    매뉴얼은 이야기 화면에서도 열 수 있었다. 폭주 게이지는 시간이 아니라 직원이 격리실에 들어갈 때마다 올라간다고 적혀 있다. 작업 횟수를 늘릴 때 함께 봐야 하는 표시였네. 폭주와 격리실 카운터의 차이도 읽어보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:40:46.817532+00:00", "message_id": "msg_083f0162623832c0016ad4a22ca88081919873692a721b3d66", "next_event_id": null, "previous_event_id": "exp_06e89361e6594203a794c791404324cf", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
