@@ -284,3 +284,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:14:44.774355+00:00", "message_id": "msg_083f0162623832c0016ad47ff4124081918765a603d42f5bd6", "next_event_id": null, "previous_event_id": "exp_7336893c6d3c430485abe30f50dde9b2", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:15:56.700Z · commentary
+
+    작은 물음표도 위험 등급 설명이었군. 표시와 버튼을 계속 헷갈렸다. 이번에는 이름표를 눌러보고, 안 열리면 작업부터 이어가자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:15:57.596461+00:00", "message_id": "msg_083f0162623832c0016ad4803d454c8191982319e6a3d5eeb8", "next_event_id": null, "previous_event_id": "exp_3817ea39206249d48730e2c7491da08c", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
