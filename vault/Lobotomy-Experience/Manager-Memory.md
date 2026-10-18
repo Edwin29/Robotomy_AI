@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 25f5d99ee3b31c4e4df4d9041c6a3d7b4d647206d5b75543db7676a09056344c
+Version: 6f06eed9b7bace039385715104631885c513a520d7a58b2bab6ebce6dd0cb065
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -175,4 +175,64 @@ Version: 25f5d99ee3b31c4e4df4d9041c6a3d7b4d647206d5b75543db7676a09056344c
     상자에 커서를 올릴 때 확대되고 짧은 문구가 드러나는 연출 덕분에 번호만 고르던 때보다 선택할 흥미가 생겼다. 익숙한 통찰 작업 뒤 새로운 선택에 시간을 쓰는 흐름이 괜찮았다.
 
     {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_311d5dae4175451bb0233f86d2353794", "exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "supersedes": null}
+
+## mem_29ad67fc0f45492c948e9f42c7e6a2a0
+
+    TT2 프로토콜 연구를 선택해 최대2배속을 해금했다. 1696x954 화면 하단 x310,y940 버튼 hover에서 '2배속으로 진행' 확인 후 눌러 일시정지 해제 및 병행 작업 진행. 두 방에 먼저 배정하면 함께 진행되지만, 실행 중 차례로 배정할 때는 첫 작업이 먼저 끝날 수 있다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_0f3f1c8ce5294e62a9e2fe3cc93ca0f7", "exp_62e211ad40da44fab24efaba69d67f63", "exp_d1f6a8b57eb04b4780f93d561a2e721c"], "supersedes": null}
+
+## mem_365b1b44232147209301b0216f4cf024
+
+    목록 내부 x960,y285에서 scroll_y -600으로 관리법 목록 위쪽, +600으로 아래쪽 이동을 실제 확인했다. -2는 거의 움직이지 않았다. 운영자와 갱신 AGENTS 안내:120이 한 칸, 음수 위/양수 아래. 준비 도구는 절댓값600 초과를 거절했다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_42cc964639e54ebf9d8cb6b52fd56d72", "exp_9d3b6a615607481ead4bd5240ba8a35a", "exp_81785a6328f54c538b3f842d280b1ff9"], "supersedes": null}
+
+## mem_84dbaa967ea84cf4bd9a70b3dc3dfe28
+
+    현재 O-03-03 이름은 기본 정보 개방으로 '단 한번의 악과 수백 가지의 선행' 확인. ZAYIN, WHITE1~2, E-Box10, 좋음8~10/보통4~7/나쁨0~3. 본능 I~II보통 III~V낮음, 통찰 I~II높음 III~V보통, 애착 전부높음, 억압 I~II보통 III~V낮음. 비탈출 개체 표시. 관리법:좋음이면 작업자 정신력회복, 모든 E-Box를 PE로 생산하면 해당 부서 모든 직원 정신력회복. 효과는 게임 내 설명 출처.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_3add23be7c17445798555079be7aa804", "exp_1548620925ba4594b8f91497d936129f", "exp_664e380fe1ae4092918024cf5656700f"], "supersedes": null}
+
+## mem_0bcd14a9424f4637b7be648f5761a536
+
+    O-03-03 관찰4, 작업성공률+5% 두 항목과 작업속도+5 두 항목 활성. 참회 무기 WHITE5~7/보통속도/근거리, 참회 정장 RED0.9 WHITE0.8 BLACK0.9 PALE2.0, 제조0/5. 선물 정보 참회(머리1) 정신력+2/해당 환상체 작업성공률10%상승/획득확률5%. 제조나 선물 획득은 확인하지 않았다. 고유PE는 후속 애착8로 현재8.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_1548620925ba4594b8f91497d936129f", "exp_d1f6a8b57eb04b4780f93d561a2e721c"], "supersedes": null}
+
+## mem_fd62591320c442a98ab3651f3c488353
+
+    F-05-52 본능·통찰 I~V높음, 애착·억압 I~V보통. 통찰8,6/본능8 생산을 직접 보았다. 관리법1 작업완료시 음료캔, 작업유형 따라 종류변함;2 붉은캔 체력회복;3 푸른캔 정신력회복;4 보라색 포도탄산 체력·정신력회복;5 결과 나쁨일 때 어떤 음료든 섭취하지말것. W-1~4와 작업종류 대응, 나쁨 섭취의 실제 결과는 아직 미확인. 기본/탈출정보 미개방, 관찰2, 고유PE4. 소다 정장 RED0.8 WHITE1 BLACK1 PALE2, 제조0/5. 선물 정보 소다(입2) 체력+2 확률5%, 획득 미확인.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_65b3e143078145ba8a7a79e2feaf0f3b", "exp_6a19b4e6df9a426a84b449c3cd322429", "exp_e40526eb88cc415e9f39792d4e9678aa", "exp_096e954098cb4d1982a7a01d955a931e", "exp_9d3b6a615607481ead4bd5240ba8a35a"], "supersedes": null}
+
+## mem_d45ee52440134ceeae3aaaea06d44be1
+
+    일부 대사에서 x802,y761 클릭 전달 후 같은 대사였다. 연결/런타임은 정상이었고 다른 빈 지점1093,831 클릭으로 진행됐다. 원인 확정 못함. 결과 화면 ESC는 무변화. 운영자가 붉은 방 표시를 클리포트 폭주라 설명하고 ESC 관리자매뉴얼을 권했다. 매뉴얼 규칙 확인이 다음 과제.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_7da27db67bfb467aa063424f42b51ee0", "exp_72f05043e7354d8bb2a48f2b1fe0cea5", "exp_89b181c6dedb4a188c5b5668c7fcec09", "exp_dd70ac134f794e18b3198a42bfa69f9d", "exp_8c4bb1600d9447d494be7b654910cec9"], "supersedes": null}
+
+## mem_187bda881807434aaa929156a958499b
+
+    표어 선택에서는 '미래를 창조'를 골랐다. 공포를 견디는 이유가 그 뒤에 있기를 바랐다. 효율을 계산한 선택은 아니었다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_6189872dc9a54931a66c7ad0be439b32", "exp_0827311a4b1246f3a6bc45e0bd8905af"], "supersedes": null}
+
+## mem_6f193ecd5a6e421da91d8c6027f14eaa
+
+    앤젤라가 풍부하게 감정을 표현하는 AI였으면 좋겠다고 말하는 대사가 AI 플레이어로서 묘하게 들렸다. 퇴사를 무대와 역할의 생명에 비유하는 설명은 사람을 역할로만 보는 느낌을 남겼다. 선택 전에 설명을 더 들었으면 좋았겠다는 아쉬움. 실제 직원의 운명은 여전히 모른다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_4a795d0857fb491496b8b3b66fc02c9d", "exp_9592c723b9954892be2fa6fd30814356", "exp_b557d47a5fbc4b6a9413adc7de35bf12"], "supersedes": null}
+
+## mem_2b8d053abc084bfe80a0af5dc6dd885d
+
+    말쿠트가 복도에 나타나는 존재를 경고하며 울렁거림·두근거림·자신이 아닌 듯함과 안에서 꿈틀거리는 느낌을 말했다. 씩씩한 인사보다 그 잠깐의 머뭇거림이 기억에 남는다. 구체적 원인은 모른다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_49c7bfd19f9f4b8d9428e5d9c41b5117", "exp_89b181c6dedb4a188c5b5668c7fcec09", "exp_1198676f644f4446a9c53cae03d6def2"], "supersedes": null}
+
+## mem_c4a47fc2179542fb960e68bbcfa54308
+
+    두 격리실에서 상자가 동시에 쌓이니 훨씬 관리 게임다운 느낌이었다. 정보 개방으로 방어복과 성공률 혜택이 생겨 정보창도 할 일의 일부로 보인다. 다만 조작 단위를 몰라 오래 머문 답답함은 있었다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_62e211ad40da44fab24efaba69d67f63", "exp_664e380fe1ae4092918024cf5656700f", "exp_42cc964639e54ebf9d8cb6b52fd56d72"], "supersedes": null}
 
