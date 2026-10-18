@@ -170,3 +170,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:22:12.329317+00:00", "message_id": "msg_083f0162623832c0016ad49dd33ee88191959db928336140b0", "next_event_id": null, "previous_event_id": "exp_62e211ad40da44fab24efaba69d67f63", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:23:21.349Z · commentary
+
+    병행 작업 뒤 에너지는 24/30, 좋음 결과는 2/4다. 이번 오른쪽 결과는 6상자여서 매번 좋음이 보장되지는 않네. 우선 알려준 큰 스크롤로 관리법을 읽어보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:23:22.346856+00:00", "message_id": "msg_083f0162623832c0016ad49e18fc7081919fad8172faa1a2f8", "next_event_id": null, "previous_event_id": "exp_65b3e143078145ba8a7a79e2feaf0f3b", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
