@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T13:32:53.111467+00:00", "message_id": "msg_083f0162623832c0016ad4ca85a2188191be8a79d6d3957b85", "next_event_id": null, "previous_event_id": "exp_c8bc846546ac444c880f2d5a20223a1c", "turn_id": "01a14f32-1477-7483-9d60-323d85f70dad"}
 
+## 2026-10-18T13:34:22.405Z · commentary
+
+    첫 통찰에서 고유 PE-Box 7개를 얻었네. 바로 한 번 더 보내기 전에 선호도와 관리법을 조금 열어 보자. 그리고 직원 선택창은 화면에는 보이는데 빠른 관찰의 직원 목록은 아직 비어 있어, 지금은 그 부분만 화면으로 확인하고 있어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T13:34:23.145486+00:00", "message_id": "msg_083f0162623832c0016ad4cadf0de481919febf3b4ad49c3db", "next_event_id": null, "previous_event_id": "exp_a5709dc6c073438089bb10fc32970fce", "turn_id": "01a14f32-1477-7483-9d60-323d85f70dad"}
+
