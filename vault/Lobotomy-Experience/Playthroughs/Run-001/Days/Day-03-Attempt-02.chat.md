@@ -162,3 +162,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:24:16.241941+00:00", "message_id": "msg_083f0162623832c0016ad4ac5ea19081919448d521593fd6f0", "next_event_id": null, "previous_event_id": "exp_ead0eee192b84de99717f974c373bfae", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
 
+## 2026-10-18T11:25:40.969Z · commentary
+
+    세 번째 관리법은 꽤 섬뜩하네. 요정이 붙은 동안 다른 관리작업을 하면 직원이 즉사한다고 한다. 빅토르는 살아 돌아왔지만, 다음부터는 회복 효과만 보고 곧바로 다른 곳에 보내면 안 되겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:25:41.663402+00:00", "message_id": "msg_083f0162623832c0016ad4acb3f9b48191837921cb34db61e2", "next_event_id": null, "previous_event_id": "exp_b793417397f84f8f969af8e2c6db2893", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
