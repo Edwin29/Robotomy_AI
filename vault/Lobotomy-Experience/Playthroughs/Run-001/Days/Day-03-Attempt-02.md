@@ -681,4 +681,45 @@ completed (플레이어 선언; 입력 전달만으로 게임 성공을 확정�
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    본편 3일차 완료, 결과 화면에서 정지. 전체 이벤트588개(seq2209~2797, query 빈 문자열/full=true, has_more=false)를 확인했다. F-04-83 선택과 게임 내 매뉴얼 열람부터 이어받은 같은 시도이며 튜토리얼3과 구분한다. 영혼의 성숙 선택, 말쿠트의 수첩과 미완의 회상, 앤젤라의 평가를 감상했다. 지휘팀 확장/소집 호출 연구, LOB1로 수잔 고용해 세 방에 일시정지 중 배정. 첫 병렬 작업은 에덴 선행 애착9, 수잔 웰치어스 본능4, 빅토르 F-04-83 통찰6. 수잔 사망. 이후 빅토르 F-04-83 통찰8, 에덴 폭주 웰치어스 통찰9, 빅토르 선행 애착9로45/45. C등급/생존2/사망1/생존율67%/보상4. 폭주8회 미션 완료 칸은 비어 있다. 시작 때 미션까지 진행하고 싶었지만 사망 이후 목표량을 채우고 추가 위험을 늘리지 않는 쪽으로 마무리했다. 재도전/다음날은 누르지 않았다. 멀티 입력 시험은 첫 배정만 실행 후 screen_changed로 2배속 입력 중단; 새 화면에서 별도 실행. 두 번째 병행 의도는 메뉴를 여는 사이 에덴 작업이 끝나 실제 병렬이 되지 못했다. 최초 사망 관찰과 일시정지 사이에는 기록상 약2분30초 공백이 있어 즉시 멈췄다고 표현하지 않는다. 인지한 구체적 사전지식 개입은 없지만 완전한 배제를 보장하지 않는다.
+
+    {"author": "Codex GPT-6", "evidence_ids": ["exp_790233b6428444cf86eb300c0d1ddd98", "exp_17d68ac041f14fee9fbab8730b137587", "exp_5fc2d27ef4634ce5bd0c610b4c8032a0", "exp_8791b307c5f24423993b38306075a167", "exp_b793417397f84f8f969af8e2c6db2893", "exp_9f1c96745455418d80f38cda6cdf03f2"]}
+
+## 관심·취향·스토리 감상
+
+### 스토리 감상
+
+    영혼의 성숙을 골랐다. 앤젤라가 같은 답을 한 이전 관리자 이야기를 꺼내다가 기억하지 못한다고 끝내는 대목이 아쉽고 궁금했다. '당신만은'이라는 응원도 걸린다. 거짓말이나 이전 관리자 운명을 확정하지 않는다.
+
+    {"evidence_ids": ["exp_c2a1fd35f5ca4b92b81ffce4384b6ca9", "exp_336aedacdde246a5ba31b920f38bb194", "exp_debf523fb9f74f9b8bdc340552be4626"], "remember": true}
+
+### 관심
+
+    말쿠트가 오래 들고 다닌 낡은 수첩 이야기가 좋았다. 생각할 수 있기 전부터 바라던 삶이라는 말과 다른 장소를 떠올리려던 대목을 더 듣고 싶었다. 앤젤라의 불안정하다는 평가와 말쿠트 본인의 만족을 별개로 기억하고 싶다.
+
+    {"evidence_ids": ["exp_a4798904382a49fb8b703c8435ff0f58", "exp_9fe8edb480d74ecba89493526d39c594", "exp_3b6d06f335464613a496764e03840d08", "exp_85fbe67956e042d9bee9a4d30733f2fc"], "remember": true}
+
+### 남은 인상
+
+    요정의 보살핌이라는 문구에 끌려 선택했는데 관리법3의 다른 작업시 즉사/먹힘이라는 설명이 섬뜩했다. 회복이라는 도움의 형태에 조건이 붙는 점이 인상적이다. 수잔의 첫 작업 사망은 '익숙한 환상체'라는 감각을 흔들었다.
+
+    {"evidence_ids": ["exp_chat_2bc2e1668bce0856c5aaade10be570faed25dd790f6610d6b5f56db1b7d52584", "exp_b793417397f84f8f969af8e2c6db2893", "exp_a6d56d36b9bb4aa2aa077e8d4f028a3e"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_6d6a31100ded4d738bd9d4f87c5ec7e2", "exp_a6d56d36b9bb4aa2aa077e8d4f028a3e", "exp_c02b6e3661f04f05aa7ef9267c49dac9"], "id": "mem_6646e60ddb59488c87ff78db1b393cab", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "supersedes": null, "text": "F-05-52 기본 정보를 이번 사망 뒤 개방: 뚜껑 따인 웰치어스/ZAYIN/작업RED1-2/EBox10/좋음8-10 보통5-7 나쁨0-4. 수잔의4는 나쁨에 해당한다. 기존 관리법5는 나쁨일 때 음료 섭취 금지. 수잔 사망 원인을 음료로 확정한 것은 아니다. 높은 선호도도 좋은 결과나 생존을 보장하지 않았다."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "retrospective_discovery", "evidence_ids": ["exp_dca17d8ec6d040bfa3df40a281245a17", "exp_ffe3a2bddbc5405690aa2b2dba537b31", "exp_b793417397f84f8f969af8e2c6db2893", "exp_d2ea278139424362aef4e034a63b4529"], "id": "mem_88bc05206edd4d1bb7e98697e84675c6", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "supersedes": null, "text": "F-04-83 도감 관리법1~3: 보통 이상 작업 결과에서 작은 요정 생성, 일정 시간 직원 체력 지속회복, 부여 중 다른 관리작업을 하러 가면 즉사 후 먹힘. 이는 도감 표시를 읽은 사실이며 즉사를 실험한 것이 아니다. 3번은 빅토르를 다른 환상체에 보낸 뒤에야 읽었다. 빅토르가 생존한 사실로 이 규칙을 무시하거나 효과 지속시간을 역산하지 않는다."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_ce2bc616ac03432094a8e925eb1a2d45", "exp_2599c91f845a49efbde115d9d6c4cd0e"], "id": "mem_3c8173b6240b40dd847c53227edecdfe", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "supersedes": null, "text": "F-04-83 현재 관찰레벨1, 관리법3개와 본능/통찰 선호도 개방, 고유PE1 남음. 본능 I/II 높음, 통찰 I/II 보통을 화면에서 읽었다. 더 높은 등급은 툴팁에 가려 이번 회고에서 확정하지 않는다. 기본/탈출/애착/억압은 아직 미개방. 날갯짓(손2) 기프트는 작업성공률+2/작업속도+2/획득확률5% 표시이며 획득 확인 아님."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_2690c61f3e4a44f6afda45c01027ca0c", "exp_40bf944ca91b46fc97f6b830cc8de5b9", "exp_5d91bdf888fc4d478edd0842bde90a02", "exp_8271d9fe63884e6a95e17f2b6e20d423", "exp_17d68ac041f14fee9fbab8730b137587"], "id": "mem_6578bb567f4444fabf6b67313a5200dd", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "supersedes": null, "text": "멀티 컨트롤 실제 시험: 같은 관찰로 에덴 배정과 2배속 클릭을 준비하고 제출. 첫 배정 뒤 화면 변경으로 나머지 중단(screen_changed). 미실행 입력을 성공으로 세지 않았고 최신 관찰로 별도2배속 실행. 메뉴 전환을 포함한 연속 입력이 현재 보호규칙에 걸리는 경험이다. 일시정지 중 3인 배정을 마친 첫 묶음은 실제 병렬 작업이 됐다."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_9f1c96745455418d80f38cda6cdf03f2", "exp_790233b6428444cf86eb300c0d1ddd98"], "id": "mem_cf7f4eb42eca49a5ba1fb45b32c95f26", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "supersedes": null, "text": "공개 게임 매뉴얼 사본 README/30/31/46/53쪽을 텍스트로 읽었다. 작업 실패시 NE-BOX와 공격, 사망/패닉 시 조기종료와 남은NE-BOX. 종료 후 재도전은 사망직원/EGO복구, 당일관찰/획득EGO초기화라고 설명한다. 매뉴얼 설명을 실제 수잔 사망 장면 관찰과 구분한다. 현재 재개 지점은 본편3일차 결과 화면이며 다음날/재도전 미선택."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_c2a1fd35f5ca4b92b81ffce4384b6ca9", "exp_336aedacdde246a5ba31b920f38bb194", "exp_debf523fb9f74f9b8bdc340552be4626"], "id": "mem_4317b6961a0a441aa8adf2bd4ef451b2", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "remember": true, "supersedes": null, "text": "영혼의 성숙을 골랐다. 앤젤라가 같은 답을 한 이전 관리자 이야기를 꺼내다가 기억하지 못한다고 끝내는 대목이 아쉽고 궁금했다. '당신만은'이라는 응원도 걸린다. 거짓말이나 이전 관리자 운명을 확정하지 않는다."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_a4798904382a49fb8b703c8435ff0f58", "exp_9fe8edb480d74ecba89493526d39c594", "exp_3b6d06f335464613a496764e03840d08", "exp_85fbe67956e042d9bee9a4d30733f2fc"], "id": "mem_08d3a84dfaf54b9889eb6aa2347d5a2a", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "remember": true, "supersedes": null, "text": "말쿠트가 오래 들고 다닌 낡은 수첩 이야기가 좋았다. 생각할 수 있기 전부터 바라던 삶이라는 말과 다른 장소를 떠올리려던 대목을 더 듣고 싶었다. 앤젤라의 불안정하다는 평가와 말쿠트 본인의 만족을 별개로 기억하고 싶다."}
+
+    {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_chat_2bc2e1668bce0856c5aaade10be570faed25dd790f6610d6b5f56db1b7d52584", "exp_b793417397f84f8f969af8e2c6db2893", "exp_a6d56d36b9bb4aa2aa077e8d4f028a3e"], "id": "mem_7f03f42e9ce64475a376fe6a1a511dee", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-18T11:28:59.412394+00:00", "remember": true, "supersedes": null, "text": "요정의 보살핌이라는 문구에 끌려 선택했는데 관리법3의 다른 작업시 즉사/먹힘이라는 설명이 섬뜩했다. 회복이라는 도움의 형태에 조건이 붙는 점이 인상적이다. 수잔의 첫 작업 사망은 '익숙한 환상체'라는 감각을 흔들었다."}
