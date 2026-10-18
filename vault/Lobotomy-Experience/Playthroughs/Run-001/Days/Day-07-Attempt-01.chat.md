@@ -38,3 +38,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:13:12.266618+00:00", "message_id": "msg_083f0162623832c0016ad4d3f7c1c48191978bd16e33e21ad9", "next_event_id": null, "previous_event_id": "exp_a918c0fb235c4c4284c75680b5bb326c", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:14:43.809Z · commentary
+
+    정보 한 줄마다 직원들의 절박함이 담겼다는 말은 어제 얻은 관리법을 떠올리게 한다. 예소드는 단순히 규정만 따지는 사람은 아닌 듯하다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:14:44.386538+00:00", "message_id": "msg_083f0162623832c0016ad4d4531664819192777a65ff396337", "next_event_id": null, "previous_event_id": "exp_f9cb2b00c8e842feb1445d1da0a7bc4b", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
