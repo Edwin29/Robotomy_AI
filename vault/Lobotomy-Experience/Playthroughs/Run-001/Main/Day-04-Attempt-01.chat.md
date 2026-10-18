@@ -90,3 +90,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:54:47.649388+00:00", "message_id": "msg_083f0162623832c0016ad4b386fff4819187dbee9f2ac81274", "next_event_id": null, "previous_event_id": "exp_e8b8773223774bf88e13d1e5b9705655", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
 
+## 2026-10-18T11:55:52.095Z · commentary
+
+    새 지침에서 확인했어. 일반 운영은 diff로 보고, 검증된 버튼 좌표가 있을 때는 메뉴가 닫혀도 예약을 이어갈 수 있네.
+    
+    게임 연결과 입력은 정상인데, 지금 화면에는 타이틀 배경만 있고 이어하기 버튼은 아직 보이지 않는다. 기존 4일차 기록은 그대로 이어받았어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:55:52.814203+00:00", "message_id": "msg_083f0162623832c0016ad4b3c85ff48191b942758284d14f5f", "next_event_id": null, "previous_event_id": "exp_3711843b6709443190a4e2bd837bd12d", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
