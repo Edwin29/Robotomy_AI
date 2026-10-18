@@ -10,6 +10,8 @@ __pycache__/
 exports/
 vault/Sessions/
 vault/Imports/
+vault/Live/
+vault/Lobotomy-Experience/Playthroughs/*/Media/
 vault/.obsidian/workspace*.json
 vault/.obsidian/cache/
 media/
@@ -17,3 +19,17 @@ saves/
 *.dll
 *.exe
 .pytest_cache/
+
+# Private recordings, credentials and local databases
+*.mp4
+*.mkv
+*.mov
+*.webm
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.p12
+client_secret*.json
+credentials.json
+token.json

@@ -1,0 +1,238 @@
+# 관리자 누적 기억
+
+Version: 6f06eed9b7bace039385715104631885c513a520d7a58b2bab6ebce6dd0cb065
+
+## mem_8287e85ac2b743eab4dd35d7833d3406
+
+    직원 정보의 최대 체력과 실제 현재 체력은 구분해야 한다. 통찰 선택창에서 아우로라30/32·35/35, 애착 선택창에서32/32·35/35를 직접 확인했다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_2730d5b1484845f5896fb907e2fc50fe", "exp_ada68d2fff474340abf8dc0a987edc8e"], "supersedes": null}
+
+## mem_092fc14d3d3b4f0b98ffebbdcc1a6722
+
+    이번 튜토리얼의 교육용 오뚜기 토끼 도감에는 본능·통찰 선호 높음, 애착 매우높음, 억압 보통이 표시됐다. 관리법에는 억압 작업 완료 시 클리포트 카운터 감소가 적혀 있었다. 도감 표시를 읽은 것이며 억압의 결과는 직접 실험하지 않았다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_6ec981792bd846fcbd8896da21cfa553", "exp_c009ca9b4f79429ebf6d50bed3ff67c1"], "supersedes": null}
+
+## mem_b5dd9f0354db4f14b44be489fa165342 · 수정됨
+
+    다음 재개 지점은 튜토리얼1 결과 화면의 다음날 버튼 앞이다. 직원 배치 구간을 시작하려면 새 사용자 실행 범위를 확인하고 최신 연결·화면부터 관찰한다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-03", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_68e7eb0bcfa94e52bf48798ed95b4ee9"], "supersedes": null}
+
+## mem_19d61f608bd64d4596efc287242422f7
+
+    작업으로 모은 상자를 써서 처음에는 Unknown이던 정체와 선호도를 알아가는 흐름이 마음에 들었다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-03", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_0fb36cc3f7414fc48e6dd96768754d11", "exp_4b11df2b1c0c4198a2640c1eb22f4205", "exp_6ec981792bd846fcbd8896da21cfa553"], "supersedes": null}
+
+## mem_2d7cf22650fc4b35a9eebe98d9777d35
+
+    게임 내 기록에서 교육용 토끼가 사람을 좋아해 따라가려 한다고 읽고, 작업자가 떠나는 것을 아쉬워한다는 격리실 문구를 보니 친근한 인상이 생겼다. 그 설명의 실제 행동을 직접 확인한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-03", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_832c108495c9440fb39dc4a05b31848e", "exp_9c9522c37dc24245aed69c5a50d436e7"], "supersedes": null}
+
+## mem_68be8fd8f7ba4894a6e0c91eb70b6945
+
+    세 번째 작업 중 나타난 폭주 경보가 작업 완료로 해제됐는지는 확인하지 못했다. 구간 종료 때 경보 테두리가 남아 있어 다음 경험에서 구분해 보고 싶다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-03", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_15a74b48a2f64147bba75c6394214d1c", "exp_d3cdac0915de4de7bec9fd5884216023"], "supersedes": null}
+
+## mem_4e693dfe309d4072b11f4dd386ea0524
+
+    고용 버튼 첫 클릭 뒤 설정 완료 시 다시 누르라는 안내가 나왔다. 두 번째 클릭 후 갈리나 명단과 LOB3→1로 확정 확인. 첫 클릭만으로 고용됐다고 결론내리지 않았다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_dbab667ce38b4ea1bd2f1269dea9e95f", "exp_8e8059f109474de1ba1df1032c801dca"], "supersedes": null}
+
+## mem_aaa70f852cd24e329ffdb6f754aa855c
+
+    갈리나 지혜 화살표로 II를 설정했을 때 상세 최대정신력은17이었고 승인 후32가 됐다. 계획값과 적용값을 구분했다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_fc5002918917440492da7e81a4aaadbd", "exp_e9afccc73f004e2087fd4c78f14688ec"], "supersedes": null}
+
+## mem_fbcd332697d242c8adddd0fee7cc3283 · 수정됨
+
+    사용자가 모든 튜토리얼 완료로 실행 범위를 확대했다. 튜토리얼2 완료 후 비상상황 교육으로 계속한다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_10de922c29ff4e96bc9c06f62daf5bf2", "exp_79c4f944dca24a4285bb32fa64041325"], "supersedes": "mem_b5dd9f0354db4f14b44be489fa165342"}
+
+## mem_d0cd1cc0174c49ffbb504b59092ddb14
+
+    교육용 토끼 무기와 노란 방어구가 직원 외형에 즉시 보여서 교체를 알아보기 쉬웠다. 세 명이 같은 복장이 되니 작은 팀을 갖춘 느낌이 든다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_37eeea83da7c4d3aac48a83408a10325"], "supersedes": null}
+
+## mem_b477c75ee9584a37a6b1c46430094fec
+
+    교육 지시에 따라 교육용 토끼에 억압을 맡긴 뒤 에너지10/20, 탈출 알림과 복도의 토끼를 직접 봤다. 이전에는 도감으로만 읽었던 억압-카운터 감소 규칙에 대응하는 실제 탈출 경험이다. 모든 환상체의 억압 결과로 일반화하지 않는다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_7c17a8c1f86f401ab7c47b23706500b3", "exp_d5f8d08a10d746938418f7afa5e6b317", "exp_1d39b75023c04eb5b74fe7d2f1eef433"], "supersedes": null}
+
+## mem_adc04f901ac84a4a9c7d320474729ac0
+
+    제압 목록에서 맥심의 속성 아이콘과 초상화를 누른 뒤에는 같은 선택 단계가 남았고, 이름 영역을 누른 뒤 이동하며 다음 설명으로 진행했다. 선택 여부는 클릭 영수증보다 후속 화면으로 확인했다. 패닉 선택창에서도 현장 드래그는 반영되지 않았고 두 행의 이름을 각각 선택하자 진행됐다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_a4226576d6a34d29bf0631bf0eceb016", "exp_c092f76f03744d65888aed9d3778a87e", "exp_3b90d0ad87414f818928dae9fb99eaa5", "exp_67456b505596498c91db6887117e5b8f", "exp_397ceb5ffe1b4659a42b5a3632584930", "exp_c1653449a535421da2ed9ea3d90f4219"], "supersedes": null}
+
+## mem_4351e6bc2f404e058cea83ded540f630
+
+    교육 화면은 RED=체력, WHITE=정신력, BLACK=둘 모두, PALE=최대체력 비율 피해라고 설명했다. 토끼의 선택창에 RED 공격·WHITE 약점1.5를 봤고 교육용 직원 무기는 WHITE였다. 수치별 피해를 별도 측정한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_4df73a935bb44b70833dd26e291f9a4e", "exp_737ca11ae50f459ca9d58fa518621a6d"], "supersedes": null}
+
+## mem_6c2210d821e24941b1cbae00097bd6f6
+
+    나래 패닉 상태의 정신력0/52를 봤다. 안내는 WHITE/BLACK 공격으로 정신력을 회복시켜 100%가 되면 정상으로 돌아온다고 설명했다. 두 직원을 선택해 대응했고 이후 세 직원이 중앙으로 복귀하며 패닉 표시가 사라졌다. 회복 전 과정을 수치로 연속 확인한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_35b08a9183bd48b4a1101d28ca462563", "exp_c1653449a535421da2ed9ea3d90f4219", "exp_f7e6ddfa8d544a48be884e892abb067e"], "supersedes": null}
+
+## mem_fea96b5df65b4e13a2ac0d7dbda5c180 · 수정됨
+
+    모든 튜토리얼을 완료했다. 재개 지점은 Tutorial3 관리자 교육 완료 대화의 일시정지 화면. 본편 진행은 현재 범위 밖이므로 멈춘다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_f7e6ddfa8d544a48be884e892abb067e"], "supersedes": "mem_fbcd332697d242c8adddd0fee7cc3283"}
+
+## mem_44771cf3504043b6ade3cfe959cf471c
+
+    친근하게 읽었던 교육용 토끼가 복도에 나와 경보가 뜨자, 같은 대상인데도 관리와 전투가 다르게 느껴졌다. 일시정지 중 여러 직원에게 명령할 수 있어 조작할 여유가 있었다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_1d39b75023c04eb5b74fe7d2f1eef433", "exp_d076603ec1674a819f32a4a8e06fc70f"], "supersedes": null}
+
+## mem_04946282b1a9414c84155699844bb337
+
+    WHITE 무기가 환상체에게는 공격이고 패닉 직원에게는 정신력 회복 수단이라는 설명이 흥미로웠다. 같은 장비가 상대 상태에 따라 다른 의미가 되는 부분이 기억에 남았다.
+
+    {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_4df73a935bb44b70833dd26e291f9a4e", "exp_35b08a9183bd48b4a1101d28ca462563"], "supersedes": null}
+
+## mem_c53f57ecfe2e45ef936eb6db6ca51031
+
+    O-03-03의 정보창은 현장 격리실 위 이름표를 클릭해 열었다. 카운터·위험등급·PE-Box 표시를 누르면 이번에는 툴팁만 보였고, 작업 메뉴 큰 물음표나 제목으로는 도감이 열리지 않았다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_231389647be04a76a0237db8e8172583", "exp_06831f34a5a241799f70d051281b482b", "exp_2f193bc1f83649a4bc5a646892953d4e", "exp_7336893c6d3c430485abe30f50dde9b2", "exp_f89320bfb8ad438f902e3c781f3e00fd", "exp_d374e73b15574a519ab68abb168dc02d"], "supersedes": null}
+
+## mem_bbeaef3fa13347718673d9dedbb08306
+
+    O-03-03 통찰 선호도 해금 비용은 PE-Box2이며 표시값은 I·II 높음, III·IV·V 보통이다. 관리법1은 좋음 작업 결과 때 해당 직원 정신력 회복이라고 설명한다. 통찰3회의 성공을 모든 대상이나 향후 모든 작업에 일반화하지 않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_6826c0129e0b4b02a319584ce7d32a65", "exp_756fedae0b9a472a9810d669b72b2fb1", "exp_d6263acad7fc44278bbbced9024e2663", "exp_ed9882163a6b45728cb3f6060514d6e4"], "supersedes": null}
+
+## mem_c6b4b590c91845b386b3237b3a198bb4
+
+    이번 본편 1일차는 에너지 목표가 두 번째 작업에서 충족됐지만, 지휘팀 작업3회 미션을 위해 세 번째를 진행한 후 종료했다. 결과 화면에서 미션 완료를 확인했다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_35fb166f697843fc87e483563f4fa06a", "exp_7e820d5519584bf6bff793fbf6bb4e88"], "supersedes": null}
+
+## mem_26766f7ed5c047128310ccdb4f2534f8 · 수정됨
+
+    사용자가 본편 시작과 모든 엔딩 관람으로 범위를 확대하여 튜토리얼 완료 뒤 본편도 플레이했다. 현재는 패치를 위해 실제1일차 결과 화면에서 중단하라는 최신 요청이 우선이다. 재개 지점은 다음날 버튼 앞이며 이후 본편 기록은 day=2, 같은 Run을 사용한다. 재개 허가 전 추가 입력하지 않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_7c5e936cfc4c40c78e0ea5d6a3844c3e", "exp_e3194b84f44442668550613820ac177c", "exp_a169639d3f27450d8555e504e1dbbfbe", "exp_7e820d5519584bf6bff793fbf6bb4e88"], "supersedes": "mem_fea96b5df65b4e13a2ac0d7dbda5c180"}
+
+## mem_968867055631466aa6a57e36d1e86db0
+
+    말쿠트의 첫인사는 부산스럽고 친근하게 느꼈다. 하지만 내보내 달라는 직원에게 노력과 할 수 있다는 말을 이어가고, 할 수 없다고 하면 지휘팀 직원이 아니라고 하는 장면을 보며 밝은 표정이 서늘하게 느껴졌다. 이 인상은 등장인물의 속마음이나 직원의 이후 운명을 확인한 사실이 아니다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_dbac0190da3a45b58472d3b797d5cc45", "exp_46deb96c8ea146b7965de4530828f3a4", "exp_a64a1b678dd24ade8e1291a42e6d18ef", "exp_chat_f8d17ec204da2e7e6bc94fc72bd35cee2aa7302a987352acea01fc6ecbb92fa9"], "supersedes": null}
+
+## mem_a2794bf88d2d4e98a1b27ea185b476e1
+
+    직원의 절박한 말을 더 듣고 싶어 말쿠트에게 맡기지 않는 선택을 했다. 선택 후 직원에게 직접 말하는 장면은 보지 못했고 이후 상태가 궁금하다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_960786c07d45484f92896cfeb88bd206", "exp_ab0b1ecbb6fb40bca805e3d6dd51ecf6"], "supersedes": null}
+
+## mem_c90d345b1fdb494e952fe130ed760cef
+
+    앤젤라는 자신을 가장 신뢰해달라고 했지만, 우선 본인의 요청으로 받아들였다. 회사 밖 햇빛과 바람을 직접 느낄 수 없다는 소개도 기억에 남았다. 다른 AI에 대한 인상은 직접 만나는 장면을 통해 정하고 싶다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_6f487085639cf7266d2982ba073fcb3ea72ee4f6bbb248931ba086dbdfaad875", "exp_chat_84e1452f56dc3ba207cf145ff7580dd2ea90b7ec0b5e62e5bf770b0175ba8c3d"], "supersedes": null}
+
+## mem_cad82834d2774836b8cde6154d942b3b
+
+    정보창 위치를 찾느라 비슷한 표시를 하나씩 눌러보는 과정이 길어졌다. 익숙해진 메뉴와 작업은 중간 관찰을 유지하며 짧게 묶어 처리하는 쪽이 흐름이 나았다. 이야기 감상과 중요한 선택에 쓰는 시간까지 줄일 필요는 없다고 느낀다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_d374e73b15574a519ab68abb168dc02d", "exp_7e8e824690a34870b292594ef2376249", "exp_ed9882163a6b45728cb3f6060514d6e4", "exp_a169639d3f27450d8555e504e1dbbfbe"], "supersedes": null}
+
+## mem_a58de61cb17a4870ab49cc1a95ef4438
+
+    이번 환상체 선택 화면에서는 보이는 상자 중앙을 hover_live_control로 가리켜 클릭 없이 세 후보의 설명과 강조를 확인했다. 이전 실패 원인을 특정하지 않으며 문구만으로 관리법·안전성을 확정하지 않는다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "supersedes": null}
+
+## mem_a5db3b579bd548469a65a117052f3565
+
+    운영자 복원 재시도 완료 후 F-05-52를 선택했고 DAY2 앤젤라 첫 대사 '공포에 직면하여 미래를 창조하라.'에서 중단했다. 다음 재개는 같은Run 본편day2이며 이번 선택이 현재 진행이다. 이전 F-02-44 선택은 복원 전 중단된 시도의 경험이다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_09392de585de4880b27682ae70600749", "exp_54cc44b74bcf4d6089efc4a2ca0243c2", "exp_5ef840a5622c4d8683d606783fd803c8"], "supersedes": "mem_26766f7ed5c047128310ccdb4f2534f8"}
+
+## mem_5b7928ed4e8f4b1abfbd8f7a907346f3
+
+    F-05-52의 갈매기 울음소리 문구가 시설 안에서 바다를 연상시켜 궁금해졌다. 이것이 선택 이유이며 실제 소리를 듣거나 정체를 확인한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_9b9b6b3a35fe4a7b98ed8dfece508d36", "exp_54cc44b74bcf4d6089efc4a2ca0243c2"], "supersedes": null}
+
+## mem_29528cc922a542bdb990f7a803f47e99
+
+    상자에 커서를 올릴 때 확대되고 짧은 문구가 드러나는 연출 덕분에 번호만 고르던 때보다 선택할 흥미가 생겼다. 익숙한 통찰 작업 뒤 새로운 선택에 시간을 쓰는 흐름이 괜찮았다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_311d5dae4175451bb0233f86d2353794", "exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "supersedes": null}
+
+## mem_29ad67fc0f45492c948e9f42c7e6a2a0
+
+    TT2 프로토콜 연구를 선택해 최대2배속을 해금했다. 1696x954 화면 하단 x310,y940 버튼 hover에서 '2배속으로 진행' 확인 후 눌러 일시정지 해제 및 병행 작업 진행. 두 방에 먼저 배정하면 함께 진행되지만, 실행 중 차례로 배정할 때는 첫 작업이 먼저 끝날 수 있다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_0f3f1c8ce5294e62a9e2fe3cc93ca0f7", "exp_62e211ad40da44fab24efaba69d67f63", "exp_d1f6a8b57eb04b4780f93d561a2e721c"], "supersedes": null}
+
+## mem_365b1b44232147209301b0216f4cf024
+
+    목록 내부 x960,y285에서 scroll_y -600으로 관리법 목록 위쪽, +600으로 아래쪽 이동을 실제 확인했다. -2는 거의 움직이지 않았다. 운영자와 갱신 AGENTS 안내:120이 한 칸, 음수 위/양수 아래. 준비 도구는 절댓값600 초과를 거절했다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_42cc964639e54ebf9d8cb6b52fd56d72", "exp_9d3b6a615607481ead4bd5240ba8a35a", "exp_81785a6328f54c538b3f842d280b1ff9"], "supersedes": null}
+
+## mem_84dbaa967ea84cf4bd9a70b3dc3dfe28
+
+    현재 O-03-03 이름은 기본 정보 개방으로 '단 한번의 악과 수백 가지의 선행' 확인. ZAYIN, WHITE1~2, E-Box10, 좋음8~10/보통4~7/나쁨0~3. 본능 I~II보통 III~V낮음, 통찰 I~II높음 III~V보통, 애착 전부높음, 억압 I~II보통 III~V낮음. 비탈출 개체 표시. 관리법:좋음이면 작업자 정신력회복, 모든 E-Box를 PE로 생산하면 해당 부서 모든 직원 정신력회복. 효과는 게임 내 설명 출처.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_3add23be7c17445798555079be7aa804", "exp_1548620925ba4594b8f91497d936129f", "exp_664e380fe1ae4092918024cf5656700f"], "supersedes": null}
+
+## mem_0bcd14a9424f4637b7be648f5761a536
+
+    O-03-03 관찰4, 작업성공률+5% 두 항목과 작업속도+5 두 항목 활성. 참회 무기 WHITE5~7/보통속도/근거리, 참회 정장 RED0.9 WHITE0.8 BLACK0.9 PALE2.0, 제조0/5. 선물 정보 참회(머리1) 정신력+2/해당 환상체 작업성공률10%상승/획득확률5%. 제조나 선물 획득은 확인하지 않았다. 고유PE는 후속 애착8로 현재8.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_1548620925ba4594b8f91497d936129f", "exp_d1f6a8b57eb04b4780f93d561a2e721c"], "supersedes": null}
+
+## mem_fd62591320c442a98ab3651f3c488353
+
+    F-05-52 본능·통찰 I~V높음, 애착·억압 I~V보통. 통찰8,6/본능8 생산을 직접 보았다. 관리법1 작업완료시 음료캔, 작업유형 따라 종류변함;2 붉은캔 체력회복;3 푸른캔 정신력회복;4 보라색 포도탄산 체력·정신력회복;5 결과 나쁨일 때 어떤 음료든 섭취하지말것. W-1~4와 작업종류 대응, 나쁨 섭취의 실제 결과는 아직 미확인. 기본/탈출정보 미개방, 관찰2, 고유PE4. 소다 정장 RED0.8 WHITE1 BLACK1 PALE2, 제조0/5. 선물 정보 소다(입2) 체력+2 확률5%, 획득 미확인.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_65b3e143078145ba8a7a79e2feaf0f3b", "exp_6a19b4e6df9a426a84b449c3cd322429", "exp_e40526eb88cc415e9f39792d4e9678aa", "exp_096e954098cb4d1982a7a01d955a931e", "exp_9d3b6a615607481ead4bd5240ba8a35a"], "supersedes": null}
+
+## mem_d45ee52440134ceeae3aaaea06d44be1
+
+    일부 대사에서 x802,y761 클릭 전달 후 같은 대사였다. 연결/런타임은 정상이었고 다른 빈 지점1093,831 클릭으로 진행됐다. 원인 확정 못함. 결과 화면 ESC는 무변화. 운영자가 붉은 방 표시를 클리포트 폭주라 설명하고 ESC 관리자매뉴얼을 권했다. 매뉴얼 규칙 확인이 다음 과제.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_7da27db67bfb467aa063424f42b51ee0", "exp_72f05043e7354d8bb2a48f2b1fe0cea5", "exp_89b181c6dedb4a188c5b5668c7fcec09", "exp_dd70ac134f794e18b3198a42bfa69f9d", "exp_8c4bb1600d9447d494be7b654910cec9"], "supersedes": null}
+
+## mem_187bda881807434aaa929156a958499b
+
+    표어 선택에서는 '미래를 창조'를 골랐다. 공포를 견디는 이유가 그 뒤에 있기를 바랐다. 효율을 계산한 선택은 아니었다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_6189872dc9a54931a66c7ad0be439b32", "exp_0827311a4b1246f3a6bc45e0bd8905af"], "supersedes": null}
+
+## mem_6f193ecd5a6e421da91d8c6027f14eaa
+
+    앤젤라가 풍부하게 감정을 표현하는 AI였으면 좋겠다고 말하는 대사가 AI 플레이어로서 묘하게 들렸다. 퇴사를 무대와 역할의 생명에 비유하는 설명은 사람을 역할로만 보는 느낌을 남겼다. 선택 전에 설명을 더 들었으면 좋았겠다는 아쉬움. 실제 직원의 운명은 여전히 모른다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_4a795d0857fb491496b8b3b66fc02c9d", "exp_9592c723b9954892be2fa6fd30814356", "exp_b557d47a5fbc4b6a9413adc7de35bf12"], "supersedes": null}
+
+## mem_2b8d053abc084bfe80a0af5dc6dd885d
+
+    말쿠트가 복도에 나타나는 존재를 경고하며 울렁거림·두근거림·자신이 아닌 듯함과 안에서 꿈틀거리는 느낌을 말했다. 씩씩한 인사보다 그 잠깐의 머뭇거림이 기억에 남는다. 구체적 원인은 모른다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_49c7bfd19f9f4b8d9428e5d9c41b5117", "exp_89b181c6dedb4a188c5b5668c7fcec09", "exp_1198676f644f4446a9c53cae03d6def2"], "supersedes": null}
+
+## mem_c4a47fc2179542fb960e68bbcfa54308
+
+    두 격리실에서 상자가 동시에 쌓이니 훨씬 관리 게임다운 느낌이었다. 정보 개방으로 방어복과 성공률 혜택이 생겨 정보창도 할 일의 일부로 보인다. 다만 조작 단위를 몰라 오래 머문 답답함은 있었다.
+
+    {"attempt_id": "Run-001/Day-02-Attempt-03", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_62e211ad40da44fab24efaba69d67f63", "exp_664e380fe1ae4092918024cf5656700f", "exp_42cc964639e54ebf9d8cb6b52fd56d72"], "supersedes": null}
+

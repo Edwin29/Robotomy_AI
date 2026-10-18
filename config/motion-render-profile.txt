@@ -1,0 +1,1 @@
+Tutorial_1|CameraFilterPack_Colors_RgbClamp:Blue_End=1;Blue_Start=0;Green_End=1;Green_Start=0;Red_End=1;Red_Start=0;RGB_End=1;RGB_Start=0.1

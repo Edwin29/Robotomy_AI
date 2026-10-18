@@ -1,0 +1,2 @@
+# Only needed to prepare the private copied runtime; no game assets redistributed.
+UnityPy==1.25.4

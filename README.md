@@ -3,9 +3,20 @@
 LLM이 주요 판단을 내리고 실행기가 조작하며, 판단과 경험을 관찰·대화·이전할 수 있는
 Lobotomy Corporation 플레이어 프로젝트.
 
-**현재 버전: v0.1 기초 환경. 실제 게임 연결은 아직 구현하지 않았습니다.**
-MCP와 기록·대화·기억 이전은 실행 가능하며, `mock`은 실제 게임 규칙과 무관한 합성 테스트입니다.
-게임 클리어, 실제 모델의 학습, GPT↔Claude 행동 동일성을 검증한 버전이 아닙니다.
+## 코드와 플레이 기록 찾기
+
+`main`에는 검토한 게임기 소스·문서와 이번 게시 시점의 경험 기록 사본이 있습니다.
+플레이 중 자동 갱신되는 최신 기록은 [player-experience 브랜치](https://github.com/Edwin29/Robotomy_AI/tree/player-experience/vault/Lobotomy-Experience)에 있습니다. 코드 자동 커밋은 하지 않습니다.
+
+- [본편 2일차 완료 기록](vault/Lobotomy-Experience/Playthroughs/Run-001/Days/Day-02-Attempt-03.md)
+- [본편 2일차 채팅 원문](vault/Lobotomy-Experience/Playthroughs/Run-001/Days/Day-02-Attempt-03.chat.md)
+- `Day-04-Attempt-01`은 과거 번호 체계로 생성한 **본편 1일차** 기록입니다. 실제 날짜는 기록 본문의 표기를 따르며, 원본 식별자는 보존합니다.
+
+가상 입력, 표시 정보·소리·화면 관찰, 이동 벡터, 최근 관찰 버퍼, 짧은 입력 예약,
+관찰 차이 요약, 경험·채팅 원문 기록을 제공합니다. 지원 범위와 남은 가림 한계는
+[표시 정보 정책](docs/disclosure-implementation.md), [UI 점검](docs/gameplay-ui-coverage-audit.md),
+[이동 대상 확장](docs/motion-target-expansion-audit.md)을 참고하세요.
+`mock`은 실제 게임 규칙과 무관한 합성 테스트이며, 게임 클리어·모델 학습·모델 간 행동 동일성은 검증하지 않았습니다.
 
 ## 지금 되는 것
 
@@ -16,6 +27,32 @@ MCP와 기록·대화·기억 이전은 실행 가능하며, `mock`은 실제 �
 - Obsidian에서 읽는 세션 기록, SHA-256 검사 가능한 모델 독립 JSON 내보내기/가져오기
 - 선택한 이전 경험만 조회: 자신의 경험과 전해 받은 경험을 구분
 - 게임 설치 파일 존재 여부만 확인하는 읽기 전용 진단
+- 별도 실행본·저장 폴더에서 실제 UI 텍스트와 화면 이미지 읽기
+- 실제 관찰 MCP `live_status`, `observe_live`, `view_live_frame`; 합성 세션과 기록 분리
+- 독립 게임 내부 가상 실행기: 포인터 이동, 좌/우 클릭·드래그, 휠, 최대 3초 키 유지. OS 마우스·포커스 점유 및 Codex Windows 브리지 불필요
+- [화면과 판단 대시보드](http://127.0.0.1:8765/), 입력 전달 없는 관찰 전용 페이지
+
+## 실제 게임 화면 보기와 관찰
+
+이 PC에는 기존 게임·세이브를 보존한 별도 실행본이 준비되어 있습니다.
+`Launch-Live.cmd`를 실행하면 저장 경로와 무결성을 검사하고 **Lobotomy_Observer** 창을 엽니다.
+화면은 실제 게임 창에서 실시간으로 볼 수 있습니다. 세 패널의 허용된 표시 정보는 약100ms,
+이미지는 약1초 간격으로 갱신합니다. 웹 관찰 페이지는 2초 간격입니다. 서로 같은 순간의 표본은 아닙니다.
+
+```powershell
+.\.venv\Scripts\python.exe scripts\launch_live.py
+.\.venv\Scripts\python.exe -m robotomy live-status
+.\.venv\Scripts\python.exe -m robotomy live-observe
+.\.venv\Scripts\python.exe scripts\check_live_mcp.py
+.\.venv\Scripts\python.exe scripts\launch_live.py --verify-only
+```
+
+튜토리얼 및 본편 2일차까지의 기록은 위 경험 저장소에서 확인할 수 있습니다.
+현재 실행 장면은 문서에 고정하지 않습니다. 연결 후 `live_status`로 확인하세요.
+지원하지 않거나 판독이 모호한 표시·스토리 장면은 화면으로 확인합니다.
+조작 연결·재개 방법과 제약: [실제 UI 조작 안내](docs/live-control.md).
+직원·작업·전투 상태 전체를 구조화한 어댑터는 아닙니다. `buttons`는 일부 표준 버튼만 포함합니다.
+새 PC에서의 준비, 저장 경로와 백업·복구: [실제 연결 안내](docs/live-adapter.md).
 
 ## 빠른 시작 — Windows PowerShell
 
@@ -74,6 +111,7 @@ Obsidian의 **Open folder as vault**로 이 저장소의 `vault` 폴더를 엽�
 | `robotomy/`, `tests/`, `docs/`, `prompts/` | 코드와 프로토콜, 지시문 | 추적 |
 | `vault/Player/`, `vault/Experiences/`, `vault/Templates/` | 플레이어 상태 양식·검토된 경험 | 추적 |
 | `vault/Sessions/` | 자동 생성되는 전체 세션 노트 | 기본 제외 |
+| `vault/Live/` | 실제 게임 UI 관찰 노트 | 기본 제외 |
 | `.robotomy/` | SQLite 실행 원장과 가져온 경험 | 제외 |
 | `exports/` | 모델 간 전달할 JSON 스냅샷 | 기본 제외 |
 | `media/`, `saves/` | 향후 영상·이미지·세이브 백업 | 제외 |
@@ -103,10 +141,21 @@ Obsidian의 **Open folder as vault**로 이 저장소의 `vault` 폴더를 엽�
 .\.venv\Scripts\python.exe tests\mcp_smoke.py
 ```
 
+튜토리얼 2·3도 가상 입력만으로 완료했습니다. 직원 고용·배치·장비 장착, 환상체 제압, 패닉 회복, 소집 호출과 게임의 교육 완료 문구를 확인했습니다. [진행 기록](vault/Experiences/2026-10-17-tutorials-2-3.md), [현재 입력·인지 구조](docs/live-control.md)를 참고하세요.
+
 ## 다음 단계
 
+객체 표시 경로 확장과 [최근 관측 버퍼](docs/live-history.md)를 추가했습니다.
+관측300개·화면 최대30장을 개수로 순환 보관하며 게임 정지 중에는 이력 추가를 멈춥니다.
+MCP의 `read_live_history`와 `view_live_history_frame`으로 과거 자료를 조회할 수 있습니다.
+[최신 검증·제한](docs/handoff.md)을 확인하세요. 스크래치형 블록 실행기는 보류했습니다.
+
+현재 합의한 향후 방향은 [AI 전용 게임기 설계 초안](docs/ai-console-design.md)에 정리했습니다.
+게임기와 플레이어의 경계, 표시 정보·영상·소리·기억의 계약 및
+[이 PC의 Open-Jev·AnyJev 비교와 비용 계획](docs/local-decision-model-experiment.md)은 **설계 단계**이며 아직 구현·실행하지 않았습니다.
+
 1. [기초 설계](docs/architecture.md)와 [실험 설계](docs/experiments.md) 검토
-2. [실제 게임 연결 계획](docs/live-adapter.md)에 따라 먼저 플레이어에게 보이는 상태 읽기 검증
+2. [실제 게임 연결 안내](docs/live-adapter.md)에 따라 타이틀 이후 화면의 관찰 범위 확대
 3. 테스트 세이브에서 단일 명령 → 결과 연결 검증
 4. 짧은 실제 플레이 후 경험 전달 효과 비교
 5. 그 뒤 장기 클리어 시도
@@ -115,4 +164,6 @@ Obsidian의 **Open folder as vault**로 이 저장소의 `vault` 폴더를 엽�
 없으면 도구를 만드는 능력과 게임을 플레이하는 능력이 뒤섞입니다.
 [제약을 최소화한 플레이 지시문 초안](prompts/player-baseline.md)은 실제 연결 검증 후 사용합니다.
 
-현재는 유료 모델 요청, 게임 실행, 모드 설치, 세이브 수정, 장기 goal 실행을 하지 않습니다.
+별도 실행본에 관찰 모드가 설치되어 있으며 독립 로컬 가상 입력 실행기가 UI 입력을 수행합니다.
+원본 설치/세이브는 유지합니다. 별도 API 과금 호출이나 장기 goal은 실행하지 않았습니다.
+게임 자체가 만드는 새 데이터는 분리된 저장 폴더에 기록됩니다.

@@ -17,7 +17,7 @@ def doctor(game_path):
     names = ["Assembly-CSharp.dll", "0Harmony.dll", "LobotomyBaseModLib.dll"]
     return {"game_path": str(path), "exe_present": (path / "LobotomyCorp.exe").is_file(),
             "managed_files": {name: (managed / name).is_file() for name in names},
-            "live_adapter": "NOT_IMPLEMENTED", "game_started": False, "game_files_modified": False,
+            "live_adapter": "READ_ONLY_EXPORTER_AVAILABLE", "game_started_by_this_probe": False, "game_files_modified_by_this_probe": False,
             "scope": "File existence only. Does not prove runtime compatibility or a working mod loader."}
 
 
@@ -44,12 +44,23 @@ def demo(store):
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
-    parser = argparse.ArgumentParser(description="Robotomy AI v0.1 — synthetic scaffold, no live game control")
+    if hasattr(sys.stdin, "reconfigure"):
+        sys.stdin.reconfigure(encoding="utf-8")
+    parser = argparse.ArgumentParser(description="Robotomy AI — read-only live observation and synthetic control fixture")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("mcp", help="Serve MCP over stdio")
     sub.add_parser("demo", help="Run a scripted synthetic integration example; no model calls")
     sub.add_parser("sessions")
+    sub.add_parser("live-status", help="Check actual game observer freshness")
+    sub.add_parser("live-observe", help="Record actual UI observation and Obsidian note")
+    sub.add_parser("live-pause", help="Operator stop: refuse new actual UI inputs")
+    sub.add_parser("live-resume", help="Operator resume; old decisions remain invalid")
+    sub.add_parser("live-timeline", help="Read actual UI decision/input/outcome records")
+    sub.add_parser("live-capture", help="Capture native input coordinates and a game frame; no input")
+    sub.add_parser("live-action", help="Record and execute one bounded native UI action from JSON on stdin")
+    sub.add_parser("live-execute-pending", help="Consume at most one queued native input without Codex")
+    sub.add_parser("live-outcome", help="Record an input outcome from JSON on stdin")
     probe = sub.add_parser("doctor")
     probe.add_argument("--game", default=r"D:\SteamLibrary\steamapps\common\LobotomyCorp")
     watch = sub.add_parser("watch")
@@ -64,6 +75,28 @@ def main():
     sub.add_parser("import").add_argument("path", type=Path)
     args = parser.parse_args()
     try:
+        if args.command in {"live-capture", "live-execute-pending"}:
+            from .virtual_input import VirtualExecutor
+            native = VirtualExecutor(args.root)
+            output(native.capture() if args.command == "live-capture" else native.execute_one())
+            return
+        if args.command in {"live-pause", "live-resume", "live-timeline", "live-action", "live-outcome"}:
+            from .live_control import LiveControl
+            control = LiveControl(args.root)
+            if args.command == "live-pause": output(control.pause())
+            elif args.command == "live-resume": output(control.resume())
+            elif args.command == "live-timeline": output(control.timeline())
+            elif args.command == "live-outcome": output(control.outcome(**json.load(sys.stdin)))
+            else:
+                from .virtual_input import VirtualExecutor
+                decision = control.prepare(**json.load(sys.stdin))
+                output({"decision": decision, "execution": VirtualExecutor(args.root).execute(decision['id'])})
+            return
+        if args.command in {"live-status", "live-observe"}:
+            from .live import LiveReader
+            reader = LiveReader(args.root)
+            output(reader.status() if args.command == "live-status" else reader.observe())
+            return
         if args.command == "doctor":
             output(doctor(args.game))
             return
@@ -96,7 +129,7 @@ def main():
                 if not args.follow:
                     break
                 time.sleep(0.5)
-    except (ValueError, OSError, KeyError) as exc:
+    except (ValueError, OSError, KeyError, RuntimeError) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
     except KeyboardInterrupt:
