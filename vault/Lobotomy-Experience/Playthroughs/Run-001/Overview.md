@@ -10,4 +10,5 @@
 - [Day-01-Attempt-04](Days/Day-01-Attempt-04.md): completed
 - [Day-02-Attempt-03](Days/Day-02-Attempt-03.md): completed
 - [Day-03-Attempt-02](Days/Day-03-Attempt-02.md): completed
-- [Day-04-Attempt-02](Days/Day-04-Attempt-02.md): playing
+- [Day-04-Attempt-02](Days/Day-04-Attempt-02.md): abandoned
+- [Day-04-Attempt-03](Days/Day-04-Attempt-03.md): completed

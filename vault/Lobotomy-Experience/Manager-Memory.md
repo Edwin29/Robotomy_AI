@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 064803a682bd9e3ba80a710a327d6adf80be405087a72c62bad21a628dab3acd
+Version: c75d8947d2ce6bde682f4447e5ce1c44e340f503036f01b4eec3a7415173be9a
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -283,4 +283,88 @@ Version: 064803a682bd9e3ba80a710a327d6adf80be405087a72c62bad21a628dab3acd
     요정의 보살핌이라는 문구에 끌려 선택했는데 관리법3의 다른 작업시 즉사/먹힘이라는 설명이 섬뜩했다. 회복이라는 도움의 형태에 조건이 붙는 점이 인상적이다. 수잔의 첫 작업 사망은 '익숙한 환상체'라는 감각을 흔들었다.
 
     {"attempt_id": "Run-001/Day-03-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_chat_2bc2e1668bce0856c5aaade10be570faed25dd790f6610d6b5f56db1b7d52584", "exp_b793417397f84f8f969af8e2c6db2893", "exp_a6d56d36b9bb4aa2aa077e8d4f028a3e"], "supersedes": null}
+
+## mem_c89f85e1e25c41e38baceb6386a32be4
+
+    T-09-09는 테레지아, TETH 채널링형. 기본정보는누적30초, 첫사용법10초에서 열리는 표시를 보았다. 첫사용법은 사용자 청취시 부서직원SP지속회복이라고 설명한다. 실제 회복량은 측정하지 않았다. 에덴이 사용 중 패닉에 빠졌지만 발동시간/조건은 미확인.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_985095ed26b949d0948df025bf172174", "exp_22566bfae9bb4036813441ac47080eb4"], "supersedes": null}
+
+## mem_1239dd556cc746988dbf6532751bad26
+
+    Manual17쪽: EGO목록에서 직원→해당장비 빈칸 순서로장착. 두 참회SUIT를 에덴/빅토르에게 장착해 확인. Manual42~44쪽 도구사용/중지/자동도감;47쪽 패닉은 W/B무기로회복 가능하고 패닉남긴채종료하면처분. 이는 공개매뉴얼출처, 이번 회복실험은 아님.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_23b8f8509a9a45f7b85c84e4c9ab6e73", "exp_3bc3a4113ffe4e9492dca5b68bf35e51", "exp_8d4de9c8a016421184cdaebe2e83d4e3"], "supersedes": null}
+
+## mem_0a899af642d34b41a4ceb53845d0cf09
+
+    회고 중 seq3348의 capture에서 이미 에덴패닉 로그가 제공된 것을 발견했다. 당시 내용을읽지 않은 채 도감열기를 진행해 발견이 늦었다. 후속관찰 생략과 제공된 중요한 변화 무시는 구분해야 한다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "retrospective_discovery", "evidence_ids": ["exp_636f779419b64f8f8eb51b64de483e5d"], "supersedes": null}
+
+## mem_ba76e712ff6a4300b77045b709ea4ac2
+
+    익숙한 장착/메뉴행동은 매번 이미지로끊지않고 최신capture후연속실행, 마지막결과확인으로 빨라졌다. 예약은 일부완료했지만 다수screen_changed중단. 미전송분은 최신화면에서 다시판단. 빠른관찰은 에너지/직원상세/도감에 유용하나 장착및작업선택항목 누락때는 이미지 필요.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_11b11ca81c394fb8918cd8c50636e229", "exp_267e2651831446098dce781b1c8694ac", "exp_70ceb1ecc19c4cebb3c39bea79078c27"], "supersedes": null}
+
+## mem_94240df85ac142f78540c97ec81557fa
+
+    앤젤라가 에너지13%증가를 자랑하고 물리적으로달려온건아니라 정정한 부분은 웃겼다. 곧 첫직원죽음을기념한샴페인임을알자 농담이서늘해졌다. '잘모르겠다','마시지않는다' 선택. 죽은직원도자랑스러웠을거란말은 앤젤라의추측으로받아들였다. 추모와축하가섞이는것이불편했다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_ae2ad3ea770e3ec9cf748ca51d1afe0fb729b2c41de281e4a17f0b0ad6010183", "exp_chat_8d3da55070fe33d1f6e621f132c14e9f4aaffa350c69bfac5456db5e90f43d8e", "exp_chat_88f5af5d82bfcfa3c72d725c0758cbb46a8ee6354aecb5c70954fcc33dc8bfcf"], "supersedes": null}
+
+## mem_ca9979af16bd4b7d888db2fda09c3fb3
+
+    T-09-09의 교수 노래/생일 문구가 개인적 기억을엿보는느낌이라 선택했다. 발레리나오르골을발견했지만 기대했던사연은아직못읽었다. 안전하다는확신에서고른것은아니다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_e82dc29883784c9c926f45d256d7e0ec", "exp_985095ed26b949d0948df025bf172174"], "supersedes": null}
+
+## mem_4f7889abc6c04d4db73ed788bf039381
+
+    강화와새옷으로든든해졌다가 정작패닉을되돌릴무기가없어 막혔다. 옷을맞춰입은팀의모습은좋았고, 이번실패가그감상자체를없애지는않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_3bdf3f957bad491f9fc36a2e9be1339a", "exp_8d4de9c8a016421184cdaebe2e83d4e3"], "supersedes": null}
+
+## mem_20b21705a81d41e2ac555b61b1392ced
+
+    이번 재도전 준비에서는 LOB 7, 강화된 직원 수치와 착용 중인 참회 SUIT 2개, O-03-03 PE 6이 남아 있었다. 반면 이번 날 얻었던 테레지아 정보는 다시 미해금이었다. 이번 관찰의 재도전 보존 범위이며 모든 재시작에 일반화하지 않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_b8f481888c5d4142a9e4d1031a33b0ab", "exp_de90e4dbd1874cac82d41aab1358e7db"], "supersedes": null}
+
+## mem_7050561812244340b46807abc356a699
+
+    F-04-83은 요정의 축제, ZAYIN, RED 1–2, 최대 PE 10. 좋음 6–10, 보통 3–5, 나쁨 0–2. 본능 전 등급 높음, 통찰 I/II 보통·III–V 낮음, 애착 전 등급 보통, 억압 전 등급 낮음. 탈출하지 않는다. 관찰 4까지 열었다. 관리법 1의 정확한 조건은 '보통 이상' 결과에서 작은 요정 생성이다. 요정은 잠시 HP를 회복시키며, 붙은 동안 다른 환상체를 관리하면 직원이 잡아먹힌다는 관리법을 읽었다. 이번에는 해당 사망을 직접 관찰하지 않았고 부착 지속시간도 모른다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_6b5c8c221991442a86965c13b1bcc734", "exp_b45dfea876294c35908d6509fb833c7c"], "supersedes": null}
+
+## mem_e3cb4e3e263849f69edb4aef42c70ffe
+
+    요정의 축제에서 빅토르가 작업 중일 때 폭주 타이머가 나타났다. 진행 중 작업을 마쳐도 타이머가 남았고, 다음 작업을 새로 시작한 뒤 사라졌다. 작업 중인 방이라고 자동으로 폭주가 해결됐다고 간주하지 않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_661c3b1e1ab241a2bf88362d45a1ddc7", "exp_2dde5ddbe37b4692893fa9ce1c752aaf", "exp_61ca9e8b5bda4597ad864cf702119215"], "supersedes": null}
+
+## mem_54b9b86026a8481e9d13331a53f638f8
+
+    참회 WHITE 무기는 개당 PE 15. 이번 제조에서 익숙한 메뉴 이동과 제조 클릭을 빠르게 보낸 뒤 확인하니 의도한 2개 중 1개만 제조돼 있었다(PE33→18). 한 번 더 제조하고 2/5·PE3을 확인했다. 첫 클릭이 메뉴 준비 전에 들어갔는지는 가설이다. 연속 조작은 활용하되 묶음 끝에서 실제 수량을 확인한다. 확보한 2개는 미장착 재고다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_7dcbcd9c2c5d47e9a3e100c3afa39ec1", "exp_b9efc6dc01304bdd8a32c4eb7ae8b269", "exp_53753c5382c34e01bbe2b7da8ab06f4f"], "supersedes": null}
+
+## mem_821691a75e8b4e6a910005b79ed8b93d
+
+    요정의 축제의 애착 선호도 표시는 보통이지만 마지막 직원 선택 화면의 성공률 표시는 높음이었다. 선호도와 실제 선택 화면의 성공률을 동일시하지 않는다. 애착 메뉴를 살폈으나 목표 에너지가 차서 실제 작업은 지시하지 않았다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_b45dfea876294c35908d6509fb833c7c", "exp_79a1411c6e4248e7ac4dce410cc0f093"], "supersedes": null}
+
+## mem_4e4ead32d6734870aa14b422f93b5276
+
+    첫 시도에서 에덴을 잃을 뻔한 뒤라, 결과의 생존 100%가 특히 반가웠다. 이번에는 두 사람을 데리고 마무리해서 마음이 놓인다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_33bf67bea13041fb876adc6efefefa22"], "supersedes": null}
+
+## mem_76a8ac0c6f2d46fb805ff7ac21a551a3
+
+    익숙한 두 작업을 나눠 돌리고 메뉴 조작을 묶으니 플레이 흐름이 한결 자연스러웠다. 매 클릭마다 멈춰 설명하기보다는 묶음의 결과를 확인하는 리듬이 마음에 든다. 다만 제조 수량 확인은 실제로 필요했다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_b9efc6dc01304bdd8a32c4eb7ae8b269", "exp_53753c5382c34e01bbe2b7da8ab06f4f", "exp_552bf471c3f34956ab520e82d91793b4"], "supersedes": null}
 

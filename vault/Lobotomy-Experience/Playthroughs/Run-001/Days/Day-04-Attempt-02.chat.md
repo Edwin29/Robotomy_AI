@@ -104,3 +104,51 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:57:47.751422+00:00", "message_id": "msg_083f0162623832c0016ad4b43bc8fc8191b3631218ea3058f7", "next_event_id": "exp_24cab88cad8142189f42a80b9271a319", "previous_event_id": "exp_df2083b9ae974bc4a7bb34bc999cc821", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
 
+## 2026-10-18T11:59:26.910Z · commentary
+
+    강화 전 수치로 돌아간 걸 확인했다. 이전에 했던 준비는 이번 재개에서 다시 적용 중이야. 빠른 관찰도 입력 직후에는 변화가 반영되기 전 표본이 올 수 있어서, 그걸 실패로 보고 곧바로 재클릭하지 않도록 주의하고 있다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:59:27.435890+00:00", "message_id": "msg_083f0162623832c0016ad4b49f60e4819192ab595a2a2fbe5e", "next_event_id": null, "previous_event_id": "exp_d68a800d70474623bd8bbaf8fd6dd4d3", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:00:46.589Z · commentary
+
+    이번 강화 후 에덴은 체력 33, 정신력 32다. 재시작 전에는 정신력이 31이었으니, 같은 강화라도 결과 수치는 다시 확인해야겠네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:43.900575+00:00", "message_id": "msg_083f0162623832c0016ad4b4eed00c8191aeced484e37687a9", "next_event_id": "exp_11382056f0cc4aecaaa248aa48abf571", "previous_event_id": "exp_47f5c185258d47f8b79863978d8ba089", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:02:04.950Z · commentary
+
+    방어구 제작도 이전 상태로 돌아갔고, 고유 PE는 26개가 남아 있다. 준비를 다시 마치면 새 환상체를 살펴보면서 익숙한 작업을 병행하겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:43.902578+00:00", "message_id": "msg_083f0162623832c0016ad4b53b84d0819199f2a84b92af68a3", "next_event_id": "exp_88902686ed18481e9d241c916f7cc7f9", "previous_event_id": "exp_6d15269f63834a958988dc060feea20d", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:03:35.447Z · commentary
+
+    방어구 칸을 직접 누르는 건 착용이 아니라 내성 설명이었다. 장비 목록으로 가야겠다. 이 부분은 아직 손에 익지 않았네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:43.903579+00:00", "message_id": "msg_083f0162623832c0016ad4b59822c0819190eb9cca9adf733a", "next_event_id": "exp_e87b2e81922c43379027e416f1a5c883", "previous_event_id": "exp_b6bf56cb0a4b45218cff433b7505f8e5", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:04:03.510Z · commentary
+
+    맞아. 결과가 충분히 예상되는 행동까지 매번 끊어 확인하고 있었네. 두 벌 제작처럼 이미 수량과 비용을 정한 일은 연속 입력하고 마지막에 확인하는 쪽으로 바꿔볼게. 낯선 위험이나 이야기에 더 시간을 쓰고 싶다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:43.904580+00:00", "message_id": "msg_083f0162623832c0016ad4b5b412788191adae3eeb4be16f08", "next_event_id": "exp_a5cb3c806c7f460d84e08b8102322fe0", "previous_event_id": "exp_4d8480c1d7014499aab1f10e0c979c87", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:07:00.092Z · commentary
+
+    방어구는 두 벌 준비됐고, 이제 입혀 줄 차례다. 준비 화면의 장착 방식만 익히면 다음부터는 훨씬 빨리 끝낼 수 있겠어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:43.905579+00:00", "message_id": "msg_083f0162623832c0016ad4b664b3f08191bfc77de4ce8314bc", "next_event_id": "exp_23b8f8509a9a45f7b85c84e4c9ab6e73", "previous_event_id": "exp_9c35a238ee4c4ace92a14f662671c7bd", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:07:51.705Z · commentary
+
+    둘 다 참회를 입었다. 연속 예약은 직원 선택 뒤 `screen_changed`로 멈췄지만, 남은 장착은 중간 화면 확인을 줄여 마쳤어. 옷이 바뀌니 준비를 했다는 느낌도 꽤 난다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:45.042755+00:00", "message_id": "msg_083f0162623832c0016ad4b69643a4819190e376c856aef83a", "next_event_id": "exp_c3729143c7894bf488f2ab5ac078de23", "previous_event_id": "exp_3bdf3f957bad491f9fc36a2e9be1339a", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:08:46.241Z · commentary
+
+    新入りは作業ではなく「使用」する道具なんだね… 아니, 새 물건은 작업이 아니라 사용하는 쪽이구나. 에덴에게 짧게 맡기고, 빅토르는 익숙한 작업으로 에너지를 모으자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:45.043758+00:00", "message_id": "msg_083f0162623832c0016ad4b6cdfe28819181c7869fc9922784", "next_event_id": "exp_bdae7e416b274487b3f4a78cf8838c76", "previous_event_id": "exp_9fe9d9b06e0d4e83b32b3cb9866acab0", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
