@@ -152,3 +152,27 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:45.043758+00:00", "message_id": "msg_083f0162623832c0016ad4b6cdfe28819181c7869fc9922784", "next_event_id": "exp_bdae7e416b274487b3f4a78cf8838c76", "previous_event_id": "exp_9fe9d9b06e0d4e83b32b3cb9866acab0", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
 
+## 2026-10-18T12:10:35.264Z · commentary
+
+    도구 격리실을 다시 누르니 이동 중이던 사용 명령도 취소된 모양이다. 확인하려다 되돌린 셈이네. 이번에는 도착하는 동안 빅토르 작업을 이어 놓자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:46.187914+00:00", "message_id": "msg_083f0162623832c0016ad4b73bfa708191b743bcd989ad239b", "next_event_id": "exp_bc230e8daabc43ba8b88ef13e05327f0", "previous_event_id": "exp_5b25777c9b794e1b8321cecbbb294bba", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:11:27.968Z · commentary
+
+    オルゴール… 오르골이었구나. 소리를 듣는 동안 부서의 정신력을 회복시킨다고 한다. 아직 다른 사용법은 잠겨 있으니 오래 틀어 둘 근거는 부족해. 잠깐만 더 듣고 기본 정보를 열어 보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:46.189417+00:00", "message_id": "msg_083f0162623832c0016ad4b770a0388191a350249a5fd3ee12", "next_event_id": "exp_2c27ec6f283b4d859cb8d4da3844360c", "previous_event_id": "exp_389bcc146cda47edaedd53b8d5ce2dcb", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:12:49.192Z · commentary
+
+    에덴이 패닉에 빠졌다는 로그가 보인다. 회복 도구라고 해서 사용자도 안전하다고 볼 수는 없었네. 지금은 멈춰 두고 패닉 대응부터 확인하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:47.317768+00:00", "message_id": "msg_083f0162623832c0016ad4b7c1da6c819193cd16cdfa081b05", "next_event_id": "exp_41dca56b2a394822a21e25d6f3e6f447", "previous_event_id": "exp_abe08a5d04cc4bc08c3afc4df1ce1b55", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
+## 2026-10-18T12:13:22.768Z · commentary
+
+    에덴은 체력 33, 정신력 0이다. 매뉴얼에는 WHITE나 BLACK 무기로 회복시킬 수 있다고 나오는데, 지금 빅토르에게 있는 건 RED 제압봉뿐이야. 이 상태로 하루를 끝내면 에덴이 처분된다니, 이번 시도는 되돌리고 회복용 무기도 준비하겠다. 오르골이 언제 패닉을 일으켰는지는 아직 확정하지 않겠어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:28:47.318769+00:00", "message_id": "msg_083f0162623832c0016ad4b7e338648191b627412de8af7ea6", "next_event_id": "exp_8d4de9c8a016421184cdaebe2e83d4e3", "previous_event_id": "exp_22566bfae9bb4036813441ac47080eb4", "turn_id": "01a14edd-1f3f-7161-a95d-72481a03d05d"}
+
