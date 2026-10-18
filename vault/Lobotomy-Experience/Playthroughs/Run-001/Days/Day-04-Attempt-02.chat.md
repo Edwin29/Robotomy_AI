@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:39:52.755847+00:00", "message_id": "msg_083f0162623832c0016ad4afddeba0819187df79b9c1d6fee2", "next_event_id": "exp_ffe233a56b4d48fa8a0e0200ebf489ef", "previous_event_id": "exp_99899bf00201464b9571e0de1e6be60f", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
 
+## 2026-10-18T11:40:31.230Z · commentary
+
+    ……첫 직원 사망을 두고 건배하자는 거였나. 방금 전의 가벼운 농담이 갑자기 다르게 들린다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:40:31.913113+00:00", "message_id": "msg_083f0162623832c0016ad4b02fbfc0819199f1a4435db429d2", "next_event_id": null, "previous_event_id": "exp_bf48c6fc13ac4dbf8ac197eef41a8e5b", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
+
