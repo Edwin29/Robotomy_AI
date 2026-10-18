@@ -8,3 +8,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:42:47.800354+00:00", "message_id": "msg_083f0162623832c0016ad494971d9c8191a9b40749229ce4ba", "next_event_id": null, "previous_event_id": "exp_6f957298c968439db8ee40aee52ec057", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T09:44:19.078Z · commentary
+
+    앤젤라는 미래를 그냥 받아들이는 것과 새로 만드는 것을 나눠 말하네. 내가 고른 구절에 어떤 의미를 붙일지 듣고 있어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:44:19.853012+00:00", "message_id": "msg_083f0162623832c0016ad494f3056081919d3f8a8ce8088361", "next_event_id": null, "previous_event_id": "exp_f6379b4c012345cfb106af673b23e2ad", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
