@@ -32,3 +32,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:41:39.036575+00:00", "message_id": "msg_083f0162623832c0016ad4b072e7f481918a23c2fc34d9a238", "next_event_id": null, "previous_event_id": "exp_cd6799e01aa34dda821dd4deb23dd608", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
 
+## 2026-10-18T11:43:23.002Z · commentary
+
+    잔은 받지 않았다. 추모와 축하가 한 문장에 섞여 있는 게 영 불편하다. 오늘은 살아 있는 두 사람부터 제대로 챙겨 보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:43:23.680473+00:00", "message_id": "msg_083f0162623832c0016ad4b0dbaf0c819197c1a62fd8772099", "next_event_id": null, "previous_event_id": "exp_06f9f7d7fbf94a498bedd0438f579a9e", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
+
