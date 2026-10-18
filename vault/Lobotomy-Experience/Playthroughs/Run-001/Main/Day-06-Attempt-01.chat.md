@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T13:29:15.639638+00:00", "message_id": "msg_083f0162623832c0016ad4c9abb6748191aefc02dc80caec5c", "next_event_id": null, "previous_event_id": "exp_3ebf0b48d44c40a085d453a77bd30794", "turn_id": "01a14f32-1477-7483-9d60-323d85f70dad"}
 
+## 2026-10-18T13:32:52.947Z · commentary
+
+    통찰의 성공률은 아직 ‘측정불가’네. 우선 새 직원에게 한 번 맡겨 보자. 익숙한 격리실도 같이 돌리되, 새 방에서 체력이 어떻게 변하는지는 눈여겨봐야겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T13:32:53.111467+00:00", "message_id": "msg_083f0162623832c0016ad4ca85a2188191be8a79d6d3957b85", "next_event_id": null, "previous_event_id": "exp_c8bc846546ac444c880f2d5a20223a1c", "turn_id": "01a14f32-1477-7483-9d60-323d85f70dad"}
+
