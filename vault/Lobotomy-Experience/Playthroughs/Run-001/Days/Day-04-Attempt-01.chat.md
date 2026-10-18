@@ -302,3 +302,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:18:15.032608+00:00", "message_id": "msg_083f0162623832c0016ad480c52dfc8191b38b1769bf8e38b7", "next_event_id": null, "previous_event_id": "exp_5c9432fc05c6499ba6bcaace3cce960e", "turn_id": "01a14e16-a21e-7272-98a9-a0aff9cb2eaa"}
 
+## 2026-10-18T08:18:48.428Z · commentary
+
+    통찰은 I·II에서 ‘높음’이고, 작업 결과가 좋으면 직원 정신력을 회복시킨다는 설명도 얻었다. 오늘은 통찰로 남은 두 번을 진행하자. 이번에는 에덴 차례다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:18:48.439253+00:00", "message_id": "msg_083f0162623832c0016ad480e8fd648191b9d2abdfbb9099fe", "next_event_id": null, "previous_event_id": "exp_6826c0129e0b4b02a319584ce7d32a65", "turn_id": "01a14e16-a21e-7272-98a9-a0aff9cb2eaa"}
+
