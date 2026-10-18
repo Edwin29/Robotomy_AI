@@ -158,3 +158,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:18:47.475741+00:00", "message_id": "msg_083f0162623832c0016ad49d06bd908191a0b766f173a4b0cb", "next_event_id": null, "previous_event_id": "exp_abfcc4f6e8dd400c8019b5cdc6d3e479", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:20:30.432Z · commentary
+
+    아, 스크롤이 안 먹은 게 아니라 이동량이 너무 작았구나. 다음에는 수치를 크게 올려볼게. 지금은 두 작업 배정을 마무리하고 2배속으로 돌려보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:20:30.886615+00:00", "message_id": "msg_083f0162623832c0016ad49d6db78081918392393c043e987c", "next_event_id": null, "previous_event_id": "exp_eba8fd5cebea4148b15e34eee7b592b7", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
