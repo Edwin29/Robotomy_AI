@@ -50,3 +50,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:45:46.003740+00:00", "message_id": "msg_083f0162623832c0016ad4b169e0ec8191b3ac050ea3bafda0", "next_event_id": null, "previous_event_id": "exp_4725fb27cf34456282176ec88e5740be", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
 
+## 2026-10-18T11:47:24.157Z · commentary
+
+    2포인트로 에덴의 체력이 17에서 33, 정신력이 21에서 31이 됐다. 꽤 큰 차이다. 빅토르는 정신력이 이미 29라 우선 체력만 올리고, 남은 포인트는 여유로 두겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:47:24.643670+00:00", "message_id": "msg_083f0162623832c0016ad4b1cc5f3c81918792f65b1c27e109", "next_event_id": null, "previous_event_id": "exp_c1a4611ae6ec4451bcb4b7e9c007cb0e", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
+
