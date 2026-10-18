@@ -122,3 +122,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:42:46.058819+00:00", "message_id": "msg_083f0162623832c0016ad47875a2848191909f93b8130a4e33", "next_event_id": null, "previous_event_id": "exp_a90a3f4635534fa9b5d8394bf2449eb4", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T07:43:48.746Z · commentary
+
+    자신은 대뇌, 다른 AI들은 소뇌라고 구분하네. 통제권은 부서별로 나뉘지만 앤젤라는 위아래를 분명히 두는 인상이다. 실제 부서 담당자는 어떻게 말할까.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:43:49.665631+00:00", "message_id": "msg_083f0162623832c0016ad478b4861881919cf4aab250328658", "next_event_id": null, "previous_event_id": "exp_1e40f0605c294a42835cf82e54b7a556", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
