@@ -68,3 +68,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:22:09.397516+00:00", "message_id": "msg_083f0162623832c0016ad4d60f646081918ca001ec2bca065a", "next_event_id": null, "previous_event_id": "exp_18b72de825b54531bf951ddb6fae2291", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:24:15.227Z · commentary
+
+    직원들이 자신을 싫어한다는 걸 알고 있다고 한다. 별명 이야기가 예상보다 무거운 쪽으로 가고 있다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:24:16.225550+00:00", "message_id": "msg_083f0162623832c0016ad4d68fe92481918a823fe9ee656bf2", "next_event_id": null, "previous_event_id": "exp_5a59e37b67d74cc486f005585222839a", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
