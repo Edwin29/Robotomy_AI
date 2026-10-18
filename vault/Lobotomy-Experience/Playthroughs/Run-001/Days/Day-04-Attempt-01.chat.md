@@ -278,3 +278,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:13:14.789910+00:00", "message_id": "msg_083f0162623832c0016ad47f9b44cc81918621cba6bf4d9635", "next_event_id": null, "previous_event_id": "exp_2f193bc1f83649a4bc5a646892953d4e", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:14:44.544Z · commentary
+
+    작업 메뉴의 큰 물음표 그림은 정보 버튼이 아니었네. 옆의 작은 물음표가 따로 있다. 이건 한번 열어두는 법을 익혀놓으면 다음부터 덜 헤매겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:14:44.774355+00:00", "message_id": "msg_083f0162623832c0016ad47ff4124081918765a603d42f5bd6", "next_event_id": null, "previous_event_id": "exp_7336893c6d3c430485abe30f50dde9b2", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
