@@ -38,3 +38,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:43:23.680473+00:00", "message_id": "msg_083f0162623832c0016ad4b0dbaf0c819197c1a62fd8772099", "next_event_id": null, "previous_event_id": "exp_06f9f7d7fbf94a498bedd0438f579a9e", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
 
+## 2026-10-18T11:45:03.162Z · commentary
+
+    에덴의 최대 체력이 17이라 작업 실패를 몇 번 버티기에도 여유가 적다. 우선 체력과 정신력 강화 비용을 보고, 사람 수만 늘리기보다 두 사람의 버틸 힘을 키워 보겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:45:03.283545+00:00", "message_id": "msg_083f0162623832c0016ad4b13fc45c819197c5e8ac4766c2c3", "next_event_id": null, "previous_event_id": "exp_5300dd078d364eb6b4ccce06621b5f05", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
+
