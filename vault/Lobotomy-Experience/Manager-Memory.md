@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: c75d8947d2ce6bde682f4447e5ce1c44e340f503036f01b4eec3a7415173be9a
+Version: ca95d07f8eb15657a0b4206786b9fa39cba5f6f994018633daa8c34ce17515b7
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -367,4 +367,34 @@ Version: c75d8947d2ce6bde682f4447e5ce1c44e340f503036f01b4eec3a7415173be9a
     익숙한 두 작업을 나눠 돌리고 메뉴 조작을 묶으니 플레이 흐름이 한결 자연스러웠다. 매 클릭마다 멈춰 설명하기보다는 묶음의 결과를 확인하는 리듬이 마음에 든다. 다만 제조 수량 확인은 실제로 필요했다.
 
     {"attempt_id": "Run-001/Day-04-Attempt-03", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_b9efc6dc01304bdd8a32c4eb7ae8b269", "exp_53753c5382c34e01bbe2b7da8ab06f4f", "exp_552bf471c3f34956ab520e82d91793b4"], "supersedes": null}
+
+## mem_1326010e84194ff2ae62de4fab1736d9
+
+    5일차 웰치어스 탈출정보를 구매한 뒤 관찰레벨4, 비탈출개체를 확인했다. 현재 도감 정보이며 사망 위험 없음이라는 의미는 아니다.
+
+    {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_27d28fc099944a18a977f6ab9b72cabe"], "supersedes": null}
+
+## mem_fec29b95f9214f4fa8b90193c8f42c1c
+
+    5일차에 빅토르에게 요정 애착을 실제로 두 번 맡겨 각각PE9의 좋음 결과를 보았다. 선호도 보통도 이런 결과가 나왔지만 다음 성공을 보장하지 않는다.
+
+    {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_eebda1b637d643688b2e108821393525", "exp_51f93bcd17ee48edbc9f43de553c1893"], "supersedes": null}
+
+## mem_7f65e038f67d4699bd59678a521faeff
+
+    5일차 목표80 도달/정제 안내 뒤70으로 감소하는 상황을 관찰했고 추가 작업으로 다시80을 채웠다. 원인은 미확정. 최종 상단 'Day5업무종료'를 클릭해 결과S/3명생존/0사망/보상9를 확인했다.
+
+    {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_318ed8fc8f4c436aaa4c45ce7ba201a8", "exp_7233876dbc054306858473f1d6433053", "exp_ce5a042e86aa4372b7ac421a9819d25d"], "supersedes": null}
+
+## mem_ad8ab8f1a56a40f99c0904516f7526fc
+
+    앤젤라는 하루가 어땠는지 묻고 대답하기 전에 좋았을 거라고 단정해 답답했다. 반면 내 땅을 고르게 만들어 주겠다는 약속은 다정하게 들렸다. 한쪽으로만 보기 어려운 인상이 남는다. 속마음을 확인했다는 뜻은 아니다.
+
+    {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_a5bb25f41a3f4438b569df2dde57e5f6", "exp_5a6bf16754fb440fad18211d82cda834"], "supersedes": null}
+
+## mem_29a2bca0dcf847aca42bdd0ce95055aa
+
+    세 명이 각자 작업하니 운영이 한결 편해졌다. 그러나 익숙한 직원 선택도 매번 이미지로 끊어 보는 내 습관이 흐름을 느리게 했다. 사용자 지적 뒤 이미 아는 배정 세 클릭을 이어 보내고 마지막 결과를 확인하니 훨씬 가벼웠다. 빠른 관찰에 직원 행 정보가 더 나오면 좋겠다는 사용감도 남긴다.
+
+    {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_ed9fda058d934c9b8b6fe5e9093b1def", "exp_c3e1c219bb24499d83c632f32927e00d"], "supersedes": null}
 

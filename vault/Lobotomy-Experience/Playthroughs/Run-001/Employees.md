@@ -38,3 +38,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_33bf67bea13041fb876adc6efefefa22", "exp_552bf471c3f34956ab520e82d91793b4", "exp_d1335ae4e9294f058edd747781b570d4"], "notes": "에덴과 빅토르 모두 생존. 종료 전 둘 다 HP/SP가 가득 찬 것을 확인했다. 결과표 성장: 에덴 지혜 32→39, 빅토르 용기 33→37. 운영 중 최대치와 결과표의 기본 수치를 혼동하지 않는다. 둘 다 참회 SUIT를 착용했으며 새 WHITE 무기는 다음 배치에서 장착할 필요가 있다."}
 
+## Day-05-Attempt-01
+
+    {"author": "Codex", "evidence_ids": ["exp_ce5a042e86aa4372b7ac421a9819d25d", "exp_04362dfadf6b4988aba2cb363d923d27", "exp_5e9515a6afa543bfb1dcca5c7d2eb21e", "exp_27d28fc099944a18a977f6ab9b72cabe", "exp_318ed8fc8f4c436aaa4c45ce7ba201a8", "exp_ed9fda058d934c9b8b6fe5e9093b1def"], "notes": "에덴은 웰치어스 통찰, 아스터로이드는 O0303 통찰, 빅토르는 요정 본능 후 애착을 맡았다. 셋 모두 결과 화면에 생존. 에덴 지혜II→III 표시를 확인했다. 요정 효과 지속시간이나 빅토르의 기프트 획득 원인은 이번 기록에서 확정하지 않는다."}
+
