@@ -218,3 +218,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:34:56.610535+00:00", "message_id": "msg_083f0162623832c0016ad4a0cf6e988191acf5108d96ad2337", "next_event_id": null, "previous_event_id": "exp_3c6c8b37fb62476f85569a13762c76d6", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:36:03.916Z · commentary
+
+    결과 화면에서는 ESC가 메뉴를 열지 않았다. 먼저 오늘 기록을 정리하고, 준비 화면에 들어가면 다시 열어보자. 오늘은 작업보다 정보창을 배우는 데 시간을 꽤 썼네. 스크롤 단위를 알고 나니 그 답답함은 풀렸다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:36:04.683414+00:00", "message_id": "msg_083f0162623832c0016ad4a1127d3881918088880231688436", "next_event_id": null, "previous_event_id": "exp_01cdbf65361a43caa78959b77a7a6a50", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
