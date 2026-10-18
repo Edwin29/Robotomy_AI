@@ -326,3 +326,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:23:03.210314+00:00", "message_id": "msg_083f0162623832c0016ad481e6fa6c8191b60a2af8ce21316f", "next_event_id": null, "previous_event_id": "exp_659debc3264a472da1be7e360f367860", "turn_id": "01a14e16-a21e-7272-98a9-a0aff9cb2eaa"}
 
+## 2026-10-18T08:24:30.787Z · commentary
+
+    마지막 작업이 진행 중이다. 이런 익숙한 작업은 짧게 계속 들여다보기보다, 한 번 진행시킨 뒤 완료와 상태를 묶어서 확인하는 편이 훨씬 낫네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:24:31.132249+00:00", "message_id": "msg_083f0162623832c0016ad4823e89ac8191b228b4c6d4743f96", "next_event_id": null, "previous_event_id": "exp_e46f762737634528b07f30b562ca7627", "turn_id": "01a14e16-a21e-7272-98a9-a0aff9cb2eaa"}
+
