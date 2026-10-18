@@ -26,3 +26,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T13:34:23.145486+00:00", "message_id": "msg_083f0162623832c0016ad4cadf0de481919febf3b4ad49c3db", "next_event_id": null, "previous_event_id": "exp_a5709dc6c073438089bb10fc32970fce", "turn_id": "01a14f32-1477-7483-9d60-323d85f70dad"}
 
+## 2026-10-18T13:35:49.515Z · commentary
+
+    ‘절제 2등급 미만은 잠들고 다시 눈을 뜨지 않았다.’ 첫 관리법부터 무겁네. 베트위트맨은 절제 II라 이 조건은 피했지만, 아직 다른 조건은 모르니까 같은 직원으로 조금 더 살펴보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T13:35:50.122570+00:00", "message_id": "msg_083f0162623832c0016ad4cb3584c08191b2041bc5be6d4fb7", "next_event_id": null, "previous_event_id": "exp_3b053950c2424c9c834c3c0f549223ef", "turn_id": "01a14f32-1477-7483-9d60-323d85f70dad"}
+
