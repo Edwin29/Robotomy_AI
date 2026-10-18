@@ -62,3 +62,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:40:44.465260+00:00", "message_id": "msg_083f0162623832c0016ad4be4c1e808191b074e0944b2616f6", "next_event_id": null, "previous_event_id": "exp_04362dfadf6b4988aba2cb363d923d27", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
 
+## 2026-10-18T12:42:23.683Z · commentary
+
+    오늘 목표는 80이다. 신입의 통찰 성공률도 높게 나오고, 세 명 모두 상태가 좋다. 에덴에게는 전에 잘 됐던 웰치어스 통찰을 맡겨 셋을 같이 움직여보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:42:24.427040+00:00", "message_id": "msg_083f0162623832c0016ad4beafd2808191ae329a34092ee6d0", "next_event_id": null, "previous_event_id": "exp_64488681e20447cfa07ed7ffe9161ceb", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
+
