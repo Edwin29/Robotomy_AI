@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:06:52.673045+00:00", "message_id": "msg_083f0162623832c0016ad4d27ce00881918228aa2f415ec260", "next_event_id": "exp_307c840b4bff46b5b14c7954242e3d62", "previous_event_id": "exp_076f1a8094014cf2ab5ee7af06aa7998", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:09:05.387Z · commentary
+
+    A는 회사의 선구자이면서 앤젤라가 만들어진 데에도 관여한 인물이라고 한다. 회사 소개보다 앤젤라 자신의 이야기 쪽이 더 궁금해진다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:09:05.651489+00:00", "message_id": "msg_083f0162623832c0016ad4d30104ac8191a0080ab543807045", "next_event_id": null, "previous_event_id": "exp_420150b1f9604e42ad86826b6a494c26", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
