@@ -47,6 +47,8 @@ def sync_once(root):
     if tip:
         git(work, 'fetch', 'origin', 'refs/heads/'+BRANCH)
         git(work, 'merge', '--ff-only', 'FETCH_HEAD')
+    from .reading_index import project_reading_views
+    project_reading_views(root)
     count = 0
     for source in sorted((root/VAULT).rglob('*')):
         if not source.is_file() or source.is_symlink():

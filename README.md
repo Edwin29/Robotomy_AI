@@ -8,9 +8,10 @@ Lobotomy Corporation 플레이어 프로젝트.
 `main`에는 검토한 게임기 소스·문서와 이번 게시 시점의 경험 기록 사본이 있습니다.
 플레이 중 자동 갱신되는 최신 기록은 [player-experience 브랜치](https://github.com/Edwin29/Robotomy_AI/tree/player-experience/vault/Lobotomy-Experience)에 있습니다. 코드 자동 커밋은 하지 않습니다.
 
-- [본편 2일차 완료 기록](vault/Lobotomy-Experience/Playthroughs/Run-001/Days/Day-02-Attempt-03.md)
-- [본편 2일차 채팅 원문](vault/Lobotomy-Experience/Playthroughs/Run-001/Days/Day-02-Attempt-03.chat.md)
-- `Day-04-Attempt-01`은 과거 번호 체계로 생성한 **본편 1일차** 기록입니다. 실제 날짜는 기록 본문의 표기를 따르며, 원본 식별자는 보존합니다.
+- [튜토리얼·본편별 기록 목차](vault/Lobotomy-Experience/Playthroughs/Run-001/README.md)
+- [본편 Day 2 완료 기록](vault/Lobotomy-Experience/Playthroughs/Run-001/Main/Day-02-Attempt-02.md)
+- [본편 Day 3 진행 기록](vault/Lobotomy-Experience/Playthroughs/Run-001/Main/Day-03-Attempt-01.md)
+- 튜토리얼은 `Tutorials/`, 본편은 `Main/`에서 읽습니다. 기존 `Days/`·`Logs/`의 ID는 증거 연결을 위해 보존합니다.
 
 가상 입력, 표시 정보·소리·화면 관찰, 이동 벡터, 최근 관찰 버퍼, 짧은 입력 예약,
 관찰 차이 요약, 경험·채팅 원문 기록을 제공합니다. 지원 범위와 남은 가림 한계는

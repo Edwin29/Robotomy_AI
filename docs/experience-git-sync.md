@@ -21,3 +21,13 @@ JSON, JSONL만 게시한다. Media, 이미지, 게임 파일, 세이브, 원장 
 관찰·입력 로그/회고는 기존 종료·회고·내보내기 시점에 투영된다. 이 기능은 아직 SQLite에만
 있는 진행 중 기록이나 스크린샷까지 원격 백업한다는 뜻이 아니다. 프레임 성능 보장은 아니며
 Git 작업은 게임/MCP 호출과 별도 프로세스에서 진행된다.
+
+## 실제 날짜에 맞는 읽기용 문서
+
+자동 게시 전 `reading_index.project_reading_views`가 Manifest와 기존 Markdown에서
+`Playthroughs/Run-XXX/README.md`, `Tutorials/Tutorial-NN-Attempt-NN.md`,
+`Main/Day-NN-Attempt-NN.md` 및 대응 채팅 문서를 생성합니다.
+본편은 game_day, 튜토리얼은 tutorial_segment를 우선하며 각 종류·날짜별로 시도를 셉니다.
+이는 읽기용 투영입니다. SQLite 원장·사건·기억·증거 ID와 기존 Days/Logs는 바꾸지 않습니다.
+진행 중 기록은 기존 투영 시점 및 Git 게시 주기에 따라 갱신되며 매 입력마다 전체 재생성하지 않습니다.
+과거 파일명의 Day는 날짜로 해석하지 말고 새 README 목차에서 읽습니다.
