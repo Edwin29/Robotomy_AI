@@ -90,3 +90,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:05:13.833360+00:00", "message_id": "msg_083f0162623832c0016ad4a7e813dc819198a7904f2351b957", "next_event_id": null, "previous_event_id": "exp_85fbe67956e042d9bee9a4d30733f2fc", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
 
+## 2026-10-18T11:06:08.699Z · commentary
+
+    오늘 미션은 폭주 격리실 작업 8회다. 방금 읽은 대처법을 바로 써볼 기회네. 에너지 목표만 채우고 끝내기보다는, 직원 상태를 보면서 폭주 대응도 진행하겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:06:09.664820+00:00", "message_id": "msg_083f0162623832c0016ad4a81fe42c8191b3a3a5ad57cd69c0", "next_event_id": null, "previous_event_id": "exp_2869cf8a6a6d48e0bcf7d3932a6bdfc3", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
