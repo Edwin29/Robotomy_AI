@@ -212,3 +212,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:00:41.092984+00:00", "message_id": "msg_083f0162623832c0016ad47ca781c08191a1bbc4a04f898211", "next_event_id": null, "previous_event_id": "exp_7a8b30d4b52d45129e468d2bc62b06bc", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:02:04.083Z · commentary
+
+     지휘팀부터 개방했다. 이제 교육용 직원이 아니라 본편에서 함께 일할 사람들을 만나겠네. 시작 버튼을 누르기 전에 배치부터 차분히 보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:02:04.916437+00:00", "message_id": "msg_083f0162623832c0016ad47cfcad208191bc4c0b9429077954", "next_event_id": "exp_c56372990f14444e9e1949fc89b7ef5c", "previous_event_id": "exp_2fffcea9d85e43aa8f8ea20c7c75d881", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
