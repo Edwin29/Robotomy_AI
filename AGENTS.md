@@ -29,8 +29,8 @@ This repository is an engineering workspace, not a clean player environment.
   Keep audio/metrics diagnostics and internal object names out of player observations.
 - ConsoleDisclosure is mandatory for text and gauges. Never publish tool cumulative
   use counts/time, even if a serialized command UI field contains them. Visible unlock
-  thresholds are distinct. Command-list current HP/SP stays withheld pending actual
-  progression/render verification. Consult docs/disclosure-implementation.md.
+  thresholds are distinct. Command-list HP/SP may use admitted rendered Text only; never backing model values or fillAmount.
+  Missing, covered and clipped fields remain unknown. Consult docs/disclosure-implementation.md.
 - Launch only through scripts/launch_live.py after its isolation/integrity checks. The
   copied runtime is storage separation, not an OS security sandbox. Never upload its assets.
 - Actual input defaults to robotomy/virtual_input.py and mods/RobotomyObserver/VirtualInput.cs.

@@ -159,7 +159,14 @@ public sealed class ConsoleUI
                 System.Text.RegularExpressions.Regex.IsMatch(value,@"<color\s*=\s*[^>]*(#[0-9a-fA-F]{8}|clear)[^>]*>",System.Text.RegularExpressions.RegexOptions.IgnoreCase))) {
                 Reject("rich_text_visibility"); continue;
             }
-            ViewRect item=Item(rect,value); item.panel=source; texts.Add(item); accepted++;
+            ViewRect item=Item(rect,value); item.panel=source;
+            var row=text.GetComponentInParent<CommandWindow.AgentSlot>();
+            if(row!=null && source=="command") {
+                item.row_id=row.GetInstanceID().ToString();
+                item.role=text==row.AgentName?"name":text==row.HealthText?"hp":text==row.MentalText?"sp":
+                    text==row.FilterText?"status":text==row.WorkFilterText?"action":text==row.WorkFilterSubText?"action_detail":"";
+            }
+            texts.Add(item); accepted++;
             if (!panelCounts.ContainsKey(source)) panelCounts[source]=0; panelCounts[source]++;
             if (source=="energy") energyCount++; else if(source=="agent") agentCount++; else if(source=="creature") creatureCount++;
         }
@@ -173,6 +180,34 @@ public sealed class ConsoleUI
                     ViewRect item=Item(bounds,admitted.text); item.panel=source; item.interactable=true; buttons.Add(item); break;
                 }
             }
+        }
+    }
+    void CaptureCommandTargets(List<ViewRect> texts,List<ViewRect> buttons) {
+        var window=CommandWindow.CommandWindow.CurrentWindow;
+        var system=UnityEngine.EventSystems.EventSystem.current;
+        if(window==null || window.RootControl==null || system==null) return;
+        foreach(var row in window.RootControl.GetComponentsInChildren<CommandWindow.AgentSlot>()) {
+            string id=row.GetInstanceID().ToString();
+            ViewRect anchor=texts.Find(delegate(ViewRect t){return t.row_id==id && (t.role=="name" || t.role=="action");});
+            if(anchor==null) continue;
+            var point=new Vector2(anchor.x+anchor.width/2,Screen.height-(anchor.y+anchor.height/2));
+            var data=new UnityEngine.EventSystems.PointerEventData(system);data.position=point;
+            var hits=new List<UnityEngine.EventSystems.RaycastResult>();system.RaycastAll(data,hits);
+            if(hits.Count==0) continue;
+            var target=UnityEngine.EventSystems.ExecuteEvents.GetEventHandler<UnityEngine.EventSystems.IPointerClickHandler>(hits[0].gameObject);
+            var trigger=target==null?null:target.GetComponent<UnityEngine.EventSystems.EventTrigger>();
+            bool click=false;
+            if(trigger!=null) foreach(var entry in trigger.triggers) {
+                if(entry.eventID!=UnityEngine.EventSystems.EventTriggerType.PointerClick) continue;
+                for(int i=0;i<entry.callback.GetPersistentEventCount();i++)
+                    if(entry.callback.GetPersistentTarget(i)==row && entry.callback.GetPersistentMethodName(i)=="OnClick") click=true;
+            }
+            if(!click) continue;
+            // Click reachability is not game orderability. Never read IsOrderable/State/CurrentAgent.
+            ViewRect item=new ViewRect{text=anchor.text,panel="command",row_id=id,role="click",
+                x=anchor.x,y=anchor.y,width=anchor.width,height=anchor.height,
+                hit_x=point.x,hit_y=Screen.height-point.y,interactable=true};
+            buttons.Add(item);
         }
     }
     void CaptureInputTargets(List<ViewRect> buttons) {
@@ -238,6 +273,7 @@ public sealed class ConsoleUI
             if(!extraPanels.TryGetValue(entry.root,out panel)) { panel=new Panel(); extraPanels[entry.root]=panel; }
             panel.Bind(entry.root); ReadPanel(panel,entry.source,texts,buttons);
         }
+        CaptureCommandTargets(texts,buttons);
         var expired=new List<GameObject>();
         foreach(var root in extraPanels.Keys) if(root==null || !retained.Contains(root)) expired.Add(root);
         foreach(var root in expired) extraPanels.Remove(root);

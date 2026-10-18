@@ -54,8 +54,7 @@ public static class ConsoleDisclosure
         if (agent != null) {
             if (agent.HealthText == null || agent.MentalText == null || agent.HealthFill == null || agent.MentalFill == null)
                 return "missing_command_vitals_refs";
-            if (Within(candidate, agent.HealthText) || Within(candidate, agent.MentalText) ||
-                Within(candidate, agent.HealthFill) || Within(candidate, agent.MentalFill))
+            if (Within(candidate, agent.HealthFill) || Within(candidate, agent.MentalFill))
                 return "command_vitals_unverified";
         }
         var kitStat = candidate.GetComponentInParent<CreatureInfo.CreatureInfoKitStatRoot>();

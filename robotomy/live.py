@@ -15,6 +15,23 @@ import uuid
 import copy
 
 
+def command_rows(snapshot):
+    """Group only this offered snapshot's admitted display items, never cached employees."""
+    rows={}
+    for item in snapshot.get('ui_texts',[])+snapshot.get('buttons',[]):
+        if item.get('panel')!='command' or not item.get('row_id'): continue
+        row=rows.setdefault(item['row_id'],dict(row_id=item['row_id'],name=None,hp=None,sp=None,
+            status=None,action=None,action_detail=None,selectable=None,click=None))
+        role=item.get('role')
+        if role in ('name','hp','sp','status','action','action_detail'):
+            row[role]=item['text']
+        elif role=='click' and item.get('interactable'):
+            row['click']={'x':item['x']+item['width']/2,'y':item['y']+item['height']/2,
+                          'basis':'visible_row_click_handler_not_orderability'}
+    # A displayed hover action is evidence only; unknown is never treated as false/true.
+    return list(rows.values())
+
+
 def observation_sections(snapshot):
     """Only current, disclosed values. Lists are replaced atomically, never merged by index."""
     ignored = {'captured_at_utc', 'sequence', 'unity_frame', 'isolation'}
@@ -92,6 +109,9 @@ def _ui_items(value, maximum, buttons=False):
             if not isinstance(panel, str) or panel not in DISPLAY_PANELS:
                 raise ValueError("invalid panel")
             item["panel"] = panel
+        if entry.get('row_id') and entry.get('role') in ('name','hp','sp','status','action','action_detail','click') and entry.get('panel') == 'command':
+            item['row_id'] = _string(entry['row_id'],128,True)
+            item['role'] = entry['role']
         for key in ("x", "y", "width", "height"):
             number = entry[key]
             if type(number) not in (int, float) or not math.isfinite(number) or abs(number) > 100000:
@@ -434,6 +454,7 @@ class LiveReader:
                 bounded = {key:snapshot[key] for key in ('captured_at_utc','process_id','scene','screen')}
                 bounded.update(unity_frame=snapshot.get('console', {}).get('unity_frame'),
                                motion={**motion, 'tracks': motion['tracks'][:max_items]})
+            if not motion_only: bounded['command_rows'] = command_rows(bounded)
             response = {**summary, "observation_id": event_id, "recorded_at_utc": now,
                         "snapshot": bounded, "truncated": truncated}
             selection = {'max_items':max_items,'motion_only':motion_only}

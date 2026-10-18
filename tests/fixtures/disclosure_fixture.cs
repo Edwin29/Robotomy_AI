@@ -99,7 +99,7 @@ class Program {
         var agent=Child<CommandWindow.AgentSlot>(null);value=Go(agent.transform);Check(value.transform,false,"missing agent refs");
         agent.HealthText=Child<UnityEngine.UI.Text>(agent.transform);agent.MentalText=Child<UnityEngine.UI.Text>(agent.transform);
         agent.HealthFill=Child<UnityEngine.UI.Image>(agent.transform);agent.MentalFill=Child<UnityEngine.UI.Image>(agent.transform);
-        Check(agent.HealthText.transform,false,"unverified numeric HP");Check(agent.MentalText.transform,false,"unverified numeric SP");
+        Check(agent.HealthText.transform,true,"HP text still requires final visibility");Check(agent.MentalText.transform,true,"SP text still requires final visibility");
         Check(agent.HealthFill.transform,false,"unverified HP fill");Check(agent.MentalFill.transform,false,"unverified SP fill");
         Check(value.transform,true,"agent unrelated label");
         var escape=Child<CreatureInfo.CreatureInfoEscapeRoot>(null);value=Go(escape.transform);
