@@ -98,3 +98,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:03:11.012579+00:00", "message_id": "msg_083f0162623832c0016ad4995e21888191936ec4671e232360", "next_event_id": null, "previous_event_id": "exp_d2ec7265431b47db982f02c84ecb627f", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:04:29.606Z · commentary
+
+    연구 보상에 최대 2배속이 있다. 아직 부서가 하나라 교차 지휘보다 바로 써볼 기회가 많겠어. 익숙한 작업의 대기 시간을 줄일 수 있는 TT2 프로토콜을 고르자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:04:30.026521+00:00", "message_id": "msg_083f0162623832c0016ad499acb1708191b438a81ec2015dc7", "next_event_id": null, "previous_event_id": "exp_1c8276d3a341486197bd1c883481e17f", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
