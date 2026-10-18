@@ -150,3 +150,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:19:58.060205+00:00", "message_id": "msg_083f0162623832c0016ad4ab5c93fc8191b12ab1874d501aec", "next_event_id": null, "previous_event_id": "exp_6d6a31100ded4d738bd9d4f87c5ec7e2", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
 
+## 2026-10-18T11:21:44.432Z · commentary
+
+    요정들은 보통 이상 결과에서 붙어서 일정 시간 체력을 회복시킨다고 한다. 빅토르는 체력·정신력이 모두 회복돼 있다. 이제 다음 작업에서 폭주가 생길 수 있으니, 에덴은 바로 대응할 수 있게 남겨두자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:21:44.805399+00:00", "message_id": "msg_083f0162623832c0016ad4abc7b75c819182cd4ce8248770a3", "next_event_id": null, "previous_event_id": "exp_c02b6e3661f04f05aa7ef9267c49dac9", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
