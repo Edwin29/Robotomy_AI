@@ -188,3 +188,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:28:36.610657+00:00", "message_id": "msg_083f0162623832c0016ad49f53ae948191adccde149e8f52c6", "next_event_id": null, "previous_event_id": "exp_42cc964639e54ebf9d8cb6b52fd56d72", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:29:19.851Z · commentary
+
+    작업이 끝나면 음료가 나오고, 작업 종류에 따라 달라진다고 한다. 붉은 캔은 체력, 푸른 캔은 정신력 회복. 아직 어떤 작업과 연결되는지는 여기 적힌 내용만으로 확정할 수 없네. 새우 그림 자판기치고는 제법 실용적이다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:29:20.337686+00:00", "message_id": "msg_083f0162623832c0016ad49f7f81d481918bfceec0bcd5c962", "next_event_id": null, "previous_event_id": "exp_096e954098cb4d1982a7a01d955a931e", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
