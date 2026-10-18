@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: ca95d07f8eb15657a0b4206786b9fa39cba5f6f994018633daa8c34ce17515b7
+Version: 3b1969b8a8cc3c27d7e8eb2627b54ed015d7732fb71a869c0dcfa4cd810069e6
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -397,4 +397,10 @@ Version: ca95d07f8eb15657a0b4206786b9fa39cba5f6f994018633daa8c34ce17515b7
     세 명이 각자 작업하니 운영이 한결 편해졌다. 그러나 익숙한 직원 선택도 매번 이미지로 끊어 보는 내 습관이 흐름을 느리게 했다. 사용자 지적 뒤 이미 아는 배정 세 클릭을 이어 보내고 마지막 결과를 확인하니 훨씬 가벼웠다. 빠른 관찰에 직원 행 정보가 더 나오면 좋겠다는 사용감도 남긴다.
 
     {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_ed9fda058d934c9b8b6fe5e9093b1def", "exp_c3e1c219bb24499d83c632f32927e00d"], "supersedes": null}
+
+## mem_25728a8b36d94cc0b8ae8740a22e4a96
+
+    사용자가 이번에만 예외로 승인한 운영자 개입입니다. 5일차 결과 화면 이후 저장 지점으로 진행하면서 운영자가 환상체 T-02-99를 선택했습니다. 선택창 설명은 “내 꿈을 먹어주세요.”입니다. 이 설명은 선택 당시 직접 읽은 기록이 아니라, 운영자가 이후 선택창 GetText → metaInfo.openText에 연결된 한국어 표시 문구에서 복원한 것입니다. 숨겨진 정식 이름·관리법은 전달하지 않았습니다. 이어서 6일차 앤젤라 스토리를 SKIP하고 정보팀(예소드)을 개방했습니다. DAY 6 준비 화면의 기억저장소 각인과 세이브 파일 갱신을 확인했으며, 6일차 업무는 시작하지 않았습니다. 환상체 선택과 스토리 넘김은 플레이어 AI 자신의 판단·관람 경험이 아닙니다. 앞으로 환상체 선택은 플레이어 AI에게 맡깁니다.
+
+    {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "운영자 Codex", "basis": "retrospective_discovery", "evidence_ids": ["exp_12532385d82a42cc8a8742da0d45f849"], "supersedes": null}
 
