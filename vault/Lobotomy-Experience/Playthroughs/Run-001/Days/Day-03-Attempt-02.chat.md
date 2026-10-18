@@ -108,3 +108,15 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:09:10.217994+00:00", "message_id": "msg_083f0162623832c0016ad4a8d47ed88191ae03b7a9f5453e5b", "next_event_id": null, "previous_event_id": "exp_731ef9232f4148cc8b57286f09445983", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
 
+## 2026-10-18T11:11:19.047Z · commentary
+
+    새 격리실에는 푸른빛의 작은 형체들이 보인다. 소개 문구의 ‘보살핌’만으로 안전하다고 볼 수는 없으니, 작업 메뉴에 표시되는 정보부터 살펴보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:11:19.130518+00:00", "message_id": "msg_083f0162623832c0016ad4a95659a48191a799a26d43afc10f", "next_event_id": null, "previous_event_id": "exp_d1e30e9ea7f64e9fad81f3dd6e6c8114", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
+## 2026-10-18T11:12:09.280Z · commentary
+
+    첫 통찰은 체력과 정신력 여유가 가장 큰 빅토르에게 맡긴다. 수잔은 선호도가 확인된 자판기, 에덴은 해골 쪽을 맡기고 함께 출발시키자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:12:09.965904+00:00", "message_id": "msg_083f0162623832c0016ad4a9884b248191b6024fd0448ae3c9", "next_event_id": null, "previous_event_id": "exp_aad6b5dd7f2e431cbb1fa69d92403237", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
