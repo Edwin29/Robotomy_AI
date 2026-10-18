@@ -62,3 +62,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:20:15.802099+00:00", "message_id": "msg_083f0162623832c0016ad4d59fbf388191924d396d70587543", "next_event_id": null, "previous_event_id": "exp_e8cf07b2c55243cdb8f00ccc6c830cf7", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:22:09.198Z · commentary
+
+    별명은 본인에게 별로 유쾌하지 않은 모양이다. 방금 장면은 웃기다가도 조금 미안해지는 쪽으로 바뀌었다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:22:09.397516+00:00", "message_id": "msg_083f0162623832c0016ad4d60f646081918ca001ec2bca065a", "next_event_id": null, "previous_event_id": "exp_18b72de825b54531bf951ddb6fae2291", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
