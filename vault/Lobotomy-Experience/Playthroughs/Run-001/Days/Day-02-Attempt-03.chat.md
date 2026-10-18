@@ -38,3 +38,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:48:42.020905+00:00", "message_id": "msg_083f0162623832c0016ad495f93a5c8191ae181599043b9fc5", "next_event_id": null, "previous_event_id": "exp_df77ebc361d14c24ac49ad770c6ccf60", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T09:51:48.540Z · commentary
+
+    정작 중요한 설명을 이제야 듣는 기분이다. 앤젤라에겐 당연한 일이라도, 관리자에게는 선택 전에 알려줬으면 좋았을 텐데.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:51:49.151960+00:00", "message_id": "msg_083f0162623832c0016ad496b3e2e4819182ca37b74910de92", "next_event_id": null, "previous_event_id": "exp_285dcd0a6317458ab81519a48bd0d2a7", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
