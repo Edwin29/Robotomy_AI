@@ -260,3 +260,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:10:23.958963+00:00", "message_id": "msg_083f0162623832c0016ad47ef00bec8191bf15d3ff227001e8", "next_event_id": "exp_3b80f43c1a8b44aeb1d5146b771bc5e5", "previous_event_id": "exp_1d6db86d346347dd8d5af0389973ba51", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:11:16.258Z · commentary
+
+    첫 통찰로 에너지가 7 늘었고 빅토르도 중앙으로 돌아왔다. PE-Box가 생겼으니 통찰 선호도를 열어보자. 한 번 괜찮았다고 계속 괜찮다는 보장은 없으니까.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:11:16.522164+00:00", "message_id": "msg_083f0162623832c0016ad47f23ed3c8191acd0d262aeab5c30", "next_event_id": null, "previous_event_id": "exp_b29eaa9ba1864a9a825f5701df131bb0", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
