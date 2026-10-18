@@ -146,3 +146,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:16:03.223708+00:00", "message_id": "msg_083f0162623832c0016ad49c61faf08191a7f96be3c1fe5abd", "next_event_id": null, "previous_event_id": "exp_8acf578099124f08ae1c5e3c59df9795", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:17:19.762Z · commentary
+
+    네 선호도를 열자 관찰레벨이 1로 올랐고, 작업 성공률 +5%가 켜졌다. 관리법 1·2도 이제 화면 위에 나타났네. 정보 해금의 이득이 바로 보이는구나.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:17:20.298877+00:00", "message_id": "msg_083f0162623832c0016ad49caee7c881918af767b1c572bb0d", "next_event_id": null, "previous_event_id": "exp_3f22b39e4a4f4b308af737e307515433", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
