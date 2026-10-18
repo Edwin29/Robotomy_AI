@@ -230,3 +230,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:04:38.491471+00:00", "message_id": "msg_083f0162623832c0016ad47d95905c8191af3cc5b93ce02a25", "next_event_id": null, "previous_event_id": "exp_e14d55a9e6814637beff92c174609e5d", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:05:56.156Z · commentary
+
+    빅토르까지 두 명. 일단 교대할 여유는 생겼다. 남은 LOB 하나는 상대를 보고 필요할 때 쓰고 싶지만, 오늘 시작하면 여기서 강화할 수 있을지는 아직 모르겠네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:05:56.256847+00:00", "message_id": "msg_083f0162623832c0016ad47de3e25c8191a5c0ea2f5d099745", "next_event_id": null, "previous_event_id": "exp_91b70dbbf752423d9563fc0e27ed3696", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
