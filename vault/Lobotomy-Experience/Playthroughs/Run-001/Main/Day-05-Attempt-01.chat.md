@@ -32,3 +32,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:35:19.662673+00:00", "message_id": "msg_083f0162623832c0016ad4bd07046481918dc80103bbf609d3", "next_event_id": null, "previous_event_id": "exp_5a6bf16754fb440fad18211d82cda834", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
 
+## 2026-10-18T12:36:20.847Z · commentary
+
+    부서는 다섯 자리로 넓어졌고 LOB는 10이다. 두 사람에게 WHITE 무기를 들려주고, 작업을 나눠 맡을 직원도 한 명 더 뽑아보겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:36:20.857269+00:00", "message_id": "msg_083f0162623832c0016ad4bd4338a8819196ec7e7cbdce47fa", "next_event_id": null, "previous_event_id": "exp_b753254f6eb24317be6c2931f7be75b1", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
+
