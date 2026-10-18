@@ -41,6 +41,21 @@ def screen_signature(snapshot):
     return hashlib.sha256(json.dumps(fields, sort_keys=True).encode()).hexdigest()
 
 
+def bind_target(snapshot, decision):
+    # Only producer-verified click points can survive UI changes. No coordinate guessing.
+    if decision.get('kind') != 'click': return None
+    candidates = [b for b in snapshot.get('buttons', [])
+        if b.get('input_verified') is True and b.get('interactable') is True
+        and b.get('target_id') and b.get('hit_x') == decision.get('x')
+        and b.get('hit_y') == decision.get('y')]
+    if len(candidates) != 1: return None
+    return {k:candidates[0][k] for k in ('target_id','hit_x','hit_y','x','y','width','height','text','panel')}
+
+
+def target_valid(snapshot, decision, target):
+    return target is not None and bind_target(snapshot, decision) == target
+
+
 class Sequences:
     def __init__(self, root, executor=None):
         self.root = Path(root)
@@ -78,7 +93,8 @@ class Sequences:
         try:
             self.save(job)
             record(self.root,'input_sequence_submitted',copy.deepcopy(job))
-            thread = threading.Thread(target=self.run,args=(job,screen_signature(snapshot),lease),daemon=True)
+            targets = {d['id']:(d, bind_target(snapshot, d)) for d in decisions}
+            thread = threading.Thread(target=self.run,args=(job,copy.deepcopy(snapshot),targets,lease),daemon=True)
             thread.start()
         except BaseException:
             lease.__exit__(None,None,None)
@@ -89,7 +105,7 @@ class Sequences:
     def save(self, job):
         atomic(self.root/'.robotomy/live/control/sequences'/(job['id']+'.json'),copy.deepcopy(job))
 
-    def run(self, job, signature, lease):
+    def run(self, job, baseline, targets, lease):
         deadline = time.monotonic()+10
         last_sequence = None
         try:
@@ -110,7 +126,13 @@ class Sequences:
                     job['stop_reason']='cancel_requested'; break
                 if last_sequence is not None and snapshot['sequence'] <= last_sequence:
                     job['stop_reason']='no_fresh_observation'; break
-                if screen_signature(snapshot) != signature:
+                if any(snapshot.get(k) != baseline.get(k) for k in ('process_id','scene','screen')):
+                    job['stop_reason']='screen_changed'; break
+                decision, target = targets[identity]
+                if target is not None:
+                    if not target_valid(snapshot, decision, target):
+                        job['stop_reason']='target_invalid'; break
+                elif screen_signature(snapshot) != screen_signature(baseline):
                     job['stop_reason']='screen_changed'; break
                 # Existing executor still checks freshness, pause, save isolation and expiry.
                 receipt = self.executor.execute(identity)
@@ -163,7 +185,8 @@ def register_sequence_tools(server, root, executor=None):
     def submit_input_sequence(decision_ids: list[str]) -> dict:
         """Submit 1..5 already prepared inputs, <=5s total. Returns immediately.
         Same observed view only; no loops/conditions or automatic new observations.
-        Remaining inputs stop on visible text/button, scene, size, process or view change,
+        Verified button-center clicks survive unrelated UI changes while their target remains valid.
+        Unverified inputs stop on text/button changes; all inputs stop on scene, size, process or view change,
         operator stop, expiry, unknown receipt or cancellation. Observe results yourself.
         """
         return sequences.submit(decision_ids)

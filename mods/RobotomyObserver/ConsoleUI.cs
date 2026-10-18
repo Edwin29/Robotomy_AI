@@ -175,6 +175,26 @@ public sealed class ConsoleUI
             }
         }
     }
+    void CaptureInputTargets(List<ViewRect> buttons) {
+        var system=UnityEngine.EventSystems.EventSystem.current;
+        if(system==null) return;
+        foreach(Button button in UnityEngine.Object.FindObjectsOfType<Button>()) {
+            Rect visible, bounds;
+            Graphic graphic=button.targetGraphic;
+            if(!button.isActiveAndEnabled || !button.IsInteractable() || graphic==null ||
+               !Visible(graphic,out visible) || !ScreenRect(button.transform as RectTransform,graphic.canvas,out bounds)) continue;
+            Vector2 point=bounds.center;
+            if(!visible.Contains(point)) continue;
+            var data=new UnityEngine.EventSystems.PointerEventData(system); data.position=point;
+            var hits=new List<UnityEngine.EventSystems.RaycastResult>(); system.RaycastAll(data,hits);
+            if(hits.Count==0 || UnityEngine.EventSystems.ExecuteEvents.GetEventHandler<UnityEngine.EventSystems.IPointerClickHandler>(hits[0].gameObject)!=button.gameObject) continue;
+            // Opaque runtime identity only. No object names, callbacks or hidden game state.
+            ViewRect item=Item(bounds, ""); item.panel="input_target";
+            item.target_id=button.GetInstanceID().ToString(); item.input_verified=true;
+            item.interactable=true; item.hit_x=point.x; item.hit_y=Screen.height-point.y;
+            buttons.Add(item);
+        }
+    }
     public void Capture(List<ViewRect> texts, List<ViewRect> buttons, List<string> gauges) {
         rejected.Clear(); candidates=accepted=energyCount=agentCount=creatureCount=hudCount=0;
         readTexts.Clear(); panelCounts.Clear();
@@ -199,6 +219,7 @@ public sealed class ConsoleUI
                 if(Drawn(g) && GraphicRect(g,out r)) { graphics.Add(g); rectangles[g]=r; }
             }
         }
+        CaptureInputTargets(buttons);
         var status=GameStatusUI.GameStatusUI.Window;
         var aw=AgentInfoWindow.currentWindow;
         var cw=CreatureInfoWindow.CurrentWindow;

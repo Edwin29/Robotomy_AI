@@ -75,6 +75,36 @@ class SequenceTests(unittest.TestCase):
         identity=self.q.submit(self.ids)['id']
         self.assertEqual(self.finish(identity)['stop_reason'],'input_not_confirmed')
 
+    def test_verified_target_survives_menu_close(self):
+        self.snapshot['buttons']=[dict(target_id='speed', input_verified=True, interactable=True,
+            hit_x=310,hit_y=600,x=300,y=590,width=20,height=20,text='',panel='input_target')]
+        ids=[self.control.prepare('v1',kind='click',x=310,y=600)['id'] for _ in range(2)]
+        def execute(identity):
+            self.snapshot['ui_texts']=[{'text':'menu closed'}]
+            return {'status':'input_sent'}
+        self.executor.execute.side_effect=execute
+        self.assertEqual(self.finish(self.q.submit(ids)['id'])['status'],'completed')
+        self.assertEqual(self.executor.execute.call_count,2)
+
+    def test_verified_target_disappears_disabled_moves_or_replaced(self):
+        for mutation in ('missing','disabled','moved','replaced','occluded'):
+            with self.subTest(mutation=mutation):
+                self.snapshot['buttons']=[dict(target_id='speed',input_verified=True,interactable=True,
+                    hit_x=310,hit_y=600,x=300,y=590,width=20,height=20,text='',panel='input_target')]
+                ids=[self.control.prepare('v1',kind='click',x=310,y=600)['id'] for _ in range(2)]
+                def execute(identity):
+                    b=self.snapshot['buttons'][0]
+                    if mutation=='missing': self.snapshot['buttons']=[]
+                    elif mutation=='disabled': b['interactable']=False
+                    elif mutation=='moved': b['x']=301
+                    elif mutation=='replaced': b['target_id']='different'
+                    else: b['input_verified']=False
+                    return {'status':'input_sent'}
+                self.executor.execute.reset_mock(); self.executor.execute.side_effect=execute
+                result=self.finish(self.q.submit(ids)['id'])
+                self.assertEqual(result['stop_reason'],'target_invalid')
+                self.assertEqual(self.executor.execute.call_count,1)
+
     def test_limits(self):
         for ids in ([],self.ids*2):
             with self.assertRaises(ValueError): self.q.submit(ids)

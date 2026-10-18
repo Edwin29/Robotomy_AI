@@ -20,7 +20,7 @@ public class Harmony_Patch
     }
 }
 
-[Serializable] public class ViewRect { public string text, panel; public float x, y, width, height; public bool interactable; }
+[Serializable] public class ViewRect { public string text, panel, target_id; public bool input_verified; public float hit_x, hit_y; public float x, y, width, height; public bool interactable; }
 [Serializable] public class ViewSize { public int width, height; }
 [Serializable] public class IsolationInfo { public string persistent_data_path, company_name, product_name; }
 [Serializable] public class Observation
@@ -109,6 +109,7 @@ public class RobotomyObserver : MonoBehaviour
         foreach (ViewRect item in items)
             result.Add("{\"panel\":" + Quote(item.panel ?? "") + ",\"text\":" + Quote(item.text) + ",\"x\":" + Number(item.x) + ",\"y\":" + Number(item.y)
                 + ",\"width\":" + Number(item.width) + ",\"height\":" + Number(item.height)
+                + (buttons ? ",\"target_id\":" + Quote(item.target_id ?? "") + ",\"input_verified\":" + (item.input_verified ? "true" : "false") + ",\"hit_x\":" + Number(item.hit_x) + ",\"hit_y\":" + Number(item.hit_y) : "")
                 + (buttons ? ",\"interactable\":" + (item.interactable ? "true" : "false") : "") + "}");
         return "[" + String.Join(",", result.ToArray()) + "]";
     }
