@@ -194,3 +194,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:29:20.337686+00:00", "message_id": "msg_083f0162623832c0016ad49f7f81d481918bfceec0bcd5c962", "next_event_id": null, "previous_event_id": "exp_096e954098cb4d1982a7a01d955a931e", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:30:57.221Z · commentary
+
+    해골 쪽은 애착이 모든 단계에서 높음이다. 통찰만 계속할 이유는 없겠네. 관리법을 다 여니 관찰 레벨 2가 되고 방어복도 나타났다. 정보를 여는 일이 실제 선택지를 늘려 주는구나.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:30:57.861207+00:00", "message_id": "msg_083f0162623832c0016ad49fe0464c8191b59307180a2ea7c6", "next_event_id": null, "previous_event_id": "exp_664e380fe1ae4092918024cf5656700f", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
