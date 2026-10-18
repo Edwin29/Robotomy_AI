@@ -96,3 +96,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:06:09.664820+00:00", "message_id": "msg_083f0162623832c0016ad4a81fe42c8191b3a3a5ad57cd69c0", "next_event_id": null, "previous_event_id": "exp_2869cf8a6a6d48e0bcf7d3932a6bdfc3", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
 
+## 2026-10-18T11:07:50.422Z · commentary
+
+    연구는 ‘소집 호출’을 고르겠다. 지금은 부서가 하나라 합동 지휘보다, 흩어진 직원을 회복하러 돌려보낼 수 있는 기능이 당장 쓸모 있어 보인다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:07:51.085489+00:00", "message_id": "msg_083f0162623832c0016ad4a885e4d88191abb0650a0a8b067b", "next_event_id": null, "previous_event_id": "exp_fad6f95447f243bdbec98009d5e67ec6", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
