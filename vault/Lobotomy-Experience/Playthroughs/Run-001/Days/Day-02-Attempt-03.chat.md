@@ -140,3 +140,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:15:03.446679+00:00", "message_id": "msg_083f0162623832c0016ad49c2596c88191b460ae03fbf17d0e", "next_event_id": null, "previous_event_id": "exp_855ab41277df4224b94f68559bba306a", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:16:02.205Z · commentary
+
+    관리법 목록이 3~5에 머물러서 위쪽 항목으로 이동이 안 되고 있다. 일단 바로 열 수 있는 나머지 작업 선호도를 해금하고, 운영은 계속 진행하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:16:03.223708+00:00", "message_id": "msg_083f0162623832c0016ad49c61faf08191a7f96be3c1fe5abd", "next_event_id": null, "previous_event_id": "exp_8acf578099124f08ae1c5e3c59df9795", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
