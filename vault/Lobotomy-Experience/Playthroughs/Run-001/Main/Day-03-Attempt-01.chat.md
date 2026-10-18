@@ -132,3 +132,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:15:08.694379+00:00", "message_id": "msg_083f0162623832c0016ad4aa3b276c8191ac35946599c94674", "next_event_id": null, "previous_event_id": "exp_eb6f3dada7944252b9d8c1cfe83381ad", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
 
+## 2026-10-18T11:16:28.525Z · commentary
+
+    예약은 받아들여졌지만, 에덴을 배정하면서 화면이 바뀌자 `screen_changed`로 두 번째 입력이 중단됐어. 에덴 배정은 됐고 아직 일시정지 상태다. 현재 규칙에서는 메뉴가 바뀌는 묶음은 여기서 끊기네. 새 화면 기준으로 2배속을 시작하겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:16:28.891353+00:00", "message_id": "msg_083f0162623832c0016ad4aa8b211881919aecb02485f6d0ac", "next_event_id": null, "previous_event_id": "exp_5d91bdf888fc4d478edd0842bde90a02", "turn_id": "01a14ea3-da8e-70f2-a832-73ef161a65b1"}
+
