@@ -42,3 +42,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_ce5a042e86aa4372b7ac421a9819d25d", "exp_04362dfadf6b4988aba2cb363d923d27", "exp_5e9515a6afa543bfb1dcca5c7d2eb21e", "exp_27d28fc099944a18a977f6ab9b72cabe", "exp_318ed8fc8f4c436aaa4c45ce7ba201a8", "exp_ed9fda058d934c9b8b6fe5e9093b1def"], "notes": "에덴은 웰치어스 통찰, 아스터로이드는 O0303 통찰, 빅토르는 요정 본능 후 애착을 맡았다. 셋 모두 결과 화면에 생존. 에덴 지혜II→III 표시를 확인했다. 요정 효과 지속시간이나 빅토르의 기프트 획득 원인은 이번 기록에서 확정하지 않는다."}
 
+## Day-06-Attempt-01
+
+    {"author": "Codex", "evidence_ids": ["exp_acd5c760e1d044dbbf81b56cce1b324d", "exp_122e4c8b6c5e4b72b5b932e8f36d73da", "exp_9e72f0213dbf42e58e05a6f17a4fa788", "exp_ead704494bb247c28fb454a3b1dae1e3"], "notes": "에덴: 웰치어스 통찰 높음 표시에도 두번째 PE3 뒤 HP0/33 사망. 정확한 사망 연출은 못 봤다. 배트워든맨(앞선 발화의 베트위트맨은 오독): 첫 작업 전32/32,33/33, 네 능력II. 첫 통찰 뒤 회복하여 전량 표시, 두번째9PE. 아스터로이드와 빅토르 생존. 재시도 후 실제 복귀 상태 재확인 필요."}
+

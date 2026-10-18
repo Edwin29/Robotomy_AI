@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 3b1969b8a8cc3c27d7e8eb2627b54ed015d7732fb71a869c0dcfa4cd810069e6
+Version: e112640d08b1a67e5375ecd7718bf0a1fa00645838ac11f4af1aaefeddbc233f
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -403,4 +403,34 @@ Version: 3b1969b8a8cc3c27d7e8eb2627b54ed015d7732fb71a869c0dcfa4cd810069e6
     사용자가 이번에만 예외로 승인한 운영자 개입입니다. 5일차 결과 화면 이후 저장 지점으로 진행하면서 운영자가 환상체 T-02-99를 선택했습니다. 선택창 설명은 “내 꿈을 먹어주세요.”입니다. 이 설명은 선택 당시 직접 읽은 기록이 아니라, 운영자가 이후 선택창 GetText → metaInfo.openText에 연결된 한국어 표시 문구에서 복원한 것입니다. 숨겨진 정식 이름·관리법은 전달하지 않았습니다. 이어서 6일차 앤젤라 스토리를 SKIP하고 정보팀(예소드)을 개방했습니다. DAY 6 준비 화면의 기억저장소 각인과 세이브 파일 갱신을 확인했으며, 6일차 업무는 시작하지 않았습니다. 환상체 선택과 스토리 넘김은 플레이어 AI 자신의 판단·관람 경험이 아닙니다. 앞으로 환상체 선택은 플레이어 AI에게 맡깁니다.
 
     {"attempt_id": "Run-001/Day-05-Attempt-01", "author": "운영자 Codex", "basis": "retrospective_discovery", "evidence_ids": ["exp_12532385d82a42cc8a8742da0d45f849"], "supersedes": null}
+
+## mem_befc1c406b8f427a813fbf6b6b61a8c8
+
+    T-02-99 직접 개방한 설명: 통찰I~V 보통. 관리1 절제2등급 미만 직원은 완료 후 잠들어 다시 깨지 않음. 관리2 나쁨이면 클리포트 카운터 감소. 관리3 탈출 개체 빛에 직원이 잠들며 관리자가 직접 흔들어 깨울 수 있음. 관리4 탈출 후 일정 시간 뒤 스스로 귀환. 관리5 탈출 상태에서 제압하면 공격적 T-02-99-1로 변형. 관리6 변형 개체 울음은 부서전체WHITE피해, 빛으로 잠든 직원은 울음에 깨어 패닉. 이는 공개 관리 설명 관찰이며 조건을 직접 재현한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_acd5c760e1d044dbbf81b56cce1b324d", "exp_3b053950c2424c9c834c3c0f549223ef", "exp_e9752b6e0c4943fbbcffc8a8c13faebd"], "supersedes": null}
+
+## mem_a5d0666c423d42acad511778e1513a9e
+
+    에덴의 웰치어스 통찰은 높음 표시였지만 PE3 나쁨 후 사망. 성공률 높음은 안전 보장이 아니다. 음료 섭취 등 정확한 사망 연출은 미관람.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_122e4c8b6c5e4b72b5b932e8f36d73da"], "supersedes": null}
+
+## mem_dca190d51bbe4c01bce69595ed722237
+
+    다음 시도는 에덴에게 웰치어스 반복을 맡기지 않고, 더 높은 절제 직원 또는 다른 작업원을 고려한다. 먼저 성공률 및 관리 조건을 함께 비교한다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_122e4c8b6c5e4b72b5b932e8f36d73da"], "supersedes": null}
+
+## mem_e75374f3356d4215af06ff1d26a2de9a
+
+    게임 도감과 출처 있는 플레이어 기억은 구분한다. 사용자의 리트라이 조언 뒤 이번 손실을 확정하려던 결정을 바꿔 재시도하기로 했다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_9e72f0213dbf42e58e05a6f17a4fa788"], "supersedes": null}
+
+## mem_b8e3e21bfe814c4897ab7b9443d0fa2e
+
+    꿈을 먹어달라는 문구에는 호기심이 생겼지만, 잠든 직원이 깨어나지 않는다는 첫 관리법은 무거웠다. 에덴의 죽음을 그대로 받아들이려다가, 사용자 조언 뒤 굳이 손실을 확정할 필요가 없다고 생각을 바꿨다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_9e72f0213dbf42e58e05a6f17a4fa788"], "supersedes": null}
 
