@@ -68,3 +68,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:42:24.427040+00:00", "message_id": "msg_083f0162623832c0016ad4beafd2808191ae329a34092ee6d0", "next_event_id": null, "previous_event_id": "exp_64488681e20447cfa07ed7ffe9161ceb", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
 
+## 2026-10-18T12:43:22.234Z · commentary
+
+    직원 선택창의 이름·체력·작업 상태가 빠른 관찰에는 거의 안 잡혀서, 이미지로 확인하는 데 시간이 들어가. 방 클릭→작업 종류 선택은 위치가 익숙해서 묶는데, 직원 지정은 행 순서나 ‘이동 중’ 표시를 확인하느라 끊고 있어.
+    
+    빠른 관찰에 **직원 이름, 선택 가능 여부, HP/SP, 클릭 좌표**가 나오면 많이 빨라질 것 같아. 지금도 같은 배정을 반복할 때는 더 짧게 묶어볼게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:43:22.572009+00:00", "message_id": "msg_083f0162623832c0016ad4beea91d08191864d55e0c7c37e89", "next_event_id": null, "previous_event_id": "exp_1860a964f6dd47679818f80cfa4c0bb2", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
+
