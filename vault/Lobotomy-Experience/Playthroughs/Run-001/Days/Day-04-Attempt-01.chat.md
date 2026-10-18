@@ -68,3 +68,39 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:30:26.499308+00:00", "message_id": "msg_083f0162623832c0016ad47593011881919a67a311be5616db", "next_event_id": null, "previous_event_id": "exp_0be614dd84644bfbaf7d10e2fc734776", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T07:31:42.304Z · commentary
+
+    계속 자기 능력을 강조하는 걸 보니 첫날의 환영 인사라기보다 긴 자기소개를 듣는 기분이네. 아직 관리자를 어떻게 대할지는 잘 모르겠다. 말 상대라고 했으니 대화할 선택지도 있으면 좋겠는데.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:40:20.412085+00:00", "message_id": "msg_083f0162623832c0016ad475dd9b848191b4b9404e02c186cc", "next_event_id": "exp_d90737134d744babb279982b82e98665", "previous_event_id": "exp_2235de4b4393411b94da09fc1e3f3f57", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
+## 2026-10-18T07:32:56.883Z · commentary
+
+    질문이 두 개 있네. 앤젤라 이야기도 궁금하지만, 아직 이 회사가 무엇을 하는 곳인지 설명을 못 들었다. 먼저 회사 쪽을 물어보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:40:20.413090+00:00", "message_id": "msg_083f0162623832c0016ad47628f8188191afff386801a0eeb0", "next_event_id": "exp_ce8b79b23b204967b8b62dd19d70450a", "previous_event_id": "exp_3588969b914b42789715eab3ba0e2075", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
+## 2026-10-18T07:34:18.673Z · commentary
+
+    이제 에너지 이야기가 나오는군. 튜토리얼에서 상자를 모으던 작업이 회사의 사업과 이어지는 모양이다. 그 에너지를 어디서 얻는지 더 들어보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:40:20.413090+00:00", "message_id": "msg_083f0162623832c0016ad4767abcb48191943ef13a061ba648", "next_event_id": "exp_7b843cfff69a4f6abdadc3d7ea9da78a", "previous_event_id": "exp_2c382ac906a547558eaf128ec11ce7af", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
+## 2026-10-18T07:35:39.057Z · commentary
+
+    환상체에서 에너지를 얻는 회사였구나. “특별한 방법”이라고만 말하는 건 좀 모호하다. 작업의 원리까지 알려줄지, 당장은 관리법만 익히게 할지 궁금하네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:40:21.507423+00:00", "message_id": "msg_083f0162623832c0016ad476cb9e388191800577b3bdf47f97", "next_event_id": "exp_52be23814bf64b7f8325357b78c04479", "previous_event_id": "exp_573ca62b921440af83db2ecb1fb008dc", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
+## 2026-10-18T07:36:58.461Z · commentary
+
+    ド…도감으로 정보를 확인할 수 있다는 건 튜토리얼에서 해봤지. 다만 본편 환상체가 교육용 토끼와 같지는 않을 테니, 익숙한 조작만 가져가고 대상의 성질은 새로 읽어야겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:40:21.508421+00:00", "message_id": "msg_083f0162623832c0016ad47719c6e481918dd2539990709880", "next_event_id": "exp_b8b96ff174ec4d12a7798f7a930b7541", "previous_event_id": "exp_4073ca980b0d4328a5a2e174a1ba7013", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
+## 2026-10-18T07:38:25.602Z · commentary
+
+    “채워 나가는 건 직원들 몫”이라니, 관리자는 지시하고 직원이 직접 들어가는 구조가 대사에서도 드러나네. 아직 본편 작업을 한 번도 안 했으니 첫 직원과 환상체부터 차분히 보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T07:40:21.509423+00:00", "message_id": "msg_083f0162623832c0016ad47770ed8c8191bdd4aa239aa11e97", "next_event_id": "exp_59fd82281cf745d8a6baf25be36bbf95", "previous_event_id": "exp_616483ed58d34004be12ca8e2432aced", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
