@@ -17,6 +17,8 @@ status: completed
 
 ## 당시 판단
 
+[공개 채팅 원문](./Day-04-Attempt-03.chat.md) · [발언 시각순 통합 로그](../Logs/Day-04-Attempt-03.timeline.jsonl)
+
 ### exp_3b6ffdce68c64f0395af55e974052641
 
     입력: key
