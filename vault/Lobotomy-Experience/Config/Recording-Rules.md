@@ -5,6 +5,13 @@
 
 ## 시작과 재개
 
+`day`는 본편에서는 실제 게임 날짜다. 튜토리얼은 `phase=tutorial`로 별도 구분하며
+번호가 1~3이어도 본편 날짜로 세지 않는다. 튜토리얼 후 본편은 `day=1`,
+`reason=next_day`, 실제 장면의 phase로 시작한다. Run은 증가하지 않는다.
+파일 ID의 Attempt 번호는 과거 튜토리얼 기록과 충돌하지 않도록 이어질 수 있다.
+`game_day`가 실제 본편 날짜이며 튜토리얼에서는 null이다. 기존 Day-04 기록은
+본편 1일차로 정정되었으므로 다음 본편 하루는 day=2로 시작한다.
+
 1. `player_experience_status`를 확인한다. 활성 시도가 있으면 기존 ID로 이어간다. 없으면
    `begin_player_attempt(day, player, reason, phase, versions)`로 시도를 연다. 실제 플레이
    관찰과 조작을 시작하기 전에 이 절차를 수행한다. 작성자/모델 표시는 자기 보고다.

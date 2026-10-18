@@ -7,6 +7,8 @@ status: interrupted
 
 # Day-01-Attempt-02
 
+튜토리얼 기록 — 본편 날짜에 포함하지 않습니다.
+
 ## 시작 기록
 
     {"attempt": 2, "config_versions": {"AGENTS.md": "8680aeff21604d5120bd87e72b50b6f1cd7ec5748d9fc8ef1ff30bdbd7a9b917", "Day-Review-Template.md": "dd5fbbd04bb13dcfdd05121e4eb5b2b4b2bc402f3cb098872e284e8e267726ee", "Player-Persona.md": "f42126463d170d6ae5dd6e7608594767932cff23b2a81665f4787f0da2be1a8c", "Recording-Rules.md": "4f81856016b9e5cd45d91393acc120419de23e08ac1465ac8761abaf95226329"}, "day": 1, "device_versions": {"observer_sha256": "c85fdcef0a3072ad48dcbaad955c472a6fbdeb58e98b8ebafd36d5b7ccb464f5", "runtime_exe_sha256": "bc57341a606464f237d48559a86233e8edab02cdf94f77dc99a1cfa552720eb9"}, "end_evidence_ids": [], "ended_at": "2026-10-18T05:54:21.063448+00:00", "id": "Run-001/Day-01-Attempt-02", "memory_version": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945", "phase": "tutorial", "player": "Codex", "previous_attempt_id": "Run-001/Day-01-Attempt-01", "reason": "retry", "run": 1, "started_at": "2026-10-18T05:08:53.235581+00:00", "status": "interrupted", "transition_basis": "player_declared", "versions": {}}

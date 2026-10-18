@@ -7,6 +7,8 @@ status: completed
 
 # Day-02-Attempt-01
 
+튜토리얼 기록 — 본편 날짜에 포함하지 않습니다.
+
 ## 시작 기록
 
     {"attempt": 1, "config_versions": {"AGENTS.md": "bd36154ad98fdaa528a07bec495fe8c3231be769ce4bcbc29e6294c9343ad94b", "Day-Review-Template.md": "dd5fbbd04bb13dcfdd05121e4eb5b2b4b2bc402f3cb098872e284e8e267726ee", "Player-Persona.md": "f42126463d170d6ae5dd6e7608594767932cff23b2a81665f4787f0da2be1a8c", "Recording-Rules.md": "c15e07926e918f8487f1cdd6dffdd52fd3164377ecb3c278d8195ec125fa104b"}, "day": 2, "device_versions": {"observer_sha256": "c85fdcef0a3072ad48dcbaad955c472a6fbdeb58e98b8ebafd36d5b7ccb464f5", "runtime_exe_sha256": "bc57341a606464f237d48559a86233e8edab02cdf94f77dc99a1cfa552720eb9"}, "end_evidence_ids": ["exp_79c4f944dca24a4285bb32fa64041325"], "ended_at": "2026-10-18T06:53:12.127526+00:00", "id": "Run-001/Day-02-Attempt-01", "memory_version": "4113b454a7c48094b8dc730c86397b5eea00dd384e5a605bf036c6328049266b", "phase": "tutorial", "player": "Codex", "previous_attempt_id": "Run-001/Day-01-Attempt-03", "reason": "next_day", "run": 1, "started_at": "2026-10-18T06:38:09.438776+00:00", "status": "completed", "transition_basis": "player_declared", "versions": {}}
