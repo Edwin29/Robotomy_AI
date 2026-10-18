@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: ae2503dc548a868fe4713982be0d51db6d0d983e513a2d4de2543fe93ebbf56b
+Version: e959ca536c44c5350ef807facadac897d71f12794c4a6c051d108e8c7bc91885
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -86,7 +86,7 @@ Version: ae2503dc548a868fe4713982be0d51db6d0d983e513a2d4de2543fe93ebbf56b
 
     {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_35b08a9183bd48b4a1101d28ca462563", "exp_c1653449a535421da2ed9ea3d90f4219", "exp_f7e6ddfa8d544a48be884e892abb067e"], "supersedes": null}
 
-## mem_fea96b5df65b4e13a2ac0d7dbda5c180
+## mem_fea96b5df65b4e13a2ac0d7dbda5c180 · 수정됨
 
     모든 튜토리얼을 완료했다. 재개 지점은 Tutorial3 관리자 교육 완료 대화의 일시정지 화면. 본편 진행은 현재 범위 밖이므로 멈춘다.
 
@@ -103,4 +103,52 @@ Version: ae2503dc548a868fe4713982be0d51db6d0d983e513a2d4de2543fe93ebbf56b
     WHITE 무기가 환상체에게는 공격이고 패닉 직원에게는 정신력 회복 수단이라는 설명이 흥미로웠다. 같은 장비가 상대 상태에 따라 다른 의미가 되는 부분이 기억에 남았다.
 
     {"attempt_id": "Run-001/Day-03-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_4df73a935bb44b70833dd26e291f9a4e", "exp_35b08a9183bd48b4a1101d28ca462563"], "supersedes": null}
+
+## mem_c53f57ecfe2e45ef936eb6db6ca51031
+
+    O-03-03의 정보창은 현장 격리실 위 이름표를 클릭해 열었다. 카운터·위험등급·PE-Box 표시를 누르면 이번에는 툴팁만 보였고, 작업 메뉴 큰 물음표나 제목으로는 도감이 열리지 않았다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_231389647be04a76a0237db8e8172583", "exp_06831f34a5a241799f70d051281b482b", "exp_2f193bc1f83649a4bc5a646892953d4e", "exp_7336893c6d3c430485abe30f50dde9b2", "exp_f89320bfb8ad438f902e3c781f3e00fd", "exp_d374e73b15574a519ab68abb168dc02d"], "supersedes": null}
+
+## mem_bbeaef3fa13347718673d9dedbb08306
+
+    O-03-03 통찰 선호도 해금 비용은 PE-Box2이며 표시값은 I·II 높음, III·IV·V 보통이다. 관리법1은 좋음 작업 결과 때 해당 직원 정신력 회복이라고 설명한다. 통찰3회의 성공을 모든 대상이나 향후 모든 작업에 일반화하지 않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_6826c0129e0b4b02a319584ce7d32a65", "exp_756fedae0b9a472a9810d669b72b2fb1", "exp_d6263acad7fc44278bbbced9024e2663", "exp_ed9882163a6b45728cb3f6060514d6e4"], "supersedes": null}
+
+## mem_c6b4b590c91845b386b3237b3a198bb4
+
+    이번 본편 1일차는 에너지 목표가 두 번째 작업에서 충족됐지만, 지휘팀 작업3회 미션을 위해 세 번째를 진행한 후 종료했다. 결과 화면에서 미션 완료를 확인했다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_35fb166f697843fc87e483563f4fa06a", "exp_7e820d5519584bf6bff793fbf6bb4e88"], "supersedes": null}
+
+## mem_26766f7ed5c047128310ccdb4f2534f8
+
+    사용자가 본편 시작과 모든 엔딩 관람으로 범위를 확대하여 튜토리얼 완료 뒤 본편도 플레이했다. 현재는 패치를 위해 실제1일차 결과 화면에서 중단하라는 최신 요청이 우선이다. 재개 지점은 다음날 버튼 앞이며 이후 본편 기록은 day=2, 같은 Run을 사용한다. 재개 허가 전 추가 입력하지 않는다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_7c5e936cfc4c40c78e0ea5d6a3844c3e", "exp_e3194b84f44442668550613820ac177c", "exp_a169639d3f27450d8555e504e1dbbfbe", "exp_7e820d5519584bf6bff793fbf6bb4e88"], "supersedes": "mem_fea96b5df65b4e13a2ac0d7dbda5c180"}
+
+## mem_968867055631466aa6a57e36d1e86db0
+
+    말쿠트의 첫인사는 부산스럽고 친근하게 느꼈다. 하지만 내보내 달라는 직원에게 노력과 할 수 있다는 말을 이어가고, 할 수 없다고 하면 지휘팀 직원이 아니라고 하는 장면을 보며 밝은 표정이 서늘하게 느껴졌다. 이 인상은 등장인물의 속마음이나 직원의 이후 운명을 확인한 사실이 아니다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_dbac0190da3a45b58472d3b797d5cc45", "exp_46deb96c8ea146b7965de4530828f3a4", "exp_a64a1b678dd24ade8e1291a42e6d18ef", "exp_chat_f8d17ec204da2e7e6bc94fc72bd35cee2aa7302a987352acea01fc6ecbb92fa9"], "supersedes": null}
+
+## mem_a2794bf88d2d4e98a1b27ea185b476e1
+
+    직원의 절박한 말을 더 듣고 싶어 말쿠트에게 맡기지 않는 선택을 했다. 선택 후 직원에게 직접 말하는 장면은 보지 못했고 이후 상태가 궁금하다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_960786c07d45484f92896cfeb88bd206", "exp_ab0b1ecbb6fb40bca805e3d6dd51ecf6"], "supersedes": null}
+
+## mem_c90d345b1fdb494e952fe130ed760cef
+
+    앤젤라는 자신을 가장 신뢰해달라고 했지만, 우선 본인의 요청으로 받아들였다. 회사 밖 햇빛과 바람을 직접 느낄 수 없다는 소개도 기억에 남았다. 다른 AI에 대한 인상은 직접 만나는 장면을 통해 정하고 싶다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_6f487085639cf7266d2982ba073fcb3ea72ee4f6bbb248931ba086dbdfaad875", "exp_chat_84e1452f56dc3ba207cf145ff7580dd2ea90b7ec0b5e62e5bf770b0175ba8c3d"], "supersedes": null}
+
+## mem_cad82834d2774836b8cde6154d942b3b
+
+    정보창 위치를 찾느라 비슷한 표시를 하나씩 눌러보는 과정이 길어졌다. 익숙해진 메뉴와 작업은 중간 관찰을 유지하며 짧게 묶어 처리하는 쪽이 흐름이 나았다. 이야기 감상과 중요한 선택에 쓰는 시간까지 줄일 필요는 없다고 느낀다.
+
+    {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_d374e73b15574a519ab68abb168dc02d", "exp_7e8e824690a34870b292594ef2376249", "exp_ed9882163a6b45728cb3f6060514d6e4", "exp_a169639d3f27450d8555e504e1dbbfbe"], "supersedes": null}
 
