@@ -290,3 +290,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:15:57.596461+00:00", "message_id": "msg_083f0162623832c0016ad4803d454c8191982319e6a3d5eeb8", "next_event_id": null, "previous_event_id": "exp_3817ea39206249d48730e2c7491da08c", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:16:54.599Z · commentary
+
+    찾았다. 격리실 위 이름표가 정보창이었어. 다음부터는 여기로 바로 오면 된다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:16:55.188181+00:00", "message_id": "msg_083f0162623832c0016ad48077048c81919ec255353849b465", "next_event_id": null, "previous_event_id": "exp_d374e73b15574a519ab68abb168dc02d", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
