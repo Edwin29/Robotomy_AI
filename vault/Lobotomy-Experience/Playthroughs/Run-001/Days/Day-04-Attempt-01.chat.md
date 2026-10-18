@@ -308,3 +308,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:18:48.439253+00:00", "message_id": "msg_083f0162623832c0016ad480e8fd648191b9d2abdfbb9099fe", "next_event_id": null, "previous_event_id": "exp_6826c0129e0b4b02a319584ce7d32a65", "turn_id": "01a14e16-a21e-7272-98a9-a0aff9cb2eaa"}
 
+## 2026-10-18T08:20:22.627Z · commentary
+
+    정보를 여니 성공률과 예상 시간도 보인다. 두 사람 모두 ‘높음’, 시간은 28. 빅토르도 17/17로 회복된 상태라 한결 마음이 놓이네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:20:23.493419+00:00", "message_id": "msg_083f0162623832c0016ad4814728448191b463578b2fdb813c", "next_event_id": null, "previous_event_id": "exp_d6263acad7fc44278bbbced9024e2663", "turn_id": "01a14e16-a21e-7272-98a9-a0aff9cb2eaa"}
+
