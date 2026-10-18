@@ -32,3 +32,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:47:34.202343+00:00", "message_id": "msg_083f0162623832c0016ad495b58e008191a0c853cc2ce0e356", "next_event_id": null, "previous_event_id": "exp_9e34495274614aa5851d494f43b93edc", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T09:48:41.459Z · commentary
+
+    ‘퇴사’에 굳이 따옴표를 붙이는 게 걸린다. 아직 이 회사에서 그 말이 무엇을 뜻하는지는 듣지 못했어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:48:42.020905+00:00", "message_id": "msg_083f0162623832c0016ad495f93a5c8191ae181599043b9fc5", "next_event_id": null, "previous_event_id": "exp_df77ebc361d14c24ac49ad770c6ccf60", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
