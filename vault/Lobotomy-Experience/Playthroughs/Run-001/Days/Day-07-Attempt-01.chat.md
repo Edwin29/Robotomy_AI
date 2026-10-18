@@ -80,3 +80,27 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:41:02.720938+00:00", "message_id": "msg_083f0162623832c0016ad4d74808f88191982a2ab2683c45cc", "next_event_id": "exp_c9fd89a73c6542faa232a6e66a7f2336", "previous_event_id": "exp_6650f02adbcc4a78a4c9fcea54ce873a", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:27:42.734Z · commentary
+
+    나는 별명 자체는 별로다. 정확하게 일하려는 사람을 독사라고 부르는 건 좀 박하잖아. 본인이 좋아한다는 것과는 별개로 솔직히 답해보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:41:03.876058+00:00", "message_id": "msg_083f0162623832c0016ad4d75f8250819192a99c61ab478d97", "next_event_id": "exp_026946d60dba44099dd6e5a368edbd60", "previous_event_id": "exp_ff562814a5b94f4483f27ed6b62623de", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
+## 2026-10-18T14:28:52.615Z · commentary
+
+    본능 작업 네 번. 이건 요정의 축제에서 이미 높은 선호도를 확인했으니, 빅토르가 맡으면 자연스럽게 진행되겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:42:44.548543+00:00", "message_id": "msg_083f0162623832c0016ad4d7a555748191a8afca693d32c0f3", "next_event_id": "exp_d7bf3d4e0b62480dbfeae6ec7f0e6db5", "previous_event_id": "exp_ff4250febeab40188327719bd3ce9d39", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
+## 2026-10-18T14:30:05.224Z · commentary
+
+    남은 지휘팀 미션은 폭주 중인 격리실 작업 여덟 번이었구나. 오늘은 폭주를 놓치지 않고 처리하자. 정보팀에 환상체가 둘이 됐으니, 그쪽 인원도 나눠 맡길 준비가 필요하겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:42:44.550667+00:00", "message_id": "msg_083f0162623832c0016ad4d7eded0c8191865991b44d505099", "next_event_id": "exp_5a3db2ed16e8458a923a4827d41f59e0", "previous_event_id": "exp_c2bdbb08bc0841f2838719d4c123ac56", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
+## 2026-10-18T14:31:06.271Z · commentary
+
+    절제 한 단계에 2 LOB면 괜찮다. 어제 성공률 때문에 고생했으니 아스터로이드의 절제를 III로 올리고, 새 격리실을 맡겨보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:42:44.551668+00:00", "message_id": "msg_083f0162623832c0016ad4d82b0ff48191be53af48a126b6e3", "next_event_id": "exp_f291053a7e9a40a09c7afca839d08116", "previous_event_id": "exp_5a610e8174f64fb497e652ce76bba0ab", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
