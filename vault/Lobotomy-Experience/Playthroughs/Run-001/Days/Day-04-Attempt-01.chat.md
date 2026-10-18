@@ -272,3 +272,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:12:12.159139+00:00", "message_id": "msg_083f0162623832c0016ad47f5c28bc8191baec4471623c0eea", "next_event_id": null, "previous_event_id": "exp_06831f34a5a241799f70d051281b482b", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:13:14.749Z · commentary
+
+    정보창 찾느라 작은 표시를 하나씩 누르고 있었네. 같은 확인은 줄이자. 작업 결과를 본 뒤에는 필요한 정보만 열고, 익숙한 배치는 바로 처리해보겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:13:14.789910+00:00", "message_id": "msg_083f0162623832c0016ad47f9b44cc81918621cba6bf4d9635", "next_event_id": null, "previous_event_id": "exp_2f193bc1f83649a4bc5a646892953d4e", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
