@@ -361,7 +361,29 @@ class LiveReader:
                 return {**summary, "status": "invalid", "reason": "frame_generation_mismatch"}, None
         return {**summary, "frame_age_seconds": round(age, 3), **frame_meta}, data
 
-    def observe(self, max_items=100, motion_only=False, compact=False):
+    def frame_after(self, after_utc=None, wait_ms=1200):
+        """Wait for a post-action frame, not for dialogue completion. Never sends input."""
+        _integer(wait_ms, 0, 2000)
+        threshold = None
+        if after_utc is not None:
+            parsed = datetime.fromisoformat(after_utc.replace('Z', '+00:00'))
+            if parsed.tzinfo is None: raise ValueError('after_utc needs a timezone')
+            threshold = parsed.timestamp()
+        started = time.monotonic(); deadline = started + wait_ms/1000
+        while True:
+            status, data = self.frame()
+            captured = status.get('frame_captured_at_utc')
+            newer = threshold is None or (captured is not None and
+                datetime.fromisoformat(captured.replace('Z', '+00:00')).timestamp() > threshold)
+            if data is not None and newer:
+                return {**status, 'waited_ms':round((time.monotonic()-started)*1000),
+                        'frame_boundary':'Fresh frame only; dialogue may still be revealing.'}, data
+            if status.get('status') != 'live' or time.monotonic() >= deadline:
+                return {**status, 'status':status.get('status') if status.get('status') != 'live' else 'no_new_frame',
+                        'waited_ms':round((time.monotonic()-started)*1000)}, None
+            time.sleep(min(.03, max(0, deadline-time.monotonic())))
+
+    def observe(self, max_items=100, motion_only=False, compact=False, after_sequence=None, wait_ms=350):
         """Record exactly the bounded response; Markdown is deferred to day review."""
         from .experience import record
         _integer(max_items, 1, 100)
@@ -369,8 +391,24 @@ class LiveReader:
             raise ValueError('motion_only must be boolean')
         if type(compact) is not bool:
             raise ValueError('compact must be boolean')
+        _integer(wait_ms, 0, 1000)
+        if after_sequence is not None: _integer(after_sequence, 0, 2**63-1)
+        started = time.monotonic(); deadline = started + wait_ms/1000
         with self._lock:
             summary, snapshot = self._read()
+            reference = self._offered_baseline
+            def pending(value):
+                if value is None or after_sequence is None: return False
+                identity = (value['process_id'], value['scene'], value['screen'], value.get('console',{}).get('session'))
+                # A new scene/process must be returned even when its counter restarted.
+                if reference is not None and identity != reference['identity']: return False
+                return value['sequence'] <= after_sequence
+            while pending(snapshot) and time.monotonic() < deadline:
+                time.sleep(min(.025, max(0, deadline-time.monotonic())))
+                summary, snapshot = self._read()
+            if pending(snapshot):
+                return {**summary, 'status':'no_new_observation', 'waited_ms':round((time.monotonic()-started)*1000),
+                        'boundary':'No newer sample yet; not evidence that the game is unchanged.'}
             if snapshot is None:
                 self._offered_baseline = None
                 return summary
@@ -394,6 +432,14 @@ class LiveReader:
             if previous is not None and snapshot['sequence'] < previous['sequence']:
                 previous = None
             diff = observation_diff(previous,bounded,event_id,selection,identity)
+            reasons = []
+            if snapshot['scene'] != 'Main': reasons.append('story_or_other_scene')
+            if diff['mode'] == 'reset': reasons.append('new_context_or_baseline')
+            if truncated: reasons.append('truncated_information')
+            if not bounded.get('ui_texts') and not bounded.get('console'): reasons.append('limited_structured_coverage')
+            response['visual_check'] = {'recommended':bool(reasons), 'reasons':reasons,
+                'boundary':'Advisory only. No change cannot rule out animation, danger, story or missed events. Player must inspect significant/ambiguous changes and periodic frames.'}
+            response['waited_ms'] = round((time.monotonic()-started)*1000)
             response = {'change_summary':diff, **response, 'compact':compact,
                         'payload_mode':'full' if not compact or diff['mode']=='reset' else 'delta',
                         'comparison_scope':'selected structured fields only; truncated response is not full coverage'}

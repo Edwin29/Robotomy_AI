@@ -1,0 +1,36 @@
+# 관찰 대기와 diff 중심 운영 (배포 대기)
+
+이 변경은 별도 작업 폴더에만 있다. 실행 중 게임/MCP/플레이어 AGENTS는 변경하지 않았다.
+플레이 종료 등 안전한 시점에 live.py, mcp_server.py, config/player/AGENTS.md를 검토해
+운영 소스와 외부 플레이어 지침에 반영하고 MCP를 재연결한다. 도구 스키마가 바뀌므로
+기존 연결의 자동 코드 재로딩만으로 끝내지 않는다. 이번 관찰 변경 자체에는 게임 재시작이
+필요 없다. 앞서 별도로 만든 버튼 대상 검증 DLL의 적용은 별도 작업이다.
+
+## 동작
+
+observe_live는 compact=true 기본. after_sequence 지정 시 새 sequence가 올 때까지
+최대 wait_ms(기본350, 상한1000) 대기한다. 이미 새 표본이면 즉시 반환한다.
+타임아웃은 no_new_observation으로 표시하고 diff 기준점을 갱신하지 않는다.
+view_live_frame(after_utc=입력영수증.at)은 해당 시각보다 나중에 캡처한 유효 이미지만
+반환하며 기본1200ms, 상한2000ms이다. no_new_frame이면 이미지를 반환하지 않는다.
+프레임 신선도와 대사 표시 완료는 다르다. 자동 진행/클릭/대사 건너뛰기는 없다.
+기존 가시성, 만료, 가림 필터를 완화하지 않는다. 새 관찰을 기다리는 동안 숨은 정보도 읽지 않는다.
+visual_check는 씬, 기준점 초기화, 잘림 등에 따른 안내이며 모든 중요한 장면을 검출하지 않는다.
+따라서 스토리 매 화면, 모호한 변화, 전투 및 주기적 시각 교차 확인을 지침으로 유지한다.
+
+## 속도 비교
+
+운영자 전용 scripts/analyze_play_latency.py는 Codex rollout을 읽기만 한다.
+원문·이미지는 출력하지 않으며 도구 왕복, 명시적 고정 대기, 왕복 사이 간격,
+60초 이상 공백, 도구별 호출 표기를 집계한다. 추론 시간으로 오인하지 않는다.
+
+```powershell
+python scripts/analyze_play_latency.py --rollout <로컬롤아웃> --start <UTC시작> --end <UTC종료> --output <before.json>
+python scripts/analyze_play_latency.py --rollout <로컬롤아웃> --start <UTC시작> --end <UTC종료> --output <after.json> --baseline <before.json>
+```
+
+동일 모델/추론 설정으로 스토리와 운영 구간을 분리해서 비교한다. 날짜 길이 자체는
+콘텐츠 차이와 사용자 중단에 영향을 받으므로 순수 성능 지표로 삼지 않는다.
+관찰 누락, 읽지 않은 대사, 재시도와 실패 횟수도 함께 확인해야 빠른 오작동을 개선으로
+잘못 평가하지 않는다. 실제 적용 후 보고서는 아직 없고 테스트 성능은 플레이 단축 증거가 아니다.
+기준 보고서는 원래 작업 폴더 .robotomy/analysis/latency-before-day3.json에 별도 저장한다.
