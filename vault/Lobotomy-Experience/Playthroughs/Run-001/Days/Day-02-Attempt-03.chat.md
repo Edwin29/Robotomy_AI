@@ -62,3 +62,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:55:55.307157+00:00", "message_id": "msg_083f0162623832c0016ad497aa92a88191aba4d579e53613af", "next_event_id": null, "previous_event_id": "exp_23810712474b4d4b8ebc69fef98b868c", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T09:57:38.311Z · commentary
+
+    격리된 환상체 말고 복도에 나타나는 것도 있나 보다. 아직 본 적은 없으니, 이건 말쿠트가 해준 경고로 기억해 두자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T09:57:38.636564+00:00", "message_id": "msg_083f0162623832c0016ad4981220c88191bda138dcb0e5b2c1", "next_event_id": null, "previous_event_id": "exp_4f7435659ba34ab6910c84ec1e2a0684", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
