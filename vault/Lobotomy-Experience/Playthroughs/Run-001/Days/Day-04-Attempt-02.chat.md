@@ -44,3 +44,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:45:03.283545+00:00", "message_id": "msg_083f0162623832c0016ad4b13fc45c819197c5e8ac4766c2c3", "next_event_id": null, "previous_event_id": "exp_5300dd078d364eb6b4ccce06621b5f05", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
 
+## 2026-10-18T11:45:45.800Z · commentary
+
+    멀티컨트롤은 방금 첫 강화 선택 뒤 `screen_changed`로 멈췄다. 두 번째 입력은 보내지지 않았다. 반영 상태를 한 번 확인하고, 이 화면은 새로 보면서 이어가겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T11:45:46.003740+00:00", "message_id": "msg_083f0162623832c0016ad4b169e0ec8191b3ac050ea3bafda0", "next_event_id": null, "previous_event_id": "exp_4725fb27cf34456282176ec88e5740be", "turn_id": "01a14ec8-06a2-70f2-9885-a648da8a6487"}
+
