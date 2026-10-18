@@ -176,3 +176,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:23:22.346856+00:00", "message_id": "msg_083f0162623832c0016ad49e18fc7081919fad8172faa1a2f8", "next_event_id": null, "previous_event_id": "exp_65b3e143078145ba8a7a79e2feaf0f3b", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:25:01.546Z · commentary
+
+    큰 스크롤은 실제로 움직인다. 다만 한 번 입력은 600까지만 허용되네. 그 범위 안에서 위로 올리면 되겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:25:01.752573+00:00", "message_id": "msg_083f0162623832c0016ad49e7d5d588191a89a59c53b4473f1", "next_event_id": null, "previous_event_id": "exp_ccb34d163149472d97235841d30ac3ca", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
