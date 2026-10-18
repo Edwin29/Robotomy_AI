@@ -206,3 +206,15 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:32:36.472364+00:00", "message_id": "msg_083f0162623832c0016ad4a04374bc8191aa5bad7fa5732841", "next_event_id": null, "previous_event_id": "exp_beabf41125d8421e9978eb4dfb18c5c5", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
 
+## 2026-10-18T10:34:21.874Z · commentary
+
+    마지막 주의사항은 분위기가 다르네. 결과가 나쁠 때는 어떤 음료든 마시지 말라고 한다. 회복 효과만 보고 마음 놓을 수 있는 자판기는 아니었다. 오늘 목표와 임무는 모두 찼으니 여기서 하루를 마무리하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:34:22.046928+00:00", "message_id": "msg_083f0162623832c0016ad4a0ad04c08191bf17b92190e50aa9", "next_event_id": null, "previous_event_id": "exp_9d3b6a615607481ead4bd5240ba8a35a", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
+## 2026-10-18T10:34:56.219Z · commentary
+
+    아, 그 붉은 표시가 클리포트 폭주였구나. 방금 2일차는 S등급, 두 명 모두 생존으로 끝났다. 다음 운영 전에 게임 안의 관리자 매뉴얼부터 읽어보겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T10:34:56.610535+00:00", "message_id": "msg_083f0162623832c0016ad4a0cf6e988191acf5108d96ad2337", "next_event_id": null, "previous_event_id": "exp_3c6c8b37fb62476f85569a13762c76d6", "turn_id": "01a14e62-3378-79e2-80fd-7e31489541b5"}
+
