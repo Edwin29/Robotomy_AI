@@ -88,3 +88,15 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:48:08.308120+00:00", "message_id": "msg_083f0162623832c0016ad4c0083a788191a2a17327e5fbf8d1", "next_event_id": null, "previous_event_id": "exp_c3e1c219bb24499d83c632f32927e00d", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
 
+## 2026-10-18T12:49:07.202Z · commentary
+
+    웰치어스 정보는 이제 관찰레벨 4까지 열렸다. 목표 에너지도 채워져 정제 중이다. 직원 선택의 느림은 입력 전달 자체보다는, 내가 메뉴를 확인하는 방식에서 생긴 부분이 컸어. 지금처럼 익숙한 배정은 이어서 처리할 수 있다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:49:07.603077+00:00", "message_id": "msg_083f0162623832c0016ad4c043011c8191b4759c6e2cb8c46f", "next_event_id": null, "previous_event_id": "exp_f9887fb442fd4e45bfed809cb1909035", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
+
+## 2026-10-18T12:49:38.254Z · commentary
+
+    아, 80을 채운 뒤 다시 70으로 줄었다. 정제 안내만 보고 끝났다고 판단하면 안 되겠네. 감소 원인은 아직 확인하지 못했고, 아스터로이드에게 통찰 작업을 한 번 더 맡겼다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T12:49:38.267346+00:00", "message_id": "msg_083f0162623832c0016ad4c062a59c8191b6042d91cce3ec25", "next_event_id": null, "previous_event_id": "exp_6f3b034ee87f4087be258c8b953248b4", "turn_id": "01a14efd-1009-7ec1-a15e-5d1992c879d6"}
+
