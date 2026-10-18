@@ -218,3 +218,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:02:04.916437+00:00", "message_id": "msg_083f0162623832c0016ad47cfcad208191bc4c0b9429077954", "next_event_id": "exp_c56372990f14444e9e1949fc89b7ef5c", "previous_event_id": "exp_2fffcea9d85e43aa8f8ea20c7c75d881", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
 
+## 2026-10-18T08:03:22.824Z · commentary
+
+    에덴은 최대 체력 17, 정신력 15구나. 교육 때 직원들보다 여유가 적어 보인다. 아직 상대 정보가 없으니, 먼저 환상체 쪽에서 볼 수 있는 정보를 확인하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T08:03:23.750725+00:00", "message_id": "msg_083f0162623832c0016ad47d4a72e481918d57ef549195c41c", "next_event_id": null, "previous_event_id": "exp_1e32b23dabc64d859b47dfd35ac427d4", "turn_id": "01a14de2-5a5d-7d80-9fe9-f4f97311bc9a"}
+
