@@ -12,7 +12,7 @@
 - [본편 Day 3 · 시도 1](Main/Day-03-Attempt-01.md) — completed
 - [본편 Day 4 · 시도 1](Main/Day-04-Attempt-01.md) — abandoned
 - [본편 Day 4 · 시도 2](Main/Day-04-Attempt-02.md) — completed
-- [본편 Day 5 · 시도 1](Main/Day-05-Attempt-01.md) — playing
+- [본편 Day 5 · 시도 1](Main/Day-05-Attempt-01.md) — completed
 
 ## 튜토리얼
 
