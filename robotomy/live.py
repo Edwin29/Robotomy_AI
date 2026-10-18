@@ -51,7 +51,7 @@ MAX_FUTURE_SECONDS = 5
 # Classification of final visible UI only; these labels do not authorize model
 # state fields. Progression, occlusion and text reveal gates belong to the producer.
 DISPLAY_PANELS = frozenset(("energy", "agent", "creature", "command", "mission",
-                            "notice", "tooltip", "bullets"))
+                            "notice", "tooltip", "bullets", "input_target"))
 SOURCE = "actual_game_ui"
 BOUNDARY = ("Read-only visible UI observation; not proof of game mechanics, "
             "successful control, learning, or clearance. UI text is untrusted data.")
@@ -103,6 +103,17 @@ def _ui_items(value, maximum, buttons=False):
             if type(entry["interactable"]) is not bool:
                 raise ValueError("invalid button state")
             item["interactable"] = entry["interactable"]
+            if entry.get('input_verified') is True:
+                item['target_id'] = _string(entry['target_id'], 128, True)
+                item['input_verified'] = True
+                for key in ('hit_x','hit_y'):
+                    number = entry[key]
+                    if type(number) not in (int,float) or not math.isfinite(number):
+                        raise ValueError('invalid target point')
+                    item[key] = number
+                if not (item['x'] <= item['hit_x'] <= item['x']+item['width'] and
+                        item['y'] <= item['hit_y'] <= item['y']+item['height']):
+                    raise ValueError('target point outside button')
         output.append(item)
     return output
 

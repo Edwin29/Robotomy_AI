@@ -130,3 +130,15 @@ class SequenceTests(unittest.TestCase):
         self.assertEqual(result['receipts'][0]['id'],self.ids[0])
         self.assertEqual(result['status'],'stopped')
         with input_lock(self.root): pass
+
+
+class TargetTransportTests(unittest.TestCase):
+    def test_verified_fields_survive_reader_validation(self):
+        from robotomy.live import _ui_items
+        from robotomy.input_sequence import bind_target
+        button=dict(panel='input_target',text='',x=300,y=590,width=20,height=20,
+                    interactable=True,target_id='opaque',input_verified=True,hit_x=310,hit_y=600)
+        result=_ui_items([button],100,buttons=True)
+        self.assertIsNotNone(bind_target({'buttons':result},{'kind':'click','x':310,'y':600}))
+        button['hit_x']=1000
+        with self.assertRaises(ValueError):_ui_items([button],100,buttons=True)
