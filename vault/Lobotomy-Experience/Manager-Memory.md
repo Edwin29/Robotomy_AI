@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: e959ca536c44c5350ef807facadac897d71f12794c4a6c051d108e8c7bc91885
+Version: 25f5d99ee3b31c4e4df4d9041c6a3d7b4d647206d5b75543db7676a09056344c
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -122,7 +122,7 @@ Version: e959ca536c44c5350ef807facadac897d71f12794c4a6c051d108e8c7bc91885
 
     {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_35fb166f697843fc87e483563f4fa06a", "exp_7e820d5519584bf6bff793fbf6bb4e88"], "supersedes": null}
 
-## mem_26766f7ed5c047128310ccdb4f2534f8
+## mem_26766f7ed5c047128310ccdb4f2534f8 · 수정됨
 
     사용자가 본편 시작과 모든 엔딩 관람으로 범위를 확대하여 튜토리얼 완료 뒤 본편도 플레이했다. 현재는 패치를 위해 실제1일차 결과 화면에서 중단하라는 최신 요청이 우선이다. 재개 지점은 다음날 버튼 앞이며 이후 본편 기록은 day=2, 같은 Run을 사용한다. 재개 허가 전 추가 입력하지 않는다.
 
@@ -151,4 +151,28 @@ Version: e959ca536c44c5350ef807facadac897d71f12794c4a6c051d108e8c7bc91885
     정보창 위치를 찾느라 비슷한 표시를 하나씩 눌러보는 과정이 길어졌다. 익숙해진 메뉴와 작업은 중간 관찰을 유지하며 짧게 묶어 처리하는 쪽이 흐름이 나았다. 이야기 감상과 중요한 선택에 쓰는 시간까지 줄일 필요는 없다고 느낀다.
 
     {"attempt_id": "Run-001/Day-04-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_d374e73b15574a519ab68abb168dc02d", "exp_7e8e824690a34870b292594ef2376249", "exp_ed9882163a6b45728cb3f6060514d6e4", "exp_a169639d3f27450d8555e504e1dbbfbe"], "supersedes": null}
+
+## mem_a58de61cb17a4870ab49cc1a95ef4438
+
+    이번 환상체 선택 화면에서는 보이는 상자 중앙을 hover_live_control로 가리켜 클릭 없이 세 후보의 설명과 강조를 확인했다. 이전 실패 원인을 특정하지 않으며 문구만으로 관리법·안전성을 확정하지 않는다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "supersedes": null}
+
+## mem_a5db3b579bd548469a65a117052f3565
+
+    운영자 복원 재시도 완료 후 F-05-52를 선택했고 DAY2 앤젤라 첫 대사 '공포에 직면하여 미래를 창조하라.'에서 중단했다. 다음 재개는 같은Run 본편day2이며 이번 선택이 현재 진행이다. 이전 F-02-44 선택은 복원 전 중단된 시도의 경험이다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_09392de585de4880b27682ae70600749", "exp_54cc44b74bcf4d6089efc4a2ca0243c2", "exp_5ef840a5622c4d8683d606783fd803c8"], "supersedes": "mem_26766f7ed5c047128310ccdb4f2534f8"}
+
+## mem_5b7928ed4e8f4b1abfbd8f7a907346f3
+
+    F-05-52의 갈매기 울음소리 문구가 시설 안에서 바다를 연상시켜 궁금해졌다. 이것이 선택 이유이며 실제 소리를 듣거나 정체를 확인한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_9b9b6b3a35fe4a7b98ed8dfece508d36", "exp_54cc44b74bcf4d6089efc4a2ca0243c2"], "supersedes": null}
+
+## mem_29528cc922a542bdb990f7a803f47e99
+
+    상자에 커서를 올릴 때 확대되고 짧은 문구가 드러나는 연출 덕분에 번호만 고르던 때보다 선택할 흥미가 생겼다. 익숙한 통찰 작업 뒤 새로운 선택에 시간을 쓰는 흐름이 괜찮았다.
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_311d5dae4175451bb0233f86d2353794", "exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "supersedes": null}
 

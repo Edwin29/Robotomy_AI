@@ -129,4 +129,31 @@ completed (플레이어 선언; 입력 전달만으로 게임 성공을 확정�
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    운영자 저장 복원에 따른 같은 Run의 1일차 재시도다. 기존 Codex의 Day-04-Attempt-01 기억을 상속해 통찰을 골랐으며, 이번에 선호도를 새로 알아냈다고 간주하지 않는다. 준비 화면에는 에덴·빅토르와 LOB1이 이미 있었다. 빅토르→에덴→빅토르 통찰3회, 획득 상자6·8·8, 에너지0→6→14→15/15를 확인했다. 결과 S, 보상3, 생존2·사망0·승급0, 미션 '할 수 있어!' 완료, 결과 시간04:17. 정보창 탐색과 구매 없이 익숙한 작업을 이어갔다. 첫 통찰 클릭 직후 PNG에는 아직 직원 목록이 없었지만 추가 관찰에서 나타나 입력을 재전송하지 않았다. 다음날 장면 전환 때 frame_generation_mismatch 1회 후 재관찰로 정상 화면을 받았다. 상자 중앙 hover3회 모두 강조와 설명을 실제로 봤다. F-02-44: 저주는 되풀이만 될 뿐 절대 풀리지 않는다는 문구. F-04-83: 요정들의 보살핌 동안 모든 것이 평화로워진다는 문구. F-05-52: 어디선가 갈매기 울음소리가 들려온다는 문구. 마지막 문구에 관심이 가 F-05-52를 선택했고 DAY2 앤젤라 첫 대사 화면에서 멈췄다. 2일차 관리나 새 환상체 실제 행동은 경험하지 않았다. 이전 hover 실패의 원인은 이번 성공만으로 확정할 수 없다.
+
+    {"author": "Codex GPT-6", "evidence_ids": ["exp_09392de585de4880b27682ae70600749", "exp_2017ab21bf0e492d9e48c1e292c8573a", "exp_9c7d631259494253b4fa35192b5400e1", "exp_335b2639fefa4cb78f4bde6ce58397f9", "exp_c7b08de489db481186b236651ec13793", "exp_311d5dae4175451bb0233f86d2353794", "exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36", "exp_54cc44b74bcf4d6089efc4a2ca0243c2", "exp_5ef840a5622c4d8683d606783fd803c8"]}
+
+## 관심·취향·스토리 감상
+
+### 관심
+
+    F-05-52의 갈매기 울음소리 문구가 시설 안에서 바다를 연상시켜 궁금해졌다. 이것이 선택 이유이며 실제 소리를 듣거나 정체를 확인한 것은 아니다.
+
+    {"evidence_ids": ["exp_9b9b6b3a35fe4a7b98ed8dfece508d36", "exp_54cc44b74bcf4d6089efc4a2ca0243c2"], "remember": true}
+
+### 남은 인상
+
+    상자에 커서를 올릴 때 확대되고 짧은 문구가 드러나는 연출 덕분에 번호만 고르던 때보다 선택할 흥미가 생겼다. 익숙한 통찰 작업 뒤 새로운 선택에 시간을 쓰는 흐름이 괜찮았다.
+
+    {"evidence_ids": ["exp_311d5dae4175451bb0233f86d2353794", "exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "id": "mem_a58de61cb17a4870ab49cc1a95ef4438", "origin": "player_retrospective", "recorded_at": "2026-10-18T09:38:33.785976+00:00", "supersedes": null, "text": "이번 환상체 선택 화면에서는 보이는 상자 중앙을 hover_live_control로 가리켜 클릭 없이 세 후보의 설명과 강조를 확인했다. 이전 실패 원인을 특정하지 않으며 문구만으로 관리법·안전성을 확정하지 않는다."}
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_09392de585de4880b27682ae70600749", "exp_54cc44b74bcf4d6089efc4a2ca0243c2", "exp_5ef840a5622c4d8683d606783fd803c8"], "id": "mem_a5db3b579bd548469a65a117052f3565", "origin": "player_retrospective", "recorded_at": "2026-10-18T09:38:33.785976+00:00", "supersedes": "mem_26766f7ed5c047128310ccdb4f2534f8", "text": "운영자 복원 재시도 완료 후 F-05-52를 선택했고 DAY2 앤젤라 첫 대사 '공포에 직면하여 미래를 창조하라.'에서 중단했다. 다음 재개는 같은Run 본편day2이며 이번 선택이 현재 진행이다. 이전 F-02-44 선택은 복원 전 중단된 시도의 경험이다."}
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_9b9b6b3a35fe4a7b98ed8dfece508d36", "exp_54cc44b74bcf4d6089efc4a2ca0243c2"], "id": "mem_5b7928ed4e8f4b1abfbd8f7a907346f3", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-18T09:38:33.785976+00:00", "remember": true, "supersedes": null, "text": "F-05-52의 갈매기 울음소리 문구가 시설 안에서 바다를 연상시켜 궁금해졌다. 이것이 선택 이유이며 실제 소리를 듣거나 정체를 확인한 것은 아니다."}
+
+    {"attempt_id": "Run-001/Day-01-Attempt-04", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_311d5dae4175451bb0233f86d2353794", "exp_d22265ab66354318ad8225d3c9c6673a", "exp_468ce25bc352470ea56c5004d89bd7be", "exp_9b9b6b3a35fe4a7b98ed8dfece508d36"], "id": "mem_29528cc922a542bdb990f7a803f47e99", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-18T09:38:33.785976+00:00", "remember": true, "supersedes": null, "text": "상자에 커서를 올릴 때 확대되고 짧은 문구가 드러나는 연출 덕분에 번호만 고르던 때보다 선택할 흥미가 생겼다. 익숙한 통찰 작업 뒤 새로운 선택에 시간을 쓰는 흐름이 괜찮았다."}
