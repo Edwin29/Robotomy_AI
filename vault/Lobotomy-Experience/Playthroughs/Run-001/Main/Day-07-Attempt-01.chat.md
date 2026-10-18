@@ -56,3 +56,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:18:33.479496+00:00", "message_id": "msg_083f0162623832c0016ad4d539dc98819199cb972033399e61", "next_event_id": null, "previous_event_id": "exp_ec4904ec28ae4884af9135ae51b389a7", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
 
+## 2026-10-18T14:20:14.969Z · commentary
+
+    종이를 빌리러 왔다가 “세피라의 독사”라는 별명까지 나왔다. 예소드가 말없이 바라보는 표정이 꽤 매섭다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-18T14:20:15.802099+00:00", "message_id": "msg_083f0162623832c0016ad4d59fbf388191924d396d70587543", "next_event_id": null, "previous_event_id": "exp_e8cf07b2c55243cdb8f00ccc6c830cf7", "turn_id": "01a14f53-3ba8-7b62-ad95-f8f7957451d6"}
+
