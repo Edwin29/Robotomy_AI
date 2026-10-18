@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: e112640d08b1a67e5375ecd7718bf0a1fa00645838ac11f4af1aaefeddbc233f
+Version: c2092b6fad9e6794fc0b37cd45e3eb1eeca0deabc5b7ce712e7fa32cccaf9804
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -433,4 +433,40 @@ Version: e112640d08b1a67e5375ecd7718bf0a1fa00645838ac11f4af1aaefeddbc233f
     꿈을 먹어달라는 문구에는 호기심이 생겼지만, 잠든 직원이 깨어나지 않는다는 첫 관리법은 무거웠다. 에덴의 죽음을 그대로 받아들이려다가, 사용자 조언 뒤 굳이 손실을 확정할 필요가 없다고 생각을 바꿨다.
 
     {"attempt_id": "Run-001/Day-06-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_9e72f0213dbf42e58e05a6f17a4fa788"], "supersedes": null}
+
+## mem_44ae9ecc6410438592c7bb1eeb5399ed
+
+    공허한 꿈 T-02-99 기본정보를 직접 해금: TETH, BLACK1–3, 최대14, 좋음9–14 보통7–8 나쁨0–6. 선호도 애착I–V높음, 본능I–V보통, 억압I–V낮음을 읽었다. 통찰은 첫 시도에서I–V보통을 읽었지만 이번 도감에서는 잠김. 현재 관찰레벨1, 관리법1만 재개방, 고유PE2 남김. 관리법4를 바로 클릭했으나 이전 관리법 개방 필요 표시로 거절되었다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_2d4cdb4201d64f769c033c6f7d3119fa", "exp_b83e5009ebc84eb7ace3a49760bbd967", "exp_3a5d3e234aac4e67b7366e9e9d3d7737"], "supersedes": null}
+
+## mem_bbada25e3d144446aed0e2de15b7a35f
+
+    절제가 작업 성공률에 관여한다는 것은 이번 사용자 설명 출처이다. 웰치어스 통찰이 잘못된 작업이라서 사망했다고 결론내리지 않는다. 높은 표시도 나쁨을 배제하지 않는다. 낮은 절제와 확률적 불운 설명은 사용자 조언으로 보존하며 매뉴얼을 직접 읽었다고 쓰지 않는다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_36755b8b830049e3a476c3391da4788f"], "supersedes": null}
+
+## mem_f7b8eb9507df48f4a5883dc9471586e7
+
+    2배속으로 정보창을 읽는 사이 단계III/공허한 꿈 탈출과 페널티를 뒤늦게 관찰했다. 마지막 작업도 단계 진행 위험을 고려하고, 정보창 정독 전에 일시정지한다. 탈출 원인은 이번 관찰만으로 특정하지 않는다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_e588c6bf20fb41cf8fbd921080c6d656", "exp_b83e5009ebc84eb7ace3a49760bbd967"], "supersedes": null}
+
+## mem_fa684b5ba6ac4f27877cf1f974262cf2
+
+    테레지아 폭주 알림음 후 대응 직원 도착 전에 타이머가 끝났고 에너지54→49. 폭주 실패에 따른 감소로 추정하되 인과를 별도 실험하지 않았다. 아스터로이드 사용을 중단한 뒤 누적0:10 및 HP/SP가 온전한 직원 선택 화면을 확인했다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "hypothesis", "evidence_ids": ["exp_caa8b10b811742e2bdf014a432a40725", "exp_de6cdf03485844bba031aa89a73606e1", "exp_f835380b237741c68bd82597b85813d5"], "supersedes": null}
+
+## mem_2dabeff53f3a4d259330fc25167cbd11
+
+    에덴이 다시 살아서 돌아오고 전원 생존 결과를 보니 안심됐다. 한편 끝났다고 마음을 놓은 순간 탈출이 생겨 깔끔한 마무리는 아니었다. S등급과 내 체감의 아쉬움이 같이 남는다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_028a75cdb1b44dc989e0051a1d691aa1", "exp_e588c6bf20fb41cf8fbd921080c6d656"], "supersedes": null}
+
+## mem_5451e890ad44406eb3be7aa64c731fb5
+
+    공허한 꿈의 양 같은 얼굴에 여러 눈, 해와 달이 함께 있는 그림은 예쁘면서도 불편하게 느껴졌다. '내 꿈을 먹어주세요'라는 운영자 전달 문구와 어떤 관계인지 아직 궁금하다.
+
+    {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_2d4cdb4201d64f769c033c6f7d3119fa", "exp_12532385d82a42cc8a8742da0d45f849"], "supersedes": null}
 

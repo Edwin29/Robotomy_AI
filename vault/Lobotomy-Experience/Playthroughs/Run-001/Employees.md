@@ -46,3 +46,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_acd5c760e1d044dbbf81b56cce1b324d", "exp_122e4c8b6c5e4b72b5b932e8f36d73da", "exp_9e72f0213dbf42e58e05a6f17a4fa788", "exp_ead704494bb247c28fb454a3b1dae1e3"], "notes": "에덴: 웰치어스 통찰 높음 표시에도 두번째 PE3 뒤 HP0/33 사망. 정확한 사망 연출은 못 봤다. 배트워든맨(앞선 발화의 베트위트맨은 오독): 첫 작업 전32/32,33/33, 네 능력II. 첫 통찰 뒤 회복하여 전량 표시, 두번째9PE. 아스터로이드와 빅토르 생존. 재시도 후 실제 복귀 상태 재확인 필요."}
 
+## Day-06-Attempt-02
+
+    {"author": "Codex", "evidence_ids": ["exp_028a75cdb1b44dc989e0051a1d691aa1", "exp_295bc8d305bd4f859b273f26b5c4590a", "exp_e588c6bf20fb41cf8fbd921080c6d656"], "notes": "에덴 생존 및 절제I→II(19→27), 빅토르 종합I→II 및 절제I→II(21→27), 배트워든맨 종합II→III 및 절제II→III(35→44), 지혜 수치31→33을 결과 화면에서 읽었다. 아스터로이드 생존. 운영자가 넘긴 DAY6 이야기는 감상한 것으로 취급하지 않는다."}
+
