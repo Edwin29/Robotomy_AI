@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 8d56b5c68e2def1a1cdfbfa2098a13c078b0455bd26028da6d90326bf95a6fbd
+Version: 4aef5c3d291bf93ba4a6e0c3802e2c445651156545e2309008bd132f8d166961
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -751,4 +751,10 @@ Version: 8d56b5c68e2def1a1cdfbfa2098a13c078b0455bd26028da6d90326bf95a6fbd
     실패한날을단지되돌리는대신해금을위한조사에쓸수있었다. 브룩이왜죽었는지읽고나니막연히게임기오류로묶을수없었다.
 
     {"attempt_id": "Run-001/Day-09-Attempt-10", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_87764d9f639b426eb21682f31f532c0f"], "supersedes": null}
+
+## mem_1714eb699f56444e835610d3e49daa1e
+
+    전투에서 재개→새관찰→정지를 한 짧은 도구 묶음으로 보내 분석 사이 게임진행을 막는다. 다섯명집결만으로생존보장안되며 HP회복/후퇴를짧은간격에확인한다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-11", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_49b14ce259b6472fab1fbe29f625bcb9"], "supersedes": null}
 

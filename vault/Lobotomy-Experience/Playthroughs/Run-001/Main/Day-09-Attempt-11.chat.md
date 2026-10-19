@@ -32,3 +32,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:31:16.109389+00:00", "message_id": "msg_083f0162623832c0016ad637c190e881918489681b7aaa1c02", "next_event_id": null, "previous_event_id": "exp_5c70c3797a764bb79da445a84074ec83", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T15:32:46.785Z · commentary
+
+    다섯 명이 같은 복도에서 싸우는 건 확인했지만, 체력을 다시 보니 배트워든맨이 사망했어. 에덴도 32/54까지 내려갔고. 이번에도 교전 중 확인 간격이 길었어.
+    
+    호박빛에게는 RED 피해가 2.0으로 표시됐는데 지금 대부분 WHITE 무기야. 재도전 전에 요정 무기를 더 만들 수 있는지 보고, 전투는 짧게 진행한 뒤 멈춰 체력을 확인하는 식으로 바꿔 볼게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:32:47.181232+00:00", "message_id": "msg_083f0162623832c0016ad6381bf1c08191bc7fe316433e1603", "next_event_id": null, "previous_event_id": "exp_0dde90a487d941509d7fe65a0c229f09", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
