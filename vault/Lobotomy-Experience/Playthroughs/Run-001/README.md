@@ -27,7 +27,7 @@
 - [본편 Day 9 · 시도 2](Main/Day-09-Attempt-02.md) — completed
 - [본편 Day 9 · 시도 3](Main/Day-09-Attempt-03.md) — completed
 - [본편 Day 9 · 시도 4](Main/Day-09-Attempt-04.md) — completed
-- [본편 Day 9 · 시도 5](Main/Day-09-Attempt-05.md) — playing
+- [본편 Day 9 · 시도 5](Main/Day-09-Attempt-05.md) — completed
 
 ## 튜토리얼
 
