@@ -50,3 +50,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:04:36.762926+00:00", "message_id": "msg_083f0162623832c0016ad596d4f7948191ae4c73e97e208a35", "next_event_id": null, "previous_event_id": "exp_1eed51d2f6fc49908c9af1b110eb5168", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T04:09:41.415Z · commentary
+
+    브록은 고용했고 방어구도 만들었는데, 장착 화면에서 드래그가 먹지 않는다. 조작법을 잠깐 확인하고 가자. 신입을 기본 정장 그대로 보내긴 아깝네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:09:41.529971+00:00", "message_id": "msg_083f0162623832c0016ad59805f7148191ab7a2a217acda7e7", "next_event_id": null, "previous_event_id": "exp_5de3da0dcc37405293c597f65e5c71c3", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
