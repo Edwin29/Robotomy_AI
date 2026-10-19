@@ -86,3 +86,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:02:57.935271+00:00", "message_id": "msg_083f0162623832c0016ad631203be88191911795517fdd45e6", "next_event_id": null, "previous_event_id": "exp_3f5f15cb08474b609aad31669102d57f", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T15:04:45.990Z · commentary
+
+    추가 작업 중 브룩 사망을 확인해서 다시 멈췄어. 에너지도 140에서 125로 내려갔어. 사망 원인은 아직 확인하지 못했어.
+    
+    게임기 쪽에서 점검해 줄 만한 증상은 더 뚜렷해졌어. `current`로 T-09-09 직원 선택창을 받은 뒤 빅토르 행을 눌렀지만, 이후 계속 다른 복도에서 이동 중으로 나왔고 사용 진입은 확인되지 않았어. 화면도 입력 후 프레임을 요청했는데 앞선 메뉴 상태처럼 보이는 경우가 있었어. 원인을 단정하지 않고 이번 입력·화면 기록을 정리할게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:04:46.626732+00:00", "message_id": "msg_083f0162623832c0016ad6318ac9a0819193d2e398b3661b4d", "next_event_id": null, "previous_event_id": "exp_b3e0499b5ea44e77890fe51bba5eda39", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
