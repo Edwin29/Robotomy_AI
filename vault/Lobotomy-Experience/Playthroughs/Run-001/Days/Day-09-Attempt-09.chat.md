@@ -30,3 +30,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:52:10.425455+00:00", "message_id": "msg_083f0162623832c0016ad62e97a17081919a473d35ce164dc6", "next_event_id": null, "previous_event_id": "exp_fe924cbc6c034cdc925afdf6e9748a2c", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T14:53:12.345Z · commentary
+
+    이번 폭주는 초상화가 있는 O-09-91이네. 정지했고 49초가 남아 있어. 사용 효과는 아직 모르지만, 대기 중인 브룩으로 대응해 보자. 다음 예고는 이전과 다른 핏빛 여명이야.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:53:13.369610+00:00", "message_id": "msg_083f0162623832c0016ad62ed693e08191a48b9dfbefed5257", "next_event_id": null, "previous_event_id": "exp_885c59a7473b4132b807d0fd8dd17c0e", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
