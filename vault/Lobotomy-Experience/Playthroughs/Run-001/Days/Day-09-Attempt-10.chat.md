@@ -10,3 +10,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:07:43.345512+00:00", "message_id": "msg_083f0162623832c0016ad6323c13188191928017a80dc1964c", "next_event_id": null, "previous_event_id": "exp_5cf1b40e292447928201105ac5a5f024", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T15:09:55.152Z · commentary
+
+    사용 3회에서 열린 설명은 꽤 위험하네. 초상화에 새겨진 직원이 받을 피해를 시설의 다른 직원이 대신 받고, 그 피해도 더 강해진대. 초상화 속 직원의 최대 체력을 넘는 피해에는 적용되지 않는다고 적혀 있어.
+    
+    아스터로이드가 세 번째로 사용한 뒤 배트워든맨도 사망했어. 교체와 사망의 관계는 아직 잠긴 설명을 더 읽어야 알겠어. 우선 같은 직원의 재사용이 가능한지 확인하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:09:56.132687+00:00", "message_id": "msg_083f0162623832c0016ad632c041ac8191a35a9fdd9983a953", "next_event_id": null, "previous_event_id": "exp_1b8654b0d122473383b79659bde2f93b", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
