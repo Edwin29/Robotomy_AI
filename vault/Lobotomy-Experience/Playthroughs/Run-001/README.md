@@ -24,7 +24,9 @@
 - [본편 Day 8 · 시도 6](Main/Day-08-Attempt-06.md) — interrupted
 - [본편 Day 8 · 시도 7](Main/Day-08-Attempt-07.md) — completed
 - [본편 Day 9 · 시도 1](Main/Day-09-Attempt-01.md) — interrupted
-- [본편 Day 9 · 시도 2](Main/Day-09-Attempt-02.md) — playing
+- [본편 Day 9 · 시도 2](Main/Day-09-Attempt-02.md) — completed
+- [본편 Day 9 · 시도 3](Main/Day-09-Attempt-03.md) — completed
+- [본편 Day 9 · 시도 4](Main/Day-09-Attempt-04.md) — completed
 
 ## 튜토리얼
 

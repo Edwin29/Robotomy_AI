@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 8410692fd27f7c70eea11ff57f9f26fe9dd9117ba63cd1e0871c671bc4c256d7
+Version: 26435498428f05f2f9347cf308be53f540735d70ee99baa2b6a69bc8e4279561
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -655,4 +655,40 @@ Version: 8410692fd27f7c70eea11ff57f9f26fe9dd9117ba63cd1e0871c671bc4c256d7
     O-09-91의 ‘초상화는 한 때의 찰나를 담아낸다. 우리가 잃을 수밖에 없는 것.’이라는 선택 문구가 마음에 남아 골랐다. 안전성이나 효과를 알아서 고른 것은 아니다.
 
     {"attempt_id": "Run-001/Day-09-Attempt-01", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_310ee8db22dc4087abda5c55bb5e433b", "exp_d39e5a063e3541768fcbb74848463936"], "supersedes": null}
+
+## mem_d1102d7015e1418ba1d00e675e3db67a
+
+    9일차 이야기에서 받은 새 미션은 애착 작업 6회 완료다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-02", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_0f45f917e20f4201ba47b4a759601665"], "supersedes": null}
+
+## mem_2404f5ee9dbe47acabc054ae4265dce2
+
+    앤젤라가 과학적 근거 없는 놀이를 설명하다 자신이 인간이라면 어떤 성격일지 상상하는 대목이 눈에 남았다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_cfb3b79485aa44e58aa0908b59dddeb9", "exp_463a31a0546f4f88971907c8455c4b78"], "supersedes": null}
+
+## mem_7bdb0bec06cb4877bf05b0ca1eae0001
+
+    예소드의 엄격함과 제임스에게 이번만 예외를 허락하는 모습이 함께 보였다. 이후 사건은 아직 모르며, 회상을 비극의 확정 근거로 삼지 않는다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_f677b143e6da4661b94573ac97e0aac4", "exp_c706a9a9410449fca86871c6de0f1a6f"], "supersedes": null}
+
+## mem_1f6a382f15034065bd5b146f3ba27c8d
+
+    멀쩡한 몸이 오히려 낯설다는 예소드의 말이 인상적이다. 예소드도 AI라는 점은 말쿠트와 앤젤라의 언급을 근거로 한 사용자 보충 출처로 받았다. AI 설정과 신체 감각의 환각이 함께 있다는 점이 묘하다. 실제 몸의 부패나 환각 원인은 미확인.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-02", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_889128b8b258492e83bb712989c276ec", "exp_f986e7030efc4ba5ac434e33a9eddc44", "exp_040bc523d0bc4c439ad3b0b96ebfc2f6"], "supersedes": null}
+
+## mem_2b17c3f8fbb0456b90320e7706bf3d22 · 수정됨
+
+    현재 재개 지점은 정보팀 확장 확인 후 DAY9 대기화면의 정보팀 연구 선택창이다. G.O 시각화와 환상체 대응 매뉴얼 중 아직 아무것도 고르지 않았고 관리도 시작하지 않았다. LOB9 표시.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-03", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_95bfec675c004f329adbdd24538737de"], "supersedes": null}
+
+## mem_9d233fe14ae3441e8b51608b46992252
+
+    DAY9 대기화면에서 정보팀 연구 G.O 시각화(체력 UI 출력)를 선택·확인했다. 현재 연구창은 닫혔고 관리시작 전이다. 연구의 운영 중 표시 효과는 아직 미관찰.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-04", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_89e3e76daaa44e41b6b642f3c4b60454", "exp_73db507d49ca4e1fab80bae5d3275eed"], "supersedes": "mem_2b17c3f8fbb0456b90320e7706bf3d22"}
 

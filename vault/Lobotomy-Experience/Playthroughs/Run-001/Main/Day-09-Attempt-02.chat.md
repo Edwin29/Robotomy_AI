@@ -32,3 +32,23 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:33:29.361955+00:00", "message_id": "msg_083f0162623832c0016ad61c287e348191949489021c246d15", "next_event_id": null, "previous_event_id": "exp_25d8fae50ffd43eebfbe2544d7b50689", "turn_id": "01a1544b-9a5b-7890-8f0a-c5a2c2e7f975"}
 
+## 2026-10-19T13:44:14.966Z · commentary
+
+    服装の厳しさ—oops Korean avoid.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:52:27.158769+00:00", "message_id": "msg_083f0162623832c0016ad61eafd9e08191966b2fb567f356b0", "next_event_id": "exp_2b17037ead0d454dbaba8caab9d60170", "previous_event_id": "exp_f986e7030efc4ba5ac434e33a9eddc44", "turn_id": "01a1544b-9a5b-7890-8f0a-c5a2c2e7f975"}
+
+## 2026-10-19T13:44:17.432Z · commentary
+
+    복장을 엄격히 챙기던 모습이, 몸이 썩어 보인다는 환각 이야기와 이어지니 무겁게 느껴진다. 방금 일본어가 섞인 문장은 잘못 나갔어. 예소드의 실제 몸 상태는 아직 알 수 없고, 지금은 그가 겪는 감각을 듣고 있어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:52:27.158769+00:00", "message_id": "msg_083f0162623832c0016ad61eb0e9b88191adf27037d863e938", "next_event_id": "exp_2b17037ead0d454dbaba8caab9d60170", "previous_event_id": "exp_f986e7030efc4ba5ac434e33a9eddc44", "turn_id": "01a1544b-9a5b-7890-8f0a-c5a2c2e7f975"}
+
+## 2026-10-19T13:47:26.690Z · commentary
+
+    그러네. 그 언급대로라면 예소드도 AI인데, 자기 몸이 썩어 보이고 멀쩡한 모습마저 낯설다고 말하는 거네. 환각이 생기는 원리는 아직 모르지만, AI라는 설정과 저런 신체 감각이 함께 있다는 게 묘하다.
+    
+    스토리는 부서 확장 화면까지 끝났어. 새 미션은 애착 작업 6회고, 여기서 멈춰 둘게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:52:27.159767+00:00", "message_id": "msg_083f0162623832c0016ad61f6da04c8191867f1b065e919440", "next_event_id": "exp_040bc523d0bc4c439ad3b0b96ebfc2f6", "previous_event_id": "exp_32b3b8c57a364ce684d921113ee9d20d", "turn_id": "01a1544b-9a5b-7890-8f0a-c5a2c2e7f975"}
+
