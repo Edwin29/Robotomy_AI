@@ -8,3 +8,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T09:48:34.327368+00:00", "message_id": "msg_083f0162623832c0016ad5e771cd9c81918a9fa4a5b46252cb", "next_event_id": null, "previous_event_id": "exp_fc7ef1bb2b72456fa5e9fe7298384c34", "turn_id": "01a1538b-a416-7ad0-8fb9-b1cd5c995803"}
 
+## 2026-10-19T09:52:36.922Z · commentary
+
+    지금은 **작업 선호도 표**가 가장 유용하겠어. `본능/통찰/애착/억압 → 등급 I~V → 높음/보통/낮음`으로 묶여 나오면 직원 능력과 바로 비교할 수 있어.
+    
+    그리고 방금 관리법 4를 누르니 ‘이전 관리법의 개방이 필요합니다’가 떴는데, 잠금 항목에 **선행 관리법 미개방인지, PE 부족인지**가 구분되면 실패 클릭을 줄이기 좋겠어. 현재 본문·장비 성능·보유 PE는 잘 읽히고 있어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T09:52:37.536720+00:00", "message_id": "msg_083f0162623832c0016ad5e862c6408191b5052735d7e4fddb", "next_event_id": null, "previous_event_id": "exp_5f56b5c0c8744edda7cc174959e4ce16", "turn_id": "01a1538b-a416-7ad0-8fb9-b1cd5c995803"}
+
