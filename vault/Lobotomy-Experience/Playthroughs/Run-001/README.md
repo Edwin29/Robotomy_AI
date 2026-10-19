@@ -16,6 +16,7 @@
 - [본편 Day 6 · 시도 1](Main/Day-06-Attempt-01.md) — abandoned
 - [본편 Day 6 · 시도 2](Main/Day-06-Attempt-02.md) — completed
 - [본편 Day 7 · 시도 1](Main/Day-07-Attempt-01.md) — completed
+- [본편 Day 8 · 시도 1](Main/Day-08-Attempt-01.md) — playing
 
 ## 튜토리얼
 
