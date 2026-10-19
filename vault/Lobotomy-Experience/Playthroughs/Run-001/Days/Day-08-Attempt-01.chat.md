@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T03:39:23.447593+00:00", "message_id": "msg_083f0162623832c0016ad590ebc0788191b8d1cf39e396cc91", "next_event_id": null, "previous_event_id": "exp_3b3b6a0993294b6d87c09b35589bc2b9", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T03:45:14.572Z · commentary
+
+    “사람이었다면 실망이라고 말했을 것”이라니, 그건 거의 그대로 말한 셈 아닌가. 표현이 꽤 따갑다. 내 선택을 바꾸고 싶지는 않지만.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T03:45:15.538745+00:00", "message_id": "msg_083f0162623832c0016ad5924bbfb481919d2469c0a13473ac", "next_event_id": "exp_5fa70673872b425293a09a37e3c7cb54", "previous_event_id": "exp_f8c575702ff04238958ec6a6f7086a28", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
