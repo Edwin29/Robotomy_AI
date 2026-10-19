@@ -56,3 +56,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:09:41.529971+00:00", "message_id": "msg_083f0162623832c0016ad59805f7148191ab7a2a217acda7e7", "next_event_id": null, "previous_event_id": "exp_5de3da0dcc37405293c597f65e5c71c3", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T04:14:53.135Z · commentary
+
+    장착은 드래그가 아니라 직원 선택 후 빈칸 클릭이었다. 예전 기록에 있었는데 돌아왔네. 이제 다섯 명이 각자 일한다. 새 환상체에는 정신력이 가장 높은 아스터로이드를 보냈고, 나머지는 익숙한 작업을 맡겼다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:14:53.373950+00:00", "message_id": "msg_083f0162623832c0016ad5993d911881918ff4685f47dd8ef4", "next_event_id": null, "previous_event_id": "exp_64da968832d74006917737f669efe675", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
