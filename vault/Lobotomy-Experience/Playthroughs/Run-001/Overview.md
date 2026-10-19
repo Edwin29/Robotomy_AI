@@ -29,4 +29,5 @@
 - [Day-09-Attempt-04](Days/Day-09-Attempt-04.md): completed
 - [Day-09-Attempt-05](Days/Day-09-Attempt-05.md): completed
 - [Day-09-Attempt-06](Days/Day-09-Attempt-06.md): failed
-- [Day-09-Attempt-07](Days/Day-09-Attempt-07.md): playing
+- [Day-09-Attempt-07](Days/Day-09-Attempt-07.md): failed
+- [Day-09-Attempt-08](Days/Day-09-Attempt-08.md): playing

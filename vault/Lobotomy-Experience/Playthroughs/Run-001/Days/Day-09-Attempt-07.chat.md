@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:31:48.695632+00:00", "message_id": "msg_083f0162623832c0016ad629d27ae081918221d68be2ac9b90", "next_event_id": null, "previous_event_id": "exp_77428f6f410145fcba338095a7fa0b27", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
 
+## 2026-10-19T14:32:45.228Z · commentary
+
+    빅토르가 합류 전에 혼자 싸운 시간이 길어져 이번에도 사망했어. 체력 강화만으로 해결되지 않았네. 다시 준비부터 잡고, 다음에는 시련이 뜨기 전에 다섯 명의 집결을 실제 위치로 확인하겠어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:32:46.090943+00:00", "message_id": "msg_083f0162623832c0016ad62a0b657081919d246948073fe916", "next_event_id": null, "previous_event_id": "exp_97c267824a924c1886940a070daf9d97", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
+
