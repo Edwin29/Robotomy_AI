@@ -184,3 +184,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T03:03:41.092282+00:00", "message_id": "msg_083f0162623832c0016ad5888c66d881918d583c706fb60d37", "next_event_id": null, "previous_event_id": "exp_8459cc80b19b4b46ae7c932773a4137d", "turn_id": "01a15210-e356-7c52-8804-1f0e0ecb1713"}
 
+## 2026-10-19T03:07:04.909Z · commentary
+
+    지금은 배트워든맨이 다시 작업 가능한 상태로 보인다. 다만 체력이 **1/32**다. 아스터로이드는 **33/35, 정신력 41/41**이고, 탈출 페널티도 사라졌다. 배트워든맨을 로비로 옮겨 회복부터 시키자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T03:07:04.975266+00:00", "message_id": "msg_083f0162623832c0016ad58958e870819190b985acd12ed4da", "next_event_id": null, "previous_event_id": "exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "turn_id": "01a15210-e356-7c52-8804-1f0e0ecb1713"}
+
