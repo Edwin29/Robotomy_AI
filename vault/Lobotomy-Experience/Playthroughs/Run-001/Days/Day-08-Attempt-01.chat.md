@@ -80,3 +80,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:30:07.558002+00:00", "message_id": "msg_083f0162623832c0016ad59ccf6e5481919997c06caaa43ef6", "next_event_id": null, "previous_event_id": "exp_583e990b51ec43d88b11814ebe22cd3e", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T04:34:30.639Z · commentary
+
+    브룩 사망 알림이 떴다. 여명이 나온 뒤 정보팀 복도가 피투성이가 됐고, 내가 멈추기 전에 일이 벌어졌다. 정확히 무엇에 죽었는지는 아직 확인하지 못했다. 이번 시도는 손실을 기록하고 재도전하겠다. 다음에는 여명 직전에 직원들을 모아 두자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:34:31.451622+00:00", "message_id": "msg_083f0162623832c0016ad59dd683e08191837b62e0f74bbcd4", "next_event_id": null, "previous_event_id": "exp_a3fa5719979643f1aab284e8973e384f", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
