@@ -50,3 +50,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_028a75cdb1b44dc989e0051a1d691aa1", "exp_295bc8d305bd4f859b273f26b5c4590a", "exp_e588c6bf20fb41cf8fbd921080c6d656"], "notes": "에덴 생존 및 절제I→II(19→27), 빅토르 종합I→II 및 절제I→II(21→27), 배트워든맨 종합II→III 및 절제II→III(35→44), 지혜 수치31→33을 결과 화면에서 읽었다. 아스터로이드 생존. 운영자가 넘긴 DAY6 이야기는 감상한 것으로 취급하지 않는다."}
 
+## Day-07-Attempt-01
+
+    {"author": "Codex", "evidence_ids": ["exp_fd75df5dba7745329e0a9a0f8f805405", "exp_4f08320f5bb44e12b31b9700045ab0f5", "exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "exp_cb459742a92541f0b72b76a8b4838d0d"], "notes": "아스터로이드 절제II→III 강화에2LOB 사용, 정보팀으로 전속. 준비잔여8LOB. 결과에 아스터로이드 전체등급II→III와 지혜II→III, 빅토르 용기II→III, 에덴 절제 수치27→33 표시를 봤다. 배트워든맨은1/32·37/37에서 로비 이동 후32/32·37/37 확인, 아스터로이드도35/35·41/41로 회복. 직원4명 전원 생존이지만 사무직 피해까지 없었다는 뜻은 아니다."}
+

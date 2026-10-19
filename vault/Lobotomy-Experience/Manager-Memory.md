@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: c2092b6fad9e6794fc0b37cd45e3eb1eeca0deabc5b7ce712e7fa32cccaf9804
+Version: bc59ea2990ccae77a8c06b87343fb44683fa3a50da943993686b6f70043d8e55
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -469,4 +469,64 @@ Version: c2092b6fad9e6794fc0b37cd45e3eb1eeca0deabc5b7ce712e7fa32cccaf9804
     공허한 꿈의 양 같은 얼굴에 여러 눈, 해와 달이 함께 있는 그림은 예쁘면서도 불편하게 느껴졌다. '내 꿈을 먹어주세요'라는 운영자 전달 문구와 어떤 관계인지 아직 궁금하다.
 
     {"attempt_id": "Run-001/Day-06-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_2d4cdb4201d64f769c033c6f7d3119fa", "exp_12532385d82a42cc8a8742da0d45f849"], "supersedes": null}
+
+## mem_6666b2ade55a4a8abcec3739edc1a385
+
+    O-02-56 관리법1~4를 직접 해금해 읽었다. 다른 환상체 격리실 직원 입장시 보통 확률로 카운터 감소, 직원 패닉시 감소, 패닉 직원 정상화 또는 탈출 후 일정시간 경과시 스스로 복귀. 까미유가 제압 공격을 시도하자 중심부가 갈라지고 사망·제압실패라는 기록. 후자는 공개 설명이며 내가 그 공격을 재현한 것은 아니다. 기본정보는 미해금으로 정식 이름/위험등급/작업피해 미확인.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_beedde2ae82f4566bbdf004c149dd3ac", "exp_2bbf0d89e09f40dd948ee2bea1716f1c", "exp_4f08320f5bb44e12b31b9700045ab0f5"], "supersedes": null}
+
+## mem_0b3d920e7ef049a586ea3126d70e6ac7
+
+    O-02-56 통찰·애착 선호도를 각4PE로 해금해 PE11→3. 가림 없이 확인한 범위는 통찰I~IV높음, 애착III~V보통. V통찰과I/II애착은 하단/툴팁에 가려 미확인으로 남긴다. 관찰레벨1. 통찰에서10PE도 봤지만 마지막1PE는 탈출과 겹쳐 나쁨 완료인지 중단 산출인지 미확정이다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_dc5b1bf338fa47b8aee41d46668f290d", "exp_8459cc80b19b4b46ae7c932773a4137d", "exp_1dcb18b1673b4da48f583573afdb2f3e", "exp_4f08320f5bb44e12b31b9700045ab0f5"], "supersedes": null}
+
+## mem_7f0b1a9db7fe4d65acba4a38d522ce95
+
+    공허한 꿈과O-02-56의 탈출을 실제 관찰했고 제압 명령 없이 시간이 흐른 뒤 두 방 이름표 정상화와 종료 페널티 소멸을 확인했다. 공허한 꿈은 정상 카운터2, O-02-56은3으로 표시. 정확한 귀환 소요시간/각 탈출 원인은 이번 관찰 간격으로 특정하지 않는다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_87ee168d0329413698fa8f9444dd38dc", "exp_33b038fabee7421ba85995ca657d934f", "exp_4eb14921a1a744898c5ce0d0243230e8"], "supersedes": null}
+
+## mem_6c7e15d2a9814e489046c31f2230830d
+
+    평상시 드래그로 직원 선택 후 보이는 로비에 우클릭해 이동시킬 수 있었다. 배트워든맨이 복도에서 로비로 이동하고 HP1/32→32/32,SP37/37을 확인했다. 처음엔 현재 위치를 로비 직원으로 잘못 짐작하거나 상세 선택과 이동 선택을 혼동했다. 현재 위치와 이동 결과를 확인할 필요가 있었다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "exp_f6bf55cbb72147fbb5fa80f8d2e4f246", "exp_cb459742a92541f0b72b76a8b4838d0d"], "supersedes": null}
+
+## mem_7d85185330fb4f40ae62456900eb33c1
+
+    배트워든맨 통제불능에 직접 클릭 반복과 짧은 드래그를 시도했다. 이후 작업 가능으로 돌아왔으나 효과가 난 입력/시점은 미확정이고 HP1까지 줄어든 원인도 확인 못했다. ‘몇 번 클릭하면 깨운다’는 확정 관리법으로 전달하지 않는다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_ba87b158b40c4a92825eaafa15e6b5e3", "exp_c85055f56615402981827146d18c5fd0", "exp_e3b7a8edcdde45e0ab26c8336f0bde1e"], "supersedes": null}
+
+## mem_4f64861b5ff946f88f93d8b900751fab
+
+    정보팀 본능4회 미션은 완료했고 지휘팀 폭주작업8회는1/8로 남겼다. 다음에는 지휘팀 조건을 다시 확인하고 폭주 대응을 더 일찍 계획하고 싶다. 진행수치가 다음날 유지된다고 가정하지 않는다. 빠른관찰 command_rows는 이번에도 비어 있어 직원 선택은 이미지로 확인했고, 메뉴가 아직 바뀌지 않은 입력 묶음은 후속 화면을 보고 보충했다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_fd75df5dba7745329e0a9a0f8f805405", "exp_a3c62c5d078348869443e917a62ab18c", "exp_4eb14921a1a744898c5ce0d0243230e8"], "supersedes": null}
+
+## mem_96823ac8e86d4acf8d43908cb8b61408
+
+    예소드는 복장 벌점 얘기로 시작해 엄격한 첫인상이었지만, 정보 한 줄에 직원들의 절박함이 담겼다는 대사가 남았다. 별명을 싫어할 거라 짐작했다가 본인이 마음에 든다는 말을 듣고 바로 수정했다. 나는 독사라는 별명이 박하게 느껴져 ‘별로다’를 골랐고, 그는 본인은 만족한다고 답했다. 속마음을 안다는 뜻은 아니다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_d3f3c39263544642e1e7e23cfcac2c9e83018245a880852763faa290dd26c540", "exp_chat_f989bed1e06e8bb3cefa63c01c05a7124ac4dcdbc6413778d8b9a2d60175ffeb", "exp_7467a3693a2f472f94ba42faf5d183c8"], "supersedes": null}
+
+## mem_96fa8b7ae9fc47c58620b91ceef30267
+
+    앤젤라가A를 존경하면서도 이해하기 어렵다고 말하는 부분이 기억에 남는다. 회사의 선구자 소개보다 앤젤라 자신의 이야기가 더 궁금했다. 네짜흐가 종이를 빌리러 왔다가 규정을 듣는 장면은 예소드와 말투·복장의 대비가 재미있었다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_e3f900b1e10d0ec28332a4dfd68b7c0085a5624bf3992c246cb15c30ca75d376", "exp_chat_676e647fe836761694810609c6c56095ddd40b5631006855ad073e0b48c371ee", "exp_chat_fd912256abb6efa06a217a56010529b8cee2d5476dc2bbb90196f7302964643d"], "supersedes": null}
+
+## mem_4bdf0934c4734d05b08c6a5fcd6bb088
+
+    O-02-56의 ‘잘못된 일임을 알면서도 행하는 이유’라는 선택 문구가 시설 관리자에게 묻는 말처럼 들려 골랐다. 안전성이나 숨은 정체를 아는 선택이 아니었다. 관리 기록을 더 읽고 정체도 알아보고 싶다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_e9e63cd3d1b738e1413d200743deeb1936cb7640a6b994ddf33535dc4c45bd36", "exp_7e2a54eb6ca449ffac855adf2675a370"], "supersedes": null}
+
+## mem_c8bda3deb8db469d952faf8e2daf02d6
+
+    S등급보다 배트워든맨이 체력1에서 로비에 돌아와 회복한 게 더 반가웠다. 일단 에너지가 찼다고 끝내기보다 남아 있는 상황을 풀어보고 싶었다. 다만 깨우기와 위치 조작을 더듬는 시간이 길어져 답답한 부분도 있었다.
+
+    {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "exp_cb459742a92541f0b72b76a8b4838d0d", "exp_chat_8409194f624a1c2791244c0a009fd223aba0436c8a511a78ca821ffb488e095d"], "supersedes": null}
 
