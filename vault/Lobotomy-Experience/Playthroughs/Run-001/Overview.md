@@ -23,4 +23,4 @@
 - [Day-08-Attempt-05](Days/Day-08-Attempt-05.md): failed
 - [Day-08-Attempt-06](Days/Day-08-Attempt-06.md): interrupted
 - [Day-08-Attempt-07](Days/Day-08-Attempt-07.md): completed
-- [Day-09-Attempt-01](Days/Day-09-Attempt-01.md): playing
+- [Day-09-Attempt-01](Days/Day-09-Attempt-01.md): interrupted
