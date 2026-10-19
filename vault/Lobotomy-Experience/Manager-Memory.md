@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 42388d7ec3b7909a2773f27b658f501a953836b9f681ef548cb1d2f05a4832e4
+Version: 8410692fd27f7c70eea11ff57f9f26fe9dd9117ba63cd1e0871c671bc4c256d7
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -643,4 +643,16 @@ Version: 42388d7ec3b7909a2773f27b658f501a953836b9f681ef548cb1d2f05a4832e4
     이번에는 다섯 명을 지키고 S로 끝냈다. 무기를 준비하고 모여 싸운 장면이 앞선 재도전들과 달라 반가웠다. 메뉴를 더듬는 시간은 아직 답답하지만 전투가 손에 잡히기 시작했다.
 
     {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_7a79ba5693454833b55e9d5a6a6e9ddf", "exp_36ced9e365da48a69fd4f58a7c410103"], "supersedes": null}
+
+## mem_7a8e1ed502d842afa5fd566410c78697
+
+    사용자 지정 하루 종료조건: 결과 화면에서 멈추지 말고 ‘다음날로 넘어가기’ 확인 및 환상체 선택이 있으면 선택까지 마친 뒤 다음날 첫 화면에서 멈춘다. 다음날 버튼이 저장에 필요하다는 사용자 설명에 따른다. 현재 재개 지점 DAY9 앤젤라 첫 대사, O-09-91 선택 완료.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-01", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_0b82f4708b1841efa9f57ce14b247b12", "exp_bb9378a8cb5449769574fa5329ad3b9a"], "supersedes": null}
+
+## mem_c064a87d14bb4328b383267f632ee395
+
+    O-09-91의 ‘초상화는 한 때의 찰나를 담아낸다. 우리가 잃을 수밖에 없는 것.’이라는 선택 문구가 마음에 남아 골랐다. 안전성이나 효과를 알아서 고른 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-01", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_310ee8db22dc4087abda5c55bb5e433b", "exp_d39e5a063e3541768fcbb74848463936"], "supersedes": null}
 
