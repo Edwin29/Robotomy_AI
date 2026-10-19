@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:19:54.241929+00:00", "message_id": "msg_083f0162623832c0016ad6351804c88191939f2d63dea283ce", "next_event_id": null, "previous_event_id": "exp_7664a29a628e4fb4be55ab21c1f08c8b", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T15:25:03.910Z · commentary
+
+    브룩은 초상화 바로 앞에서 대기하다 폭주 대응에 들어갔어. 이번 예고는 호박빛이라, 여명 직전에는 새 작업을 더 얹지 않고 다섯 명을 모아야겠어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:25:04.298244+00:00", "message_id": "msg_083f0162623832c0016ad6364e82bc81919264ab5e66c81b1f", "next_event_id": null, "previous_event_id": "exp_535af1e4b7864a36840f83c70748e377", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
