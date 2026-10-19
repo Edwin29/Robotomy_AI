@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 8fdf6921d4e4573570492ac9eee2841cb1df45d0f4b11782e31287313a793b4a
+Version: f57f93ed1d0e3f350dbf2cbfd2d8ea026a8c0d2004b88a6eb407b3c5285ce375
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -721,4 +721,22 @@ Version: 8fdf6921d4e4573570492ac9eee2841cb1df45d0f4b11782e31287313a793b4a
     호박색 여명 완전 식품은 RED공격, RED2 WHITE1 BLACK1 PALE2를 선택 화면에서 관찰. 여러 적과 같은 복도에서 세 명만 전투시키며 관찰이 늦어 배트워든맨 사망·A HP3. 재도전에서는 다섯명 집결 후 싸우며 HP를 더 자주 확인한다.
 
     {"attempt_id": "Run-001/Day-09-Attempt-06", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_12458595e4654f7b8b19c6d45d51c333", "exp_2b382c168ccb4dc792dfe48979301ba4"], "supersedes": null}
+
+## mem_42904ce94be6420d901506553edf2e2e
+
+    사용자 조언: 핏빛 여명은 격리실에 붙어 카운터를 낮추고 순간이동하므로 복도 분산배치를 권장. 호박빛의 집결전술과 구분한다. 이번 화면에서도 꿈과 새 카운터 감소를 보았지만 개별 인과와 시련 전멸은 확정하지 않았다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-09", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_b16afd66822d4d759380c025105eb397"], "supersedes": null}
+
+## mem_157ad441e1e2448db9b391027eadcaba
+
+    사용자 회상에 따른 T-09-09 장시간사용 패닉 위험과 진입직후중지 방침. 이번에는 진입을 확인못했으므로 중지성공경험으로 기록하지 않는다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-09", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_15298dd279d54501b4a6c6126bc3e0a8", "exp_f10989f6ee3a42599428d5a9a2245d2e"], "supersedes": null}
+
+## mem_210ad558156d45c08a141e3e0e7928e6
+
+    직원들을 살리고 에너지를 채웠을 때는 이번에 넘어갈 수 있겠다고 느꼈지만 추가작업 중 다시 사망을 봤다. 낯선 도구 사용과 명령 확인이 아직 불안하다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-09", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_f10989f6ee3a42599428d5a9a2245d2e"], "supersedes": null}
 
