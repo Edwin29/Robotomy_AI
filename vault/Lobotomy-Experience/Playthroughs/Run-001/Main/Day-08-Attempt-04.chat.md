@@ -48,3 +48,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T10:04:29.024729+00:00", "message_id": "msg_083f0162623832c0016ad5eb2d03108191944a488ea8b30270", "next_event_id": null, "previous_event_id": "exp_3ad9501da8ce4caaa6729d322c1a11bf", "turn_id": "01a1539e-29f3-72e1-a4cd-f29f16bcf015"}
 
+## 2026-10-19T10:10:24.598Z · commentary
+
+    선호도 표도 묶여 나온다. 꿈은 애착이 전 등급 높음이고, 절제 II 미만 직원은 작업 뒤 영구적으로 잠든다는 관리법도 다시 확인했다. 이 조건은 메모장에 남겨 두고 배정 때 바로 참고하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T10:10:24.630001+00:00", "message_id": "msg_083f0162623832c0016ad5ec9062908191bf27283715003875", "next_event_id": null, "previous_event_id": "exp_ba6e1feb99e64d839af46cfed7ee52ec", "turn_id": "01a1539e-29f3-72e1-a4cd-f29f16bcf015"}
+
