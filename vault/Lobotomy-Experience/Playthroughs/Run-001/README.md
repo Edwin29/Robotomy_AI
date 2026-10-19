@@ -21,7 +21,7 @@
 - [본편 Day 8 · 시도 3](Main/Day-08-Attempt-03.md) — interrupted
 - [본편 Day 8 · 시도 4](Main/Day-08-Attempt-04.md) — interrupted
 - [본편 Day 8 · 시도 5](Main/Day-08-Attempt-05.md) — failed
-- [본편 Day 8 · 시도 6](Main/Day-08-Attempt-06.md) — playing
+- [본편 Day 8 · 시도 6](Main/Day-08-Attempt-06.md) — interrupted
 
 ## 튜토리얼
 
