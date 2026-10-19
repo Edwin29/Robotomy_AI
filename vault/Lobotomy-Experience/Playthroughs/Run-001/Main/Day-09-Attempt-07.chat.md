@@ -8,3 +8,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:25:52.124854+00:00", "message_id": "msg_083f0162623832c0016ad6286f5cec8191ba3675c726cc601d", "next_event_id": null, "previous_event_id": "exp_3611664c81e34ec48d8fa99b4fed77e6", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
 
+## 2026-10-19T14:31:48.586Z · commentary
+
+    재도전의 예고는 녹빛 여명으로 바뀌었어. 왼쪽에서 빅토르가 이미 싸우고 있어서 나머지를 그쪽에 합류시키는 중이야. 애착 미션도 다시 5/6까지 왔고, 전투부터 정리한 뒤 이어가면 되겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:31:48.695632+00:00", "message_id": "msg_083f0162623832c0016ad629d27ae081918221d68be2ac9b90", "next_event_id": null, "previous_event_id": "exp_77428f6f410145fcba338095a7fa0b27", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
+
