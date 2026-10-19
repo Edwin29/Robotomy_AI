@@ -190,3 +190,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T03:07:04.975266+00:00", "message_id": "msg_083f0162623832c0016ad58958e870819190b985acd12ed4da", "next_event_id": null, "previous_event_id": "exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "turn_id": "01a15210-e356-7c52-8804-1f0e0ecb1713"}
 
+## 2026-10-19T03:09:31.257Z · commentary
+
+    배트워든맨도 **32/32, 정신력 37/37**로 회복했다. 평상시 이동을 실제로 써보니 복도와 로비를 오가는 용도가 확실히 있네. 오늘은 여기서 업무를 끝내자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T03:09:31.680742+00:00", "message_id": "msg_083f0162623832c0016ad589ea88dc81919cc0a997ee575175", "next_event_id": null, "previous_event_id": "exp_cb459742a92541f0b72b76a8b4838d0d", "turn_id": "01a15210-e356-7c52-8804-1f0e0ecb1713"}
+
