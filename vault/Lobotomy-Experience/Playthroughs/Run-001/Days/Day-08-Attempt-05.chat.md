@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:11:00.212859+00:00", "message_id": "msg_083f0162623832c0016ad5fac3d4b0819194e3945e4f3d21e8", "next_event_id": null, "previous_event_id": "exp_9f2623fcc6ae4138aa1876de05b363e7", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
 
+## 2026-10-19T11:13:45.822Z · commentary
+
+    브룩의 대머리 환상체 통찰은 PE가 0이었네. 같은 작업을 반복하기보다 다음에는 본능을 비교해 보자. 이제 폭주 게이지가 4/5라서, 다음 작업 뒤에는 경보부터 챙겨야겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:13:46.424825+00:00", "message_id": "msg_083f0162623832c0016ad5fb6a0c50819187218a780e5f0d3e", "next_event_id": null, "previous_event_id": "exp_9082e9b7b28b41f6a7e6830d2827c165", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
+
