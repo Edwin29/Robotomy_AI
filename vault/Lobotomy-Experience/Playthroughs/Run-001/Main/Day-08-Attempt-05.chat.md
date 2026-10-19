@@ -26,3 +26,27 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:19:34.588181+00:00", "message_id": "msg_083f0162623832c0016ad5fc21aba0819192fbf45f145d3cbc", "next_event_id": "exp_fb896a25371b4bc8ad857cce22692879", "previous_event_id": "exp_d6c01a7ccb67453b9ae1d4800669939b", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
 
+## 2026-10-19T11:19:36.749Z · commentary
+
+    O-02-56의 선호도를 더 열어서 관찰레벨 2가 됐어. 본능과 애착은 보통, 통찰은 높음으로 확인했으니 당장은 통찰을 중심으로 쓰면 되겠다. 기본 정보와 장비는 아직 잠겨 있어서 상자를 더 모아야 해.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:19:36.782621+00:00", "message_id": "msg_083f0162623832c0016ad5fcc844a48191bbf2b8d85b525da2", "next_event_id": null, "previous_event_id": "exp_2718a7d6bf244cf3919db6c110d80728", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
+
+## 2026-10-19T11:21:25.159Z · commentary
+
+    브룩은 같은 환상체의 본능으로 다시 배정했어. 아스터로이드는 O-02-56 통찰, 빅토르는 요정 애착을 이어가고, 배트워든맨은 시련이 나타날 때 대응할 여유를 남겨 두자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:26:29.785780+00:00", "message_id": "msg_083f0162623832c0016ad5fd357b2c81919871a5f9d0124111", "next_event_id": "exp_d4eb1691b6a54fd8b43effd8e927bd57", "previous_event_id": "exp_544e963c71034b83a3a38fda0fd8ccbb", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
+
+## 2026-10-19T11:23:04.415Z · commentary
+
+    예약 상태를 조회하는 사이 게임기 코드가 갱신되어 해당 예약 ID를 찾지 못한다는 응답이 나왔어. 같은 입력은 다시 보내지 않았고 화면으로 확인했어. 그 뒤 시련 구간에서 빅토르와 브룩의 사망이 표시돼서 즉시 정지했어. 지금 현장을 확인할게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:26:29.786780+00:00", "message_id": "msg_083f0162623832c0016ad5fd98127c81918c4337bd0be2892d", "next_event_id": "exp_f7bd6398a39a420bb791e7046849b4bd", "previous_event_id": "exp_ca5e479116184aea92a4aeb885e16fe0", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
+
+## 2026-10-19T11:24:05.680Z · commentary
+
+    정보팀 통찰 미션은 완료됐지만, 두 명을 잃은 채 마무리하고 싶지는 않네. 이번 시도는 접고 다시 하자. 다음에는 여명 직전부터 1배속으로 두고, 작업 추가보다 시련이 나타나는 순간을 먼저 보겠어. 사망 원인은 아직 직접 확인하지 못했어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T11:26:30.941730+00:00", "message_id": "msg_083f0162623832c0016ad5fdd559d481918b6c17312168f757", "next_event_id": "exp_dad417a90d7f432888cf0bbd6e8fca89", "previous_event_id": "exp_4ca6443605b44d049f9f204f079fc5cc", "turn_id": "01a153d8-5335-7a90-a79e-327f4be64d06"}
+

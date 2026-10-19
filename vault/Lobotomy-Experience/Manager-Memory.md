@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 8b14c464b0ece0a63d2ad3966b56219c8f9b449c9a6d04160b5f4dee90f9cd09
+Version: 1e15967676bebc1689078e7053071e937942e2a13b0db534e474d46f7dacf2f9
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -589,4 +589,22 @@ Version: 8b14c464b0ece0a63d2ad3966b56219c8f9b449c9a6d04160b5f4dee90f9cd09
     사용자패치대기로8일차Attempt03준비화면중단. 남은5LOB강화는미실행. 재개전안내/연결확인,관리법JSON참조(exp_a66e10d6ae5d44fd869180819d76cdef),무기보충검토. 사용자재개요청전플레이금지.
 
     {"attempt_id": "Run-001/Day-08-Attempt-03", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_5032248db43d45059bb4f3d6429783c6", "exp_a66e10d6ae5d44fd869180819d76cdef"], "supersedes": null}
+
+## mem_4e5ded0ed6954543894c5003c40da61c
+
+    이번 O-02-56 선호도: 본능I~V보통, 애착I~V보통, 통찰I~V높음(한 화면 V통찰은 가림이 있었으나 앞선 화면에서 보았다). 억압은 III~V매우낮음만 가림 없이 확인. 본능·억압 해금으로 관찰2, 기본/탈출정보 각12PE이며 미개방.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-05", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_abdbe00467c840058764f029fe5cc062"], "supersedes": null}
+
+## mem_5b280a77077e49349b39c4cde3da8a80
+
+    이번 녹빛 여명 예고 뒤 단계III에서 빅토르/브룩 사망. 다음 재시도는 여명 직전1배속, 작업추가보다 시련 발생 화면과 적 선택을 먼저 확인한다. 사인을 특정하거나 적 패턴을 추론한 것은 아니다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-05", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_ca5e479116184aea92a4aeb885e16fe0", "exp_dad417a90d7f432888cf0bbd6e8fca89"], "supersedes": null}
+
+## mem_1a424f33e51945b699fe19acca91e047
+
+    메뉴를 고르는 동안 작업자들이 먼저 복귀해 버리는 흐름이 답답했다. 병렬로 맡기는 것과 실제로 병렬 운영을 유지하는 것은 달랐다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-05", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_dad417a90d7f432888cf0bbd6e8fca89"], "supersedes": null}
 
