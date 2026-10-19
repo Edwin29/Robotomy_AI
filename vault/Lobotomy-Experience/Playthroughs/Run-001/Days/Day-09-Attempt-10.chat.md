@@ -30,3 +30,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:13:46.246337+00:00", "message_id": "msg_083f0162623832c0016ad633a7eab48191aeabbce740d6945a", "next_event_id": null, "previous_event_id": "exp_ed0158e1e0d34d62abcbbedf1c75e3c0", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T15:14:55.584Z · commentary
+
+    7회 설명에서 원인을 찾았어. **새 직원이 초상화에 새겨지면 이전 직원은 사망한다**고 명시돼 있어. 브룩에서 배트워든맨으로, 배트워든맨에서 아스터로이드로 바꾼 뒤 사망한 흐름과도 맞아.
+    
+    이제 아스터로이드를 그대로 유지해서 마지막 10회 설명까지 읽고, ‘담당자 교체 금지’를 눈에 띄게 남겨 두자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:14:56.316858+00:00", "message_id": "msg_083f0162623832c0016ad633ed3c248191969edbc8fe9cfb0f", "next_event_id": null, "previous_event_id": "exp_955db7bf0f144f4292cf6b33fbae57a7", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
