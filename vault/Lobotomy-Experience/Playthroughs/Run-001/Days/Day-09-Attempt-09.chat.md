@@ -54,3 +54,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:57:02.262173+00:00", "message_id": "msg_083f0162623832c0016ad62fbbdb0481919d2120e975a5b963", "next_event_id": null, "previous_event_id": "exp_fad2e890acf3402895e85f51a5ef3c5d", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T14:58:48.896Z · commentary
+
+    그랬구나. 선택이 안 된 걸 직원 겹침으로만 봤네. 정지한 뒤 카메라를 아래로 내렸어. 새 화면에서 방과 직원 위치를 다시 맞춰 볼게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:58:48.906921+00:00", "message_id": "msg_083f0162623832c0016ad6302764a48191b16710e91093a800", "next_event_id": null, "previous_event_id": "exp_059c72e64b1a41bab51a9582c94f5921", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
