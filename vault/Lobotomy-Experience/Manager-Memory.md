@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: d31683a1cec37355fea00d54cd1b980af6aed85800d11b4f48e158ec405a54e4
+Version: 8fdf6921d4e4573570492ac9eee2841cb1df45d0f4b11782e31287313a793b4a
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -715,4 +715,10 @@ Version: d31683a1cec37355fea00d54cd1b980af6aed85800d11b4f48e158ec405a54e4
     좌표 준비와 재관찰을 거듭하지 않고 이름/행 ID로 배정하고 같은 응답에서 결과를 읽으니 조작 흐름이 한결 짧아졌다. 이동 명령과 실제 도착을 분리해서 보여주는 것도 유용했다.
 
     {"attempt_id": "Run-001/Day-09-Attempt-05", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_be589bb8436d4030a2cb15fae064025e", "exp_9d855c39deeb450bb5a2feea1deb3c00", "exp_73910fb65c284b7b9afefc12db281785"], "supersedes": null}
+
+## mem_1c71d0a6c41b4d09bb39cabcb2f9a768
+
+    호박색 여명 완전 식품은 RED공격, RED2 WHITE1 BLACK1 PALE2를 선택 화면에서 관찰. 여러 적과 같은 복도에서 세 명만 전투시키며 관찰이 늦어 배트워든맨 사망·A HP3. 재도전에서는 다섯명 집결 후 싸우며 HP를 더 자주 확인한다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-06", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_12458595e4654f7b8b19c6d45d51c333", "exp_2b382c168ccb4dc792dfe48979301ba4"], "supersedes": null}
 

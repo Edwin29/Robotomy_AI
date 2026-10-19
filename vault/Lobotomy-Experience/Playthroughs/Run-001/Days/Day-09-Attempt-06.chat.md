@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:21:18.676547+00:00", "message_id": "msg_083f0162623832c0016ad6275d43f881918ee3b13ebab5bc19", "next_event_id": null, "previous_event_id": "exp_0a86b8b78ac8452b8e34821682e2f864", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
 
+## 2026-10-19T14:23:36.265Z · commentary
+
+    호박색 여명에서 배트워든맨이 사망했고 아스터로이드도 체력이 3까지 떨어졌어. 여러 개체가 있는 복도로 세 명을 보냈는데, 전투 중 체력 확인이 늦었어. 이 손실을 확정하지 않고 9일차를 재도전하겠어. 확인한 상대는 RED 공격, RED 저항 2.0의 ‘완전 식품’이야.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:23:37.237208+00:00", "message_id": "msg_083f0162623832c0016ad627e79a848191afc221631b225bcf", "next_event_id": null, "previous_event_id": "exp_959bf7e81bad4737b7dc4a966d66c3a5", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
+
