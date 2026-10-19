@@ -17,6 +17,8 @@ status: completed
 
 ## 당시 판단
 
+[공개 채팅 원문](./Day-09-Attempt-03.chat.md) · [발언 시각순 통합 로그](../Logs/Day-09-Attempt-03.timeline.jsonl)
+
 ### exp_8642b215bf7145b5b76d04380f0f5007
 
     입력: click
