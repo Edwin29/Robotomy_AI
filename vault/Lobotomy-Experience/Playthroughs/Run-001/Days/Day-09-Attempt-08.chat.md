@@ -8,3 +8,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:40:23.106371+00:00", "message_id": "msg_083f0162623832c0016ad62bd4e714819193e3056cf2f8412f", "next_event_id": null, "previous_event_id": "exp_9833a1a49a3c4a6695c6886bd14af6be", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
 
+## 2026-10-19T14:45:29.978Z · commentary
+
+    지금은 전원 생존이고 에너지는 110이야. 작은 적들이 통로를 바꾸는 모습 때문에 한곳으로 쫓아다니는 게 잘 맞지 않네. 두 명은 로비에서 회복·대기시키고, 남은 작업과 폭주 대응을 짧게 처리하면서 상태를 볼게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:45:30.544146+00:00", "message_id": "msg_083f0162623832c0016ad62d07cd988191ace952e14ccd3aea", "next_event_id": null, "previous_event_id": "exp_cb6468c456b04307abdb7e02b7cbcf12", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
+
