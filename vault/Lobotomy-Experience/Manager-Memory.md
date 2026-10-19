@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: f57f93ed1d0e3f350dbf2cbfd2d8ea026a8c0d2004b88a6eb407b3c5285ce375
+Version: 8d56b5c68e2def1a1cdfbfa2098a13c078b0455bd26028da6d90326bf95a6fbd
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -739,4 +739,16 @@ Version: f57f93ed1d0e3f350dbf2cbfd2d8ea026a8c0d2004b88a6eb407b3c5285ce375
     직원들을 살리고 에너지를 채웠을 때는 이번에 넘어갈 수 있겠다고 느꼈지만 추가작업 중 다시 사망을 봤다. 낯선 도구 사용과 명령 확인이 아직 불안하다.
 
     {"attempt_id": "Run-001/Day-09-Attempt-09", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_f10989f6ee3a42599428d5a9a2245d2e"], "supersedes": null}
+
+## mem_ce34f9fbd52f4fff97fbab105b4c664d
+
+    이계의초상O0991: 새직원을캔버스에새기면이전직원사망. 첫사용자고정이필요. A동일사용3~10회로추가사망없이전체해금. 피해는시설다른직원에더강하게전이,대신받던직원사망시다른직원에게이어짐,아무도없으면캔버스직원사망. 비일반적원인으로캔버스직원사망시캔버스리셋. 전체루틴Playbook pb_4743adfc9cba4921a79a62176e6b5778 rev3.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-10", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_dc7e38973a5f49b1a945d408955f51b9", "exp_955db7bf0f144f4292cf6b33fbae57a7"], "supersedes": null}
+
+## mem_b92b90332647417083c9cd2e7ae7b56e
+
+    실패한날을단지되돌리는대신해금을위한조사에쓸수있었다. 브룩이왜죽었는지읽고나니막연히게임기오류로묶을수없었다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-10", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_87764d9f639b426eb21682f31f532c0f"], "supersedes": null}
 
