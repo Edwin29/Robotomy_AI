@@ -1,0 +1,30 @@
+---
+title: 본편 Day 9 · 시도 10
+phase: main
+game_day: 9
+record_id: Run-001/Day-09-Attempt-10
+status: playing
+---
+
+# 본편 Day 9 · 시도 10
+
+실제 게임 날짜: 본편 9일차. 원본 기록 ID는 연결 보존용입니다.
+
+## 시작 기록
+
+    {"attempt": 10, "config_versions": {"AGENTS.md": "2d2b6d353bbdbb5282d3e65897c2dc83dcafd8342ab47c5920852597b47f02e1", "Day-Review-Template.md": "dd5fbbd04bb13dcfdd05121e4eb5b2b4b2bc402f3cb098872e284e8e267726ee", "Player-Persona.md": "f42126463d170d6ae5dd6e7608594767932cff23b2a81665f4787f0da2be1a8c", "Recording-Rules.md": "9694ba0c03f184e2207f08aea8df61211ab81f607f47ef11f655e2cd397c4c49"}, "day": 9, "device_versions": {"observer_sha256": "5bbac62dd2ce7d6f60884aafe1486ef54ddd201f69b3dc23cd39b3afa01d3e67", "runtime_exe_sha256": "bc57341a606464f237d48559a86233e8edab02cdf94f77dc99a1cfa552720eb9"}, "game_day": 9, "id": "Run-001/Day-09-Attempt-10", "memory_version": "f57f93ed1d0e3f350dbf2cbfd2d8ea026a8c0d2004b88a6eb407b3c5285ce375", "phase": "management", "player": "Codex GPT-6", "previous_attempt_id": "Run-001/Day-09-Attempt-09", "reason": "memory_repository", "run": 1, "started_at": "2026-10-19T15:06:33.320343+00:00", "status": "playing", "transition_basis": "player_declared", "tutorial_segment": null, "versions": {}}
+
+[원본 사건 로그](../Logs/Day-09-Attempt-10.jsonl)
+
+## 당시 판단
+
+미기록. 사후 설명으로 채우지 않습니다.
+
+
+## 결과
+
+playing (플레이어 선언; 입력 전달만으로 게임 성공을 확정하지 않음)
+
+## 사후 회고
+
+아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.

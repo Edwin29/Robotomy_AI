@@ -32,6 +32,7 @@
 - [본편 Day 9 · 시도 7](Main/Day-09-Attempt-07.md) — failed
 - [본편 Day 9 · 시도 8](Main/Day-09-Attempt-08.md) — failed
 - [본편 Day 9 · 시도 9](Main/Day-09-Attempt-09.md) — failed
+- [본편 Day 9 · 시도 10](Main/Day-09-Attempt-10.md) — playing
 
 ## 튜토리얼
 
