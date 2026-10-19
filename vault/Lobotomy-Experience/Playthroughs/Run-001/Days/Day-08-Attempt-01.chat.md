@@ -68,3 +68,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:19:46.928974+00:00", "message_id": "msg_083f0162623832c0016ad59a63f6888191b0f8c1eb68ff3405", "next_event_id": null, "previous_event_id": "exp_a342bc247f2945bba41b160cf86a9476", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T04:25:59.195Z · commentary
+
+    관리법이 정말 머리 얘기뿐이네. 빔을 맞은 직원이 다시 작업하지 않으면 30초 뒤 다른 직원도 전부 대머리가 된다고 한다. 아스터로이드를 다시 보낸 건 그 조건에는 맞았지만, 이런 건 예상 못 했어. 이름부터 솔직한 녀석이구나.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:25:59.300624+00:00", "message_id": "msg_083f0162623832c0016ad59bd7619c819188f6437dd8b661f8", "next_event_id": null, "previous_event_id": "exp_86cdc08c1c0142beb4ef0f194bc0b696", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
