@@ -60,3 +60,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T10:13:42.355626+00:00", "message_id": "msg_083f0162623832c0016ad5ed4f8be88191a8f1779d4486325f", "next_event_id": "exp_4ffb134c3d464618a6bfe4a63448e8f0", "previous_event_id": "exp_ba3db35df99a4aaeb80bdcc00d81dbc0", "turn_id": "01a1539e-29f3-72e1-a4cd-f29f16bcf015"}
 
+## 2026-10-19T10:17:46.599Z · commentary
+
+    날갯짓은 RED 5–7 근접 무기라 기본 봉을 대체하기 좋고, 소다는 RED 1–2를 매우 빠르게 쏘는 장거리 무기네. 우선 만든 날갯짓을 아스터로이드에게, RED 방어가 조금 더 좋은 슈트를 요정 담당 빅토르에게 주겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T10:17:47.371127+00:00", "message_id": "msg_083f0162623832c0016ad5ee4a7dc081919f53fde8b5532a9a", "next_event_id": null, "previous_event_id": "exp_c94df876ef5e4b309350751150f21729", "turn_id": "01a1539e-29f3-72e1-a4cd-f29f16bcf015"}
+
