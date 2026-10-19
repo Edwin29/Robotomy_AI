@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: e8c453adcd09a99bc845bd3ece4b9c1e182bc3778f2d40dac160f67295273b3f
+Version: d1bb991a7703f48e743f486260e60af365d2862594fde19c0d8ba8a47ff91295
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -559,4 +559,28 @@ Version: e8c453adcd09a99bc845bd3ece4b9c1e182bc3778f2d40dac160f67295273b3f
     Bald-is-awesome!의솔직한이름과머리얘기뿐인관리법은웃겼다. 처음아스터로이드머리가바뀐건당황스러웠다. 브룩사망은재도전하게만들었고바로지켜주지못한아쉬움.
 
     {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_642ebdb6ff3f40b670f563dbf549473d5c200cf90550ad1ded8d33d834aa9ae1", "exp_chat_1f56d5a5ec1f4553d03274ee8e2bbeea97a1f08ca61b0aa9efd3115285f6a21f"], "supersedes": null}
+
+## mem_9edf58ca86884c83896519fcbf884150
+
+    8일차Attempt02 결과 C,생존3/사망2(목록Eden/Bat/Brook생존,A/V부재와사망알림),3LOB,승급0,10:53. HP만보고생존단정은오류. 종료직전A통제불능유지,정확사망시점미확정.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_2f89010b6b524513918c8ef3e4291bad", "exp_82f2e5149d874843a03aacfe160fe115"], "supersedes": null}
+
+## mem_e300b38a576c4676926203d1fc3f1977
+
+    사용자조언:꿈잠든직원은그냥클릭,일시정지중안깨어남. 1배속700ms클릭뒤A와Bat가작업가능돌아온관찰있으나재탈출하면다시잠듦. 종료전전직원의통제불능/패닉부재와현재작업가능여부를확인해야함.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_8db36507b5a04bab9acd9a2de9bd34be", "exp_918c8b5b6ee9416996ab1b1e472c5db0", "exp_82f2e5149d874843a03aacfe160fe115"], "supersedes": null}
+
+## mem_293c4371647343458ee6296e058249fb
+
+    Bald기본정보이번해금:너대머리야...,ZAYIN,BLACK1~2,최대6,좋음4~6/보통2~3/나쁨0~1. 핏빛여명시작의환호성 TETH 제압창 R.8 W1.3 B1.3 P2.0,공격Unknown. 제압완료는확인못함. 꿈빛나는탈출형태를시련적으로혼동할뻔했고직접선택창으로꿈임확인.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_b5bdfcbde386428eaf9851b7a6977305", "exp_5949704062ec485db94eac440ab80544", "exp_16dad6ac92f448fbb4f0bc5eff86bfb3", "exp_7b1bc200c808402dad417ded9be41c78", "exp_1f7c882fee344096baa6537c69d08aef"], "supersedes": null}
+
+## mem_e7c76068fbbd477b97ee2af2ec292f36
+
+    브룩은살렸지만다른둘을잃은결과라안도할수없다. 포인트를들여키운직원을잃는비용을사용자지적으로다시실감. 정상선택확인없이생존이라고말한것을고치고싶다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_57ff37b155454843882faae1b5b7d6e0"], "supersedes": null}
 

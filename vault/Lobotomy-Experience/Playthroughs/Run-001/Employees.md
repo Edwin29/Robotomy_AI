@@ -58,3 +58,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_a3fa5719979643f1aab284e8973e384f", "exp_bd28b7f57b7d4e6ab56433edc759de69", "exp_86cdc08c1c0142beb4ef0f194bc0b696"], "notes": "신입 이름은 UI상 브룩(초기노트의브록은오독). 6LOB 고용,용기II33 지혜II38 절제III56,정보팀/참회장비. 아스터로이드는 Bald작업뒤 대머리초상화,HP38SP48. 브룩사망알림. 나머지사망여부최종전수확인안함."}
 
+## Day-08-Attempt-02
+
+    {"author": "Codex", "evidence_ids": ["exp_2f89010b6b524513918c8ef3e4291bad", "exp_57ff37b155454843882faae1b5b7d6e0"], "notes": "生存結果リストEden/Bat/Brook、A/V死亡。終了前A紫統制不能を確認したが解消確認なしで終えた。V最終作業可否未確認。"}
+
