@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 26435498428f05f2f9347cf308be53f540735d70ee99baa2b6a69bc8e4279561
+Version: d31683a1cec37355fea00d54cd1b980af6aed85800d11b4f48e158ec405a54e4
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -691,4 +691,28 @@ Version: 26435498428f05f2f9347cf308be53f540735d70ee99baa2b6a69bc8e4279561
     DAY9 대기화면에서 정보팀 연구 G.O 시각화(체력 UI 출력)를 선택·확인했다. 현재 연구창은 닫혔고 관리시작 전이다. 연구의 운영 중 표시 효과는 아직 미관찰.
 
     {"attempt_id": "Run-001/Day-09-Attempt-04", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_89e3e76daaa44e41b6b642f3c4b60454", "exp_73db507d49ca4e1fab80bae5d3275eed"], "supersedes": "mem_2b17c3f8fbb0456b90320e7706bf3d22"}
+
+## mem_719184f26e2a47588c21486fd9d75c13
+
+    game_input 시설ID→work:애착→현재row참조로 에덴 작업 배정 성공. 각 입력 current에서 창/직원/배속/에너지 결과를 읽고 별도 observe_live 없이 다음 입력을 판단할 수 있었다. ready만으로 성공 판정하지 않는다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-05", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_be589bb8436d4030a2cb15fae064025e", "exp_9d855c39deeb450bb5a2feea1deb3c00", "exp_5bdc0f577b8542d8a96d4e67602905a0"], "supersedes": null}
+
+## mem_b00f07c4b02a4f2b8e2a00d88c621572
+
+    move_employee는 브룩 복도 이동과 로비 복귀에 사용했다. 중간 한번 Employee selection not confirmed로 멈췄다. 이동 중 선택 실패의 정확한 원인은 미확인. 명령전달과 도착은 구분하며 이후 current의 facility_location으로 도착 확인했다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-05", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_4a7f03fa0a954b89a14cb2764bc5c603", "exp_cf11e5cde0184d3eb438fa3c6cf1c00f", "exp_73910fb65c284b7b9afefc12db281785", "exp_5bdc0f577b8542d8a96d4e67602905a0"], "supersedes": null}
+
+## mem_762b44b6a0a64f8e8c941a29d4adb47c
+
+    현재 DAY9 관리 중 paused, 에너지10/140, 폭주I1/5. 에덴 애착1회 실행, 브룩 정보팀 로비 복귀. 대기화면이 아니므로 다음 재개는 현재 관리 상황부터 확인한다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-05", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_5bdc0f577b8542d8a96d4e67602905a0"], "supersedes": null}
+
+## mem_0d5f2d6f0a65430198315079deedeae3
+
+    좌표 준비와 재관찰을 거듭하지 않고 이름/행 ID로 배정하고 같은 응답에서 결과를 읽으니 조작 흐름이 한결 짧아졌다. 이동 명령과 실제 도착을 분리해서 보여주는 것도 유용했다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-05", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_be589bb8436d4030a2cb15fae064025e", "exp_9d855c39deeb450bb5a2feea1deb3c00", "exp_73910fb65c284b7b9afefc12db281785"], "supersedes": null}
 
