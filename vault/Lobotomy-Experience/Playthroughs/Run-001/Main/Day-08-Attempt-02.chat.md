@@ -26,3 +26,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:49:50.048285+00:00", "message_id": "msg_083f0162623832c0016ad5a16e4b40819182f296b2a470a2ab", "next_event_id": null, "previous_event_id": "exp_7b1bc200c808402dad417ded9be41c78", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T04:54:00.492Z · commentary
+
+    찾았다. 오른쪽 복도의 대상은 ‘핏빛 여명의 시련, 시작의 환호성’이고, WHITE와 BLACK에 약점이 보인다. 아스터로이드도 이제 정상 선택이 된다. 가까운 두 명을 붙여 먼저 하나 잡아보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:54:00.994008+00:00", "message_id": "msg_083f0162623832c0016ad5a268da608191af9c4ba397b51683", "next_event_id": null, "previous_event_id": "exp_ce3ace27972847d6883bee9b36da8b0d", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
