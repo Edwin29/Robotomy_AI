@@ -24,3 +24,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:11:37.487986+00:00", "message_id": "msg_083f0162623832c0016ad63327d0d08191845eb70c532e2494", "next_event_id": null, "previous_event_id": "exp_ca56ddb097f7464b9eccfaece0c0f45b", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
 
+## 2026-10-19T15:13:45.971Z · commentary
+
+    6회까지 추가 사망 없이 진행됐어. 징벌 새의 탈출 화면이 보여서 우선 정지했어. 새는 공격하지 않고, 초상화 조사만 이어갈게. 5회 설명에는 피해를 대신 받던 직원이 죽으면 다른 직원에게 이어지고, 아무도 남지 않으면 초상화 속 직원도 죽는다고 적혀 있었어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T15:13:46.246337+00:00", "message_id": "msg_083f0162623832c0016ad633a7eab48191aeabbce740d6945a", "next_event_id": null, "previous_event_id": "exp_ed0158e1e0d34d62abcbbedf1c75e3c0", "turn_id": "01a154a4-9d1f-75f3-ada4-3c4bd28e3acc"}
+
