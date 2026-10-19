@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T12:42:35.232957+00:00", "message_id": "msg_083f0162623832c0016ad6103a82ac81918c582aacad9604b1", "next_event_id": null, "previous_event_id": "exp_ff0e90550ee04f6586438516c03d9ea5", "turn_id": "01a15429-2b07-79d1-bcab-4cf4f2a18237"}
 
+## 2026-10-19T12:45:00.223Z · commentary
+
+    첫 폭주는 공허한 꿈에 걸렸어. 정지한 상태에서 배트워든맨에게 새 애착 작업을 지정하자. 이전 작업이 끝났다는 것만으로 폭주가 풀렸다고 보지 않고, 이번에는 방 입장과 타이머 해제를 함께 확인할게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T12:45:00.929388+00:00", "message_id": "msg_083f0162623832c0016ad610cc236c81919ea0bfb55298347b", "next_event_id": null, "previous_event_id": "exp_8648ad1ac26748e79319bdf4dc2b4497", "turn_id": "01a15429-2b07-79d1-bcab-4cf4f2a18237"}
+
