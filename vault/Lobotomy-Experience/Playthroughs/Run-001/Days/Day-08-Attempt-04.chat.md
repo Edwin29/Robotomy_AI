@@ -102,3 +102,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T10:29:13.922248+00:00", "message_id": "msg_083f0162623832c0016ad5f0fa5e748191b2b1cae009c0f712", "next_event_id": null, "previous_event_id": "exp_f5ddfea7e01d4fef9e3487ea0dc95db1", "turn_id": "01a153b4-ed0f-7070-8601-62b547c9a26f"}
 
+## 2026-10-19T10:31:44.927Z · commentary
+
+    불편한 점은 없어. 빠른 관찰의 방 좌표를 클릭 좌표처럼 썼다가 방을 몇 번 빗나갔어. 지금은 화면에서 확인한 방을 선택했고, 익숙한 작업은 멀티컨트롤로 이어서 배정해 볼게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T10:31:45.879051+00:00", "message_id": "msg_083f0162623832c0016ad5f190c8b081918782ccb21891a741", "next_event_id": null, "previous_event_id": "exp_f9f0de8c21be4dafa6e5705165f2993b", "turn_id": "01a153b4-ed0f-7070-8601-62b547c9a26f"}
+
