@@ -74,3 +74,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:25:59.300624+00:00", "message_id": "msg_083f0162623832c0016ad59bd7619c819188f6437dd8b661f8", "next_event_id": null, "previous_event_id": "exp_86cdc08c1c0142beb4ef0f194bc0b696", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
 
+## 2026-10-19T04:30:07.256Z · commentary
+
+    익숙한 작업은 더 묶어서 처리해 볼게. 지금 빠른 관찰에는 에너지와 미션은 나오는데, 작업 선택창의 직원 행이 빈 목록으로 오는 경우가 있어. 화면에는 이름·HP/SP·성공률이 보여서 그때는 이미지로 확인하고 있어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T04:30:07.558002+00:00", "message_id": "msg_083f0162623832c0016ad59ccf6e5481919997c06caaa43ef6", "next_event_id": null, "previous_event_id": "exp_583e990b51ec43d88b11814ebe22cd3e", "turn_id": "01a15233-05f7-7472-bc63-41668c44c52e"}
+
