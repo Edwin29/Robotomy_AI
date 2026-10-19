@@ -62,3 +62,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T12:54:36.208437+00:00", "message_id": "msg_083f0162623832c0016ad6130b76b48191bfa137e46d2d73e0", "next_event_id": null, "previous_event_id": "exp_23dca9a2f3cf4ea4ad43bf3f634aa0b5", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
 
+## 2026-10-19T12:56:00.110Z · commentary
+
+    징벌 새는 생각보다 소박한 모습이네. 관리 기록의 공격 경고와 겉모습이 꽤 다르다. 기본 정보를 열어 관찰 레벨도 2가 됐고, 지금은 다섯 명 모두 살아서 정보팀에 모여 있다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:03:52.779470+00:00", "message_id": "msg_083f0162623832c0016ad6135fc218819196c10cdd76da2514", "next_event_id": "exp_ff6b7c0cb020451d8cf1ce9bbd39b41a", "previous_event_id": "exp_5dff8c8ab18d4a43a355ec169f9d0466", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+

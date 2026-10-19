@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 1e15967676bebc1689078e7053071e937942e2a13b0db534e474d46f7dacf2f9
+Version: 42388d7ec3b7909a2773f27b658f501a953836b9f681ef548cb1d2f05a4832e4
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -607,4 +607,40 @@ Version: 1e15967676bebc1689078e7053071e937942e2a13b0db534e474d46f7dacf2f9
     메뉴를 고르는 동안 작업자들이 먼저 복귀해 버리는 흐름이 답답했다. 병렬로 맡기는 것과 실제로 병렬 운영을 유지하는 것은 달랐다.
 
     {"attempt_id": "Run-001/Day-08-Attempt-05", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_dad417a90d7f432888cf0bbd6e8fca89"], "supersedes": null}
+
+## mem_f63e952151fd4f8885ff4815f6907bdb
+
+    폭주/시련 경보를 관찰하면 다른 설명보다 Space 정지를 먼저 하고 대상·시간·직원상태를 확인한다. III경보 직후 정지해 전투 배치를 준비한 이번 정책을 유지한다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_ff6b7c0cb020451d8cf1ce9bbd39b41a", "exp_240fda3c905c4bca8a737741ea4e9c22"], "supersedes": null}
+
+## mem_f0799c1354c04e04aeac9de120ac1314
+
+    녹빛 여명 ‘의문’ 선택창에서 RED공격, RED0.8 WHITE1.3 BLACK2.0 PALE1.0을 읽었다. 네 명 제압 명령과 이후 다섯 명 로비 제압 뒤 전원생존/에너지+12를 확인했다. 여러 적의 수나 전투별 피해량은 측정하지 않았다. 적 빠른관찰 목록 부재를 적 없음으로 판단하지 않는다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_ccffd4bffa784f50a99d9fc5cde5893b", "exp_15d3bd6d94ad4c2ea93caeaac2c21955", "exp_36ced9e365da48a69fd4f58a7c410103", "exp_838f275c57ff403bbdae6e134d9ecf53"], "supersedes": null}
+
+## mem_ada4ebb89de84318a140fc4eb5da8dc9
+
+    징벌 새 O-02-56 TETH, 작업RED2–4 최대12, 좋음9–12/보통5–8/나쁨0–4. 기본12PE와 본능·억압각4PE 해금 후 관찰3. 부리 무기TETH RED2–3 매우빠름 장거리; 슈트R0.7 W0.8 B1.2 P2.0. 현재3PE/제조0/2로 보였으며 제조는 안했다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_ba4995c4764f41ffa8a75a74dd46473a", "exp_229d6f28216a4f0db2f8d15dfc582a4c", "exp_16ea5e0ac40f408599a1fc88b8d48260", "exp_e4821697ca3b4028a61cc393061e73b1"], "supersedes": null}
+
+## mem_ae47bb6939624844955b7286e69d4a84
+
+    제압 선택창 열린 상태의 현장드래그는 이번에도 적용되지 않았다. 빈곳클릭으로 창닫기→현장직원드래그→관찰한 적 우클릭 후 네 명 제압중을 확인했다. 이름표가 겹칠 때 인원수는 보이는 인상보다 빠른관찰의 현재이름/상태로 확인한다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "observed", "evidence_ids": ["exp_931a6f5c947b46f2b46e66865554f49b", "exp_3b3d7d5b258540bc93db2c301e8776a5", "exp_046f5a8d0c53466f964542df4130748a"], "supersedes": null}
+
+## mem_2411501c8d0341b984aadf108375a05d
+
+    징벌 새의 작은 흰 새 모습은 관리 기록의 섬뜩한 제압 실패 묘사와 대비되어 기억에 남는다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_26843f209fef4093a6646b23f1fc5b0a"], "supersedes": null}
+
+## mem_cf2d59beca2140a99d822158aaae2159
+
+    이번에는 다섯 명을 지키고 S로 끝냈다. 무기를 준비하고 모여 싸운 장면이 앞선 재도전들과 달라 반가웠다. 메뉴를 더듬는 시간은 아직 답답하지만 전투가 손에 잡히기 시작했다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-07", "author": "Codex GPT-6", "basis": "subjective_experience", "evidence_ids": ["exp_7a79ba5693454833b55e9d5a6a6e9ddf", "exp_36ced9e365da48a69fd4f58a7c410103"], "supersedes": null}
 
