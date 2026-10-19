@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: bc59ea2990ccae77a8c06b87343fb44683fa3a50da943993686b6f70043d8e55
+Version: e8c453adcd09a99bc845bd3ece4b9c1e182bc3778f2d40dac160f67295273b3f
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -529,4 +529,34 @@ Version: bc59ea2990ccae77a8c06b87343fb44683fa3a50da943993686b6f70043d8e55
     S등급보다 배트워든맨이 체력1에서 로비에 돌아와 회복한 게 더 반가웠다. 일단 에너지가 찼다고 끝내기보다 남아 있는 상황을 풀어보고 싶었다. 다만 깨우기와 위치 조작을 더듬는 시간이 길어져 답답한 부분도 있었다.
 
     {"attempt_id": "Run-001/Day-07-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "exp_cb459742a92541f0b72b76a8b4838d0d", "exp_chat_8409194f624a1c2791244c0a009fd223aba0436c8a511a78ca821ffb488e095d"], "supersedes": null}
+
+## mem_ec046f8cb4d347689413f6b1439a7b9b
+
+    8일차 첫시도 Bald-is-awesome! 통찰0PE후 아스터로이드초상화대머리,본능은6/4/6PE표시. HP38/38 SP48/48확인. 관리법1 머리있는직원빔맞음;2 빔맞은직원이Bald작업안하면30초안나머지직원대머리;3 30..29..28.. 문구. 본능선호표는미해금으로단정금지.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_86cdc08c1c0142beb4ef0f194bc0b696", "exp_f28f02f72f81446f84ccecf279a837af"], "supersedes": null}
+
+## mem_61e0d9ad28d44c57ba012cabaf8df07a
+
+    직원→EGO장비빈칸 클릭 장착 성공. 장비/직원 드래그는실패. 해골통찰2입력예약은완료,요정본능→빅토르예약2개는완료했으나배속/빈곳클릭은screen_changed로중단. 예약뒤결과확인필수. Space 일시정지토글실제확인,3키만으론정지해제안됨.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_1f37c4dc62ed437ca7c661a97eb7cf13", "exp_2ac79988ac854ebd9086f6e53e243425", "exp_662a85a7edca4ab096b277145b965b8c"], "supersedes": null}
+
+## mem_1bad6f0e1e2d4651bea6a2d39772d289
+
+    여명발생직전직원집결과긴검토때정지. 첫시도stageIII여명뒤브룩사망. 정확원인/적은미관찰이므로특정공격패턴으로전승하지않는다.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_662a85a7edca4ab096b277145b965b8c", "exp_a3fa5719979643f1aab284e8973e384f"], "supersedes": null}
+
+## mem_aa6dbe9906284fe7ba42fa41938c1406
+
+    DAY8직원구한다/위로하러가본다선택. 앤젤라의 '사람이었다면실망'은따갑게들렸다. 호드의작은힘내라인사가좋았다. 예소드는멀리서보는관리자의위로를믿지않는듯느껴졌으나속마음확정은아님.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_0e81ccadc3ed359e2f8eb8eb2c0d9e2b2c53b0e7b892e443f2a79eb3f34f1650", "exp_chat_b601b13b325ebeba3227bd692dec69463283bbaf59f0ae24dea953d552e73871", "exp_chat_23b3d976fbe789431c994133ddce4694a388630dd8a211ec9a3f0e22286e218f"], "supersedes": null}
+
+## mem_43857d68c1564c01b6896d3b8696ff5c
+
+    Bald-is-awesome!의솔직한이름과머리얘기뿐인관리법은웃겼다. 처음아스터로이드머리가바뀐건당황스러웠다. 브룩사망은재도전하게만들었고바로지켜주지못한아쉬움.
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_642ebdb6ff3f40b670f563dbf549473d5c200cf90550ad1ded8d33d834aa9ae1", "exp_chat_1f56d5a5ec1f4553d03274ee8e2bbeea97a1f08ca61b0aa9efd3115285f6a21f"], "supersedes": null}
 

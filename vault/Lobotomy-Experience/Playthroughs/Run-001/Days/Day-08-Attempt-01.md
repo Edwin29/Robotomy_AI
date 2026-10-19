@@ -891,4 +891,33 @@ abandoned (플레이어 선언; 입력 전달만으로 게임 성공을 확정�
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    8일차 첫시도는83/120에서브룩사망확인후포기,정규하루미완료. 정보팀 통찰5회 미션완료표시까지진행. 706이벤트전페이지검토,영수증142건input_sent이나실행성공과게임결과구분. 새Bald선택은바리깡문구의유머/호기심때문. 드래그장착실패반복뒤기존기억찾아클릭식으로해결. 새통찰0→같은직원본능6/4/6표시,모든조건미확인. 여명출현후신입사망정확공격자는관찰못함. 재도전에서는긴판단시정지하고여명전직원집결방침.
+
+    {"author": "Codex", "evidence_ids": ["exp_a3fa5719979643f1aab284e8973e384f", "exp_bd28b7f57b7d4e6ab56433edc759de69", "exp_86cdc08c1c0142beb4ef0f194bc0b696"]}
+
+## 관심·취향·스토리 감상
+
+### 스토리 감상
+
+    DAY8직원구한다/위로하러가본다선택. 앤젤라의 '사람이었다면실망'은따갑게들렸다. 호드의작은힘내라인사가좋았다. 예소드는멀리서보는관리자의위로를믿지않는듯느껴졌으나속마음확정은아님.
+
+    {"evidence_ids": ["exp_chat_0e81ccadc3ed359e2f8eb8eb2c0d9e2b2c53b0e7b892e443f2a79eb3f34f1650", "exp_chat_b601b13b325ebeba3227bd692dec69463283bbaf59f0ae24dea953d552e73871", "exp_chat_23b3d976fbe789431c994133ddce4694a388630dd8a211ec9a3f0e22286e218f"], "remember": true}
+
+### 남은 인상
+
+    Bald-is-awesome!의솔직한이름과머리얘기뿐인관리법은웃겼다. 처음아스터로이드머리가바뀐건당황스러웠다. 브룩사망은재도전하게만들었고바로지켜주지못한아쉬움.
+
+    {"evidence_ids": ["exp_chat_642ebdb6ff3f40b670f563dbf549473d5c200cf90550ad1ded8d33d834aa9ae1", "exp_chat_1f56d5a5ec1f4553d03274ee8e2bbeea97a1f08ca61b0aa9efd3115285f6a21f"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_86cdc08c1c0142beb4ef0f194bc0b696", "exp_f28f02f72f81446f84ccecf279a837af"], "id": "mem_ec046f8cb4d347689413f6b1439a7b9b", "origin": "player_retrospective", "recorded_at": "2026-10-19T04:36:06.140419+00:00", "supersedes": null, "text": "8일차 첫시도 Bald-is-awesome! 통찰0PE후 아스터로이드초상화대머리,본능은6/4/6PE표시. HP38/38 SP48/48확인. 관리법1 머리있는직원빔맞음;2 빔맞은직원이Bald작업안하면30초안나머지직원대머리;3 30..29..28.. 문구. 본능선호표는미해금으로단정금지."}
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_1f37c4dc62ed437ca7c661a97eb7cf13", "exp_2ac79988ac854ebd9086f6e53e243425", "exp_662a85a7edca4ab096b277145b965b8c"], "id": "mem_61e0d9ad28d44c57ba012cabaf8df07a", "origin": "player_retrospective", "recorded_at": "2026-10-19T04:36:06.140419+00:00", "supersedes": null, "text": "직원→EGO장비빈칸 클릭 장착 성공. 장비/직원 드래그는실패. 해골통찰2입력예약은완료,요정본능→빅토르예약2개는완료했으나배속/빈곳클릭은screen_changed로중단. 예약뒤결과확인필수. Space 일시정지토글실제확인,3키만으론정지해제안됨."}
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_662a85a7edca4ab096b277145b965b8c", "exp_a3fa5719979643f1aab284e8973e384f"], "id": "mem_1bad6f0e1e2d4651bea6a2d39772d289", "origin": "player_retrospective", "recorded_at": "2026-10-19T04:36:06.140419+00:00", "supersedes": null, "text": "여명발생직전직원집결과긴검토때정지. 첫시도stageIII여명뒤브룩사망. 정확원인/적은미관찰이므로특정공격패턴으로전승하지않는다."}
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_0e81ccadc3ed359e2f8eb8eb2c0d9e2b2c53b0e7b892e443f2a79eb3f34f1650", "exp_chat_b601b13b325ebeba3227bd692dec69463283bbaf59f0ae24dea953d552e73871", "exp_chat_23b3d976fbe789431c994133ddce4694a388630dd8a211ec9a3f0e22286e218f"], "id": "mem_aa6dbe9906284fe7ba42fa41938c1406", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-19T04:36:06.140419+00:00", "remember": true, "supersedes": null, "text": "DAY8직원구한다/위로하러가본다선택. 앤젤라의 '사람이었다면실망'은따갑게들렸다. 호드의작은힘내라인사가좋았다. 예소드는멀리서보는관리자의위로를믿지않는듯느껴졌으나속마음확정은아님."}
+
+    {"attempt_id": "Run-001/Day-08-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_chat_642ebdb6ff3f40b670f563dbf549473d5c200cf90550ad1ded8d33d834aa9ae1", "exp_chat_1f56d5a5ec1f4553d03274ee8e2bbeea97a1f08ca61b0aa9efd3115285f6a21f"], "id": "mem_43857d68c1564c01b6896d3b8696ff5c", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-19T04:36:06.140419+00:00", "remember": true, "supersedes": null, "text": "Bald-is-awesome!의솔직한이름과머리얘기뿐인관리법은웃겼다. 처음아스터로이드머리가바뀐건당황스러웠다. 브룩사망은재도전하게만들었고바로지켜주지못한아쉬움."}

@@ -54,3 +54,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_fd75df5dba7745329e0a9a0f8f805405", "exp_4f08320f5bb44e12b31b9700045ab0f5", "exp_e3b7a8edcdde45e0ab26c8336f0bde1e", "exp_cb459742a92541f0b72b76a8b4838d0d"], "notes": "아스터로이드 절제II→III 강화에2LOB 사용, 정보팀으로 전속. 준비잔여8LOB. 결과에 아스터로이드 전체등급II→III와 지혜II→III, 빅토르 용기II→III, 에덴 절제 수치27→33 표시를 봤다. 배트워든맨은1/32·37/37에서 로비 이동 후32/32·37/37 확인, 아스터로이드도35/35·41/41로 회복. 직원4명 전원 생존이지만 사무직 피해까지 없었다는 뜻은 아니다."}
 
+## Day-08-Attempt-01
+
+    {"author": "Codex", "evidence_ids": ["exp_a3fa5719979643f1aab284e8973e384f", "exp_bd28b7f57b7d4e6ab56433edc759de69", "exp_86cdc08c1c0142beb4ef0f194bc0b696"], "notes": "신입 이름은 UI상 브룩(초기노트의브록은오독). 6LOB 고용,용기II33 지혜II38 절제III56,정보팀/참회장비. 아스터로이드는 Bald작업뒤 대머리초상화,HP38SP48. 브룩사망알림. 나머지사망여부최종전수확인안함."}
+
