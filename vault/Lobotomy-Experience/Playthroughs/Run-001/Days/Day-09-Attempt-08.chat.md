@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:45:30.544146+00:00", "message_id": "msg_083f0162623832c0016ad62d07cd988191ace952e14ccd3aea", "next_event_id": null, "previous_event_id": "exp_cb6468c456b04307abdb7e02b7cbcf12", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
 
+## 2026-10-19T14:46:58.754Z · commentary
+
+    에덴의 사망도 확인했어. 시련이 남아 있는데 작업을 다시 흩어 맡긴 판단이 좋지 않았어. 이번 시도도 되돌리고, 다음에는 지휘팀 가까이 모인 상태에서 짧은 작업만 이어가겠어. 이동 중 싸움에 끼어드는 상황부터 줄여 보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T14:46:59.180508+00:00", "message_id": "msg_083f0162623832c0016ad62d603b5881918f0c428fb39df77a", "next_event_id": null, "previous_event_id": "exp_e0232d94da5c43dfa3f82197b912829f", "turn_id": "01a15485-3875-7721-937b-891525a541de"}
+
