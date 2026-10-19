@@ -68,3 +68,39 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:03:52.779470+00:00", "message_id": "msg_083f0162623832c0016ad6135fc218819196c10cdd76da2514", "next_event_id": "exp_ff6b7c0cb020451d8cf1ce9bbd39b41a", "previous_event_id": "exp_5dff8c8ab18d4a43a355ec169f9d0466", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
 
+## 2026-10-19T12:56:40.361Z · commentary
+
+    왼쪽 승강장에 녹빛 여명의 적이 있었다. 선택창에서 RED 공격, WHITE 저항 1.3을 확인했다. 먼저 가까운 브룩과 아스터로이드를 보내고, 나머지도 합류시키자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:08:58.988284+00:00", "message_id": "msg_083f0162623832c0016ad61388a44881918486407e52e0da33", "next_event_id": "exp_15d3bd6d94ad4c2ea93caeaac2c21955", "previous_event_id": "exp_ccffd4bffa784f50a99d9fc5cde5893b", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+
+## 2026-10-19T12:57:17.986Z · commentary
+
+    넷을 한꺼번에 보내려고 해. 지금 제압 선택창이 열린 상태라 현장 드래그가 제대로 적용되지 않았네. 창을 닫고 묶어서 명령하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:08:58.989788+00:00", "message_id": "msg_083f0162623832c0016ad613ae60e88191a8df7d638e82d841", "next_event_id": "exp_c00d19659e7b481f81f426d6a2eef12d", "previous_event_id": "exp_931a6f5c947b46f2b46e66865554f49b", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+
+## 2026-10-19T13:00:22.786Z · commentary
+
+    이번엔 다섯 명이 합류해 적을 쓰러뜨렸다. 에너지도 91까지 올라왔네. 잠깐 회복시킨 뒤 남은 작업을 나눠 맡기자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:09:01.458905+00:00", "message_id": "msg_083f0162623832c0016ad614660acc819180b1021d96e8e5ac", "next_event_id": "exp_838f275c57ff403bbdae6e134d9ecf53", "previous_event_id": "exp_618c75516eb2494997c2675aab68a6c9", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+
+## 2026-10-19T13:01:15.720Z · commentary
+
+    아, 배트가 로비의 적을 먼저 공격한 것도 그 규칙이었구나. 전투 중 한 명만 빼서 회복시키는 선택도 할 수 있겠네. 이번에는 공격 명령을 계속 새로 줄 필요가 없다는 걸 몸으로 익힌 느낌이다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:09:01.459906+00:00", "message_id": "msg_083f0162623832c0016ad6149aeab481918b1e9d2c8edcd4bd", "next_event_id": "exp_fa03ab3a703d460a9b2e238aa98b5dbc", "previous_event_id": "exp_c526776bf08247d1ba214242f4b7a43e", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+
+## 2026-10-19T13:02:35.759Z · commentary
+
+    여유가 생기면 그런 식으로 육성과 해금을 더 할 수 있겠네. 오늘은 우선 전원 생존으로 8일차를 마무리하고 싶다. 징벌 새 정보도 더 열어 두면 다음 날이 조금 편해질 것 같고.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:09:01.461102+00:00", "message_id": "msg_083f0162623832c0016ad614eb7b88819195d2206d1df9e476", "next_event_id": "exp_b04ebca513934463a384dd7899d3a653", "previous_event_id": "exp_6eb10bcc82c544ee8966aa4a9983e479", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+
+## 2026-10-19T13:05:42.473Z · commentary
+
+    120을 채웠다. 다섯 명 모두 정상 상태이고, 징벌 새도 관찰 레벨 3까지 열었다. 오늘은 여기서 업무를 끝내자. 예전처럼 둘을 잃은 채 넘어가지 않아도 돼서 반갑네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-19T13:09:02.767617+00:00", "message_id": "msg_083f0162623832c0016ad615a6938881919c167a9c3b7331f3", "next_event_id": "exp_69e25a6f78b74b28b4608b93c2de7990", "previous_event_id": "exp_e4821697ca3b4028a61cc393061e73b1", "turn_id": "01a1543a-4c59-7183-a8b2-11cf9903b798"}
+
