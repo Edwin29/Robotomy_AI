@@ -54,3 +54,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:25:47.733906+00:00", "message_id": "msg_083f0162623832c0016ad7f87a8510819185a207907ed3b34c", "next_event_id": null, "previous_event_id": "exp_9b737f1b992d4a1c98b1160f9e84f997", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:26:56.317Z · commentary
+
+    붕대를 감고 웅크린 사람처럼 보인다. “직원은 절망이 가득합니다”라는 방 위 문구도 걸리네. 외형만으로 작업을 단정할 순 없지만, 편안해 보이는 방은 아니다. 우선 전에 보통이 나왔던 애착을 보며 정보를 모아보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:26:56.400402+00:00", "message_id": "msg_083f0162623832c0016ad7f8bf3ca881918c78116e9912544f", "next_event_id": null, "previous_event_id": "exp_fbefb166dc21420785cdc4547e198b5b", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
