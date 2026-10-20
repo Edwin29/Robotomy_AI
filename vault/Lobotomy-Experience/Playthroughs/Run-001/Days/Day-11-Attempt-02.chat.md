@@ -72,3 +72,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:30:35.023585+00:00", "message_id": "msg_083f0162623832c0016ad7f99984608191818a365a07a747e5", "next_event_id": null, "previous_event_id": "exp_eb6c1475f1d5437e8d3b5769f9d8aaca", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:34:23.966Z · commentary
+
+    빅토르와 에덴은 거리를 두고 쏘고, 가까이 붙은 배트워든맨만 체력이 줄고 있다. 장거리 부리의 차이가 이제 보이네. 배트워든맨은 한 번 빼고, 건강한 인원을 더 붙이자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:34:24.062458+00:00", "message_id": "msg_083f0162623832c0016ad7fa7f4c04819181a2d35b5fe584f9", "next_event_id": null, "previous_event_id": "exp_c2e178be234d4ae3b72040ee6cee87c6", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
