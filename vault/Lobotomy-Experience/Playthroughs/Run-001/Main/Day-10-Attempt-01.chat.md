@@ -49,3 +49,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:21:52.132660+00:00", "message_id": "msg_083f0162623832c0016ad76aeedc08819184e6ccb8ad2cdadc", "next_event_id": null, "previous_event_id": "exp_7c34b576aba54348a3ee558d3721add6", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:25:50.871Z · commentary
+
+    첫 폭주는 초상화다. 예전 재시도에서 배운 대로 첫 사용자를 브룩으로 고정하자. 지금 대머리 환상체 작업 중이니, 그 작업이 끝난 뒤 보내겠다. 다른 직원으로 바꿔 쓰는 건 피해야 한다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:25:51.778579+00:00", "message_id": "msg_083f0162623832c0016ad76bdd98e08191a8760bc2a9312089", "next_event_id": null, "previous_event_id": "exp_d96903aa905942699fa708d2304fe574", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
