@@ -97,3 +97,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:43:21.639064+00:00", "message_id": "msg_083f0162623832c0016ad76ff797148191bcc5cb900dc06d3a", "next_event_id": null, "previous_event_id": "exp_0d375b9e1798484bbcfc21b6552ace93", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:46:50.789Z · commentary
+
+    ‘폭주의 억제’ 완료가 떴다. 이제 남은 작업만 마무리하고 끝내자. 아처는 해골에게 여러 번 다녀오더니 선물도 생겼다. 작은 변화가 눈에 보이니 꽤 반갑다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:46:51.153452+00:00", "message_id": "msg_083f0162623832c0016ad770c9bcbc8191b69a520a4358f563", "next_event_id": null, "previous_event_id": "exp_33991b51054e4fda91e91a21c7191ff8", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
