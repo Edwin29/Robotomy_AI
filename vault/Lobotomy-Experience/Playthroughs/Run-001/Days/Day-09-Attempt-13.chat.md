@@ -26,3 +26,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:06:33.906495+00:00", "message_id": "msg_083f0162623832c0016ad74b37d04c8191a4041b2bee0236b8", "next_event_id": null, "previous_event_id": "exp_b92ce3932856432d9fc3cf34a779ea66", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:09:59.776Z · commentary
+
+    빅토르의 정신력이 16까지 내려갔다. 여기서 계속 버티게 하지는 말자. 요정 작업으로 빼고, 에덴에게 교대시키겠다. 이동 명령은 전달돼도 예상한 곳에 가지 않는 경우가 있어 도착을 더 주의해서 봐야겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:10:00.735974+00:00", "message_id": "msg_083f0162623832c0016ad74c05cc7c819197c9885936d37e5f", "next_event_id": null, "previous_event_id": "exp_737755b03d8a4270910a9791082b482f", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
