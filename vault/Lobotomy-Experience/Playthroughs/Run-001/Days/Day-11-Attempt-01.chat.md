@@ -20,3 +20,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:36:00.699560+00:00", "message_id": "msg_083f0162623832c0016ad7eccf9d74819189c70c15c569c3f0", "next_event_id": null, "previous_event_id": "exp_4fc1ca39866f4078b612cbdd77ebd063", "turn_id": "01a15b6d-5d74-70c1-9441-4e6737be0e0a"}
 
+## 2026-10-20T22:40:16.442Z · commentary
+
+    지금 패치하는 쪽이 좋겠어. 빠른 관찰에는 도감의 열린 본문은 오지만, 이름표를 눌러 여는 좌표는 안 보이고 직원 목록도 계속 비어 있어. 부서가 늘어난 상태에서 시련을 맞기 전에 고치는 게 낫겠다.
+    
+    현재 정지 상태에서 경험을 기록하고 재도전으로 준비 화면에 돌아갈게. 첫 폭주 자동정지는 정상 작동했고, 새 환상체는 애착 한 번에서 8 PE를 얻었어. 통찰은 아직 진행 중이야.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:40:16.827305+00:00", "message_id": "msg_083f0162623832c0016ad7edce379c81918c14a7b33c024fdb", "next_event_id": null, "previous_event_id": "exp_379d03d9073445dcb4130c7d55783312", "turn_id": "01a15b6d-5d74-70c1-9441-4e6737be0e0a"}
+
