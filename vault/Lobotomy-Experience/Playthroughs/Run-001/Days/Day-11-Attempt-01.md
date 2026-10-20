@@ -729,4 +729,35 @@ interrupted (플레이어 선언; 입력 전달만으로 게임 성공을 확정
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    11일차 완료 못함. 장비·교육팀정비후105/170,폭주II6/7까지운영. 첫공허한꿈폭주자동정지및대처성공. 핏빛여명은예고만이며전투전. 직원빠른관찰누락/교육방간헐누락으로사용자패치제안을선택하여재도전,11일차준비화면7명·LOB2에서대기. 505이벤트11페이지를끝까지확인했고원래실패입력/도감탐색시행착오도보존.
+
+    {"author": "AI 플레이어", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d", "exp_c1144d32f0164ed59d3e4ed8bb9cf370", "exp_f6f21b237518481780c44fc9eb8a180d", "exp_575b42180d2946deaa0463c479c15442"]}
+
+## 관심·취향·스토리 감상
+
+### 관심
+
+    새교육팀의주황색로비와포털같은장치가붙으니시설이옆으로넓어졌다는느낌이난다.부리장거리두자루를갖춰놓았지만전투전에멈춰실제조작감은아직모른다.
+
+    {"evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d"], "remember": true}
+
+### 남은 인상
+
+    도감여는법을잠깐잊어작은아이콘주변을여러번눌렀다.이미익숙한게임에서도이런조작기억은비어있을수있구나.이름표라는답을받고열리니시원했지만,실제시간은과하게썼다는느낌.
+
+    {"evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-11-Attempt-01", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_c1144d32f0164ed59d3e4ed8bb9cf370"], "id": "mem_a550daea125c4f1cbeab26e2448a79c8", "origin": "player_retrospective", "recorded_at": "2026-10-20T22:42:27.521539+00:00", "supersedes": null, "text": "현재재개점은Day11재도전준비7명LOB2.패치대기중.상세pb의Day11패치대기재도전인계참조.정비는명단/LOB에서유지확인했으나프로세스재시작후다시확인."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-01", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d"], "id": "mem_117c34b4802e4a66b75f788a7f1909f7", "origin": "player_retrospective", "recorded_at": "2026-10-20T22:42:27.521539+00:00", "supersedes": null, "text": "운영도감은격리실상단이름표클릭으로열었다.사용자조언출처와실제성공구분.원형아이콘과작업창초상에소모한탐색은도감열기성공이아님.배속버튼은정지에서재개하므로Space중복토글조심."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-01", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_f6f21b237518481780c44fc9eb8a180d", "exp_fdf86973abbc4b9f9708539d594d3e4d"], "id": "mem_f2b99367d05542f094f367f2442c4012", "origin": "player_retrospective", "recorded_at": "2026-10-20T22:42:27.521539+00:00", "supersedes": null, "text": "이번II꿈폭주에서는meltdown_cycle예약이소모되고paused결과확인.59초보존후Bat애착배정으로타이머해제.앞날V/VI미검출과이번성공을구분하며항상성공으로일반화하지않는다."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-01", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d", "exp_575b42180d2946deaa0463c479c15442"], "id": "mem_e808eef8303e4d2ab8b8f7a43225fc7d", "origin": "player_retrospective", "recorded_at": "2026-10-20T22:42:27.521539+00:00", "supersedes": null, "text": "T0154는Olga애착1회8PE보통,통찰다음작업은완료미관찰.통찰선호지혜I/II보통을구조화읽음,III낮음은이미지에서읽고IV/V가림.관리법/정체아직미확인.반복안전/본능선호등을추정정답으로넘기지않는다."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-01", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d"], "id": "mem_af4f2491b76547969c81c0323ca884f5", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-20T22:42:27.521539+00:00", "remember": true, "supersedes": null, "text": "새교육팀의주황색로비와포털같은장치가붙으니시설이옆으로넓어졌다는느낌이난다.부리장거리두자루를갖춰놓았지만전투전에멈춰실제조작감은아직모른다."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-01", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d"], "id": "mem_79acbfeb60464eb197f4584945832453", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-20T22:42:27.521539+00:00", "remember": true, "supersedes": null, "text": "도감여는법을잠깐잊어작은아이콘주변을여러번눌렀다.이미익숙한게임에서도이런조작기억은비어있을수있구나.이름표라는답을받고열리니시원했지만,실제시간은과하게썼다는느낌."}

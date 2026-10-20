@@ -28,3 +28,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:40:16.827305+00:00", "message_id": "msg_083f0162623832c0016ad7edce379c81918c14a7b33c024fdb", "next_event_id": null, "previous_event_id": "exp_379d03d9073445dcb4130c7d55783312", "turn_id": "01a15b6d-5d74-70c1-9441-4e6737be0e0a"}
 
+## 2026-10-20T22:42:04.724Z · commentary
+
+    11일차 준비 화면으로 돌아왔어. 올가 배치와 장비 준비는 남아 있고 LOB는 2야. 이번 시도는 105/170까지 진행한 중단 기록으로 정리 중이야. 패치는 직원 목록·교육팀 방 상태, 그리고 도감을 여는 이름표 좌표를 중심으로 부탁할게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:42:05.251849+00:00", "message_id": "msg_083f0162623832c0016ad7ee3ca98881918445f57941b6e6bd", "next_event_id": null, "previous_event_id": "exp_bae8ce43694c4303acf0637f185eb465", "turn_id": "01a15b6d-5d74-70c1-9441-4e6737be0e0a"}
+

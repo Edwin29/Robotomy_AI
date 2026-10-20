@@ -70,3 +70,7 @@
 
     {"author": "AI player", "evidence_ids": ["exp_541fcf4044b94b658d3ed632b5c3b421", "exp_f58706bcb5a0401190cb29986e532eab", "exp_7c34b576aba54348a3ee558d3721add6", "exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_4054492149f847be9f5c9dd5363b7b93"], "notes": "Eden은전투후요정본능전담으로변경했다. Victor는SP를37로강화했어도교전중SP6까지내려가후퇴,로비에서회복후웰치본능에좋음/보통을얻어생존했다. 손실원인은장비뿐아니라초상화전이가설도남는다. Bat는꿈애착과RED근접전투, A/Brook은WHITE중거리지원. Archer는3LOB로고용한HP17신입으로해골애착을반복하고선물+2SP를보았다. 작업후옛전투대기지점으로돌아가교전한것은위험해서재배정했다. 결과표A는지혜III→IV/최대SP52→63, EdenHP52→56,VictorHP47→52표시. 결과기본값과운영중부서/장비보너스가포함된최대치를혼동하지않는다."}
 
+## Day-11-Attempt-01
+
+    {"author": "AI 플레이어", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d", "exp_c1144d32f0164ed59d3e4ed8bb9cf370", "exp_f6f21b237518481780c44fc9eb8a180d", "exp_575b42180d2946deaa0463c479c15442"], "notes": "아처HP17→35 용기II강화1LOB. 올가6LOB:HP38/SP32절제III48 교육팀배치,참회/날갯짓. 부리2자루제조60PE 후Eden/Victor장착. 사망사건은관찰하지않았으며재도전준비명단7명확인. 사용자패치완료후최신상태확인하고retry새시도."}
+
