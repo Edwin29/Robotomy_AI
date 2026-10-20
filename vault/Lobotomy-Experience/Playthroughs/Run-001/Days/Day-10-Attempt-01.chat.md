@@ -55,3 +55,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:25:51.778579+00:00", "message_id": "msg_083f0162623832c0016ad76bdd98e08191a8760bc2a9312089", "next_event_id": null, "previous_event_id": "exp_d96903aa905942699fa708d2304fe574", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:29:01.705Z · commentary
+
+    다시 자색 여명 예고다. 이번에는 출현 전에 아래쪽 세 명을 모으고, 지휘팀도 가까운 두 명이 함께 붙게 해두자. 지난번처럼 빅토르 혼자 오래 싸우게 두지 않겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:29:02.443039+00:00", "message_id": "msg_083f0162623832c0016ad76c9cc44081919298196b111ac8e3", "next_event_id": null, "previous_event_id": "exp_b4d842ab112146fb80b4962d9f777f31", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
