@@ -80,3 +80,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:32:58.741855+00:00", "message_id": "msg_083f0162623832c0016ad75168bbd88191a92afd43b66484b8", "next_event_id": null, "previous_event_id": "exp_dfe255fed5b04934a83206d3032ae28a", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:35:37.200Z · commentary
+
+    정보팀은 마지막 구역까지 확장했다. 남은 연구는 사무직의 환상체 공포 피해를 줄이는 매뉴얼이니 이것도 선택하고, 10일차 관리는 시작하지 않겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:35:37.347459+00:00", "message_id": "msg_083f0162623832c0016ad7520892c48191815e2718f87ccfe2", "next_event_id": null, "previous_event_id": "exp_e708c6400074405687813fd40d8c62a1", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
