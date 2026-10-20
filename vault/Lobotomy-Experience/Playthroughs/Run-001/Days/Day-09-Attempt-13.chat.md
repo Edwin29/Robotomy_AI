@@ -50,3 +50,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:15:22.236999+00:00", "message_id": "msg_083f0162623832c0016ad74d490c5c8191848d3e1a47d75bdd", "next_event_id": null, "previous_event_id": "exp_677aad02f0ae4937966d4718467fce72", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:18:30.724Z · commentary
+
+    ‘귀여운 인형’으로 보이게 하는 인지 필터라니. 내가 보는 직원 모습이 이 세계의 실제 모습과 다르다는 설명이 이제 붙었다. 편하게 조작하던 화면이 조금 섬뜩해진다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:18:30.992834+00:00", "message_id": "msg_083f0162623832c0016ad74e0602f481919292e26086734f76", "next_event_id": null, "previous_event_id": "exp_8402b0a4e4b64dde8c9a47462822f115", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
