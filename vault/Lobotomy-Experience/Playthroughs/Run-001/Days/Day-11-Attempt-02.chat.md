@@ -66,3 +66,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:28:56.766952+00:00", "message_id": "msg_083f0162623832c0016ad7f937ec7881918af609bf1cbb593b", "next_event_id": null, "previous_event_id": "exp_958e364701fe4d619e1cc73817dbde22", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:30:34.173Z · commentary
+
+    브룩이 아직 도착하지 않았는데 다른 작업으로 돌려 버렸다. 남은 4초로는 초상화까지 못 가겠네. 다른 직원을 급히 넣어 교체 사망을 일으키기보다는 이번 폭주 손실을 감수하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:30:35.023585+00:00", "message_id": "msg_083f0162623832c0016ad7f99984608191818a365a07a747e5", "next_event_id": null, "previous_event_id": "exp_eb6c1475f1d5437e8d3b5769f9d8aaca", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
