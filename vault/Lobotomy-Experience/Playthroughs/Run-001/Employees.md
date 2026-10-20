@@ -66,3 +66,7 @@
 
     {"author": "AI 플레이어", "evidence_ids": ["exp_90061d0631194b95b7d99b6c540d0b86", "exp_d8c91b5b52634dfda1c7fe6b748d4e07", "exp_fc9fa87cef1046e3854f527c348d5730", "exp_cb587194c07a4c4aab6121b8251a083c", "exp_c74bb98a80d74155beb8f24b57e85803"], "notes": "끝나기 전 선택창 확인: Eden54/54 HP42/47 SP, Victor36/49 HP7/29 SP, Asteroid43/55 HP39/51 SP, Bat48/48 HP41/41 SP, Brook50/52 HP38/38 SP. 결과화면과Day10준비에서5명생존확인. Day10관리미시작."}
 
+## Day-10-Attempt-01
+
+    {"author": "AI player", "evidence_ids": ["exp_541fcf4044b94b658d3ed632b5c3b421", "exp_f58706bcb5a0401190cb29986e532eab", "exp_7c34b576aba54348a3ee558d3721add6", "exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_4054492149f847be9f5c9dd5363b7b93"], "notes": "Eden은전투후요정본능전담으로변경했다. Victor는SP를37로강화했어도교전중SP6까지내려가후퇴,로비에서회복후웰치본능에좋음/보통을얻어생존했다. 손실원인은장비뿐아니라초상화전이가설도남는다. Bat는꿈애착과RED근접전투, A/Brook은WHITE중거리지원. Archer는3LOB로고용한HP17신입으로해골애착을반복하고선물+2SP를보았다. 작업후옛전투대기지점으로돌아가교전한것은위험해서재배정했다. 결과표A는지혜III→IV/최대SP52→63, EdenHP52→56,VictorHP47→52표시. 결과기본값과운영중부서/장비보너스가포함된최대치를혼동하지않는다."}
+

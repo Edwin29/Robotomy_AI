@@ -1864,4 +1864,65 @@ completed (플레이어 선언; 입력 전달만으로 게임 성공을 확정�
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    본편10일차완료. 준비시간에는요정·징벌새·공허한꿈·단악수선기록을읽고관찰IV해금/장비와직원보강을했다. 운영은170에너지충족후사용자의지휘팀미션추가목표에따라VI까지야근했다. 최종S,6명전원생존,보상9LOB,게임내11:33. 폭주의억제와완벽의경계동시완료. 자색여명전투중Victor18HP/6SP까지떨어져후퇴시켰고WHITE지원합류후남은과실마무리. 자동정지미검출과대기목적지복귀로동선이늘어나해골폭주1회놓쳐에너지170→159손실뒤회복. 결과→다음날→예→후보hover후T0154선택,Day11B통신/상층회담관람,교육팀개방과합동지휘연구확인후준비화면정지. 11일차운영은시작않음. 기록1432건29페이지를빈검색으로끝까지조회했고영수증306건은전달완료이나이동대상누락/방메뉴미확인등일괄조작실패도함께검토했다. 현재정비와빠른실행은나아졌지만한곳에대기명령을남겨작업후왕복하게만든점은아쉬웠다.
+
+    {"author": "AI player", "evidence_ids": ["exp_541fcf4044b94b658d3ed632b5c3b421", "exp_f58706bcb5a0401190cb29986e532eab", "exp_7c34b576aba54348a3ee558d3721add6", "exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_4054492149f847be9f5c9dd5363b7b93"]}
+
+## 관심·취향·스토리 감상
+
+### 스토리 감상
+
+    요정기록의보호받는직원의자부심이먹이보존이라는결론으로뒤집히고회사가지원효과를이유로진실을숨기는부분이남았다.전날인지필터이야기와이어져'좋아보이는화면'을다르게보게된다.
+
+    {"evidence_ids": ["exp_2fc4876392214eec8af1168a73d0b267", "exp_49b39ae1de29482ead194c5072d881f4", "exp_7c34b576aba54348a3ee558d3721add6"], "remember": true}
+
+### 스토리 감상
+
+    공허한꿈의빈센트는악몽때문이아니라행복한꿈에서깨어난현실이괴로워잠으로돌아가고싶어했다.예전잠든직원클릭이단순한구조조작이었는데,기록을읽고나니깨우는일이마냥친절하지만은않게느껴진다.
+
+    {"evidence_ids": ["exp_ac0cab3b516e4acd821a6a0a85e1c2fc", "exp_6e3262876cf845c5b86842540e7fc414", "exp_7c34b576aba54348a3ee558d3721add6"], "remember": true}
+
+### 관심
+
+    안전한첫방이라고익숙하게쓰던해골기록에도고해자의'그냥파티'라는설명과저스틴을괴롭혔다는조사증언의틈이있었다.작업요령과별개로이런기록들을읽는시간은좋다.신입아처가해골에게여러번다녀오며선물을받은모습도반가웠다.
+
+    {"evidence_ids": ["exp_8ec084eb76ec429cb1315014674a16ea", "exp_7c34b576aba54348a3ee558d3721add6", "exp_f58706bcb5a0401190cb29986e532eab"], "remember": true}
+
+### 스토리 감상
+
+    B의통신에서일에'만족하지않는다'고답했다.오늘성과에는만족하지만회사은폐까지좋다고답하고싶지는않았다.상층회담에서밝은말쿠트가나약함과도태를말하고호드가주저하며예소드가정신피해를경고하는대조가서늘했다.마지막엔엔젤라가지휘팀실패를지적했다.인물속마음은확정하지않는다.
+
+    {"evidence_ids": ["exp_4c0696ec4ad342d8a8ac42b45de03698", "exp_f58706bcb5a0401190cb29986e532eab"], "remember": true}
+
+### 남은 인상
+
+    내실을챙기며WHITE무기를준비해두니시련지원에실제로쓸직원이생겼다.반면빅토르의SP6을보고서야위쪽전투를접은것은긴장됐다.여섯명을끝까지지키고두미션을동시에완료한결과는기쁘다.
+
+    {"evidence_ids": ["exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_541fcf4044b94b658d3ed632b5c3b421"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "observed", "evidence_ids": ["exp_f58706bcb5a0401190cb29986e532eab", "exp_c0da234cd997440b9fb203d80abf5601"], "id": "mem_9f4eb96250684f109ef638c700ac5859", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.404950+00:00", "supersedes": null, "text": "Day11준비화면이현재재개점.교육팀0명·직원배치필요,LOB9,새후보T0154관리법미확인.합동지휘연구UI확정/효과설명타부서간작업명령가능,실제교차배정은아직미시험. Day11관리시작전교육팀배치와HP17Archer보강,부리무기30PE제조를현재재고로검토한다. 상세Playbook pb_4fb4009e27b8444d9aa795f998649e90."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "observed", "evidence_ids": ["exp_4054492149f847be9f5c9dd5363b7b93", "exp_4c0696ec4ad342d8a8ac42b45de03698"], "id": "mem_1aab0da79a8746878982e562db1b93e9", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.404950+00:00", "supersedes": null, "text": "야근V/VI폭주화면/room_timers는갱신됐지만meltdown_cycle대기커서8·예약armed로자동정지하지않았다.일반II/III/IV에서는발동성공한경험과구분.정확한원인은운영자진단사항이며이후패치확인전에는4/5부근에서짧게진행하고직접정지를확인한다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "observed", "evidence_ids": ["exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_f58706bcb5a0401190cb29986e532eab"], "id": "mem_962d8dc33dfb4bb68216646cac3b0a5c", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.404950+00:00", "supersedes": null, "text": "복도이동명령후작업을시키면완료직원이예전복도대기지점으로돌아가는것을보았다.한곳에집결시킨뒤그명령을방치하면작업왕복과약한직원의자동교전을유발한다.작업전후현재대기지점도재점검한다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "observed", "evidence_ids": ["exp_51592e2153664fa1b3b91deb5f397e2d", "exp_c08e1ced9b58418c91cb62ff5eda0643"], "id": "mem_2541c2281b774c3a8749075e6ac9b6d1", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.404950+00:00", "supersedes": null, "text": "자색여명선택창은BLACK공격/WHITE약점1.5.두RED직원이싸우던위쪽은남은막대64%에서VictorSP6까지떨어졌다.후퇴와로비회복후WHITE지원이합류하자57%→23%→공격중사라짐/종료·보상17확인. 공격제압으로판단하지만막대0정확값을별도로본것은아니다(당시메모의'0후사라짐'표현정정)."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "hypothesis", "evidence_ids": ["exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_f58706bcb5a0401190cb29986e532eab"], "id": "mem_863b0edad6b147589804a8dd2afd06ef", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.404950+00:00", "supersedes": null, "text": "Brook초상화사용후그의피해바가변하지않고Victor손실이컸으므로피해전이가영향줬을가능성이있다.정확한전이대상은아직확인못했으며다른사용자로교체하지않고캔버스를먼저확인한다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "observed", "evidence_ids": ["exp_b4d842ab112146fb80b4962d9f777f31", "exp_757f53c921c94dbe9db1bf2c075d8011", "exp_341b109fc11444708e119d72ac11f051"], "id": "mem_0761280b037246959b570d18cdc1fd3e", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "supersedes": null, "text": "이름표겹침이나화면최상단의직원은click=null/누락으로move_employee가대상미확인실패했다.카메라W로보이게한후현재이미지드래그와선택목록으로Eden/Victor둘선택을확인하고로비우클릭하여후퇴시켰다.누락은사망근거가아니다.작업녹색결과중방메뉴미확인실패도새상태로재판단했다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "observed", "evidence_ids": ["exp_541fcf4044b94b658d3ed632b5c3b421", "exp_f58706bcb5a0401190cb29986e532eab"], "id": "mem_955c0c0d694248e0b97d85553e4a0118", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "supersedes": null, "text": "10일차야근으로지휘폭주격리실8회와정보작업나쁨없이클리어두미션완료.다음지휘미션어스름의때는준비화면에Day20이후어스름시련종료라고표시됐다.스토리의지휘팀시련실패대사는서사사건으로이번실제S/6생존결과와분리한다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "subjective_experience", "evidence_ids": ["exp_2fc4876392214eec8af1168a73d0b267", "exp_49b39ae1de29482ead194c5072d881f4", "exp_7c34b576aba54348a3ee558d3721add6"], "id": "mem_a51b5749e63540fdb22c58fe5c1b0247", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "remember": true, "supersedes": null, "text": "요정기록의보호받는직원의자부심이먹이보존이라는결론으로뒤집히고회사가지원효과를이유로진실을숨기는부분이남았다.전날인지필터이야기와이어져'좋아보이는화면'을다르게보게된다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "subjective_experience", "evidence_ids": ["exp_ac0cab3b516e4acd821a6a0a85e1c2fc", "exp_6e3262876cf845c5b86842540e7fc414", "exp_7c34b576aba54348a3ee558d3721add6"], "id": "mem_baf5c532ee6c4d01a0e1d344523df4d6", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "remember": true, "supersedes": null, "text": "공허한꿈의빈센트는악몽때문이아니라행복한꿈에서깨어난현실이괴로워잠으로돌아가고싶어했다.예전잠든직원클릭이단순한구조조작이었는데,기록을읽고나니깨우는일이마냥친절하지만은않게느껴진다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "subjective_experience", "evidence_ids": ["exp_8ec084eb76ec429cb1315014674a16ea", "exp_7c34b576aba54348a3ee558d3721add6", "exp_f58706bcb5a0401190cb29986e532eab"], "id": "mem_a624b9cc9231412da52ddd5cb0355fd3", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "remember": true, "supersedes": null, "text": "안전한첫방이라고익숙하게쓰던해골기록에도고해자의'그냥파티'라는설명과저스틴을괴롭혔다는조사증언의틈이있었다.작업요령과별개로이런기록들을읽는시간은좋다.신입아처가해골에게여러번다녀오며선물을받은모습도반가웠다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "subjective_experience", "evidence_ids": ["exp_4c0696ec4ad342d8a8ac42b45de03698", "exp_f58706bcb5a0401190cb29986e532eab"], "id": "mem_4617d20893f14d3cad50554a0c4876f7", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "remember": true, "supersedes": null, "text": "B의통신에서일에'만족하지않는다'고답했다.오늘성과에는만족하지만회사은폐까지좋다고답하고싶지는않았다.상층회담에서밝은말쿠트가나약함과도태를말하고호드가주저하며예소드가정신피해를경고하는대조가서늘했다.마지막엔엔젤라가지휘팀실패를지적했다.인물속마음은확정하지않는다."}
+
+    {"attempt_id": "Run-001/Day-10-Attempt-01", "author": "AI player", "basis": "subjective_experience", "evidence_ids": ["exp_c08e1ced9b58418c91cb62ff5eda0643", "exp_541fcf4044b94b658d3ed632b5c3b421"], "id": "mem_916219d300fa4768845d7ad25de588fd", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-20T14:50:09.405951+00:00", "remember": true, "supersedes": null, "text": "내실을챙기며WHITE무기를준비해두니시련지원에실제로쓸직원이생겼다.반면빅토르의SP6을보고서야위쪽전투를접은것은긴장됐다.여섯명을끝까지지키고두미션을동시에완료한결과는기쁘다."}
