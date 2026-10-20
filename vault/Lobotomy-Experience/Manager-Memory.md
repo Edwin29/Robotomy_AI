@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: c3eefb8a6715e91d318732efe186500d41d7d4d22753813723129055d8d0ef36
+Version: 8eb90c39d175ae909a2c9573f080b6f87432f2823f2fd78513eb6c5cbc859ca8
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -763,4 +763,46 @@ Version: c3eefb8a6715e91d318732efe186500d41d7d4d22753813723129055d8d0ef36
     사용량중단으로현재DAY9준비화면. 지휘Eden/Victor,정보A/Bat/Brook,LOB1. 무기RED4명/AWHITE,요정슈트Eden/Victor/Bat. 사용자재개요청전운영금지. 다음시도시Playbook초상화/테레지아필독,상태와장비재확인.
 
     {"attempt_id": "Run-001/Day-09-Attempt-12", "author": "Codex GPT-6", "basis": "policy", "evidence_ids": ["exp_607dbb21afcf483a87d6a72e3ba676de", "exp_be23fe91d07c4f2aa8f84caf4e36949a"], "supersedes": null}
+
+## mem_46de00058c6f47f491da5073e603c345
+
+    자색 여명 미처치시 시간제한후자폭,부서WHITE피해와클리포트카운터감소는 이번사용자설명에서배웠다. 직접선택창에서BLACK공격/WHITE약점1.5확인. 시련종료와보상만으로처치판정금지. 정확한제한초는미확인. Playbook pb_a63e679b3cc9428e9953241ead0ecb43에출처구분저장.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_d8c91b5b52634dfda1c7fe6b748d4e07"], "supersedes": null}
+
+## mem_5314faea5d824e96929b3861e5483b54
+
+    meltdown_cycle 일회성정지가일반폭주와시련출현둘다에서작동하고소모됐다. 첫폭주60초를보존. 재예약은명시적으로하며 실제playback도확인. 이번두번의관찰결과이며항상성공보장아님.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_fc9fa87cef1046e3854f527c348d5730", "exp_cb587194c07a4c4aab6121b8251a083c"], "supersedes": null}
+
+## mem_c7f3324dae1846c2831f3bfea5736e7a
+
+    v2priority_changes와changes둘다적용해야한다. 초기에changes만병합하여playback/폭주정보가낡았던것은내관찰정리실수. wait_for_event등이반환한observation도기준을갱신한다. base불일치시reset_baseline전체관찰. 드래그capture→prepare→execute는만료전에짧게묶기. 입력직후이전프레임,이동직후idle로성공실패를성급히단정하지않는다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_cb587194c07a4c4aab6121b8251a083c"], "supersedes": null}
+
+## mem_f2305f94e53642b4968ac85fc2df44d6
+
+    새정보팀미션완벽의경계는작업나쁨없이하루클리어. 10일차준비LOB4,정보팀최종확장과사무직공포피해감소연구완료. 지휘팀폭주격리실8회미션은아직남아있다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_cb587194c07a4c4aab6121b8251a083c", "exp_c74bb98a80d74155beb8f24b57e85803"], "supersedes": null}
+
+## mem_c72cdc5d047f4b308998d190e0e53bec
+
+    일회성정지는경보반응을놓칠걱정을덜어줬다. 익숙한작업4개를execute_intents로한꺼번에맡기는감각은편했다. 다만새도구를써도적을잘읽고사람을제때모으는판단은내몫이라는느낌.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_cb587194c07a4c4aab6121b8251a083c"], "supersedes": null}
+
+## mem_cd1e1076690c4d5c8ec61acf57bbb0df
+
+    Day10엔젤라는잔혹한실제현장을귀여운인형처럼보이게하는인지필터를모니터에설치했다고설명. 배경이피묻은복도에서사무실로바뀌는장면이섬뜩했다. 게임의화면양식자체에이유가붙어새삼관심이갔다.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_cb587194c07a4c4aab6121b8251a083c"], "supersedes": null}
+
+## mem_a9b5110aa6d446b589a18de6b6fdcfad
+
+    예소드는제임스사살을명령했다고밝히면서그와잡담·농담·끝말잇기를즐겼던친분을탓하고이곳을외로운공간이라말했다. 냉정함을무관심으로단정하기어렵다는인상. 자아없는AI였으면좋겠다는말과왜컴퓨터가아닌우리를세웠나라는질문이기억에남는다. 인물속마음확정아닌대사를읽은내감상.
+
+    {"attempt_id": "Run-001/Day-09-Attempt-13", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_cb587194c07a4c4aab6121b8251a083c"], "supersedes": null}
 

@@ -62,3 +62,7 @@
 
     {"author": "Codex", "evidence_ids": ["exp_2f89010b6b524513918c8ef3e4291bad", "exp_57ff37b155454843882faae1b5b7d6e0"], "notes": "生存結果リストEden/Bat/Brook、A/V死亡。終了前A紫統制不能を確認したが解消確認なしで終えた。V最終作業可否未確認。"}
 
+## Day-09-Attempt-13
+
+    {"author": "AI 플레이어", "evidence_ids": ["exp_90061d0631194b95b7d99b6c540d0b86", "exp_d8c91b5b52634dfda1c7fe6b748d4e07", "exp_fc9fa87cef1046e3854f527c348d5730", "exp_cb587194c07a4c4aab6121b8251a083c", "exp_c74bb98a80d74155beb8f24b57e85803"], "notes": "끝나기 전 선택창 확인: Eden54/54 HP42/47 SP, Victor36/49 HP7/29 SP, Asteroid43/55 HP39/51 SP, Bat48/48 HP41/41 SP, Brook50/52 HP38/38 SP. 결과화면과Day10준비에서5명생존확인. Day10관리미시작."}
+
