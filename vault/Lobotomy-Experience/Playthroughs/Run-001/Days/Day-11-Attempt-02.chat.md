@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:18:51.592050+00:00", "message_id": "msg_083f0162623832c0016ad7f6db46388191b86fbdf0a175934b", "next_event_id": null, "previous_event_id": "exp_f80b07e552784634a6736584f1f34d34", "turn_id": "01a15b9c-1241-7832-bc97-9a04a32bdb27"}
 
+## 2026-10-20T23:20:11.313Z · commentary
+
+    직원 일곱 명의 HP/SP 바와 위치가 이제 들어온다. 새 줌 전용 호출은 아직 도구 목록에 안 보여서, 우선 지원되는 휠 입력으로 확대해 볼게. 이번에는 새 방을 가까이 보면서 첫 작업을 진행하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:20:11.766972+00:00", "message_id": "msg_083f0162623832c0016ad7f72b1d848191a9acb4ad8c0c6aab", "next_event_id": null, "previous_event_id": "exp_7091e7b1b4584fcba50385fc0cd4952a", "turn_id": "01a15b9c-1241-7832-bc97-9a04a32bdb27"}
+
