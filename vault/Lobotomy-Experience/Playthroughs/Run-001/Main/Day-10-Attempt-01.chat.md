@@ -109,3 +109,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:48:47.030818+00:00", "message_id": "msg_083f0162623832c0016ad7713df73c819187d19ac953aa38c1", "next_event_id": null, "previous_event_id": "exp_cdf8b215594642b9ba6d3e16a510fee9", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:50:26.210Z · commentary
+
+    새 후보 셋 다 불길하다. 그중 “나 같은 것에 죽어나가는 너희들”이라는 말은 자기 처지를 어떻게 보고 있는지 궁금해진다. 이번에는 T-01-54를 고르겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:50:26.816717+00:00", "message_id": "msg_083f0162623832c0016ad7719c476c8191a6e0a054b27b0501", "next_event_id": null, "previous_event_id": "exp_7d9201b0bcc645ce81bf59a781e0da88", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
