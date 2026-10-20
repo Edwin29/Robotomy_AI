@@ -85,3 +85,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:39:13.583305+00:00", "message_id": "msg_083f0162623832c0016ad76f00356481918062b20a319f360f", "next_event_id": null, "previous_event_id": "exp_500204af1f634a95b220d82e62b54d9a", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:40:42.723Z · commentary
+
+    에너지는 채웠지만 오늘은 지휘팀 미션까지 노려보자. 폭주한 방에 새로 작업을 보내야 하니, 경보마다 멈추고 배정하겠다. 특히 오래 쓰면 위험한 도구 방은 따로 다뤄야 한다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:40:42.938530+00:00", "message_id": "msg_083f0162623832c0016ad76f5691f881918f20e8dc6d72ea20", "next_event_id": null, "previous_event_id": "exp_e2260787232540e3a50ece33a412578e", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
