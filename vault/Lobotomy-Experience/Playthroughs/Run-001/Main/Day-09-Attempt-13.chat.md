@@ -74,3 +74,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:29:33.620242+00:00", "message_id": "msg_083f0162623832c0016ad7509c7590819187382c797960d3da", "next_event_id": null, "previous_event_id": "exp_bdb995039c834ff2a8297e4d3051c2c2", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:32:58.065Z · commentary
+
+    새 미션은 ‘작업 나쁨 없이 클리어’. 오늘처럼 익숙한 상대를 잘 맡기는 운영과는 맞지만, 새 작업을 알아가는 실험과는 긴장 관계가 있겠네. 다음날 준비 화면에서 조건을 기억해 두자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:32:58.741855+00:00", "message_id": "msg_083f0162623832c0016ad75168bbd88191a92afd43b66484b8", "next_event_id": null, "previous_event_id": "exp_dfe255fed5b04934a83206d3032ae28a", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
