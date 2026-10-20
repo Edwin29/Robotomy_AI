@@ -79,3 +79,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:37:30.592997+00:00", "message_id": "msg_083f0162623832c0016ad76e988a188191a218e739f1c340fb", "next_event_id": null, "previous_event_id": "exp_f80b808eb17247fc972eaa4a953029ab", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:39:13.255Z · commentary
+
+    이번 폭주는 웰치어스와 이미 작업 중인 두 방이다. 빅토르는 로비에서 완전히 회복했고 본능 작업도 ‘높음’이다. 웰치어스는 맡기되, 결과가 나쁨이면 치명적이라는 기록은 계속 신경 쓰인다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:39:13.583305+00:00", "message_id": "msg_083f0162623832c0016ad76f00356481918062b20a319f360f", "next_event_id": null, "previous_event_id": "exp_500204af1f634a95b220d82e62b54d9a", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
