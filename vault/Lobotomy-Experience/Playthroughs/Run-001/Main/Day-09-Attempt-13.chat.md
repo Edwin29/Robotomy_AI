@@ -44,3 +44,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:13:08.836331+00:00", "message_id": "msg_083f0162623832c0016ad74cc139dc81919fa62a8b59314ec9", "next_event_id": null, "previous_event_id": "exp_9d2a38462f284d90b1d99c5d2f82d4db", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:15:21.990Z · commentary
+
+    피 묻은 복도에서 관리자 표정을 묻더니, 화면이 말끔한 사무실로 바뀐다. 엔젤라가 무엇을 보여주고 무엇을 가리는지 자꾸 신경 쓰이네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:15:22.236999+00:00", "message_id": "msg_083f0162623832c0016ad74d490c5c8191848d3e1a47d75bdd", "next_event_id": null, "previous_event_id": "exp_677aad02f0ae4937966d4718467fce72", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
