@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:48:36.248530+00:00", "message_id": "msg_083f0162623832c0016ad7efc3a00c81919881f46f20c67b80", "next_event_id": null, "previous_event_id": "exp_faf7083f2293479595f765628eed1a50", "turn_id": "01a15b7e-ad98-70d0-a8a8-f21d83e1e86d"}
 
+## 2026-10-20T23:18:51.024Z · commentary
+
+    이번엔 줌도 써서 새 환상체 모습과 작업 뒤 반응을 가까이 봐야겠다. 패치 안내와 직원 정보부터 확인하고 이어갈게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:18:51.592050+00:00", "message_id": "msg_083f0162623832c0016ad7f6db46388191b86fbdf0a175934b", "next_event_id": null, "previous_event_id": "exp_f80b07e552784634a6736584f1f34d34", "turn_id": "01a15b9c-1241-7832-bc97-9a04a32bdb27"}
+
