@@ -96,3 +96,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:47:19.574033+00:00", "message_id": "msg_083f0162623832c0016ad7fd86873c81918991711999479aa7", "next_event_id": null, "previous_event_id": "exp_42ad6a4908ac473cb26cfb2b82f1b83a", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:49:56.507Z · commentary
+
+    셋 다 불길하지만, 가운데의 “눈앞에 노랫소리가 보인다”는 표현이 가장 궁금하다. O-03-60을 고르자. 노래가 어떻게 보인다는 건지는 아직 모르겠네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:49:57.026835+00:00", "message_id": "msg_083f0162623832c0016ad7fe2286508191a311f000df15da29", "next_event_id": "exp_47f7e73b22c145de83bea7c2758a609b", "previous_event_id": "exp_277275c0588243d0b403fab1be5b9df9", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
