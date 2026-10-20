@@ -61,3 +61,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:29:02.443039+00:00", "message_id": "msg_083f0162623832c0016ad76c9cc44081919298196b111ac8e3", "next_event_id": null, "previous_event_id": "exp_b4d842ab112146fb80b4962d9f777f31", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:34:08.187Z · commentary
+
+    아래쪽은 셋이 붙어서 빠르게 밀고 있다. 위쪽 두 명도 제대로 교전 중인지 확인하고, 다친 직원은 빼자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:34:08.729571+00:00", "message_id": "msg_083f0162623832c0016ad76dcf8ce48191b1f0f64873f1d5e2", "next_event_id": null, "previous_event_id": "exp_720c8f998ee84a4fbcf876d49322deff", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
