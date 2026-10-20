@@ -133,3 +133,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T14:09:34.937782+00:00", "message_id": "msg_083f0162623832c0016ad7761d79c88191935ae168bd1bcfcb", "next_event_id": "exp_8dac83bc07b74f9082abc418d13b00ad", "previous_event_id": "exp_5969e0a0969b40c1ae2799051bdbbdb3", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T14:35:34.187Z · commentary
+
+    다음 부서는 교육팀을 열겠다. 새로 고용한 아처도 있고 직원 성장에 관심이 간다. 부서 이름만으로 효과를 단정할 수는 없지만, 호드 쪽 이야기도 더 보고 싶다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T14:35:34.392796+00:00", "message_id": "msg_083f0162623832c0016ad77c35137c8191a703a281dc5975ef", "next_event_id": null, "previous_event_id": "exp_879421d5220e4e0e89cd3bbeb9677589", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
