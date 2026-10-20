@@ -90,3 +90,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:43:55.831820+00:00", "message_id": "msg_083f0162623832c0016ad7fcb7e244819190c46e7471a7774e", "next_event_id": "exp_f02d4d6e695647f29a5f3bb26e378bb2", "previous_event_id": "exp_e8966475bd644c7e9da3f770a1248934", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:47:19.189Z · commentary
+
+    일곱 명 모두 살려서 끝냈다. 새 환상체는 ‘버려진 살인마’였고, 탈출을 한 번 겪은 뒤 관리법과 두 작업 선호를 열었어. 오늘은 특히 초상화 이동 명령을 성급히 덮어쓴 실수가 아쉽다. 결과를 확인하고 다음날 저장 지점까지 넘기자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:47:19.574033+00:00", "message_id": "msg_083f0162623832c0016ad7fd86873c81918991711999479aa7", "next_event_id": null, "previous_event_id": "exp_42ad6a4908ac473cb26cfb2b82f1b83a", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
