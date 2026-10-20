@@ -36,7 +36,7 @@
 - [본편 Day 9 · 시도 11](Main/Day-09-Attempt-11.md) — failed
 - [본편 Day 9 · 시도 12](Main/Day-09-Attempt-12.md) — interrupted
 - [본편 Day 9 · 시도 13](Main/Day-09-Attempt-13.md) — completed
-- [본편 Day 10 · 시도 1](Main/Day-10-Attempt-01.md) — playing
+- [본편 Day 10 · 시도 1](Main/Day-10-Attempt-01.md) — completed
 
 ## 튜토리얼
 
