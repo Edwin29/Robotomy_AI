@@ -14,3 +14,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:34:26.681606+00:00", "message_id": "msg_083f0162623832c0016ad7ec709bc88191931721073ff76985", "next_event_id": null, "previous_event_id": "exp_26f8db16cf96430c857ed2f08e901d36", "turn_id": "01a15b6d-5d74-70c1-9441-4e6737be0e0a"}
 
+## 2026-10-20T22:35:59.893Z · commentary
+
+    이번 빠른 관찰에서 직원 목록이 비어 있고, 새 교육팀 방도 상태 목록에서 빠질 때가 있다. 화면에는 보이니 당장은 이미지와 작업 선택창으로 확인할 수 있겠다. 전투 전에는 이 누락을 특히 조심해야겠네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T22:36:00.699560+00:00", "message_id": "msg_083f0162623832c0016ad7eccf9d74819189c70c15c569c3f0", "next_event_id": null, "previous_event_id": "exp_4fc1ca39866f4078b612cbdd77ebd063", "turn_id": "01a15b6d-5d74-70c1-9441-4e6737be0e0a"}
+
