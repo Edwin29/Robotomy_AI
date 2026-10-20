@@ -78,3 +78,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:34:24.062458+00:00", "message_id": "msg_083f0162623832c0016ad7fa7f4c04819181a2d35b5fe584f9", "next_event_id": null, "previous_event_id": "exp_c2e178be234d4ae3b72040ee6cee87c6", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:40:17.848Z · commentary
+
+    핏빛 여명은 끝났는데 빅토르 체력이 크게 떨어졌다. 브룩의 피해 전이 가능성도 있어 원인은 아직 단정 못 하겠어. 둘 다 로비로 빼뒀다. 새 방에는 절제가 높은 배트워든맨을 교차 배정했고, 이 작업으로 관리법을 열 만큼 모아보고 싶다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:40:18.440468+00:00", "message_id": "msg_083f0162623832c0016ad7fbe039088191bc3f320868516554", "next_event_id": null, "previous_event_id": "exp_ae15493f57944c2795f7db731f748192", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
