@@ -103,3 +103,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:46:51.153452+00:00", "message_id": "msg_083f0162623832c0016ad770c9bcbc8191b69a520a4358f563", "next_event_id": null, "previous_event_id": "exp_33991b51054e4fda91e91a21c7191ff8", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:48:46.850Z · commentary
+
+    두 미션 모두 완료했다. 10일차 결과는 S, 6명 전원 생존, 보상 9 LOB다. 다음 날로 넘어가 저장하고 준비 화면에서 멈추겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:48:47.030818+00:00", "message_id": "msg_083f0162623832c0016ad7713df73c819187d19ac953aa38c1", "next_event_id": null, "previous_event_id": "exp_cdf8b215594642b9ba6d3e16a510fee9", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
