@@ -56,3 +56,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:18:30.992834+00:00", "message_id": "msg_083f0162623832c0016ad74e0602f481919292e26086734f76", "next_event_id": null, "previous_event_id": "exp_8402b0a4e4b64dde8c9a47462822f115", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:21:23.161Z · commentary
+
+    예소드는 직접 사살 명령을 내렸다고 담담하게 말한다. 그런데 ‘막지 못해서 안타까운 게 아니다’라는 말 뒤에 무엇이 올지 궁금해진다. 규칙 이야기만 하는 인물로 보기에는 지난번 모습도 마음에 걸리고.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:21:23.827787+00:00", "message_id": "msg_083f0162623832c0016ad74eb15a088191a08f05f2e35d0721", "next_event_id": null, "previous_event_id": "exp_22618786f6164bba8c15b84c213ecb8c", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
