@@ -45,6 +45,10 @@ def encode_command(decision, view):
               decision.get('x') or 0, decision.get('y') or 0, decision.get('to_x') or 0,
               decision.get('to_y') or 0, 'v1', decision['duration_ms'], decision.get('scroll_y') or 0,
               decision['created_epoch']]
+    if decision.get('employee_token'):
+        LiveControl._id(decision['employee_token'])
+        if decision['kind']!='click':raise ValueError('Targeted employee action must be a click')
+        values[12]='v2';values.append(decision['employee_token'])
     if any('\n' in str(v) or '\r' in str(v) for v in values):
         raise ValueError('Invalid protocol field.')
     return '\n'.join(map(str, values))
@@ -70,22 +74,25 @@ class VirtualExecutor:
             raise ValueError('Virtual game input is unavailable or stale. No OS fallback.')
         return snapshot
 
-    def capture(self):
+    def capture(self, record_observation=True, include_frame=True):
         snapshot = self._snapshot()
-        status, frame = self.control.reader.frame()
-        for _ in range(4):
-            if frame is not None or status.get('reason') != 'frame_unreadable': break
-            time.sleep(.02)
+        frame=None
+        if not include_frame and record_observation:raise ValueError('Structured private capture must not be offered as an image')
+        if include_frame:
             status, frame = self.control.reader.frame()
-        if frame is None: raise ValueError('Fresh game frame required: ' + str(status))
-        if status.get('process_id') != snapshot['process_id'] or status.get('scene') != snapshot['scene']:
-            raise ValueError('Scene or process changed while capturing; observe again.')
-        # frame() reads its own fresh snapshot. A resize between those two reads
-        # must not associate new PNG coordinates with an older control view.
-        dimensions = {'width':int.from_bytes(frame[16:20], 'big'),
-                      'height':int.from_bytes(frame[20:24], 'big')}
-        if dimensions != snapshot['screen']:
-            raise ValueError('Resolution changed while capturing; observe again.')
+            for _ in range(4):
+                if frame is not None or status.get('reason') != 'frame_unreadable': break
+                time.sleep(.02)
+                status, frame = self.control.reader.frame()
+            if frame is None: raise ValueError('Fresh game frame required: ' + str(status))
+            if status.get('process_id') != snapshot['process_id'] or status.get('scene') != snapshot['scene']:
+                raise ValueError('Scene or process changed while capturing; observe again.')
+            # frame() reads its own fresh snapshot. A resize between those two reads
+            # must not associate new PNG coordinates with an older control view.
+            dimensions = {'width':int.from_bytes(frame[16:20], 'big'),
+                          'height':int.from_bytes(frame[20:24], 'big')}
+            if dimensions != snapshot['screen']:
+                raise ValueError('Resolution changed while capturing; observe again.')
         identity = uuid.uuid4().hex
         view = {'id': identity, 'backend': 'virtual_unity', 'coordinate_space': 'unity_client_pixels',
                 'captured_epoch': time.time(), 'process_id': snapshot['process_id'], 'scene': snapshot['scene'],
@@ -93,13 +100,14 @@ class VirtualExecutor:
                 'screenshot_id': identity, 'sequence': snapshot['sequence']}
         directory = self.control.directory / 'views'
         directory.mkdir(parents=True, exist_ok=True)
-        (directory / (identity+'.png')).write_bytes(frame)
+        if frame is not None:(directory / (identity+'.png')).write_bytes(frame)
         atomic(directory / (identity+'.json'), view)
         atomic(self.control.directory / 'view.json', view)
         from .experience import record
-        response = {'view': view, 'frame_path': str(directory / (identity+'.png')), 'snapshot': snapshot}
-        response['experience_recording'] = record(self.root, 'control_view_offered',
-            {**response, 'image_delivery':'reference_only_not_proof_of_viewing'}, frame)
+        response = {'view': view, 'frame_path': str(directory / (identity+'.png')) if frame is not None else None, 'snapshot': snapshot}
+        if record_observation:
+            response['experience_recording'] = record(self.root, 'control_view_offered',
+                {**response, 'image_delivery':'reference_only_not_proof_of_viewing'}, frame)
         return response
 
     def execute(self, decision_id):

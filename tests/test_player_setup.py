@@ -17,7 +17,10 @@ class PlayerSetupTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             server=create_server(Path(temp),player_only=True)
             names={tool.name for tool in asyncio.run(server.list_tools())}
-            self.assertEqual(len(names),28)
+            self.assertEqual(len(names),35)
+            self.assertTrue({'read_playbook','save_playbook_entry'} <= names)
+            self.assertTrue({'read_facility_map','click_facility'} <= names)
+            self.assertIn('read_audio_events',names)
             self.assertIn('hover_live_control', names)
             self.assertTrue({'submit_input_sequence','input_sequence_status','cancel_input_sequence'} <= names)
             self.assertTrue({'read_player_guide','capture_live_control','complete_day_review',

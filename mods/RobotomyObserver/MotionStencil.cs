@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Shipped tutorial render-profile analysis, not a general Unity stencil emulator.
+// Shipped render-profile analysis, not a general Unity stencil emulator.
 // Sources: .robotomy/analysis/custom-stencil-states.json,
 // stencil-writer-vertex-hashes.json, custom-sprite-mask.dxbc.txt.
 // Both retained game assemblies contain no _Stencil access; the only SetPropertyBlock
@@ -48,13 +48,26 @@ public static class MotionStencil
     static bool Read(Material material,string name,int maximum,out int value) {
         value=0; return material.HasProperty(name) && Integer(material.GetFloat(name),maximum,out value);
     }
+    static bool ParticleShader(string name) {
+        // resources.assets 4971..4976: every pass has immutable Stencil Keep,
+        // Compare Always and ZWriteOff (particle-shaders.json audit).
+        switch(name) {
+        case "Particles/Additive": case "Particles/~Additive-Multiply":
+        case "Particles/Additive (Soft)": case "Particles/Alpha Blended":
+        case "Particles/Multiply": case "Particles/Alpha Blended Premultiply":return true;
+        default:return false;
+        }
+    }
     static bool StateFor(Renderer renderer,Material material,out State state) {
         state=null;
         if(material==null || material.shader==null) return false;
         string name=material.shader.name;
         if(material.shader!=Shader.Find(name)) return false;
+        if(ParticleShader(name)){state=new State();return true;}
         switch(name) {
         case "Sprites/Default": case "Spine/Skeleton": case "Custom/SpriteOverlayBlend":
+        // Main resources.assets 4971/4979: all stencil operations Keep, ZWriteOff.
+        case "Unlit/Transparent":
             state=new State(); return true; // Audited passes never write/test stencil.
         case "Custom/SpriteDefaultStencilTest": case "Custom/SpriteMulStencilTest":
             state=new State { compare=3,reference=0,read=1 }; return true;
@@ -234,11 +247,13 @@ public static class MotionStencil
                 string name=material==null||material.shader==null?"null":material.shader.name;
                 if(shaders.Count<32 && !shaders.Contains(name)) shaders.Add(name);
                 bool known=material!=null && material.shader!=null && material.shader==Shader.Find(name);
+                if(known && ParticleShader(name))continue;
                 if(known) switch(name) {
                 // These exact shipped shader main passes have both immutable
                 // ZWriteOff and Stencil Keep. Canvas usage cannot change those
                 // compiled states. Stencil tests may fail, which still writes nothing.
                 case "Sprites/Default": case "Spine/Skeleton": case "Custom/SpriteOverlayBlend":
+                case "Unlit/Transparent":
                 case "Custom/SpriteDefaultStencilTest": case "Custom/SpriteMulStencilTest": case "Custom/SpriteDoorStencilTest":
                     continue;
                 case "UI/Default":
@@ -270,8 +285,9 @@ public static class MotionStencil
             dumpCheck=Time.realtimeSinceStartup;dumpDirectory=Environment.GetEnvironmentVariable("ROBOTOMY_OBSERVATION_DIR");
             dumpPending=!String.IsNullOrEmpty(dumpDirectory) && System.IO.File.Exists(System.IO.Path.Combine(dumpDirectory,"motion-canvas-dump.request"));
         }
-        string scene=SceneManager.GetActiveScene().name;
-        if(scene!="Tutorial"&&scene!="Tutorial_1"&&scene!="Tutorial_2"&&scene!="Tutorial_3") { blocked="stencil_scene_unverified";return; }
+        // Validate the actual camera, materials and stencil writers below.
+        // Main uses the same shipped shader assets as the tutorial; the scene
+        // name is not evidence that a foreground background-mask is opaque.
         if(camera==null || !camera.isActiveAndEnabled || !camera.orthographic || camera.targetTexture!=null ||
             camera.pixelRect!=new Rect(0,0,Screen.width,Screen.height) || camera.actualRenderingPath!=RenderingPath.Forward) {
             blocked="stencil_camera_unverified";return;
@@ -287,13 +303,26 @@ public static class MotionStencil
             foreach(Renderer renderer in renderers) {
                 if(renderer==null || !renderer.enabled || !renderer.gameObject.activeInHierarchy ||
                     (camera.cullingMask&(1<<renderer.gameObject.layer))==0) continue;
+                // Spine separators keep enabled, empty mesh renderers for absent
+                // attachment slots. They submit no triangles and cannot write stencil.
+                var mesh=renderer.GetComponent<MeshFilter>();
+                if(renderer is MeshRenderer && (mesh==null || mesh.sharedMesh==null || mesh.sharedMesh.vertexCount==0)) continue;
+                var spriteBody=renderer as SpriteRenderer;
+                if(spriteBody!=null && spriteBody.sprite==null)continue;
+                var particles=renderer is ParticleSystemRenderer?renderer.GetComponent<ParticleSystem>():null;
+                if(particles!=null && particles.particleCount==0)continue;
                 var states=new List<State>();
-                foreach(Material material in renderer.sharedMaterials) {
+                Material[] materials=renderer.sharedMaterials;
+                for(int slot=0;slot<materials.Length;slot++) {
+                    // Shipped Aura particle prefabs retain a null trail-material
+                    // slot while TrailModule is disabled. That slot is not drawn.
+                    if(particles!=null && slot==1 && !particles.trails.enabled)continue;
+                    Material material=materials[slot];
                     State state;
                     if(!StateFor(renderer,material,out state)) {
                         // Unknown shader vertices may leave CPU bounds, so an unknown
                         // writer cannot safely be excluded just by a rectangle test.
-                        blocked="stencil_unknown_shader:"+(material==null||material.shader==null?"null":material.shader.name);return;
+                        blocked="stencil_unknown_shader:"+renderer.name+":"+(material==null||material.shader==null?"null":material.shader.name);return;
                     }
                     state.renderer=renderer;state.queue=material.renderQueue;
                     state.layer=SortingLayer.GetLayerValueFromID(renderer.sortingLayerID);state.order=renderer.sortingOrder;

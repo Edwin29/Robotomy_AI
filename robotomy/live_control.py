@@ -55,7 +55,7 @@ class LiveControl:
         return view
 
     def prepare(self, view_id, kind, rationale='', expected='', x=None, y=None, key=None, scroll_y=None,
-                duration_ms=80, to_x=None, to_y=None):
+                duration_ms=80, to_x=None, to_y=None, employee_token=None):
         view = self.view()
         if view['id'] != view_id:
             raise ValueError('View changed; inspect the new screenshot first.')
@@ -93,6 +93,9 @@ class LiveControl:
         supplied = [name for name, value in extras.items() if value is not None]
         if supplied:
             raise ValueError('Arguments not used by ' + kind + ': ' + ', '.join(supplied) + '. Omit these arguments.')
+        if employee_token is not None:
+            if kind != 'click' or view.get('backend') != 'virtual_unity':raise ValueError('Employee target requires virtual left click')
+            self._id(employee_token)
         now = time.time()
         expires = min(now + 25, view['captured_epoch'] + 30)
         if native and expires - now < duration_ms / 1000 + .25:
@@ -103,6 +106,7 @@ class LiveControl:
             'expires_epoch': expires,
             'process_id': view['process_id'], 'scene': view['scene'], 'bridge_id': view['bridge_id'],
             'screenshot_id': view['screenshot_id'], 'window_id': view['window_id']}
+        if employee_token is not None:decision['employee_token']=employee_token
         if kind == 'scroll' and view.get('backend') == 'virtual_unity':
             decision['scroll_info'] = {
                 'units_per_notch': 120, 'notches': scroll_y / 120,

@@ -96,7 +96,7 @@ class SequenceTests(unittest.TestCase):
                     b=self.snapshot['buttons'][0]
                     if mutation=='missing': self.snapshot['buttons']=[]
                     elif mutation=='disabled': b['interactable']=False
-                    elif mutation=='moved': b['x']=301
+                    elif mutation=='moved': b['x']=321; b['hit_x']=331
                     elif mutation=='replaced': b['target_id']='different'
                     else: b['input_verified']=False
                     return {'status':'input_sent'}

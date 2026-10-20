@@ -448,6 +448,9 @@ class Experience:
             attempts=[json.loads(r[0]) for r in db.execute('SELECT data FROM attempts ORDER BY rowid')]
             events=[json.loads(r[0]) for r in db.execute('SELECT data FROM events ORDER BY seq')]
         selected={'Manager-Memory.md','Manager-Memory.json','Manifest.json'}
+        selected.update(p.relative_to(self.vault).as_posix()
+                        for p in (self.vault/'Playbook').glob('*')
+                        if p.is_file() and not p.is_symlink() and p.suffix in {'.json','.md'})
         for attempt in attempts:
             folder=f'Playthroughs/Run-{attempt["run"]:03d}'
             name=attempt['id'].split('/')[1]

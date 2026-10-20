@@ -1,0 +1,26 @@
+# Player usability audit — 2026-10-19
+
+Read-only investigation during active DAY8 Attempt07. No game input, restart, plugin reload, instruction change or production-code modification performed. Sources: SQLite ledger opened mode=ro; bounded tail of the player rollout identified by chat source configuration. Snapshot statistics are not a full-day benchmark.
+
+## Observed
+
+Ledger window 21:36:34–21:47:33 KST: 34 input receipts, 22 structured observations, 21 control-view captures, 8 explicit frame offerings, 9 fixed-facility actions, 4 submitted/finished input sequences. Control-view images are references, not proof of vision consumption.
+Rollout tool-roundtrip sample 21:37:21–21:48:15: 36 completed outer calls; elapsed tool time sum 19.68s, median .4395s; intervening gaps sum 635.01s, median 17.093s. Gaps include model, client/network, output inspection and other activity, not pure reasoning. Tool-name mentions are static counts, not exact nested invocation tracing. Player frequently batches several MCP calls in a single outer call already.
+Player explicitly reports fixed IDs working and uses click_facility. Work-type and staff choice still repeatedly build JSON parsers, capture view, prepare action, execute decision, then observe. Some rounds capture and retain a view across a roughly 15–20s gap before selecting a staff row.
+At ledger seq7954 and8006, command_rows included names, HP/SP, success rate/time, selectable state and valid click coordinates immediately before explicit image calls. This does not establish why the player chose an image, but rules out missing staff rows in those samples.
+22 observation ledger payloads: median 66,140.5 UTF8 bytes, max85,642 bytes. Not model-visible token counts: the caller often projects a subset before printing. Example seq8089 diff: facility_map29,613 bytes (known geometry23,575), console/audio_events26,086 bytes, UI texts9,711 bytes. A visible-map change resends its unchanged known map. Raw motion and derived employee/entity views duplicate some information.
+Compact-response consumers repeatedly use snapshot?.section ?? replacements[section] without a persistent merge. An absent replacement means unchanged, not empty/unknown. This can encourage unnecessary rereads; effect on actual decisions not proven.
+First room open followed by observe returned no command window, then later reads did. The action receipt marks gesture completion, not completed UI animation. Use bounded post-input UI readiness instead of another LLM turn or global fixed waits.
+
+## Recommended order (not implemented)
+
+1. Simple target-based action front end on the current virtual executor, resolving latest displayed targets internally. Example proposals (not existing tools): input(["L",facility_id]), input(["L",work_type_target]), input(["L",employee_row_target]), input(["K","Space"]). IDs/aliases returned with visible controls; unique names allowed only when unambiguous. Keep the verbose interface for uncommon gestures. Do not expose view_id/decision_id plumbing as mandatory player work.
+2. A bounded move(employee_ref,facility_id) gesture: select the specified currently visible staff using its actual selection click, verify selection, then right-click the visible destination. No teleport, offscreen lookup, route selection, autonomous combat or policy. Duplicate names, lost visibility or ambiguous selection stop with a short explanation. Preserve existing selection/keyboard game semantics; no persistent automation blocks.
+3. Return compact affected UI plus input receipt after bounded UI transition readiness. Work-kind click returns current staff rows; staff assignment returns displayed status. Do not identify task success merely from input acceptance. If player already chose room/work/employee, an explicit finite sequence can execute those choices; it must not silently choose a replacement employee or work type.
+4. Split immutable known map revision from dynamic visible-state diff. Send map only when learned geometry changes or explicitly requested. Deliver audio incrementally with existing event cursor, without duplicating the retained producer event list. Keep critical warning starts/stops and dropped-event reporting. Reuse one canonical structured entity representation.
+5. A task-focused current command-window response avoids player-maintained diff merges and returns concise complete current rows. Normal monitoring can remain diff-based. Image requests remain available for story, unfamiliar effects, uncertain controls and visual tactics; do not require routine image checks when adequate structured evidence exists.
+
+## Expected benefit / boundaries
+
+Reducing one model roundtrip could remove roughly the observed median17s between calls in a similar situation; this is a planning estimate, not measured end-to-end speedup. The three-call capture/prepare/execute chain is often already batched, so shortening it alone will not automatically remove three model turns. Greatest likely gain: return the needed post-action information in the same response and avoid reconstruction/rechecks.
+Validate next in lab: identical room→work→staff flow and staff→corridor movement, compare outer roundtrips, images, output bytes, elapsed time, failure clicks and correctness. Preserve live play until a separate deployment window.

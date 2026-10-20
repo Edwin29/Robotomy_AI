@@ -13,31 +13,232 @@ import threading
 import time
 import uuid
 import copy
+import re
+from collections import deque
+
+
+def audio_event(event):
+    """Whitelist audible evidence; resource names and hidden game state never pass."""
+    identity = _integer(event['event_id'], 1, 2**63-1)
+    kind = event['kind']
+    if kind not in ('start','stop','pause','resume','source_idle','source_destroyed','ongoing_detected'):
+        raise ValueError('invalid audio kind')
+    at = _string(event['at_utc'],64,True)
+    instant = datetime.fromisoformat(at.replace('Z','+00:00'))
+    if instant.tzinfo is None or instant.utcoffset().total_seconds() != 0:
+        raise ValueError('invalid audio timestamp')
+    result = dict(event_id=identity,at_utc=at,kind=kind)
+    for key in ('source_token','sound_token'):
+        value=event[key]
+        if not (key=='sound_token' and value=='') and not (isinstance(value,str) and re.fullmatch('[0-9a-f]{32}',value)):
+            raise ValueError('invalid sound token')
+        result[key]=value
+    known={'first_trumpet':('퍼스트 트럼펫','warning_music'),
+           'second_trumpet':('세컨드 트럼펫','warning_music'),
+           'third_trumpet':('서드 트럼펫','warning_music'),
+           'qliphoth_meltdown':('클리포트 폭주 알림음','warning_sound')}
+    sound_id=event.get('sound_id')
+    if isinstance(sound_id,str) and (sound_id in known or re.fullmatch('sound_[0-9a-f]{24}',sound_id)):
+        label,category=known.get(sound_id,('구분된 소리 '+sound_id[6:14],'unclassified_sound'))
+        result.update(sound_id=sound_id,label=label,category=category)
+    return result
+
+
+class AudioJournal:
+    """Bounded incremental journal reader. No Unity calls, sleep, or full-file rescans."""
+    def __init__(self,directory):
+        self.directory=directory
+        self.session=None
+        self.offset=0
+        self.events=deque(maxlen=4096)
+        self.highest=0
+
+    def read(self,session,after=0,limit=100):
+        _integer(after,0,2**63-1); _integer(limit,1,200)
+        if not isinstance(session,str) or not re.fullmatch('[0-9a-f]{32}',session):
+            return dict(status='unavailable',events=[],next_event_id=after)
+        if self.session!=session:
+            self.session=session; self.offset=0; self.events.clear(); self.highest=0
+        result=dict(session=session,events=[],next_event_id=after,
+                    boundary='Historical playback evidence, not current sound or complete final-mix recognition.')
+        try:
+            with (self.directory/('audio-'+session+'.jsonl')).open('rb') as stream:
+                size=os.fstat(stream.fileno()).st_size
+                if size<self.offset:
+                    self.offset=0; self.events.clear(); self.highest=0
+                    return dict(result,status='journal_reset',next_event_id=0,reset_required=True)
+                stream.seek(self.offset)
+                # Drain unread cached events before ingesting another bounded chunk.
+                budget=256*1024 if self.highest<=after else 0
+                while budget>0:
+                    line=stream.readline(4097)
+                    if not line: break
+                    if len(line)>4096: return dict(result,status='invalid_journal')
+                    if not line.endswith(b'\n'): break  # Retry incomplete append next time.
+                    value=audio_event(json.loads(line))
+                    if value['event_id']<=self.highest:
+                        return dict(result,status='invalid_sequence')
+                    self.events.append(value); self.highest=value['event_id']
+                    self.offset=stream.tell(); budget-=len(line)
+                catching_up=self.offset<size
+        except FileNotFoundError:
+            return dict(result,status='journal_pending')
+        except (OSError,ValueError,KeyError,TypeError):
+            return dict(result,status='invalid_journal')
+        selected=[e for e in self.events if e['event_id']>after][:limit]
+        gaps=[]; cursor=after
+        for event in selected:
+            if event['event_id']>cursor+1: gaps.append(dict(first=cursor+1,last=event['event_id']-1))
+            cursor=event['event_id']
+        result.update(status='ok',events=selected,next_event_id=cursor,gaps=gaps,
+                      catching_up=catching_up,has_more=cursor<self.highest or catching_up)
+        return result
+
+
+def player_audio(result):
+    """Consumer response: engineering diagnostics stay in the journal reader."""
+    status=result.get('status')
+    value={key:result[key] for key in ('session','events','next_event_id','has_more') if key in result}
+    if status=='session_changed':
+        value['notice']='새 게임 세션입니다.'
+    elif status not in ('ok','journal_pending','unavailable'):
+        value['notice']='소리 기록을 가져오지 못했습니다.'
+    elif result.get('gaps'):
+        value['notice']='일부 지난 소리 기록이 누락되었습니다.'
+    return value
 
 
 def command_rows(snapshot):
     """Group only this offered snapshot's admitted display items, never cached employees."""
     rows={}
     for item in snapshot.get('ui_texts',[])+snapshot.get('buttons',[]):
-        if item.get('panel')!='command' or not item.get('row_id'): continue
+        if item.get('panel')!='command' or not item.get('row_id') or item['row_id'] in ('summary','window') or item['row_id'].startswith(('result_','work_')): continue
         row=rows.setdefault(item['row_id'],dict(row_id=item['row_id'],name=None,hp=None,sp=None,
-            status=None,action=None,action_detail=None,selectable=None,click=None))
+            status=None,action=None,action_detail=None,success_rate=None,work_time=None,work_level=None,selectable=None,click=None))
         role=item.get('role')
-        if role in ('name','hp','sp','status','action','action_detail'):
+        if role in ('name','hp','sp','status','action','action_detail','success_rate','work_time','work_level'):
             row[role]=item['text']
         elif role=='click' and item.get('interactable'):
             row['click']={'x':item['x']+item['width']/2,'y':item['y']+item['height']/2,
-                          'basis':'visible_row_click_handler_not_orderability'}
+                          'basis':'visible_row_click_handler_not_orderability', 'target_id':item.get('target_id')}
+            row['click']['x']=item.get('hit_x',row['click']['x']);row['click']['y']=item.get('hit_y',row['click']['y'])
     # A displayed hover action is evidence only; unknown is never treated as false/true.
     return list(rows.values())
+
+
+def _entity_location(track,snapshot):
+    try: from .facility import entity_location
+    except ModuleNotFoundError: from robotomy.facility import entity_location
+    return entity_location(track,snapshot)
+
+def visible_entities(snapshot):
+    motion=snapshot.get('console',{}).get('motion',{})
+    if motion.get('status')!='available':return []
+    result=[]
+    for t in motion.get('tracks',[]):
+        entity=t.get('entity')
+        if entity is None or entity['kind']=='employee':continue
+        result.append({'track_id':t['track_id'],'facility_location':_entity_location(t,snapshot),**entity,**{k:t[k] for k in ('position','bounds','state','screen_velocity','object_velocity','camera_velocity')}})
+    return result
+
+
+def command_window(snapshot):
+    """All admitted command text, grouped without consulting hidden UI/model values."""
+    texts=[x for x in snapshot.get('ui_texts',[]) if x.get('panel')=='command']
+    buttons=[x for x in snapshot.get('buttons',[]) if x.get('panel')=='command']
+    if not texts and not buttons:return None
+    summary={};results={};groups={};works=[]
+    for t in texts:
+        rid=t.get('row_id') or 'window';role=t.get('role') or 'display_text'
+        groups.setdefault(rid,[]).append({'field':role,'text':t['text']})
+        if rid=='summary':summary[role]=t['text']
+        elif rid.startswith('result_'):results.setdefault(rid[7:],{})[role]=t['text']
+    for b in buttons:
+        if b.get('role')!='work_type':continue
+        click=None
+        if b.get('interactable') and b.get('input_verified'):
+            click={'x':b.get('hit_x',b['x']+b['width']/2),'y':b.get('hit_y',b['y']+b['height']/2),'target_id':b.get('target_id')}
+        works.append({'name':b['text'],'click':click})
+    return {'summary':summary,'work_results':[{'result':k,**v} for k,v in results.items()],
+            'work_types':works,'employees':command_rows(snapshot),
+            'text_groups':[{'group':k,'fields':v} for k,v in groups.items()]}
+
+
+EMPLOYEE_STATUS_LABELS={'idle':'대기 중','moving':'이동 중','working':'작업 중','suppressing':'제압 중','panic':'패닉','uncontrollable':'통제 불가','dead':'사망','unknown':'미확인'}
+
+def dead_employees(rows):
+    if not isinstance(rows,list) or len(rows)>512: raise ValueError('invalid death roster')
+    result=[]
+    for row in rows:
+        if row.get('status')!='dead': raise ValueError('non-death in death roster')
+        result.append({'employee_id':_string(row['employee_id'],64,True),'name':_string(row['name'],256),
+                       'status':'dead','status_label':'사망'})
+    return result
+
+def visible_employees(snapshot):
+    motion=snapshot.get('console',{}).get('motion',{})
+    if motion.get('status')!='available': return []
+    result=[]
+    for track in motion.get('tracks',[]):
+        employee=track.get('employee')
+        if employee is None: continue
+        velocity=track.get('object_velocity')
+        movement='unknown' if velocity is None else ('moving' if math.hypot(velocity['x'],velocity['y'])>1 else 'stationary')
+        status=employee.get('status','unknown')
+        result.append({'track_id':track['track_id'],**employee,'status':status,'status_label':EMPLOYEE_STATUS_LABELS[status],'position':track['position'],
+                       'movement':movement,'object_velocity':velocity,'screen_velocity':track.get('screen_velocity'),
+                       'camera_velocity':track.get('camera_velocity'),'facility_location':_entity_location(track,snapshot)})
+    return result
+
+
+def reading_panels(snapshot):
+    rows, paragraphs, controls, selected = {}, {}, [], {}
+    for item in snapshot.get('ui_texts', []):
+        panel, token, role = item.get('panel'), item.get('row_id'), item.get('role')
+        if not token: continue
+        if panel == 'ego' and token == 'selected':
+            if role: selected[role]=item['text']
+            continue
+        if panel == 'ego':
+            row = rows.setdefault(token, {'row_id': token, 'owners': [], 'actions': []})
+            if role == 'owner': row['owners'].append(item['text'])
+            elif role: row[role] = item['text']
+        elif panel == 'creature_record':
+            paragraphs.setdefault(token, []).append(item['text'])
+    for item in snapshot.get('buttons', []):
+        if item.get('panel') != 'ego' or not item.get('input_verified'): continue
+        action = {'role': item.get('role'), 'label': item['text'], 'target_id':item['target_id'],
+                  'x':item['hit_x'], 'y':item['hit_y']}
+        token = item.get('row_id')
+        if token in rows: rows[token]['actions'].append(action)
+        else: controls.append(action)
+    return {'equipment_rows':list(rows.values()), 'equipment_controls':controls, 'selected_equipment':selected or None,
+            'creature_record': [{'paragraph_id':token,'text':'\n'.join(lines)} for token,lines in paragraphs.items()]}
 
 
 def observation_sections(snapshot):
     """Only current, disclosed values. Lists are replaced atomically, never merged by index."""
     ignored = {'captured_at_utc', 'sequence', 'unity_frame', 'isolation'}
-    sections = {('/'+k):v for k,v in snapshot.items() if k not in ignored and k != 'console'}
+    sections = {}
+    if 'hazards' in snapshot.get('console', {}):
+        sections['/console/hazards'] = snapshot['console']['hazards']
+    sections.update({('/'+k):v for k,v in snapshot.items() if k not in ignored and k != 'console'})
     sections.update({'/console/'+k:v for k,v in snapshot.get('console', {}).items() if k not in ignored})
     return sections
+
+
+def urgent_alerts(snapshot):
+    """Promote currently visible countdowns, without inferring unseen events."""
+    hazards = snapshot.get('console', {}).get('hazards') or {}
+    timers = hazards.get('room_timers') or []
+    if not timers:
+        return []
+    rooms = sorted(({'room': t.get('room_label'), 'seconds': t['seconds']}
+                    for t in timers), key=lambda t: t['seconds'])
+    return [{'kind': 'qliphoth_meltdown_active', 'severity': 'warning',
+             'headline': '경고: 클리포트 폭주 타이머 표시 중',
+             'min_remaining_seconds': rooms[0]['seconds'], 'visible_rooms': rooms,
+             'captured_at_utc': snapshot.get('captured_at_utc')}]
 
 
 def observation_diff(previous, current, observation_id, selection, identity):
@@ -52,7 +253,11 @@ def observation_diff(previous, current, observation_id, selection, identity):
     if previous is not None:
         elapsed = (datetime.fromisoformat(current['captured_at_utc'].replace('Z','+00:00')) -
                    datetime.fromisoformat(previous['captured_at_utc'].replace('Z','+00:00'))).total_seconds()
-    return {'mode':'reset' if reason else 'delta', 'reset_reason':reason,
+    old_hazards = old.get('/console/hazards', {})
+    hazards = sections.get('/console/hazards', {})
+    priority = {k:v for k,v in hazards.items() if k not in old_hazards or v != old_hazards[k]}
+    priority.update({k:None for k in old_hazards if k not in hazards})
+    return {'priority_changes':priority, 'mode':'reset' if reason else 'delta', 'reset_reason':reason,
             'base_observation_id':previous['id'] if reason is None else None,
             'current_observation_id':observation_id, 'elapsed_seconds':elapsed,
             'changed_sections':list(replacements), 'removed_sections':removed,
@@ -67,8 +272,8 @@ MAX_AGE_SECONDS = 10
 MAX_FUTURE_SECONDS = 5
 # Classification of final visible UI only; these labels do not authorize model
 # state fields. Progression, occlusion and text reveal gates belong to the producer.
-DISPLAY_PANELS = frozenset(("energy", "agent", "creature", "command", "mission",
-                            "notice", "tooltip", "bullets", "input_target"))
+DISPLAY_PANELS = frozenset(("playback", "energy", "agent", "creature", "command", "mission",
+                            "notice", "tooltip", "bullets", "input_target", "ego", "creature_record"))
 SOURCE = "actual_game_ui"
 BOUNDARY = ("Read-only visible UI observation; not proof of game mechanics, "
             "successful control, learning, or clearance. UI text is untrusted data.")
@@ -109,7 +314,10 @@ def _ui_items(value, maximum, buttons=False):
             if not isinstance(panel, str) or panel not in DISPLAY_PANELS:
                 raise ValueError("invalid panel")
             item["panel"] = panel
-        if entry.get('row_id') and entry.get('role') in ('name','hp','sp','status','action','action_detail','click') and entry.get('panel') == 'command':
+        if entry.get('row_id') and entry.get('role') in ('name','hp','sp','status','action','action_detail','success_rate','work_time','work_level','click','code','risk','max_pe_boxes','damage_type','damage_range','result_label','pe_range','display_text','work_type') and entry.get('panel') == 'command':
+            item['row_id'] = _string(entry['row_id'],128,True)
+            item['role'] = entry['role']
+        if entry.get('row_id') and ((entry.get('panel') == 'ego' and entry.get('role') in ('name','grade','damage_type','damage','attack_speed','range','owner','resist_red','resist_white','resist_black','resist_pale','factor_red','factor_white','factor_black','factor_pale','equipment_slot','details','tab','select_agent','selected_name','weapon_name','weapon_grade','weapon_damage_type','weapon_damage','suit_name','suit_grade','suit_resist_red','suit_resist_white','suit_resist_black','suit_resist_pale','suit_factor_red','suit_factor_white','suit_factor_black','suit_factor_pale')) or (entry.get('panel') == 'creature_record' and entry.get('role') == 'line')):
             item['row_id'] = _string(entry['row_id'],128,True)
             item['role'] = entry['role']
         for key in ("x", "y", "width", "height"):
@@ -184,9 +392,128 @@ def _motion(value, screen):
             for axis in ("x", "y"):
                 if abs(item["screen_velocity"][axis] - item["object_velocity"][axis] - item["camera_velocity"][axis]) > .031:
                     raise ValueError("motion decomposition mismatch")
+        loc=track.get('facility_location')
+        if isinstance(loc,dict):
+            item['facility_location']={'facility_id':_string(loc['facility_id'],128),
+                'map_position':vector(loc['map_position']),
+                'relative':{k:number(loc['relative'][k],-100,100) for k in ('u','v')},
+                'extent':{k:number(loc['extent'][k],.001,100000) for k in ('width','height')},
+                'basis':'visible_anchor_in_display_bounds'}
+        entity=track.get('entity')
+        if entity is not None:
+            kind=entity.get('kind')
+            if kind not in ('employee','worker','creature','projectile'):raise ValueError('invalid entity kind')
+            item['entity']={'kind':kind,'name':None if entity.get('name') is None else _string(entity['name'],256)}
+        employee=track.get('employee')
+        if employee is not None:
+            condition=employee.get('condition','unknown')
+            if condition not in ('normal','panic','dead','uncontrollable','unknown'): raise ValueError('invalid visible employee condition')
+            click=employee.get('click')
+            item['employee']={'name':None if employee.get('name') is None else _string(employee['name'],256),
+                              'condition':condition,'click':None if click is None else vector(click,True)}
+            if type(employee.get('selected')) is bool:item['employee']['selected']=employee['selected']
+            if 'status' in employee:
+                status=employee['status']
+                if status not in EMPLOYEE_STATUS_LABELS: raise ValueError('invalid employee status')
+                item['employee']['status']=status
+                item['employee'].pop('condition',None)
         result.append(item)
     return {"version": 1, "basis": "display_projection_v1", "coordinates": "top_left_pixels",
             "units": "pixels_per_real_second", "status": value["status"], "tracks": result}
+
+
+def _hazards(value, screen):
+    result = {}
+    ordeal = value.get('ordeal')
+    if ordeal is not None:
+        color = _string(ordeal['color'], 32, True)
+        stage = _string(ordeal['stage'], 64, True)
+        ordeal = dict(color=color, stage=stage, label=color+' '+stage)
+    result['ordeal'] = ordeal
+    level = value.get('meltdown_level')
+    result['meltdown_level'] = None if level is None else _string(level, 32, True)
+    gauge = value.get('meltdown_gauge')
+    if gauge is not None:
+        maximum = _integer(gauge['max'], 1, 1024)
+        filled = _integer(gauge['filled'], 0, maximum)
+        gauge = dict(filled=filled, max=maximum, ratio=filled/maximum, label=f'{filled}/{maximum}')
+    result['meltdown_gauge'] = gauge
+    rooms = value.get('target_rooms')
+    result['target_rooms'] = None if rooms is None else _integer(rooms, 0, 1024)
+    timers = value.get('room_timers', [])
+    if not isinstance(timers, list) or len(timers)>512: raise ValueError('invalid room timers')
+    result['room_timers'] = []
+    for t in timers:
+        coords = {}
+        for k,edge in (('x','width'),('y','height')):
+            n = t[k]
+            if type(n) not in (int,float) or not math.isfinite(n) or not 0<=n<=(screen or {}).get(edge,32768):
+                raise ValueError('invalid timer position')
+            coords[k] = n
+        name = t.get('room_label')
+        result['room_timers'].append(dict(room_label=None if name is None else _string(name,256),
+            seconds=_integer(t['seconds'],0,86400), **coords))
+    statuses=value.get('room_status',[])
+    if not isinstance(statuses,list) or len(statuses)>512: raise ValueError('invalid room status')
+    result['room_status']=[]
+    def position(item):
+        coords={}
+        for k,edge in (('x','width'),('y','height')):
+            n=item[k]
+            if type(n) not in (int,float) or not math.isfinite(n) or not 0<=n<=(screen or {}).get(edge,32768): raise ValueError('invalid display position')
+            coords[k]=n
+        return coords
+    for item in statuses:
+        counter=item.get('qliphoth_counter');boxes=item.get('work_boxes')
+        if counter is not None:
+            state=counter['display']
+            if state not in ('number','unknown','not_applicable'): raise ValueError('invalid counter display')
+            counter={'display':state,'value':_integer(counter['value'],0,100000) if state=='number' else None}
+        if boxes is not None:
+            pe=_integer(boxes['pe_boxes'],0,1024);ne=_integer(boxes['ne_boxes'],0,1024)
+            boxes={'pe_boxes':pe,'ne_boxes':ne,'generated_total':pe+ne}
+        name=item.get('room_label');stored=item.get('stored_pe_boxes');penalty=item.get('work_penalty_text')
+        click=item.get('click')
+        if click is not None:
+            if click.get('input_verified') is not True: raise ValueError('unverified room click')
+            click=dict(**position(click),target_id=_string(click['target_id'],64,True),input_verified=True)
+        result['room_status'].append(dict(room_id=_string(item['room_id'],64,True),room_label=None if name is None else _string(name,256),
+            qliphoth_counter=counter,work_boxes=boxes,stored_pe_boxes=None if stored is None else _integer(stored,0,2147483647),
+            work_penalty_text=None if penalty is None else _string(penalty,128),**position(item),**({'click':click} if 'click' in item else {})))
+    management=value.get('creature_management');result['creature_management']=None
+    if management is not None:
+        costs=management.get('costs',[])
+        if not isinstance(costs,list) or len(costs)>128: raise ValueError('invalid costs')
+        clean=[]
+        for item in costs:
+            if item['kind'] not in ('unlock','weapon_cost_or_stock','suit_cost_or_stock'): raise ValueError('invalid cost kind')
+            label=item.get('label')
+            clean.append(dict(kind=item['kind'],label=None if label is None else _string(label,256),display_text=_string(item['display_text'],256),**position(item)))
+        stored=management.get('stored_pe_text')
+        for item, raw in zip(clean,costs):
+            if item['kind']!='unlock': continue
+            prerequisite=raw.get('prerequisite','not_indicated')
+            if prerequisite not in ('required','not_indicated'): raise ValueError('invalid prerequisite display')
+            item['prerequisite']=prerequisite
+            # Derived only from visible balance/cost, never from model purchase checks.
+            balance=str(stored) if stored is not None else ''
+            cost=item['display_text']
+            item['funds']='unknown'
+            if balance.isascii() and balance.isdecimal() and cost.isascii() and cost.isdecimal():
+                item['funds']='sufficient' if int(balance)>=int(cost) else 'insufficient'
+        details=management.get('details',[])
+        if not isinstance(details,list) or len(details)>128: raise ValueError('invalid management details')
+        fields={'identity':('name','code','risk','max_pe_boxes'),'work_damage':('type','range'),
+                'work_result_pe_range':('label','range'),'ego_weapon':('name','grade','damage_type','damage_range','attack_speed','attack_range'),
+                'ego_suit':('name','grade'),'ego_suit_resistance':('type_and_factor','resistance'),
+                'management_tip':('label','text'),'work_preference':('work','I','II','III','IV','V')}
+        decoded=[]
+        for detail in details:
+            kind=detail.get('kind')
+            if kind not in fields: raise ValueError('invalid management detail kind')
+            decoded.append({'kind':kind,**{k:_string(detail[k],4096) for k in fields[kind] if k in detail}})
+        result['creature_management']={'stored_pe_text':None if stored is None else _string(stored,128),'costs':clean,'details':decoded}
+    return result
 
 
 def _console(value, screen=None):
@@ -216,8 +543,7 @@ def _console(value, screen=None):
         instant = datetime.fromisoformat(at.replace("Z", "+00:00"))
         if instant.tzinfo is None or instant.utcoffset().total_seconds() != 0:
             raise ValueError("invalid audio timestamp")
-        audio.append({"event_id": identity, "at_utc": at, "kind": event["kind"],
-                      "source_token": token(event["source_token"]), "sound_token": token(event["sound_token"], True)})
+        audio.append(audio_event(event))
     for gauge in gauges:
         if gauge["role"] not in ("energy", "agent_hp_bar", "agent_mental_bar"):
             raise ValueError("invalid gauge role")
@@ -232,6 +558,16 @@ def _console(value, screen=None):
             "audio_dropped": _integer(value["audio_dropped"], 0, 2**31-1), "audio_events": audio, "gauges": bars}
     if "motion" in value:
         result["motion"] = _motion(value["motion"], screen)
+    if "hazards" in value:
+        result["hazards"] = _hazards(value['hazards'], screen)
+    if 'facility_map' in value:
+        try:
+            from .facility import decode
+        except ModuleNotFoundError:
+            from robotomy.facility import decode
+        result['facility_map']=decode(value['facility_map'],screen)
+    if 'dead_employees' in value:
+        result['dead_employees']=dead_employees(value['dead_employees'])
     return result
 
 
@@ -284,8 +620,21 @@ class LiveReader:
         self.directory = self.root / ".robotomy" / "live"
         self.snapshot_path = self.directory / "latest.json"
         self.clock = clock or (lambda: datetime.now(timezone.utc))
-        self._lock = threading.Lock()
+        self._lock = threading.RLock()
         self._offered_baseline = None
+        self._audio = AudioJournal(self.directory)
+        self._audio_cursor = (None,0)
+
+    def read_audio(self,after_event_id=0,limit=100,session=None):
+        with self._lock:
+            summary,snapshot=self._read()
+            if snapshot is None: return summary
+            current=snapshot.get('console',{}).get('session')
+            if session is not None and session!=current:
+                return player_audio(dict(status='session_changed',session=current,events=[],next_event_id=0))
+            result=self._audio.read(current,after_event_id,limit)
+            result['producer_dropped']=snapshot.get('console',{}).get('audio_dropped')
+            return player_audio(result)
 
     def _read(self):
         base = {"source": SOURCE, "read_only": True, "boundary": BOUNDARY}
@@ -414,6 +763,17 @@ class LiveReader:
                         'waited_ms':round((time.monotonic()-started)*1000)}, None
             time.sleep(min(.03, max(0, deadline-time.monotonic())))
 
+    def offer_audio(self,snapshot):
+        with self._lock:
+            session=snapshot.get('console',{}).get('session')
+            if session is None:return {'events':[]}
+            cursor=self._audio_cursor[1] if self._audio_cursor[0]==session else 0
+            delivery=self._audio.read(session,cursor,100)
+            delivery['producer_dropped']=snapshot['console'].get('audio_dropped',0)
+            if delivery['status']=='ok':self._audio_cursor=(session,delivery['next_event_id'])
+            elif delivery['status']=='journal_reset':self._audio_cursor=(session,0)
+            return player_audio(delivery)
+
     def observe(self, max_items=100, motion_only=False, compact=False, after_sequence=None, wait_ms=350):
         """Record exactly the bounded response; Markdown is deferred to day review."""
         from .experience import record
@@ -454,7 +814,25 @@ class LiveReader:
                 bounded = {key:snapshot[key] for key in ('captured_at_utc','process_id','scene','screen')}
                 bounded.update(unity_frame=snapshot.get('console', {}).get('unity_frame'),
                                motion={**motion, 'tracks': motion['tracks'][:max_items]})
-            if not motion_only: bounded['command_rows'] = command_rows(bounded)
+            if not motion_only:
+                bounded['command_rows'] = command_rows(bounded)
+                bounded['command_window'] = command_window(bounded)
+                bounded.update(reading_panels(bounded))
+                bounded['visible_employees']=visible_employees(bounded)
+                bounded['visible_entities']=visible_entities(bounded)
+                fm=bounded.get('console',{}).get('facility_map')
+                if fm is not None:
+                    import hashlib
+                    revision=hashlib.sha256(json.dumps(fm['known'],sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:16]
+                    bounded['facility_map']={'revision':revision,'visible':fm['visible']}
+                    bounded['facility_map_known']={'revision':revision,**fm['known']}
+                else:bounded['facility_map']=None
+                bounded['dead_employees']=bounded.get('console',{}).get('dead_employees',[])
+                states=[x['text'] for x in bounded.get('ui_texts',[]) if x.get('panel')=='playback' and x['text'] in ('paused','1x','1.5x','2x')]
+                bounded['playback']={'state':states[0] if len(states)==1 else None,'basis':'visible_selected_control'}
+                if 'console' in bounded:
+                    bounded['console']={k:v for k,v in bounded['console'].items()
+                                        if k not in ('audio_dropped','audio_basis','audio_events','facility_map')}
             response = {**summary, "observation_id": event_id, "recorded_at_utc": now,
                         "snapshot": bounded, "truncated": truncated}
             selection = {'max_items':max_items,'motion_only':motion_only}
@@ -472,7 +850,7 @@ class LiveReader:
             response['visual_check'] = {'recommended':bool(reasons), 'reasons':reasons,
                 'boundary':'Advisory only. No change cannot rule out animation, danger, story or missed events. Player must inspect significant/ambiguous changes and periodic frames.'}
             response['waited_ms'] = round((time.monotonic()-started)*1000)
-            response = {'change_summary':diff, **response, 'compact':compact,
+            response = {'alerts':urgent_alerts(snapshot), 'change_summary':diff, **response, 'compact':compact,
                         'payload_mode':'full' if not compact or diff['mode']=='reset' else 'delta',
                         'comparison_scope':'selected structured fields only; truncated response is not full coverage'}
             if response['payload_mode']=='delta':
@@ -481,7 +859,7 @@ class LiveReader:
                      "source": SOURCE, "read_only": True, "boundary": BOUNDARY,
                      "snapshot": bounded, "selection": {"max_items":max_items,"motion_only":motion_only},
                      "truncated":truncated}
-            event.update(change_summary=diff,compact=compact,payload_mode=response['payload_mode'])
+            event.update(alerts=response['alerts'],change_summary=diff,compact=compact,payload_mode=response['payload_mode'])
             if response['payload_mode']=='delta':
                 event.pop('snapshot')
             self.directory.mkdir(parents=True, exist_ok=True)
@@ -492,6 +870,8 @@ class LiveReader:
                     raise OSError("incomplete observation append")
             finally:
                 os.close(descriptor)
+            if not motion_only and snapshot.get('console'):
+                response['audio_delivery']=self.offer_audio(snapshot)
             response['experience_recording'] = record(self.root, 'observation_offered', response)
             self._offered_baseline = copy.deepcopy({'id':event_id,'sections':observation_sections(bounded),
                 'identity':identity,'selection':selection,'captured_at_utc':bounded['captured_at_utc'],

@@ -4,10 +4,21 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Device-side display geometry only. Never reads models, paths, destinations or movement stats.
+// Display geometry and vectors never use model paths/destinations/movement stats.
+// After visibility gating, ConsoleEmployee decodes user-authorized behavior states.
 // Unknown render compositions withhold observations. Tokens survive only continuous visibility.
 public sealed class ConsoleMotion
 {
+    static readonly Dictionary<string,AgentUnit> clickEmployees=new Dictionary<string,AgentUnit>();
+    static float clickObserved;
+    public static bool TryEmployeeClick(string token,out Vector2 point) {
+        point=Vector2.zero;AgentUnit unit;Camera cam=Camera.main;
+        if(Time.realtimeSinceStartup-clickObserved>.75f || CameraGuard(cam)!="" || !clickEmployees.TryGetValue(token,out unit) || unit==null || unit.model.IsDead())return false;
+        var ui=new ConsoleUI();ui.Capture(new List<ViewRect>(),new List<ViewRect>(),new List<string>());
+        Vector3 world;Rect rect;
+        if(!ConsoleEmployee.Anchor(unit,ui,cam,out world,out rect))return false;
+        return ConsoleEmployee.TryClick(unit,cam,Pixel(cam,world),out point);
+    }
     sealed class Track {
         public string token = Guid.NewGuid().ToString("N");
         public Vector3 world, local;
@@ -42,7 +53,7 @@ public sealed class ConsoleMotion
     }
     bool Reject(string reason, Renderer r) {
         if(!rejected.ContainsKey(reason)) rejected[reason]=0; rejected[reason]++;
-        if(details.Count<24) details.Add(Q((r==null?"":r.name)+":"+reason));
+        if(details.Count<96) details.Add(Q((r==null?"":(targets!=null && targets.Owner(r)!=null?targets.Owner(r).name+"/":"")+r.name)+":"+reason));
         return false;
     }
     static bool Active(Renderer r) {
@@ -105,17 +116,22 @@ public sealed class ConsoleMotion
         if(am.renderQueue!=bm.renderQueue) return am.renderQueue>bm.renderQueue || am.renderQueue>=3000;
         return otherNear<=bodyFar+.001f;
     }
-    static string CameraGuard(Camera cam) {
+    public static string CameraGuard(Camera cam) {
         if(cam==null || !cam.isActiveAndEnabled || !cam.orthographic || cam.targetTexture!=null) return "camera_unverified";
         if(cam.pixelRect!=new Rect(0,0,Screen.width,Screen.height)) return "viewport_unverified";
-        // Scope is explicit. Later boss scenes need render-profile validation before enabling motion.
-        string s=SceneManager.GetActiveScene().name;
-        if(s!="Tutorial" && s!="Tutorial_1" && s!="Tutorial_2" && s!="Tutorial_3") return "scene_unverified";
+        // Validate rendering, not scene names: normal Main and tutorial share the same contract.
+        bool standard=true;
         List<string> profile=new List<string>();
         foreach(Camera c in Camera.allCameras) foreach(MonoBehaviour effect in c.GetComponents<MonoBehaviour>()) {
             if(effect==null || !effect.isActiveAndEnabled) continue;
             if(effect.GetType().GetMethod("OnRenderImage",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public)==null) continue;
             if(c!=cam || (!(effect is CameraFilterPack_Colors_RgbClamp) && !(effect is CameraFilterPack_Glow_Glow_Color))) return "render_effect_unverified";
+            var clamp=effect as CameraFilterPack_Colors_RgbClamp;
+            var glow=effect as CameraFilterPack_Glow_Glow_Color;
+            if(clamp!=null) standard &= MotionRenderPolicy.Clamp(clamp.Red_Start,clamp.Red_End,
+                clamp.Green_Start,clamp.Green_End,clamp.Blue_Start,clamp.Blue_End,clamp.RGB_Start,clamp.RGB_End);
+            if(glow!=null) standard &= MotionRenderPolicy.Glow(glow.Amount,glow.FastFilter,
+                glow.Threshold,glow.Intensity,glow.Precision,glow.GlowColor.r,glow.GlowColor.g,glow.GlowColor.b,glow.GlowColor.a);
             List<string> fields=new List<string>();
             foreach(var field in effect.GetType().GetFields(System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.DeclaredOnly)) {
                 object value=field.GetValue(effect);
@@ -125,12 +141,16 @@ public sealed class ConsoleMotion
             }
             fields.Sort(); profile.Add(effect.GetType().Name+":"+String.Join(";",fields.ToArray()));
         }
-        profile.Sort(); currentProfile=s+"|"+String.Join("|",profile.ToArray());
+        profile.Sort(); currentProfile=String.Join("|",profile.ToArray());
         if(Time.realtimeSinceStartup-profileRead>1) {
             profileRead=Time.realtimeSinceStartup;
             try { approvedProfile=System.IO.File.ReadAllText(profilePath).Trim(); } catch { approvedProfile=""; }
         }
-        return approvedProfile==currentProfile?"":"profile_unverified";
+        string approved=approvedProfile;
+        if(approved.StartsWith("Tutorial") || approved.StartsWith("Main|")) {
+            int separator=approved.IndexOf('|'); if(separator>=0) approved=approved.Substring(separator+1);
+        }
+        return standard || approved==currentProfile?"":"profile_unverified";
     }
     bool Displayable(Renderer body, Camera cam) {
         Rect rect;
@@ -192,14 +212,25 @@ public sealed class ConsoleMotion
     }
     bool Surface(List<Renderer> parts,Transform anchor,Track old,Camera cam,List<Cover> all,ConsoleUI ui,out Vector3 world,out Rect region,out bool retained) {
         world=Vector3.zero; region=new Rect(); retained=false;
-        foreach(Renderer part in parts) if(!Displayable(part,cam)) return false;
+        // A small mouth/eyebrow does not invalidate a visible torso. Only use
+        // eligible rendered parts as evidence; keep occlusion checks on each.
+        var visibleParts=new List<Renderer>();
+        foreach(Renderer part in parts) if(Displayable(part,cam))visibleParts.Add(part);
         if(old!=null) {
             world=anchor.TransformPoint(old.local);
-            foreach(Renderer part in parts) if(MotionSurface.Contains(part,cam,world,out region) && Uncovered(part,cam,all,ui,region,world)) { retained=true; return true; }
+            foreach(Renderer part in visibleParts) if(MotionSurface.Contains(part,cam,world,out region) && Uncovered(part,cam,all,ui,region,world)) { retained=true; return true; }
         }
-        foreach(Renderer part in parts) {
+        foreach(Renderer part in visibleParts) {
             Renderer selected=part;
             if(MotionSurface.PickVisible(part,cam,(patch,point)=>Uncovered(selected,cam,all,ui,patch,point),out world,out region)) return true;
+        }
+        foreach(Renderer part in visibleParts)if(targets.Owner(part) is CreatureUnit){
+            Renderer selected=part;
+            if(MotionSurface.PickPresence(part,cam,(patch,point)=>ui.MotionCover(patch,selected.transform)=="" && MotionStencil.CanDraw(selected,patch),out world,out region)){
+                if(old!=null){var stable=anchor.TransformPoint(old.local);var q=cam.WorldToScreenPoint(stable);var r=new Rect(q.x-1,q.y-1,2,2);
+                    if(part.bounds.Contains(stable) && q.x>=1 && q.y>=1 && q.x<width-1 && q.y<height-1 && ui.MotionCover(r,part.transform)=="" && MotionStencil.CanDraw(part,r)){world=stable;region=r;retained=true;}}
+                return true;
+            }
         }
         return Reject("no_visible_surface:"+MotionSurface.LastFailure,parts.Count==0?null:parts[0]);
     }
@@ -215,6 +246,7 @@ public sealed class ConsoleMotion
         return result;
     }
     public void Capture(ConsoleUI ui, bool diagnostic=false) {
+        clickEmployees.Clear();clickObserved=Time.realtimeSinceStartup;
         var timer=System.Diagnostics.Stopwatch.StartNew();
         rejected.Clear(); details.Clear(); candidates=accepted=unsupportedRenderers=0;
         targets=null;
@@ -244,7 +276,10 @@ public sealed class ConsoleMotion
                 candidates++;
                 Track old; previous.TryGetValue(anchor,out old);
                 Rect bounds; Vector3 world; bool retained;
-                if(!Surface(candidate.Value,anchor,old,cam,all,ui,out world,out bounds,out retained)) continue;
+                var employeeUnit=targets.Owner(body) as AgentUnit;
+                if(ConsoleEmployee.Anchor(employeeUnit,ui,cam,out world,out bounds))retained=old!=null;
+                else if(ConsoleEntity.Anchor(targets.Owner(body) as CreatureUnit,ui,cam,out world,out bounds))retained=old!=null;
+                else if(!Surface(candidate.Value,anchor,old,cam,all,ui,out world,out bounds,out retained)) continue;
                 Vector2 pixel=Pixel(cam,world);
                 if(pixel.x<0 || pixel.y<0 || pixel.x>width || pixel.y>height) { Reject("anchor_outside",body); continue; }
                 string state="acquiring", screen="null", obj="null", camera="null"; float dt=0;
@@ -259,10 +294,14 @@ public sealed class ConsoleMotion
                     } else state="discontinuity";
                 }
                 track.local=anchor.InverseTransformPoint(world); track.world=world; track.pixel=pixel; track.time=now; next[anchor]=track;
-                items.Add("{\"track_id\":"+Q(track.token)+",\"state\":"+Q(state)+",\"position\":"+V(pixel)+
+                if(employeeUnit!=null)clickEmployees[track.token]=employeeUnit;
+                string employee=ConsoleEmployee.Capture(targets.Owner(body) as AgentUnit,ui,cam,pixel);
+                items.Add("{\"facility_location\":"+ConsoleFacilityMap.Locate(targets.Owner(body),world)+",\"entity\":"+ConsoleEntity.Capture(targets.Owner(body),ui)+",\"employee\":"+employee+",\"track_id\":"+Q(track.token)+",\"state\":"+Q(state)+",\"position\":"+V(pixel)+
                     ",\"bounds\":{\"x\":"+N(bounds.x)+",\"y\":"+N(height-bounds.yMax)+",\"width\":"+N(bounds.width)+",\"height\":"+N(bounds.height)+"}"+
                     ",\"interval_ms\":"+N(dt*1000)+",\"screen_velocity\":"+screen+",\"object_velocity\":"+obj+",\"camera_velocity\":"+camera+"}");
                 accepted++;
+                if(details.Count<96 && body!=null && targets.Owner(body)!=null)
+                    details.Add(Q("accepted:"+targets.Owner(body).name+":"+track.token));
                 if(accepted>=128) break;
             }
         }

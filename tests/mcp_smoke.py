@@ -38,6 +38,16 @@ async def main():
                 assert guide['AGENTS.md']=='Player-only rules: no pretrained game knowledge'
                 assert 'Engineering-only' not in json.dumps(guide)
 
+                memo=await call('save_playbook_entry',{'entry':{
+                    'title':'fixture memo','author':'smoke-test','category':'custom-format',
+                    'content':{'own_structure':['not actual gameplay']},'startup':True}})
+                found=await call('read_playbook',{'query':'fixture'})
+                assert found['entries'][0]['id']==memo['id']
+                loaded=await call('read_playbook',{'entry_id':memo['id']})
+                assert loaded['content']=={'own_structure':['not actual gameplay']}
+                memory=await call('read_player_memory',{})
+                assert memory['playbook_startup']['entries'][0]['id']==memo['id']
+
                 run = await call("start_session", {"player": "mcp-smoke", "max_actions": 1})
                 sid = run["id"]
                 obs = await call("observe", {"session_id": sid})
@@ -67,7 +77,9 @@ async def main():
                 assert queued['status']=='rejected'  # Legacy/fixture view must never reach Win32.
                 assert 'virtual control view' in queued['reason']
                 assert (await call('execute_live_action',{'decision_id':d['id']}))==queued
-                assert (await call('live_action_receipt',{'decision_id':d['id']}))==queued
+                receipt=await call('live_action_receipt',{'decision_id':d['id']})
+                assert all(queued[k]==v for k,v in receipt.items())
+                assert queued['current'] is None
                 timeline = await call('read_live_timeline',{})
                 if isinstance(timeline, dict): timeline = timeline['result']
                 assert len(timeline)==3

@@ -19,7 +19,7 @@ async def main():
             async with ClientSession(incoming,outgoing) as client:
                 await client.initialize()
                 names={t.name for t in (await client.list_tools()).tools}
-                assert len(names)==30 and {'hover_live_control','player_runtime_status','reload_player_code','start_game',
+                assert len(names)==37 and {'hover_live_control','player_runtime_status','reload_player_code','start_game',
                     'submit_input_sequence','input_sequence_status','cancel_input_sequence'}<=names
                 async def call(name):
                     response=await client.call_tool(name,{})
@@ -37,5 +37,5 @@ async def main():
                 p.write_text(original,encoding='utf-8')
                 assert (await call('live_status'))['status']=='never_connected'
                 assert (await call('player_runtime_status'))['code_revision']==first['code_revision']
-                print('Reload MCP smoke passed: 30 tools; same connection applied change, blocked bad edit, recovered.')
+                print('Reload MCP smoke passed: 37 tools; same connection applied change, blocked bad edit, recovered.')
 if __name__=='__main__':asyncio.run(main())

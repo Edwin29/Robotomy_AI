@@ -43,6 +43,7 @@ public class RobotomyObserver : MonoBehaviour
     private Texture2D frame;
     private readonly ConsoleUI ui = new ConsoleUI();
     private readonly ConsoleMotion motion = new ConsoleMotion();
+    private readonly ConsoleFacilityMap facility = new ConsoleFacilityMap();
     private float nextFrame;
     private double frameMs;
     private int frameSequence;
@@ -77,6 +78,7 @@ public class RobotomyObserver : MonoBehaviour
         ConsoleAudio.Install();
         MotionCanvasGeometry.Install();
         ConsoleMotion.Initialize(output);
+        facility.Initialize(output);
         Application.runInBackground = true;
         Debug.Log("Robotomy read-only observer ready: " + Application.persistentDataPath);
         float nextSample=0;
@@ -151,7 +153,10 @@ public class RobotomyObserver : MonoBehaviour
         double uiMs = costs.Elapsed.TotalMilliseconds;
         ConsoleAudio.Reconcile();
         double audioMs = costs.Elapsed.TotalMilliseconds-uiMs;
+        string facilityMap=facility.Capture(ui);
         motion.Capture(ui);
+        string hazards=ConsoleHazards.Capture(ui);
+        if(facility.PendingSave!=null){publisher.Text(facility.PathName,facility.PendingSave,false);facility.PendingSave=null;}
         double motionMs = motion.Milliseconds;
         Observation observation = new Observation {
             captured_at_utc = DateTime.UtcNow.ToString("o"), process_id = System.Diagnostics.Process.GetCurrentProcess().Id,
@@ -166,7 +171,7 @@ public class RobotomyObserver : MonoBehaviour
         body = body.Substring(0,body.Length-1) + ",\"console\":{\"version\":1,\"session\":"+Quote(session)+
             ",\"unity_frame\":"+unityFrame+",\"policy\":\"conservative_display_v1\",\"valid_for_ms\":750,"+
             "\"audio_basis\":\"playback_state_approximation\",\"audio_dropped\":"+ConsoleAudio.Dropped+
-            ",\"gauges\":["+String.Join(",",gauges.ToArray())+"],\"audio_events\":"+ConsoleAudio.Snapshot()+",\"motion\":"+motion.Snapshot+"}}";
+            ",\"facility_map\":"+facilityMap+",\"hazards\":"+hazards+",\"gauges\":["+String.Join(",",gauges.ToArray())+"],\"audio_events\":"+ConsoleAudio.Snapshot()+",\"dead_employees\":"+ConsoleEmployee.DeadRoster()+",\"motion\":"+motion.Snapshot+"}}";
         publisher.Text(Path.Combine(output, "latest.json"), body, false);
         string audio=ConsoleAudio.Drain();
         if(audio.Length>0) publisher.Text(Path.Combine(output,"audio-"+session+".jsonl"),audio,true);

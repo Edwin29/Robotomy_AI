@@ -21,7 +21,7 @@ class DisclosureTests(unittest.TestCase):
             self.assertEqual(build.returncode, 0, build.stdout + build.stderr)
             result = subprocess.run([str(exe)], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            self.assertIn('PASS 51 disclosure checks', result.stdout)
+            self.assertIn('PASS 52 disclosure checks', result.stdout)
 
 
 if __name__ == '__main__':

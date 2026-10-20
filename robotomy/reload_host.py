@@ -15,7 +15,7 @@ from mcp import types as mt
 from mcp.server.lowlevel import Server
 from mcp.server.stdio import stdio_server
 
-HOT = ('live', 'live_control', 'virtual_input', 'history', 'mcp_server')
+HOT = ('playbook', 'facility', 'live', 'live_control', 'virtual_input', 'history', 'quick_input', 'mcp_server')
 PINNED = ('experience', 'store', 'mock', 'game_power', 'observer_window', '__init__', 'reload_host', 'input_sequence')
 
 

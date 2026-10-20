@@ -1,3 +1,5 @@
+> **Current architecture / research handoff (2026-10-20):** [Start here](docs/research-entrypoint-20261020.md). [Diff bottleneck evidence](docs/diff-optimization-audit-20261020.md). Older reports below describe their original implementation dates.
+
 # Robotomy AI
 
 LLM이 주요 판단을 내리고 실행기가 조작하며, 판단과 경험을 관찰·대화·이전할 수 있는

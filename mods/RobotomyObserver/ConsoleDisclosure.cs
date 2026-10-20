@@ -38,7 +38,7 @@ public static class ConsoleDisclosure
         if (hud != null) {
             // BlackHide is a sibling overlay; fillAmount continues updating under it.
             if (hud.BlackHide == null) return "missing_hud_cover";
-            if (hud.BlackHide.gameObject.activeInHierarchy) return "hud_cover";
+            if (hud.BlackHide.gameObject.activeInHierarchy && !Within(candidate,hud.Name) && !Within(candidate,hud.BlackHide)) return "hud_cover";
         }
         var command = candidate.GetComponentInParent<CommandWindow.CommandWindow>();
         if (command != null) {

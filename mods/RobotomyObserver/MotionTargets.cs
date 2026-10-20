@@ -26,7 +26,7 @@ public sealed class MotionTargets
             if(Supported(component)) { result=component; owners[node]=result; return result; }
         result=Owner(node.parent); owners[node]=result; return result;
     }
-    public UnityEngine.Object Owner(Renderer renderer) { return Owner(renderer.transform); }
+    public UnityEngine.Object Owner(Renderer renderer) { return renderer==null?null:Owner(renderer.transform); }
 
     static Transform DisplayRoot(MonoBehaviour owner) {
         var worker=owner as WorkerUnit;

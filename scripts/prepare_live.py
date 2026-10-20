@@ -133,8 +133,8 @@ def finish_build() -> Path:
     managed = runtime / 'LobotomyCorp_Data/Managed'
     references = ['mscorlib.dll', 'System.dll', 'System.Core.dll', 'UnityEngine.dll', 'UnityEngine.CoreModule.dll',
         'UnityEngine.UI.dll', 'UnityEngine.UIModule.dll', 'UnityEngine.IMGUIModule.dll',
-        'UnityEngine.ImageConversionModule.dll', 'UnityEngine.JSONSerializeModule.dll',
-        'UnityEngine.InputModule.dll', 'UnityEngine.AudioModule.dll', 'UnityEngine.AnimationModule.dll', 'UnityEngine.TextRenderingModule.dll', 'Assembly-CSharp.dll', '0Harmony.dll']
+        'UnityEngine.ImageConversionModule.dll', 'UnityEngine.JSONSerializeModule.dll', 'UnityEngine.ParticleSystemModule.dll',
+        'UnityEngine.Physics2DModule.dll', 'UnityEngine.InputModule.dll', 'UnityEngine.AudioModule.dll', 'UnityEngine.AnimationModule.dll', 'UnityEngine.TextRenderingModule.dll', 'Assembly-CSharp.dll', '0Harmony.dll']
     compiler = Path(os.environ['WINDIR']) / 'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
     dll = mod_dir / 'RobotomyObserver.dll'
     subprocess.run([str(compiler), '/nologo', '/noconfig', '/target:library', '/nostdlib+', '/optimize+',

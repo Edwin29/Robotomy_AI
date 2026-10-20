@@ -34,6 +34,40 @@ class ConsoleContractTests(unittest.TestCase):
         self.assertNotIn("snapshot", result)
         self.assert_unrecorded()
 
+    def test_audio_backlog_is_offered_once_without_diagnostics(self):
+        self.publish()
+        path=self.reader.directory/('audio-'+self.obj['console']['session']+'.jsonl')
+        event=self.obj['console']['audio_events'][0]
+        path.write_text(json.dumps(dict(event,sound_id='first_trumpet'))+'\n',encoding='utf-8')
+        first=self.reader.observe()
+        self.assertEqual(first['audio_delivery']['events'][0]['label'],'퍼스트 트럼펫')
+        self.assertNotIn('audio_basis',first['snapshot']['console'])
+        self.assertNotIn('producer_dropped',first['audio_delivery'])
+        self.assertEqual(self.reader.observe()['audio_delivery']['events'],[])
+
+    def test_action_audio_and_observe_share_cursor(self):
+        self.publish()
+        path=self.reader.directory/('audio-'+self.obj['console']['session']+'.jsonl')
+        event=dict(self.obj['console']['audio_events'][0],sound_id='first_trumpet')
+        path.write_text(json.dumps(event)+'\n',encoding='utf-8')
+        self.assertEqual(len(self.reader.offer_audio(self.obj)['events']),1)
+        offered=self.reader.observe()
+        self.assertEqual(offered['audio_delivery']['events'],[])
+        self.assertNotIn('audio_events',offered['snapshot']['console'])
+
+    def test_visible_map_changes_do_not_repeat_known_geometry(self):
+        self.obj['console']['facility_map']={'known':{'version':1,'landmarks':[{'id':'corridor:1:2','kind':'corridor','x':1,'y':2}]},'visible':[{'id':'corridor:1:2','kind':'corridor','position':{'x':10,'y':20},'click':{'x':12,'y':20,'button':'right'}}]}
+        self.publish()
+        first=self.reader.observe(compact=True)
+        self.assertIn('facility_map_known',first['snapshot'])
+        self.obj['console']['facility_map']['visible'][0]['click']['x']=30
+        self.obj['sequence']+=1
+        self.publish()
+        second=self.reader.observe(compact=True)
+        changes=second['change_summary']['replacements']
+        self.assertIn('/facility_map',changes)
+        self.assertNotIn('/facility_map_known',changes)
+
     def test_transient_missing_snapshot_retries_only_read(self):
         self.publish()
         original_open = Path.open

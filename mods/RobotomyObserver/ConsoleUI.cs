@@ -25,6 +25,8 @@ public sealed class ConsoleUI
     readonly Dictionary<string,int> panelCounts = new Dictionary<string,int>();
     InGameUI.AgentUI[] hud = new InGameUI.AgentUI[0];
     float hudRefresh = -10;
+    readonly ConsoleCoverAlpha coverAlpha = new ConsoleCoverAlpha();
+    PlaySpeedSettingUI speedUI;
     readonly List<Graphic> graphics = new List<Graphic>();
     readonly Dictionary<Graphic, Rect> rectangles = new Dictionary<Graphic, Rect>();
     public readonly Dictionary<string,int> rejected = new Dictionary<string,int>();
@@ -34,9 +36,9 @@ public sealed class ConsoleUI
     string inspecting = "";
 
     static bool Active(GameObject go) { return go != null && go.activeInHierarchy; }
-    static bool Basic(Graphic g) {
+    static bool Basic(Graphic g, bool feelingPalette=false) {
         if (g == null || !g.isActiveAndEnabled || g.canvas == null || !g.canvas.isActiveAndEnabled ||
-            g.color.a < .99f || g.canvasRenderer.GetAlpha() < .99f || g.canvasRenderer.cull || g.depth < 0) return false;
+            g.color.a < (feelingPalette ? .78f : .99f) || g.canvasRenderer.GetAlpha() < .99f || g.canvasRenderer.cull || g.depth < 0) return false;
         foreach (CanvasGroup group in g.GetComponentsInParent<CanvasGroup>()) if (group.alpha < .99f) return false;
         return true;
     }
@@ -47,12 +49,17 @@ public sealed class ConsoleUI
         Mask mask = g.GetComponent<Mask>();
         return mask == null || !mask.isActiveAndEnabled || mask.showMaskGraphic;
     }
+    public static Camera DisplayCamera(Canvas canvas) {
+        if(canvas==null || canvas.renderMode==RenderMode.ScreenSpaceOverlay)return null;
+        if(canvas.renderMode==RenderMode.ScreenSpaceCamera)return canvas.worldCamera;
+        Camera found=null;foreach(var c in Camera.allCameras)if(c.targetTexture==null && (c.cullingMask&(1<<canvas.gameObject.layer))!=0){if(found!=null)return null;found=c;}return found;
+    }
     public static bool ScreenRect(RectTransform rect, Canvas canvas, out Rect result) {
         result = new Rect();
         if (rect == null || canvas == null) return false;
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        Camera cam = DisplayCamera(canvas);
         if (canvas.renderMode != RenderMode.ScreenSpaceOverlay &&
-            (cam == null || !cam.isActiveAndEnabled || (cam.cullingMask & (1 << rect.gameObject.layer)) == 0)) return false;
+            (cam == null || !cam.isActiveAndEnabled || (cam.cullingMask & (1 << canvas.gameObject.layer)) == 0)) return false;
         Vector3[] corners = new Vector3[4]; rect.GetWorldCorners(corners);
         Vector2 min = new Vector2(float.MaxValue,float.MaxValue), max = new Vector2(float.MinValue,float.MinValue);
         foreach (Vector3 corner in corners) {
@@ -67,7 +74,7 @@ public sealed class ConsoleUI
         Text text=graphic as Text;
         if(text==null) return ScreenRect(graphic.rectTransform,graphic.canvas,out result);
         result=new Rect();
-        Camera cam=text.canvas.renderMode==RenderMode.ScreenSpaceOverlay?null:text.canvas.worldCamera;
+        Camera cam=DisplayCamera(text.canvas);
         Rect control;
         if(!ScreenRect(text.rectTransform,text.canvas,out control)) return false;
         var verts=text.cachedTextGenerator.verts;
@@ -85,7 +92,9 @@ public sealed class ConsoleUI
             }
         }
         if(!found) return false;
-        result=Rect.MinMaxRect(min.x-.5f,min.y-.5f,max.x+.5f,max.y+.5f); return true;
+        // Display geometry, not a padded click/search rectangle. Padding created
+        // false HP/SP overlap in the shipped command-row layout.
+        result=Rect.MinMaxRect(min.x,min.y,max.x,max.y); return true;
     }
     static bool Contains(Rect outer, Rect inner) {
         return inner.xMin >= outer.xMin-.25f && inner.yMin >= outer.yMin-.25f &&
@@ -102,41 +111,95 @@ public sealed class ConsoleUI
         if (ca.rootCanvas == cb.rootCanvas && !ca.overrideSorting && !cb.overrideSorting) return a.depth >= b.depth;
         if (ca.renderMode == RenderMode.ScreenSpaceOverlay && cb.renderMode != RenderMode.ScreenSpaceOverlay) return true;
         if (ca.renderMode != RenderMode.ScreenSpaceOverlay && cb.renderMode == RenderMode.ScreenSpaceOverlay) return false;
-        if (ca.worldCamera != cb.worldCamera) return true; // Unproven camera composition: withhold.
+        Camera ac=DisplayCamera(ca),bc=DisplayCamera(cb);
+        if(ac!=bc){
+            if(ac==null || bc==null || ac.depth==bc.depth)return true;
+            return ac.depth>bc.depth; // Cameras render in depth order before Canvas sort order.
+        }
         int la=SortingLayer.GetLayerValueFromID(ca.sortingLayerID), lb=SortingLayer.GetLayerValueFromID(cb.sortingLayerID);
         if (la != lb) return la > lb;
         if (ca.sortingOrder != cb.sortingOrder) return ca.sortingOrder > cb.sortingOrder;
         return ca.renderOrder >= cb.renderOrder;
     }
-    public bool Visible(Graphic g, out Rect rect) {
+    public bool Visible(Graphic g, out Rect rect) { return Visible(g,out rect,false); }
+    // Empty overload slots still occupy the displayed bar layout. No model count is read.
+    public bool VisibleGaugeSlot(Image g,out Rect rect) { return Visible(g,out rect,false,true); }
+    public bool VisibleWorldLabel(Text g,out Rect rect) { return Visible(g,out rect,false,false,true); }
+    public bool VisibleWorldGraphic(Graphic g,out Rect rect) { return Visible(g,out rect,false,false,true); }
+    public bool VisibleWorldRegion(Graphic g,Rect rect) { Rect unused;return Visible(g,out unused,false,false,true,rect); }
+    public bool VisibleTextRegion(Text g,Rect region){Rect r;return Visible(g,out r,false,false,false,region);}
+    // Command window uses intentionally translucent artwork/text. Transparent or
+    // culled graphics still disappear; ancestor groups, masks and external covers remain checked.
+    public bool VisibleCommandGraphic(Graphic g,Transform surface,out Rect rect) {
+        rect=new Rect();
+        if(g==null || g.canvasRenderer.cull || g.color.a*g.canvasRenderer.GetAlpha()<=.05f)return false;
+        return Visible(g,out rect,false,true,false,null,surface);
+    }
+    public bool VisibleSurface(Graphic g,Transform surface,out Rect rect){return Visible(g,out rect,false,false,false,null,surface);}
+    public bool VisibleHitSurface(Graphic g,Transform surface,out Rect rect){
+        rect=new Rect();if(g==null || !GraphicRect(g,out rect))return false;
+        Rect ignored;var point=new Rect(rect.center.x-.5f,rect.center.y-.5f,1,1);
+        return Visible(g,out ignored,false,false,false,point,surface);
+    }
+    // Feeling-state palette uses alpha 200/255 in the shipped game. Other fades remain rejected.
+    public bool VisibleFeelingLabel(Text g,out Rect rect){return Visible(g,out rect,false,false,false,null,null,true);}
+    bool Visible(Graphic g, out Rect rect, bool playbackIcon, bool emptySlot=false, bool worldLabel=false,Rect? region=null,Transform surface=null,bool feelingPalette=false) {
         rect = new Rect();
         inspecting=g==null?"null":g.name;
-        if (!Basic(g)) return Reject("inactive_or_faded");
+        if (emptySlot) {
+            if(g==null || !g.isActiveAndEnabled || g.canvas==null || !g.canvas.isActiveAndEnabled || g.depth<0) return Reject("inactive_slot");
+            foreach(CanvasGroup group in g.GetComponentsInParent<CanvasGroup>()) if(group.alpha<.99f)return Reject("hidden_slot_group");
+        } else if (!Basic(g,feelingPalette)) return Reject("inactive_or_faded");
         string disclosure=ConsoleDisclosure.RejectReason(g.transform);
         if (disclosure!=null) return Reject(disclosure);
         if (unsafeEffects) return Reject("unverified_effect");
-        if(g.canvas.renderMode==RenderMode.WorldSpace || (g.canvas.worldCamera!=null && g.canvas.worldCamera.name=="MainCamera"))
+        if(!worldLabel && (g.canvas.renderMode==RenderMode.WorldSpace || (g.canvas.worldCamera!=null && g.canvas.worldCamera.name=="MainCamera")))
             return Reject("world_render_unverified");
         if (g.material != null && g.material != g.defaultMaterial) return Reject("custom_material");
-        if (!GraphicRect(g,out rect) || !Contains(new Rect(0,0,Screen.width,Screen.height),rect))
-            return Reject("outside_screen");
+        if (!(region.HasValue ? ((rect=region.Value).width>0) : GraphicRect(g,out rect)) || !Contains(new Rect(0,0,Screen.width,Screen.height),rect))
+            return Reject("outside_screen:"+rect.ToString());
         if (Mathf.Abs(Mathf.DeltaAngle(g.rectTransform.eulerAngles.z,0)) > .1f) return Reject("rotated");
-        if (rect.Overlaps(RobotomyVirtualInput.PointerOverlayRect))
-            return Reject("device_overlay");
-        foreach (Mask mask in g.GetComponentsInParent<Mask>()) {
-            Rect area;
-            if (mask.isActiveAndEnabled && (!ScreenRect(mask.rectTransform,g.canvas,out area) || !Contains(area,rect))) return Reject("mask_clipped");
-        }
-        foreach (RectMask2D mask in g.GetComponentsInParent<RectMask2D>()) {
-            Rect area;
-            if (mask.isActiveAndEnabled && (!ScreenRect(mask.rectTransform,g.canvas,out area) || !Contains(area,rect))) return Reject("mask_clipped");
+        // Our own diagnostic crosshair is not a game occluder for an audited
+        // playback icon. Game panels/masks still pass through all checks below.
+        // Device-owned pointer is an observation aid, not a game information mask.
+        // Match this game's Unity MaskableGraphic: a sorting-override Canvas
+        // ends ancestor stencil masks; RectMask2D uses its own selected clip chain.
+        var mg=g as MaskableGraphic;
+        if(mg!=null && mg.maskable){
+            Transform stop=MaskUtilities.FindRootSortOverrideCanvas(g.transform);
+            if(g.transform!=stop)for(Transform p=g.transform.parent;p!=null;p=p.parent){
+                var mask=p.GetComponent<Mask>();Rect area;
+                if(mask!=null && mask.MaskEnabled() && mask.graphic.IsActive() &&
+                   (!ScreenRect(mask.rectTransform,mask.graphic.canvas,out area) || !Contains(area,rect)))return Reject("mask_clipped");
+                if(p==stop)break;
+            }
+            var clip=MaskUtilities.GetRectMaskForClippable(mg);
+            if(clip!=null){var masks=new List<RectMask2D>();MaskUtilities.GetRectMasksForClip(clip,masks);
+                foreach(var mask in masks){Rect area;var canvas=mask.GetComponentInParent<Canvas>();
+                    if(!ScreenRect(mask.rectTransform,canvas,out area)||!Contains(area,rect))return Reject("mask_clipped");}
+            }
         }
         // Covers are checked even when a covered Text continues updating.
         foreach (Graphic other in graphics) {
             Rect box;
             if (other == g || !rectangles.TryGetValue(other,out box) || !rect.Overlaps(box)) continue;
-            if (PossiblyInFront(other,g)) { inspecting+="<-"+other.name; return Reject("front_graphic"); }
+            // Room HUD decorations belong to the same authored display surface.
+            // They are not independent occluders of their own timer/name labels.
+            if(worldLabel && other.canvas==g.canvas)continue;
+            // Audited composite widgets: portrait pieces/button labels are their
+            // own display, not external cover panels. Masks still apply above.
+            if(surface!=null && (other.transform==surface || other.transform.IsChildOf(surface)))continue;
+            if (PossiblyInFront(other,g)) {
+                // Only the game's normal pause decoration is eligible. Other covers stay effective.
+                if(ClearPauseCover(other,box,rect)) continue;
+                // Normal pause artwork tints this command panel but does not hide its text.
+                // Limit the exception to the game's two known pause sprites and this UI root.
+                var command=CommandWindow.CommandWindow.CurrentWindow;
+                var pause=other as Image;
+                if(surface!=null && command!=null && command.RootControl!=null && surface==command.RootControl.transform && speedUI!=null && pause==speedUI.pauseFilter && (pause.sprite==speedUI.pauseDefSprite || pause.sprite==speedUI.observeSprite))continue;
+                 inspecting+="<-"+other.name; return Reject("front_graphic"); }
         }
+        if(worldLabel && !ConsoleWorldLabels.Clear(g,rect))return Reject("world_label_cover");
         return true;
     }
     static ViewRect Item(Rect r, string text) {
@@ -146,8 +209,10 @@ public sealed class ConsoleUI
         if (!Active(panel.root)) return;
         foreach (Text text in panel.texts) {
             if (text == null || !text.isActiveAndEnabled || !readTexts.Add(text)) continue;
+            var record=CreatureInfoWindow.CurrentWindow;
+            if(record!=null && record.descList.Contains(text))continue;
             candidates++; Rect rect;
-            if (!Visible(text,out rect)) continue;
+            if (!(source=="command" ? VisibleCommandGraphic(text,panel.root.transform,out rect) : Visible(text,out rect))) continue;
             // Reject truncation and rich-text constructs that can hide characters.
             string value=text.text;
             if (String.IsNullOrEmpty(value) || value.Length>2048) continue;
@@ -163,9 +228,12 @@ public sealed class ConsoleUI
             var row=text.GetComponentInParent<CommandWindow.AgentSlot>();
             if(row!=null && source=="command") {
                 item.row_id=row.GetInstanceID().ToString();
+                var management=row as CommandWindow.ManagementSlot;
+                var work=management==null?null:management.workData;
                 item.role=text==row.AgentName?"name":text==row.HealthText?"hp":text==row.MentalText?"sp":
-                    text==row.FilterText?"status":text==row.WorkFilterText?"action":text==row.WorkFilterSubText?"action_detail":"";
+                    text==row.FilterText?"status":text==row.WorkFilterText?"action":text==row.WorkFilterSubText?"action_detail":work!=null && text==work.WorkSuccess?"success_rate":work!=null && text==work.WorkSpeed?"work_time":work!=null && text==work.WorkLevel?"work_level":"";
             }
+            if(source=="command") CommandWindowReading.Tag(text,item);
             texts.Add(item); accepted++;
             if (!panelCounts.ContainsKey(source)) panelCounts[source]=0; panelCounts[source]++;
             if (source=="energy") energyCount++; else if(source=="agent") agentCount++; else if(source=="creature") creatureCount++;
@@ -206,9 +274,25 @@ public sealed class ConsoleUI
             // Click reachability is not game orderability. Never read IsOrderable/State/CurrentAgent.
             ViewRect item=new ViewRect{text=anchor.text,panel="command",row_id=id,role="click",
                 x=anchor.x,y=anchor.y,width=anchor.width,height=anchor.height,
-                hit_x=point.x,hit_y=Screen.height-point.y,interactable=true};
+                hit_x=point.x,hit_y=Screen.height-point.y,interactable=true,
+                target_id=target.GetInstanceID().ToString(),input_verified=true};
             buttons.Add(item);
         }
+    }
+    void CapturePlayback(List<ViewRect> texts) {
+        if(speedUI==null) return;
+        Button[] choices={speedUI.PauseButton,speedUI.NormalSpeed,speedUI.OneHalfSpeed,speedUI.TwiceSpeed};
+        string[] labels={"paused","1x","1.5x","2x"};
+        ViewRect selected=null;
+        for(int i=0;i<choices.Length;i++) {
+            var button=choices[i]; Rect rect;
+            if(button==null || !button.isActiveAndEnabled || !button.gameObject.activeInHierarchy) continue;
+            var display=PlaybackDisplay.Resolve(button);
+            if(display==null || !display.Selected || !Visible(display.icon,out rect,true)) continue;
+            if(selected!=null) return; // No unique visible selection.
+            selected=Item(rect,labels[i]); selected.panel="playback";
+        }
+        if(selected!=null) texts.Add(selected);
     }
     void CaptureInputTargets(List<ViewRect> buttons) {
         var system=UnityEngine.EventSystems.EventSystem.current;
@@ -216,21 +300,24 @@ public sealed class ConsoleUI
         foreach(Button button in UnityEngine.Object.FindObjectsOfType<Button>()) {
             Rect visible, bounds;
             Graphic graphic=button.targetGraphic;
+            var playback=PlaybackDisplay.IsPlayback(speedUI,button)?PlaybackDisplay.Resolve(button):null;
+            if(playback!=null) graphic=playback.icon;
             if(!button.isActiveAndEnabled || !button.IsInteractable() || graphic==null ||
-               !Visible(graphic,out visible) || !ScreenRect(button.transform as RectTransform,graphic.canvas,out bounds)) continue;
-            Vector2 point=bounds.center;
-            if(!visible.Contains(point)) continue;
+               !Visible(graphic,out visible,playback!=null) || !ScreenRect(button.transform as RectTransform,graphic.canvas,out bounds)) continue;
+            Vector2 point=visible.center;
+            if(!bounds.Contains(point)) continue;
             var data=new UnityEngine.EventSystems.PointerEventData(system); data.position=point;
             var hits=new List<UnityEngine.EventSystems.RaycastResult>(); system.RaycastAll(data,hits);
             if(hits.Count==0 || UnityEngine.EventSystems.ExecuteEvents.GetEventHandler<UnityEngine.EventSystems.IPointerClickHandler>(hits[0].gameObject)!=button.gameObject) continue;
             // Opaque runtime identity only. No object names, callbacks or hidden game state.
-            ViewRect item=Item(bounds, ""); item.panel="input_target";
+            ViewRect item=Item(bounds,playback==null?"":PlaybackDisplay.Label(speedUI,button)); item.panel="input_target";
             item.target_id=button.GetInstanceID().ToString(); item.input_verified=true;
             item.interactable=true; item.hit_x=point.x; item.hit_y=Screen.height-point.y;
             buttons.Add(item);
         }
     }
     public void Capture(List<ViewRect> texts, List<ViewRect> buttons, List<string> gauges) {
+        if(speedUI==null) speedUI=UnityEngine.Object.FindObjectOfType<PlaySpeedSettingUI>();
         rejected.Clear(); candidates=accepted=energyCount=agentCount=creatureCount=hudCount=0;
         readTexts.Clear(); panelCounts.Clear();
         graphics.Clear(); rectangles.Clear(); effects.Clear(); rejectionDetails.Clear(); unsafeEffects=false;
@@ -245,7 +332,10 @@ public sealed class ConsoleUI
             unsafeEffects=true;
         }
         foreach(Canvas canvas in UnityEngine.Object.FindObjectsOfType<Canvas>()) {
-            if(!canvas.isActiveAndEnabled) continue;
+            // Facility WorldSpace canvases include room decorations and the enormous
+            // UnitMouseEventManager hit surface. They are not screen-covering menus.
+            // Audited room labels are read directly; only screen UI enters this registry.
+            if(!canvas.isActiveAndEnabled || canvas.renderMode==RenderMode.WorldSpace) continue;
             var registered=GraphicRegistry.GetGraphicsForCanvas(canvas);
             // Unity 2017 IndexedSet implements IList indexing, but its enumerator throws.
             for(int index=0;index<registered.Count;index++) {
@@ -273,7 +363,10 @@ public sealed class ConsoleUI
             if(!extraPanels.TryGetValue(entry.root,out panel)) { panel=new Panel(); extraPanels[entry.root]=panel; }
             panel.Bind(entry.root); ReadPanel(panel,entry.source,texts,buttons);
         }
+        ConsoleReading.Capture(this,texts,buttons);
         CaptureCommandTargets(texts,buttons);
+        CommandWindowReading.Capture(this,buttons);
+        CapturePlayback(texts);
         var expired=new List<GameObject>();
         foreach(var root in extraPanels.Keys) if(root==null || !retained.Contains(root)) expired.Add(root);
         foreach(var root in expired) extraPanels.Remove(root);
@@ -300,9 +393,16 @@ public sealed class ConsoleUI
     }
 
     // Reuse this frame's graphics registry; no second UI traversal for motion.
+    bool ClearPauseCover(Graphic graphic,Rect box,Rect target) {
+        var pause=graphic as Image;
+        return speedUI!=null && pause==speedUI.pauseFilter &&
+            (pause.sprite==speedUI.pauseDefSprite || pause.sprite==speedUI.observeSprite) &&
+            coverAlpha.ClearOver(pause,box,target);
+    }
     public string MotionCover(Rect bounds, Transform body) {
-        if(bounds.Overlaps(RobotomyVirtualInput.PointerOverlayRect)) return "pointer";
+        // Device pointer does not hide the game surface it annotates.
         foreach(var pair in rectangles) if(bounds.Overlaps(pair.Value)) {
+            if(ClearPauseCover(pair.Key,pair.Value,bounds))continue;
             string path=pair.Key.name; for(Transform p=pair.Key.transform.parent;p!=null;p=p.parent) path=p.name+"/"+path;
             return path+" body="+bounds+" graphic="+pair.Value;
         }

@@ -45,7 +45,7 @@ namespace CreatureInfo {
     public class EquipSlot { public GameObject ActiveControl,BlockControl; }
     public class CreatureInfoEquipmentRoot:CreatureInfoController { public EquipSlot giftSlot,weaponSlot,armorSlot; }
 }
-namespace InGameUI { public class AgentUI:MonoBehaviour { public UnityEngine.UI.Image BlackHide; } }
+namespace InGameUI { public class AgentUI:MonoBehaviour { public UnityEngine.UI.Image BlackHide; public UnityEngine.UI.Text Name; } }
 namespace CommandWindow {
     public class KitCreatureRegion { public UnityEngine.UI.Text UseCountText,UseCountTitleText; }
     public class CommandWindow:MonoBehaviour { public KitCreatureRegion kitCreatureRegion;public GameObject RootControl;public static CommandWindow CurrentWindow; }
@@ -83,6 +83,7 @@ class Program {
         ego.weaponSlot.BlockControl=null;Check(value.transform,false,"missing EGO cover");
         var hud=Child<InGameUI.AgentUI>(null);value=Go(hud.transform);Check(value.transform,false,"missing blackhide");
         hud.BlackHide=Child<UnityEngine.UI.Image>(hud.transform);Check(value.transform,false,"HUD before research");
+        hud.Name=Child<UnityEngine.UI.Text>(hud.transform);Check(hud.Name.transform,true,"visible name before research");
         hud.BlackHide.gameObject.activeSelf=false;Check(value.transform,true,"HUD displayed after research");
         hud.BlackHide.gameObject.activeSelf=true;Check(value.transform,false,"HUD hidden again");
         var normal=Child<CreatureInfo.CreatureInfoStatRoot>(null);value=Go(normal.transform);
@@ -99,7 +100,7 @@ class Program {
         var agent=Child<CommandWindow.AgentSlot>(null);value=Go(agent.transform);Check(value.transform,false,"missing agent refs");
         agent.HealthText=Child<UnityEngine.UI.Text>(agent.transform);agent.MentalText=Child<UnityEngine.UI.Text>(agent.transform);
         agent.HealthFill=Child<UnityEngine.UI.Image>(agent.transform);agent.MentalFill=Child<UnityEngine.UI.Image>(agent.transform);
-        Check(agent.HealthText.transform,true,"HP text still requires final visibility");Check(agent.MentalText.transform,true,"SP text still requires final visibility");
+        Check(agent.HealthText.transform,true,"display HP candidate");Check(agent.MentalText.transform,true,"display SP candidate");
         Check(agent.HealthFill.transform,false,"unverified HP fill");Check(agent.MentalFill.transform,false,"unverified SP fill");
         Check(value.transform,true,"agent unrelated label");
         var escape=Child<CreatureInfo.CreatureInfoEscapeRoot>(null);value=Go(escape.transform);

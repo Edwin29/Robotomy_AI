@@ -39,6 +39,7 @@ public static class MotionSurface
 
     public static void Reset() {
         atlases.Clear(); failedAtlases.Clear(); meshes.Clear(); frame=-1;
+        MotionTextureSample.Reset();
         CachedTextureBytes=0; LastColdMilliseconds=0; LastFailure="";
         LastTextureAlphaMaximum=LastTintAlphaUpper=LastTransmission=0;
         LastLocalAlphaUpper=LastGlobalAlphaUpper=regionAlphaUpper=patchAlphaUpper=1;
@@ -185,7 +186,7 @@ public static class MotionSurface
         Vector2 uv0=UV(Weights(center,a,b,c,determinant),ua,ub,uc);
         Vector2 dx=UV(Weights(center+Vector2.right,a,b,c,determinant),ua,ub,uc)-uv0;
         Vector2 dy=UV(Weights(center+Vector2.up,a,b,c,determinant),ua,ub,uc)-uv0;
-        return TextureRegion(texture,lo,hi,dx,dy,false);
+        return MotionTextureSample.Visible(texture,uv0,dx,dy) || TextureRegion(texture,lo,hi,dx,dy,false);
     }
     static bool TextureRegion(Texture2D texture, Vector2 lo, Vector2 hi, Vector2 dx, Vector2 dy, bool empty) {
         regionMeasured=false; regionAlphaUpper=1;
@@ -437,9 +438,14 @@ public static class MotionSurface
             // Any nonzero vector unequivocally establishes a block override, even
             // RGB=(1,1,1), alpha0. All-zero remains ambiguous with an absent property.
             float effectiveColor=blockColor!=Vector4.zero?blockTint:Mathf.Max(materialTint,blockTint);
-            float effectiveRenderer=blockRendererColor!=Vector4.zero?blockRenderer:Mathf.Max(1,materialRenderer);
+            // SpriteRenderer.color is an actual display tint. Unity supplies it
+            // through vertices or native renderer color, depending on batching.
+            // Count it ONCE; replacing it with max(1, alpha) made the ordinary
+            // 20%-opacity facility Fog behave as a completely opaque cover.
+            float effectiveRenderer=blockRendererColor!=Vector4.zero?Mathf.Max(sprite.color.a,blockRenderer):sprite.color.a;
+            effectiveRenderer*=Mathf.Max(1,materialRenderer);
             bool customMask=material.shader.name=="Custom/SpriteDefaultCustomMask";
-            if(customMask) effectiveRenderer=1; // Audited DXBC never consumes _RendererColor.
+            if(customMask) effectiveRenderer=sprite.color.a; // Native vertex tint; no _RendererColor in this DXBC.
             Vector4[] colors=propertyBlock.GetVectorArray("unity_SpriteRendererColorArray");
             float instanceUpper=0;
             if(colors!=null) foreach(Vector4 color in colors) {
@@ -449,11 +455,11 @@ public static class MotionSurface
             if(material.enableInstancing && !customMask) {
                 // A material may select an instanced OR ordinary draw. Cover both.
                 effectiveRenderer=Mathf.Max(effectiveRenderer,
-                    colors!=null && colors.Length>0?instanceUpper:Mathf.Max(1,sprite.color.a));
+                    colors!=null && colors.Length>0?instanceUpper:sprite.color.a);
             }
             // Vertex tint can be white or native tint depending on batching. Never
             // square an alpha below1 when the native value may be applied only once.
-            float tint=effectiveColor*effectiveRenderer*Mathf.Max(1,sprite.color.a);
+            float tint=effectiveColor*effectiveRenderer;
             if(!Finite(tint)) { Fail("sprite_tint_overflow"); return 0; }
             LastTintAlphaUpper=tint;
             LastTransmission=1-Mathf.Clamp01(LastTextureAlphaMaximum*tint);
@@ -467,6 +473,31 @@ public static class MotionSurface
             LastFailure="";
             return LastTransmission;
         } catch { Fail("sprite_transmission_exception"); return 0; }
+    }
+
+    // Existence of a visible body, not proof that an entire anisotropic footprint is opaque.
+    // Small zoomed-out creatures previously failed the all-texels-opaque contract.
+    public static bool PickPresence(Renderer renderer,Camera camera,Func<Rect,Vector3,bool> visible,out Vector3 world,out Rect region){
+        world=Vector3.zero;region=new Rect();Geometry g;Material[] materials;
+        if(!Prepare(renderer,camera,out g,out materials))return false;
+        for(int sub=0;sub<g.triangles.Length;sub++){
+            var tex=materials[sub].mainTexture as Texture2D;if(tex==null)continue;var alpha=Atlas(tex);if(alpha==null)continue;
+            var indices=g.triangles[sub];
+            for(int i=0;i+2<indices.Length;i+=3){
+                int a=indices[i],b=indices[i+1],c=indices[i+2];
+                if(a<0 || b<0 || c<0 || a>=g.vertices.Length || b>=g.vertices.Length || c>=g.vertices.Length)continue;
+                if(g.colors[a].a<128 || g.colors[b].a<128 || g.colors[c].a<128)continue;
+                Vector2 uv=(g.uv[a]+g.uv[b]+g.uv[c])/3;
+                int x=Mathf.FloorToInt(uv.x*tex.width),y=Mathf.FloorToInt(uv.y*tex.height);
+                if(x<1 || y<1 || x>=tex.width-1 || y>=tex.height-1)continue;
+                int x0=x-1,y0=y-1,x1=x+2,y1=y+2,stride=alpha.stride;
+                if(alpha.bad[y1*stride+x1]-alpha.bad[y0*stride+x1]-alpha.bad[y1*stride+x0]+alpha.bad[y0*stride+x0]>0)continue;
+                var w=renderer.transform.TransformPoint((g.vertices[a]+g.vertices[b]+g.vertices[c])/3);var q=camera.WorldToScreenPoint(w);
+                if(q.z<camera.nearClipPlane || q.z>camera.farClipPlane || q.x<1 || q.y<1 || q.x>=Screen.width-1 || q.y>=Screen.height-1)continue;
+                var r=new Rect(q.x-1,q.y-1,2,2);if(visible!=null && !visible(r,w))continue;
+                world=w;region=r;return true;
+            }
+        }return false;
     }
 
     public static bool Contains(Renderer renderer, Camera camera, Vector3 world, out Rect region) {

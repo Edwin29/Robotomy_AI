@@ -2,6 +2,13 @@
 
 This repository is an engineering workspace, not a clean player environment.
 
+- For game-linked features, establish the actual shipped structure before implementation:
+  trace game code, serialized scene/prefab references and animation/material settings,
+  then verify runtime display values. Do not fill gaps with assumed Unity defaults or
+  infer a complete contract from a partial code read. Record unverified links explicitly.
+  Tests must include representative actual game configurations, not only fixtures that
+  repeat the proposed implementation's assumptions.
+
 - Product goal: a player that makes meaningful choices, exposes concise decision records,
   learns from observed outcomes, and transfers attributed experience across models.
 - Session/decision/execution tools run a synthetic integration fixture. Live tools
@@ -29,8 +36,8 @@ This repository is an engineering workspace, not a clean player environment.
   Keep audio/metrics diagnostics and internal object names out of player observations.
 - ConsoleDisclosure is mandatory for text and gauges. Never publish tool cumulative
   use counts/time, even if a serialized command UI field contains them. Visible unlock
-  thresholds are distinct. Command-list HP/SP may use admitted rendered Text only; never backing model values or fillAmount.
-  Missing, covered and clipped fields remain unknown. Consult docs/disclosure-implementation.md.
+  thresholds are distinct. Command-list HP/SP may come only from visible rendered Text;
+  never substitute model vitals or hidden fills. Consult docs/disclosure-implementation.md.
 - Launch only through scripts/launch_live.py after its isolation/integrity checks. The
   copied runtime is storage separation, not an OS security sandbox. Never upload its assets.
 - Actual input defaults to robotomy/virtual_input.py and mods/RobotomyObserver/VirtualInput.cs.
@@ -45,3 +52,5 @@ This repository is an engineering workspace, not a clean player environment.
   offered response, not unreturned sensor fields. No mandatory per-action rationale or
   per-observation Markdown. Close attempts and review evidence at day end/retry boundaries.
   Original beliefs/reasons remain; retrospective discoveries have separate provenance.
+
+- Authorized employee-state disclosure (2026-10-19): after current camera/display visibility checks, map the game's visually represented employee behavior to a readable state. Do not require the work menu to be open. Death is the explicit off-camera exception: expose current-roster dead employee identity and death status only, never off-camera position, destination, vitals or cause. Retried/loaded state replaces current death status; it is not an immutable history ledger.

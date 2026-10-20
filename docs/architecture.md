@@ -1,3 +1,5 @@
+> Current live structure: [2026-10-20 research entrypoint](research-entrypoint-20261020.md). The v0.1 content below is historical.
+
 # v0.1 구조와 구현 경계
 
 이 문서는 초기 v0.1 구현 당시의 구조 기록입니다. 향후 설계 기준은

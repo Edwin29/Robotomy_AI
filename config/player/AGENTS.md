@@ -66,7 +66,7 @@ stopped를 확인한다. 정상 창 닫기 요청이며 자동 저장이나 종�
 
 - `observe_live`로 표시 정보를, `view_live_frame`으로 실제 화면과 이야기 장면을 본다.
   누락·가림·모호함을 숨은 정보나 사전 지식으로 채우지 않는다. 필요한 장면을 직접 확인한다.
-- 조작 순서: `capture_live_control` → `prepare_live_action` → `execute_live_action` → 새 관찰.
+- 보통 입력은 `game_input(command=["L", 대상])`를 사용하고 응답의 `current`에서 결과를 확인한다. 좌표·길게 누르기·드래그·예약 등 세부 제어에는 기존 `capture_live_control` → `prepare_live_action` → `execute_live_action`을 사용한다.
   최신 view_id와 게임기 PNG의 좌표를 사용한다. 이미지 경로만 받았다는 사실은 관람의 증명이 아니다.
 - 키 이름은 대소문자를 구분하지 않는다. W/A/S/D/F/G, 1/2/3, Space(Spacebar),
   Escape(Esc), Return(Enter)를 사용한다. 조합키나 동시 키는 지원하지 않는다.
@@ -175,3 +175,163 @@ Robotomy Player 로컬 플러그인이 robotomy_player 도구를 제공할 수 �
 click은 화면에서 확인된 행 클릭 위치이며 작업 배정 성공이나 일반 버튼의 검증 예약을
 보장하지 않는다. 행 ID는 직원 영구 ID가 아니므로 새 이름/현재 좌표를 다시 확인한다.
 화면 밖/가림으로 빠진 행을 이전 기록의 좌표로 클릭하지 않는다.
+
+### 소리 관찰과 지연된 이벤트
+
+`observe_live`와 입력 결과의 `audio_delivery`는 같은 연결에서 아직 반환하지 않은 소리 기록을 최대 100개 전달한다.
+`at_utc`는 소리가 난 시각이다. `has_more=true`이면
+`read_audio_events(session=반환된 session, after_event_id=next_event_id, limit=100)`으로
+이어서 읽을 수 있다. 같은 session/event_id는 중복 기록이므로 새 사건으로 세지 않는다.
+퍼스트·세컨드·서드 트럼펫과 클리포트 폭주 알림음은 확인된 음원 명칭으로 표시된다.
+그 밖의 `sound_…`는 같은 소리를 다시 알아보기 위한 식별자다.
+화면과 실제 결과를 함께 관찰하면서 의미를 배운다. 게임기 내부 진단은 운영자가 맡는다.
+
+### 시련 예고와 클리포트 폭주
+
+빠른 관찰의 `change_summary.priority_changes`를 먼저 확인한다. `ordeal.label`은
+`녹빛 여명`처럼 현재 화면에 표시된 색과 단계를 묶는다. `meltdown_level`은 표시된
+로마 숫자, `meltdown_gauge.label`은 채워진 칸/전체 칸이며 `ratio`는 그 비율이다.
+`target_rooms`는 표시된 폭주 대상 방 수다. 시련 예고가 대신 표시될 때 방 수는 null일 수 있다.
+`room_timers`는 화면에서 읽은 남은 초와 위치이며 이름이 보일 때만 `room_label`을 준다.
+null/빈 목록은 현재 관찰에서 확인할 수 없다는 뜻이다. 폭주가 끝났거나 안전하다는 뜻으로 단정하지 않는다.
+이 항목은 화면에 나타난 예고이며 숨겨진 다음 시련 일정이나 공략 정보가 아니다.
+
+### 본편 이동과 일시정지·배속
+
+`playback.state`는 화면에서 선택된 버튼 기준의 `paused`, `1x`, `1.5x`, `2x`다.
+배속 변경은 현재 버튼의 `hit_x/hit_y`로 준비하면 대상 검증 예약을 사용할 수 있다.
+`console.motion.tracks`의 `screen_velocity`는 화면에서 보이는 이동이고,
+`object_velocity`와 `camera_velocity`는 이를 개체 이동과 카메라 이동으로 나눈 값이다.
+단위는 실제 시간 초당 화면 픽셀, x 양수는 오른쪽, y 양수는 아래쪽이다.
+`tracking`일 때 벡터를 활용하고 처음 관찰되거나 추적이 끊긴 null 값은 정지로 해석하지 않는다.
+현재 화면에서 사라진 개체의 위치를 과거 벡터로 계속 갱신하지 않는다.
+
+### 환상체 기록과 E.G.O 목록
+
+빠른 관찰의 `creature_record`는 현재 열린 기록 화면에서 보이는 본문 줄을 문단별로 묶는다.
+원문과 <데이터 말소> 같은 문구를 그대로 읽으며, 스크롤 밖이나 미개방 본문은 포함하지 않는다.
+`equipment_rows`에는 현재 E.G.O 목록에 보이는 이름·등급·무기 피해/속도/거리 또는
+슈트의 RED/WHITE/BLACK/PALE 저항이 표시된다. `owners`는 화면에서 읽은 장착 직원 이름이다.
+`actions`와 `equipment_controls`는 현재 확인된 클릭 좌표와 대상 ID다.
+직원 선택, 장비 슬롯, 세부설명, 무기/슈트 탭은 role로 구분한다. 클릭 가능은 장착 성공 보장이 아니다.
+목록/본문은 창을 열거나 탭·스크롤을 바꾼 뒤 확인한다. compact diff에서 바뀐 섹션만 교체하고,
+빈 목록이 오면 현재 화면에서 사라진 것이다. 반복해서 같은 본문이나 이미지를 읽을 필요는 없다.
+연출·이미지나 텍스트만으로 불분명한 부분을 볼 때는 화면을 확인한다.
+
+### 개인 대처 매뉴얼 — Playbook
+
+`save_playbook_entry`로 자신의 경험에서 만든 관리 팁, 탈출·제압 절차, 상황별 대처,
+반복 루틴 등을 저장하고 `read_playbook`으로 필요할 때 찾아 쓴다. 하루 시작에 한정하지 않는다.
+필수 항목은 title과 author뿐이다. content를 자연어·체크리스트·JSON 등 편한 형식으로 쓰고,
+자신에게 더 유용한 필드나 양식이 생기면 자유롭게 추가·변경한다. 분류 이름도 자유롭다.
+검색용 category/subject/tags/summary는 선택이다. 같은 환상체의 여러 절차를 따로 저장해도 된다.
+
+먼저 query로 짧은 목록을 찾고 entry_id로 필요한 메모 전체를 읽는다. 새 메모 저장은
+entry_id 없이, 수정은 기존 entry_id와 최신 expected_revision을 전달하며 entry 전체를 보낸다.
+id/revision/updated_at은 저장소가 붙이므로 entry 안에서는 뺀다. 이전 버전은 보존된다.
+쓸모없어진 메모는 status="archived"로 수정하면 일반 검색에서 제외된다.
+startup=true인 메모 요약은 read_player_memory에도 함께 나온다. 나머지는 필요할 때 검색한다.
+
+공략이나 사전학습 지식을 채워 넣지 않는다. 관찰·경험 근거가 있으면 evidence_ids로 연결하고,
+가설·아직 안 해본 계획·시도 결과·다른 플레이어에게서 물려받은 지식을 자기 방식으로 구분한다.
+근거 링크는 해당 사건이 존재한다는 뜻이지 대처법의 정답 인증이 아니다.
+JSON의 도구 호출 예시도 메모일 뿐 자동 실행되지 않는다. 현재 조건과 최신 화면의 대상을
+확인한 뒤 기존 입력/예약 도구를 사용한다. 과거 클릭 좌표나 target_id를 그대로 재사용하지 않는다.
+매번 행동 후 쓸 필요는 없다. 유용한 발견·수정이 있을 때 안전한 틈에 적고, 전술 메모를 위해
+감상·관심·스토리 경험을 생략하지 않는다. 메모를 읽거나 저장한 사실도 활성 경험 기록에 남는다.
+
+
+### 방별 상태와 환상체 관리창
+
+`console.hazards.room_status`는 현재 화면에 보이는 방의 현재 클리포트 카운터,
+생성 중인 PE/NE 박스(`work_boxes`), 저장된 고유 PE 박스(`stored_pe_boxes`),
+작업 성공률 페널티 표시(`work_penalty_text`)를 제공한다. 생성량과 저장량은 별개다.
+카운터 `unknown`은 미확인, `not_applicable`은 화면의 해당 없음 표시다. 둘 다 0이 아니다.
+좌표는 표시 위치이며 조작 버튼 좌표로 보장하지 않는다. room_id는 현재 실행의 표시 식별자다.
+
+`console.hazards.creature_management`는 현재 열린 환상체 관리창의 표시다.
+`details`에서 `work_damage`는 작업 중 공격 유형·피해 범위,
+`work_result_pe_range`는 좋음/보통/나쁨에 해당하는 PE 박스 구간이다. 이를 결과 피해량으로 읽지 않는다.
+결과에 따른 특수 피해·효과는 현재 보이는 `management_tip` 본문에서 이해한다.
+`ego_weapon`은 피해 유형·범위·공격 속도·거리, `ego_suit_resistance`는 내성 종류·배율·표현이다.
+`costs`는 표시 원문이다. 제조 버튼은 평소 보유량/제조 한도를 표시하고 포인터를 올릴 때 PE 비용을 표시한다.
+잠금 해제 비용도 현재 창에 보이는 것만 제공한다. 창을 닫거나 항목이 사라지면 이전 수치를 최신으로 유지하지 않는다.
+방별 상태·관리창 변경도 diff의 `priority_changes`에서 확인할 수 있다.
+
+
+### 작업 선호도와 잠금 사유
+
+관리창 `details`의 `work_preference`는 작업별로 `work`와 `I`~`V` 선호도 표시를 묶는다.
+현재 보이는 등급만 들어온다. 미개방·스크롤 밖 항목을 낮음이나 0%로 취급하지 않는다.
+`costs`의 해제 항목은 `funds`로 `sufficient`/`insufficient`/`unknown`을 제공한다.
+이는 보이는 PE 잔고와 비용 비교이며 개방 가능 여부 전체를 뜻하지 않는다.
+`prerequisite: required`는 현재 화면에 선행 관리법 안내가 표시됐다는 뜻이다.
+`not_indicated`는 선행 조건이 없다는 뜻이 아니다. 필요한 경우 잠금 영역에
+포인터를 올리고 빠른 관찰로 안내를 확인한다. 구매 실패 클릭으로 확인할 필요는 없다.
+
+
+### E.G.O 선택 직원과 방 클릭 좌표
+
+E.G.O 목록의 `selected_equipment`는 선택된 직원 카드의 이름, 현재 무기·슈트와 화면에 표시된 성능이다.
+`equipment_controls`의 직원·탭, `equipment_rows[].actions`의 장비 슬롯 좌표로 조작한다.
+장비 변경 뒤에는 `selected_equipment`와 해당 행의 `owners`를 확인한다.
+diff에서는 `/selected_equipment`, `/equipment_rows`, `/equipment_controls` 교체값을 반영한다.
+
+방별 `console.hazards.room_status[].click`의 `x/y`는 입력 도구와 같은 화면 왼쪽 위 기준 픽셀 좌표다.
+방을 클릭할 때는 이 좌표를 사용한다. 바깥쪽 `x/y`는 카운터·PE 표시 위치이며 클릭 좌표가 아니다.
+`click`이 null이면 현재 관찰에서 사용할 방 클릭 지점이 없다. 카메라 이동·확대 이후에는 새 관찰의 좌표를 사용한다.
+이 좌표는 방 클릭 이벤트에 연결되는 지점이며, 작업 가능 여부나 실행 성공을 보장하지 않는다.
+
+
+### 카메라에 보이는 직원
+
+빠른 관찰 `visible_employees`는 현재 화면에서 관찰된 직원별 이름, position, object_velocity, screen_velocity, camera_velocity를 묶는다. `click`은 선택 입력에 사용할 별도 좌표다. position은 이름표 또는 보이는 몸체의 추적 위치이므로 클릭에 사용하지 않는다.
+`movement`는 moving/stationary/unknown이며 카메라 이동을 뺀 화면상 움직임이다. stationary는 휴식·대기 명령 상태를 뜻하지 않으며 일시정지 중에도 나타난다. `status_label`은 대기 중/이동 중/작업 중/제압 중/패닉/통제 불가/사망/미확인이다. 화면에 보이는 직원에 한해 게임의 시각적 행동 분류를 상태명으로 전달한다. 선택 강조색 때문에 상태가 사라지지 않는다. 이름 null은 추측으로 보충하지 않는다. click이 null이면 현재 확인된 단독 선택 지점이 없다. 선택 성공은 이후 관찰로 확인한다.
+화면 밖으로 나가거나 가려지면 항목이 사라지고, 오래된 관찰에서도 유지하지 않는다. 추적 ID는 지속적인 직원 신원 ID가 아니다. diff의 `/visible_employees`는 목록 전체를 교체한다.
+
+사망은 사용자 지정 예외다. `dead_employees`는 현재 직원 명단에서 사망 판정된 직원의 이름·사망 상태를 화면 밖에서도 제공한다. 위치·이동 벡터·사망 원인은 제공하지 않는다. 이는 시체 탐지 결과가 아니며, 하루 재시도/로드 후 현재 명단 기준으로 갱신한다. 과거 사망 이력은 경험 기록과 구분한다. diff의 `/dead_employees`도 목록 전체 교체다.
+
+
+### 작업 선택창의 빠른 관찰
+
+`command_window`는 현재 열린 격리실 작업 선택창의 표시 정보를 묶는다. `summary`는 이름·코드·등급·최대 PE·작업 중 피해 유형/범위, `work_results`는 bad/normal/good별 화면의 `pe_range`다. Unknown은 미확인 표시 그대로이며 숨겨진 값으로 보충하지 않는다. 기타 표시 문구는 `text_groups`에 그룹/필드/원문으로 제공한다.
+`work_types[]`의 name과 click(x,y,target_id)로 작업 종류를 선택하고, 이후 최신 `employees[]`의 이름·HP/SP·성공률·시간과 click을 이용해 직원을 지정한다. 기존 command_rows도 유지한다. click=null인 항목에는 입력하지 않는다. 작업 종류 변경 뒤 직원 목록/성공률이 바뀔 수 있으므로 이전 직원 좌표를 무조건 재사용하지 않는다. 좌표는 입력 도구와 같은 화면 왼쪽 위 기준 픽셀이다. diff의 /command_window는 전체 교체이며 창이 닫히면 null이다.
+
+
+### 고정 시설 지도와 화면 속 엔티티
+
+`read_facility_map()`으로 지금까지 관찰한 시설 지도를 읽는다. 고정 `id`를 기억해 재사용할 수 있다. 각 공간의 부서·종류·`map_position`, 이웃 `connections`의 이름·방향, `relative_to_lobby`로 위치와 연결을 파악한다. `layout_top_to_bottom`은 위에서 아래, 각 줄은 왼쪽에서 오른쪽 순서다. 줄 번호는 공식 층수가 아니며, 가까운 공간이라고 연결된 것은 아니다.
+
+현재 조작 가능한 위치는 빠른 관찰의 `facility_map.visible`에서 확인한다. 직원 선택 후 `click_facility(facility_id=..., rationale=...)`로 복도·부서 로비에 이동 명령을 내린다. 격리실 ID는 좌클릭으로 작업창을 연다. 게임기가 최신 화면 좌표로 변환하므로 고정 지도 좌표를 픽셀 입력에 넣지 않는다. 엘리베이터 축은 위치를 이해하는 표식이며 직접 클릭할 수 없다. 연결된 승강장·복도를 목적지로 사용한다. 카메라 밖 대상은 카메라를 옮긴 뒤 조작한다. 명령 후 직원의 상태·이동을 확인한다.
+
+지도는 화면 버퍼와 별도로 유지되지만, 현재 시야와 해금 상태를 대신하지 않는다. `visible_entities`는 카메라에 보이는 비직원 개체의 위치와 화면/오브젝트/카메라 이동 벡터다. 직원은 `visible_employees`를 함께 확인한다. 개체의 과거 위치를 현재 위치로 간주하지 않는다. 알려지지 않은 이름은 미확인 상태로 유지한다. 개체의 위치나 작은 표본 bounds가 반드시 제압 클릭 지점인 것은 아니다.
+
+
+시설의 현재 표시 상태는 `facility_map.visible[].status`에 함께 제공된다. `warning_light`의 `red`는 빨간 경고 표시, `off`는 경고등 꺼짐, null은 해당 표시를 확인할 수 없음을 뜻한다. 꺼짐을 적 없음이나 안전으로 해석하지 않는다. `surface_effects`는 통로에 보이는 특수 표면 효과이며 `visual_id`로 같은 외형을 구분한다. 효과의 원인·위험성은 관찰과 경험으로 판단한다. 이 상태는 현재 시야에만 해당하며 고정 지도에 저장되지 않는다. diff로 갱신되는 현재 시설 목록을 사용한다.
+
+
+엔티티의 `facility_location`은 현재 보이는 시설과의 위치 관계다. `facility_id`와 `facility_label`로 지도에 연결하고, `map_position`은 카메라와 무관한 고정 좌표다. `relative.u`는 시설 표시 영역의 왼쪽→오른쪽, `relative.v`는 아래→위의 연속 비율이다(0=시작 끝, 1=반대 끝). 3개 구역 분류가 아니다. `extent.width/height`는 같은 지도 단위의 표시 영역 크기다. 기준점은 관찰된 몸체/이름표 표본이라 발 위치와 같지 않을 수 있고, 영역 밖 표본은 0~1 밖의 값을 가질 수 있다. 클릭에는 기존 화면 click 좌표 또는 click_facility를 사용한다. 시설 연결이 확인되지 않으면 facility_location은 null이며 근처 시설로 임의 배정하지 않는다.
+
+표면 효과는 확인된 외형에 따라 흑백 노이즈 / 불꽃·불티 / 무지개색 물결 / 녹색 안개·빛 입자로 제공한다. 이 명칭은 외형 설명이며 원인 환상체나 피해·상태이상에 관한 설명이 아니다. 미분류 효과는 필요할 때 화면으로 확인한다.
+
+## 간단 입력과 함께 받는 결과
+
+- `game_input(command=["L", "containment:…"])`: 현재 보이는 격리실 좌클릭.
+- `game_input(command=["L", "work:통찰"])`: 현재 표시된 작업 종류 선택.
+- `game_input(command=["L", "row:현재 row_id"])`: 현재 표시된 직원 행 클릭.
+- `game_input(command=["L", "2x"])`: 이름이 유일한 현재 버튼 클릭.
+- `game_input(command=["H", 대상])`: 포인터 올리기. `R`은 우클릭, `["K", "Space"]`는 키 입력이다. 픽셀 입력은 `["L", [x,y]]`로 가능하다.
+- `move_employee(employee="직원 이름", destination="corridor:…")`: 보이는 직원 선택을 확인한 뒤 보이는 목적지를 우클릭한다. 경로·전략을 대신 정하지 않는다.
+
+이름이 중복되면 `button:target_id`, `employee:track_id` 등 응답 `current.targets`의 ref를 사용한다. 고정 시설 ID 외의 ID는 현재 관찰에서 얻는다. 보이지 않는 대상은 입력하지 않는다. 선택된 작업 버튼 등 현재 클릭 불가능한 항목은 targets에서 빠질 수 있다.
+
+입력 응답 `current`는 해당 시점의 작업창·직원 행·상태·장비/기록 창·위험 표시·입력 대상을 제공한다. 기존 execute_live_action도 current를, click_facility와 완료된 예약 상태 조회는 after.current를 반환한다. 필요한 결과가 이미 있으면 곧바로 다음 판단을 해도 되며 관성적으로 observe_live를 다시 호출하지 않는다. current는 독립된 관찰이며 observe_live diff 기준을 바꾸지 않는다.
+
+`result_status=ready`는 새 UI 표본이 준비됐다는 뜻이다. 성공 여부는 내용으로 판단한다. pending/unavailable은 관찰을 보충할 상황이지 입력을 재전송할 이유가 아니다. 이동 명령의 완료는 도착을 뜻하지 않는다. 스토리·새 연출·모호한 장면은 기존대로 화면을 본다.
+
+고정 지도는 `/facility_map_known`, 현재 보이는 시설은 `/facility_map`으로 나뉜다. compact 첫 응답/reset이나 지도 변경에만 known이 다시 온다. 소리는 입력 결과와 observe_live가 커서를 공유하므로 어느 쪽에서 받았든 한 번만 처리한다. 재연결 후 재전달 가능성은 소리 식별자와 발생 시각으로 구분한다.
+
+
+### 2026-10-19 직원 선택 패치 적용
+
+직원 이름/ref 좌클릭과 move_employee는 실행 순간의 현재 위치에서 선택한다. 사용법은 같다. 사용자 승인으로 9일차 운영 중 게임을 재시작했으므로 준비 화면부터 새 상태를 확인한다. 운영자 개입 기록은 Playthroughs/Run-001/Day-09-Maintenance-20261019.md에 있으며, 플레이어 실패나 자율 재시도가 아니다.

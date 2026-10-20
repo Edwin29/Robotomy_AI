@@ -42,17 +42,23 @@ def screen_signature(snapshot):
 
 
 def bind_target(snapshot, decision):
-    # Only producer-verified click points can survive UI changes. No coordinate guessing.
+    # A small rounding tolerance applies only around an actual raycast-verified point.
     if decision.get('kind') != 'click': return None
+    x,y=decision.get('x'),decision.get('y')
+    if not isinstance(x,(int,float)) or not isinstance(y,(int,float)): return None
     candidates = [b for b in snapshot.get('buttons', [])
         if b.get('input_verified') is True and b.get('interactable') is True
-        and b.get('target_id') and b.get('hit_x') == decision.get('x')
-        and b.get('hit_y') == decision.get('y')]
+        and b.get('target_id') and abs(b.get('hit_x',float('inf'))-x)<=0.5
+        and abs(b.get('hit_y',float('inf'))-y)<=0.5
+        and b['x']<=x<=b['x']+b['width'] and b['y']<=y<=b['y']+b['height']]
     if len(candidates) != 1: return None
-    return {k:candidates[0][k] for k in ('target_id','hit_x','hit_y','x','y','width','height','text','panel')}
+    return {k:candidates[0].get(k) for k in
+            ('target_id','row_id','text','role','panel')}
 
 
 def target_valid(snapshot, decision, target):
+    # Same semantic display target at the requested point; unrelated labels/energy may change.
+    # A reused row with a different employee name is NOT the same target.
     return target is not None and bind_target(snapshot, decision) == target
 
 
@@ -177,7 +183,7 @@ class Sequences:
             return copy.deepcopy(job)
 
 
-def register_sequence_tools(server, root, executor=None):
+def register_sequence_tools(server, root, executor=None, after_input=None):
     sequences=Sequences(root, executor)
     server._input_sequences=sequences
 
@@ -194,11 +200,17 @@ def register_sequence_tools(server, root, executor=None):
     @server.tool()
     def input_sequence_status(sequence_id: str) -> dict:
         """Read asynchronous input progress. Completion means delivery, not game success."""
-        return sequences.status(sequence_id)
+        result=sequences.status(sequence_id)
+        if after_input and result['status']!='running' and result.get('receipts'):
+            result['after']=after_input(result['receipts'][-1])
+        return result
 
     @server.tool()
     def cancel_input_sequence(sequence_id: str) -> dict:
         """Cancel pending steps; current bounded input may finish (up to 3s plus acknowledgement).
         No global pause and no game pause; cancellation does not undo delivered input.
         """
-        return sequences.cancel(sequence_id)
+        result=sequences.cancel(sequence_id)
+        if after_input and result['status']!='running' and result.get('receipts'):
+            result['after']=after_input(result['receipts'][-1])
+        return result

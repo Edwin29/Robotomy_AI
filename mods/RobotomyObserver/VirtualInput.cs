@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Harmony;
 
-// Game-local input, not OS injection. No gameplay methods or hidden state are called.
+// Game-local input. Targeted employee clicks reuse the normal pointer-click handler; no goal/state writes.
 [DefaultExecutionOrder(-32000)]
 public class RobotomyVirtualInput : MonoBehaviour
 {
@@ -136,7 +136,12 @@ public class RobotomyVirtualInput : MonoBehaviour
         active=null; phase=0;
     }
     bool Accept(string[] c) {
-        if(c.Length!=16 || c[0].Length!=32 || c[12]!="v1") return false;
+        if((c.Length!=16 && c.Length!=17) || c[0].Length!=32) return false;
+        if(c.Length==16 && c[12]!="v1")return false;
+        if(c.Length==17){
+            if(c[12]!="v2" || c[6]!="click" || c[16].Length!=32)return false;
+            foreach(char ch in c[16])if(!Uri.IsHexDigit(ch)||Char.IsUpper(ch))return false;
+        }
         foreach(char ch in c[0]) if(!Uri.IsHexDigit(ch) || Char.IsUpper(ch)) return false;
         if(c[1]!=System.Diagnostics.Process.GetCurrentProcess().Id.ToString() || c[2]!=SceneManager.GetActiveScene().name ||
            c[3]!=Screen.width.ToString() || c[4]!=Screen.height.ToString()) return false;
@@ -169,6 +174,15 @@ public class RobotomyVirtualInput : MonoBehaviour
                 if(phase<3 && (active[2]!=SceneManager.GetActiveScene().name || active[3]!=Screen.width.ToString() || active[4]!=Screen.height.ToString())) { Release(); Ack("unknown","Scene or resolution changed during gesture"); }
                 else if(PredatesBarrier(active[15]) || Epoch>Double.Parse(active[5],Inv) || Time.realtimeSinceStartup-started>4) { Release(); Ack("unknown","Input deadline or control barrier exceeded"); }
                 else if(phase==1) {
+                    if(active.Length==17){
+                        Vector2 target;
+                        if(!ConsoleMotion.TryEmployeeClick(active[16],out target)){Ack("rejected","Employee no longer visible or clickable");return;}
+                        pointer=new Vector3(target.x,target.y,0);
+                        var data=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
+                        data.position=target;data.button=UnityEngine.EventSystems.PointerEventData.InputButton.Left;
+                        UnitMouseEventManager.instance.OnPointerClick(data);
+                        Ack("input_sent","Current visible employee click dispatched");return;
+                    }
                     started=Time.realtimeSinceStartup; phase=2;
                     string kind=active[6];
                     if(kind=="key") downKey=heldKey=Key(active[7]);

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "AGENTS.md",
+    "sha256": "2d2b6d353bbdbb5282d3e65897c2dc83dcafd8342ab47c5920852597b47f02e1"
+  },
+  {
+    "file": "START-HERE.md",
+    "sha256": "e80aa43d791f082264499f39c7fb073d82adb9cecff7c9659097e071cc4cd906"
+  },
+  {
+    "file": "RUN-PROMPT.md",
+    "sha256": "b9f937f8207eb86503bcbe9d00a1314c71088742935d2a301c26250d965a7a11"
+  },
+  {
+    "file": "PLUGIN-RELOAD.md",
+    "sha256": "d3633b4ead3502a023b65dd494e6e27bebffc9e9efc9c9995b654f67993d3989"
+  },
+  {
+    "file": "Ready-Player.cmd",
+    "sha256": "cc411bc0c0af52a2b54fdbf6d42574e063356005d213ab6b98051d58dd667a34"
+  },
+  {
+    "file": "Stop-Player.cmd",
+    "sha256": "691bbca1c245419aad40da5614a1f9e5b3066dcaaf91a07039a5c8fac99f3059"
+  }
+]

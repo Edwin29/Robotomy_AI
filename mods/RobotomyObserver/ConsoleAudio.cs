@@ -53,6 +53,7 @@ public static class ConsoleAudio
         return false;
     }
     public static void Install() {
+        ConsoleSoundCatalog.Initialize(Application.dataPath);
         foreach(var f in typeof(OpCodes).GetFields()) if(f.FieldType==typeof(OpCode)) { var op=(OpCode)f.GetValue(null); ops[op.Value]=op; }
         foreach(var method in typeof(Calls).GetMethods(BindingFlags.Public|BindingFlags.Static)) replacements[Signature(method,true)]=method;
         var harmony=HarmonyInstance.Create("Robotomy.ConsoleAudio.v1");
@@ -83,9 +84,12 @@ public static class ConsoleAudio
             if(clips.Count>=2048) { Dropped++; return; }
             token=Guid.NewGuid().ToString("N"); clips[clip]=token;
         }
+        var match=ConsoleSoundCatalog.Match(clip);
+        string semantic=match==null?"":",\"sound_id\":"+RobotomyObserver.Quote(match.id)+
+            ",\"label\":"+RobotomyObserver.Quote(match.label)+",\"category\":"+RobotomyObserver.Quote(match.category);
         string value="{\"event_id\":"+(++sequence)+",\"at_utc\":"+RobotomyObserver.Quote(DateTime.UtcNow.ToString("o"))+
             ",\"kind\":"+RobotomyObserver.Quote(kind)+",\"source_token\":"+RobotomyObserver.Quote(source.id)+
-            ",\"sound_token\":"+RobotomyObserver.Quote(token)+"}";
+            ",\"sound_token\":"+RobotomyObserver.Quote(token)+semantic+"}";
         recent.Add(value); pending.Add(value);
         if(recent.Count>128) recent.RemoveAt(0);
         if(pending.Count>512) { pending.RemoveAt(0); Dropped++; }
