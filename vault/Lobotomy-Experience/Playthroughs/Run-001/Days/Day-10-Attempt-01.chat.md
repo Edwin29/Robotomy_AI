@@ -139,3 +139,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T14:35:34.392796+00:00", "message_id": "msg_083f0162623832c0016ad77c35137c8191a703a281dc5975ef", "next_event_id": null, "previous_event_id": "exp_879421d5220e4e0e89cd3bbeb9677589", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T14:38:02.725Z · commentary
+
+    합동 지휘 연구가 열렸다. 설명대로라면 이제 다른 부서 직원에게도 작업을 맡길 수 있다. 오늘처럼 한 부서에 인원이 묶여 아슬아슬했던 상황에서 도움이 되겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T14:38:03.045873+00:00", "message_id": "msg_083f0162623832c0016ad77cc9c9f88191a2c9d780455ab925", "next_event_id": null, "previous_event_id": "exp_116d7bf88fed41eba78e54bad8b30061", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
