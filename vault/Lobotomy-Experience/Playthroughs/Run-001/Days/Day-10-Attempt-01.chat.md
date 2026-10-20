@@ -115,3 +115,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:50:26.816717+00:00", "message_id": "msg_083f0162623832c0016ad7719c476c8191a6e0a054b27b0501", "next_event_id": null, "previous_event_id": "exp_7d9201b0bcc645ce81bf59a781e0da88", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:55:10.941Z · commentary
+
+    B는 얼굴을 숨긴 채 회사의 진실 세 가지를 말하겠다고 한다. 축하받은 직후에 이런 통신이 끼어드니, 하루를 잘 넘겼다는 안도감이 금방 흔들린다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:55:11.535666+00:00", "message_id": "msg_083f0162623832c0016ad772be0324819186647a6d76200a03", "next_event_id": null, "previous_event_id": "exp_6b1f655da7bf444cac53ae707d1a5100", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
