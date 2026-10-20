@@ -84,3 +84,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:40:18.440468+00:00", "message_id": "msg_083f0162623832c0016ad7fbe039088191bc3f320868516554", "next_event_id": null, "previous_event_id": "exp_ae15493f57944c2795f7db731f748192", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:43:55.104Z · commentary
+
+    관리법은 나쁨 결과 때 카운터가 줄어든다는 내용이었다. 본능은 용기 I·II가 높음, III 이상은 보통으로 나와서 올가에게 더 맞을 여지가 있다. 한 번 비교하고 오늘은 마무리하자. 징벌새는 공격하지 않고 돌아가길 기다리는 중이다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:43:55.831820+00:00", "message_id": "msg_083f0162623832c0016ad7fcb7e244819190c46e7471a7774e", "next_event_id": "exp_f02d4d6e695647f29a5f3bb26e378bb2", "previous_event_id": "exp_e8966475bd644c7e9da3f770a1248934", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
