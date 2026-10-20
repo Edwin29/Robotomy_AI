@@ -60,3 +60,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:26:56.400402+00:00", "message_id": "msg_083f0162623832c0016ad7f8bf3ca881918c78116e9912544f", "next_event_id": null, "previous_event_id": "exp_fbefb166dc21420785cdc4547e198b5b", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-20T23:28:56.080Z · commentary
+
+    초상화가 첫 폭주 대상이다. 지난날 사용자가 바뀌면 이전 직원이 죽는 걸 겪었으니, 이번에도 브룩으로 고정하자. 시련 전에는 전이 피해도 염두에 두고 브룩 상태를 봐야겠다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:28:56.766952+00:00", "message_id": "msg_083f0162623832c0016ad7f937ec7881918af609bf1cbb593b", "next_event_id": null, "previous_event_id": "exp_958e364701fe4d619e1cc73817dbde22", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
