@@ -73,3 +73,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:34:42.419632+00:00", "message_id": "msg_083f0162623832c0016ad76df1efd48191b860dc7a68d94f4a", "next_event_id": null, "previous_event_id": "exp_4d60e9520034475380e41c9c7c56b895", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:37:29.693Z · commentary
+
+    이번에는 남은 과실도 공격으로 마무리했다. 빅토르는 아슬아슬했지만 살아 돌아왔다. WHITE 무기를 든 지원이 합류하니 남은 막대가 훨씬 빨리 줄었다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:37:30.592997+00:00", "message_id": "msg_083f0162623832c0016ad76e988a188191a218e739f1c340fb", "next_event_id": null, "previous_event_id": "exp_f80b808eb17247fc972eaa4a953029ab", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
