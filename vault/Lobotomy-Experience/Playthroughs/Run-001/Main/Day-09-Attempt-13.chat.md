@@ -62,3 +62,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:21:23.827787+00:00", "message_id": "msg_083f0162623832c0016ad74eb15a088191a08f05f2e35d0721", "next_event_id": null, "previous_event_id": "exp_22618786f6164bba8c15b84c213ecb8c", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:25:16.633Z · commentary
+
+    즐거웠던 잡담과 끝말잇기까지 기억하고 있으면서, 친해진 자신을 탓하는구나. 예소드의 엄격함이 단순한 무관심처럼 들리지는 않는다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:25:17.142161+00:00", "message_id": "msg_083f0162623832c0016ad74f9bed388191998147af60b57dbf", "next_event_id": null, "previous_event_id": "exp_39e0959e0a0b439fbea8dd5989558703", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
