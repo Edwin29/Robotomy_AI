@@ -43,3 +43,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:18:54.860061+00:00", "message_id": "msg_083f0162623832c0016ad76a3a3cb081918e320602062efa2d", "next_event_id": null, "previous_event_id": "exp_7c34b576aba54348a3ee558d3721add6", "turn_id": "01a15962-dbbf-7233-ae68-1eb6ce9eed27"}
 
+## 2026-10-20T13:21:51.902Z · commentary
+
+    징벌 새 장비 비용을 확인하고 이어가자. 오늘은 나쁨 없이 하루를 마치는 미션을 노리면서, 아처를 키우고 장비용 PE도 모아보고 싶다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:21:52.132660+00:00", "message_id": "msg_083f0162623832c0016ad76aeedc08819184e6ccb8ad2cdadc", "next_event_id": null, "previous_event_id": "exp_7c34b576aba54348a3ee558d3721add6", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
