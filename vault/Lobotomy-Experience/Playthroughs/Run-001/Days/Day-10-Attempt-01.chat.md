@@ -67,3 +67,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:34:08.729571+00:00", "message_id": "msg_083f0162623832c0016ad76dcf8ce48191b1f0f64873f1d5e2", "next_event_id": null, "previous_event_id": "exp_720c8f998ee84a4fbcf876d49322deff", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:34:42.382Z · commentary
+
+    빅토르의 정신력이 6까지 떨어졌다. 위쪽은 둘만으로 버티기 어렵다. 지금은 공격보다 후퇴가 먼저다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:34:42.419632+00:00", "message_id": "msg_083f0162623832c0016ad76df1efd48191b860dc7a68d94f4a", "next_event_id": null, "previous_event_id": "exp_4d60e9520034475380e41c9c7c56b895", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
