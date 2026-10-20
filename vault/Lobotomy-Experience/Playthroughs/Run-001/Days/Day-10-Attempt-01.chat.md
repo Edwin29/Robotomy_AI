@@ -127,3 +127,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:57:43.884271+00:00", "message_id": "msg_083f0162623832c0016ad77356bc148191b26a75dadd296e99", "next_event_id": "exp_f8d95cbc60ad4a788297d40624c381ba", "previous_event_id": "exp_2a95c423d7c6442891504d0e5ee8c23d", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T14:09:34.335Z · commentary
+
+    예소드의 “제압에 성공해도 정신 피해가 크다”는 말이 방금 빅토르를 떠올리게 한다. 반대로 말쿠트는 적어둔 행동 지침이 있으니 괜찮다고 자신한다. 그 지침만으로 충분할지 불안하다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T14:09:34.937782+00:00", "message_id": "msg_083f0162623832c0016ad7761d79c88191935ae168bd1bcfcb", "next_event_id": "exp_8dac83bc07b74f9082abc418d13b00ad", "previous_event_id": "exp_5969e0a0969b40c1ae2799051bdbbdb3", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
