@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:04:08.072319+00:00", "message_id": "msg_083f0162623832c0016ad74aa5b1448191bfd2522ba5f6ff70", "next_event_id": null, "previous_event_id": "exp_2715f41a663c4fd583b56b5baebe5105", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:06:33.186Z · commentary
+
+    검은 피해를 주고 WHITE가 약점이라고 표시된다. 아스터로이드의 무기가 여기서는 잘 맞겠네. 둘이 맞붙어 있는 동안 에덴을 합류시키고, 체력은 작업 선택창에서 숫자로 확인하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:06:33.906495+00:00", "message_id": "msg_083f0162623832c0016ad74b37d04c8191a4041b2bee0236b8", "next_event_id": null, "previous_event_id": "exp_b92ce3932856432d9fc3cf34a779ea66", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
