@@ -32,3 +32,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:10:00.735974+00:00", "message_id": "msg_083f0162623832c0016ad74c05cc7c819197c9885936d37e5f", "next_event_id": null, "previous_event_id": "exp_737755b03d8a4270910a9791082b482f", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
 
+## 2026-10-20T11:12:12.492Z · commentary
+
+    자색 여명은 넘겼고, 목표 에너지도 찼다. 정보팀 미션도 완료됐네. 빅토르가 요정 작업을 마칠 때까지만 기다리고, 다섯 명 상태를 확인한 뒤 오늘을 저장하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T11:12:13.039397+00:00", "message_id": "msg_083f0162623832c0016ad74c8bbce08191b72267be1e7305af", "next_event_id": null, "previous_event_id": "exp_7650ccec6be44a04ab32c53f3c954e35", "turn_id": "01a158f3-9c36-7090-a63b-2c699ecf46ad"}
+
