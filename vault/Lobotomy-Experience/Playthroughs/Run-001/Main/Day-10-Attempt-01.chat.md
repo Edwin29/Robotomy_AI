@@ -91,3 +91,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:40:42.938530+00:00", "message_id": "msg_083f0162623832c0016ad76f5691f881918f20e8dc6d72ea20", "next_event_id": null, "previous_event_id": "exp_e2260787232540e3a50ece33a412578e", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
 
+## 2026-10-20T13:43:21.469Z · commentary
+
+    野근 중 폭주는 화면에는 떴는데 자동 일시정지 이벤트에는 잡히지 않았다. 직접 멈췄지만 두 방은 이동 시간이 빠듯해졌다. 이후에는 짧게 끊어 확인하겠다. 직원들이 작업 뒤 위쪽 대기 지점으로 돌아가는 것도 동선을 길게 만들고 있다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:43:21.639064+00:00", "message_id": "msg_083f0162623832c0016ad76ff797148191bcc5cb900dc06d3a", "next_event_id": null, "previous_event_id": "exp_0d375b9e1798484bbcfc21b6552ace93", "turn_id": "01a15979-3bab-7990-bccc-344023edaa59"}
+
