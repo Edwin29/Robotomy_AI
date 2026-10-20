@@ -20,3 +20,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:10:57.629939+00:00", "message_id": "msg_083f0162623832c0016ad7685efdf081918f2d53a22b52df20", "next_event_id": null, "previous_event_id": "exp_89e924a3e7da45b5bbcb87d181abde96", "turn_id": "01a15962-dbbf-7233-ae68-1eb6ce9eed27"}
 
+## 2026-10-20T13:15:37.846Z · commentary
+
+    빅토르의 지혜를 올려 최대 정신력을 29에서 37로 늘렸다. 새 직원 아처도 지혜·절제를 II로 준비해 지휘팀에 배치했어. 이제 위쪽에 세 명이 있으니 폭주 때 한 명이 작업 중이어도 여유가 생기겠다. 아처는 우선 안전한 작업으로 키우고 싶다.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-20T13:15:38.384169+00:00", "message_id": "msg_083f0162623832c0016ad769781b948191a5dbd808687a8c25", "next_event_id": null, "previous_event_id": "exp_b78bd7d1e3384900891bbe5073df67de", "turn_id": "01a15962-dbbf-7233-ae68-1eb6ce9eed27"}
+
