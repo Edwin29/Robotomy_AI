@@ -34,3 +34,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:52:50.888713+00:00", "message_id": "msg_083f0162623832c0016ad80ce242b4819181ebbff137b7152b", "next_event_id": null, "previous_event_id": "exp_3fb1b51ce3be4565a26dc0a2c1a3e21b", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T00:56:06.530Z · commentary
+
+    재실행 후에는 준비 중 정비가 저장되기 전 상태로 돌아왔네. 빈센트가 없고 LOB도 8이야. 이전 메모를 현재 상태로 쓰지 않고, 교육팀 충원을 다시 하자. 설치된 건 기프트 확률 누적 모드와 1일차 회귀 때 직원·기프트를 유지하는 모드로 확인했어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:56:06.923565+00:00", "message_id": "msg_083f0162623832c0016ad80da57a588191a2ca3ee26011a216", "next_event_id": "exp_755d1f7e90b2440b805e00018b67c7a2", "previous_event_id": "exp_be0e57f70f9844a0aa7785ec91ec49ca", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
