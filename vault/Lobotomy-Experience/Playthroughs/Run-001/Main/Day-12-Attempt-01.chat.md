@@ -66,3 +66,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:20:50.286858+00:00", "message_id": "msg_083f0162623832c0016ad8136fa488819189723384e602f16e", "next_event_id": "exp_30b2b5f70b974c838b9d28c3e640d67c", "previous_event_id": "exp_c8c039197021406cbf3b6b09942c0300", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:27:58.661Z · commentary
+
+    배트워든맨이 앞에서 계속 맞고 있어. 개별 선택이 겹쳐서 실패했으니, 이번엔 묶여 있는 인원을 함께 로비로 빼자. 더 버티다 잃을 필요는 없어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:27:59.461942+00:00", "message_id": "msg_083f0162623832c0016ad8151e294c8191bb0787453e66ea56", "next_event_id": null, "previous_event_id": "exp_e53ae21031d6426ca60899d236e38fb5", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
