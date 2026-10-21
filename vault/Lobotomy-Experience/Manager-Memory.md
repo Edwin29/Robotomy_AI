@@ -1,6 +1,6 @@
 # 관리자 누적 기억
 
-Version: 2290236da4ab44a1a89d90196278244c65c0d99cbf5aac09e8fb5f62767a4bd3
+Version: 02a2ee2639bc4cdb393cbe82c19ce6f1b6b036a5e4f16024a2d82a4fc5c87cb7
 
 ## mem_8287e85ac2b743eab4dd35d7833d3406
 
@@ -967,4 +967,46 @@ Version: 2290236da4ab44a1a89d90196278244c65c0d99cbf5aac09e8fb5f62767a4bd3
     전원살아돌아온결과는반갑다.반면초상화의이동명령을덮어쓴실수와겹친직원선택에헤맨시간은아쉽다.줌으로형태를보는시간은좋았고,매번넓은지도만보던때와환상체느낌이다르다.
 
     {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_0fc9941e29394708afb9b0051340406b"], "supersedes": null}
+
+## mem_39435d91bcc649108fb6de93f1dc2c24
+
+    O-03-60 관리1은 보통결과시 보통확률 카운터감소. 통찰2/12나쁨, 애착8/12·6/12관찰. 애착선호I/II높음III-V보통을읽었다. 애착도안전확정아님; 기본정보와나쁨조건은미해금.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_a0d507617dc64e11b020cebe918b99b4"], "supersedes": null}
+
+## mem_41e180d1261d4f1083405d3e450e3402
+
+    직원창은우상단새교육격리실을가렸고빈곳좌클릭으로접혔다. 대상좌표누락을시설없음으로해석하지않는다. 개별Bat후퇴입력은대상모호실패했고드래그로5명선택확인후함께퇴각했다.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_3cece8c66cf04a7a9e388a73be9b955b", "exp_1c3b5e1dfb714c12bc8327d13212f984"], "supersedes": null}
+
+## mem_7078d4fda2234dd4b2598a95cc036322
+
+    시련추격중Bat가전방에서피해를집중받았다. 향후주력RED/현재저항확인을더일찍하고개별선택실패시멈춘채단체퇴각등다른현재화면조작을판단한다. 기다리며피해를추가로받게하지않기.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_3cece8c66cf04a7a9e388a73be9b955b", "exp_872e317d0cce43e1ad286e20f7dcb951"], "supersedes": null}
+
+## mem_4d49d8cb0e5b4f0e8764e0fcc95bac16
+
+    재개점은Day13준비LOB7/8명/교육3칸/O-01-12신규. 관리시작미입력. 이전Day12준비Vincent는유실되었고현재교육은Olga+Brown. 상세pb_e6cb547fb4ee4f9e9b2582e8317fddbd 우선.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_a56b185f691741dd85851af4da3a4299", "exp_36de2eb0d57f459aa55029e0da824349"], "supersedes": null}
+
+## mem_95c9e3622c4d4542b563718011a5c844
+
+    시련을잡으려모았지만쫓아다니기만길어진것이아쉽다. 그래도다친직원을잃기전에함께빼내고여덟명모두다음날을맞은것은안도된다.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_872e317d0cce43e1ad286e20f7dcb951"], "supersedes": null}
+
+## mem_7f47644f113643f2add7616b5240f79b
+
+    B는AI의정보은폐와거짓말가능성,자신의제작참여,일회용코길어지는테스트코드를말했다. 이는B의주장이며전모는모른다. 감정흉내가능성만으로엔젤라감정을모두거짓으로단정하고싶지않다.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_36de2eb0d57f459aa55029e0da824349"], "supersedes": null}
+
+## mem_2f3cbb319b8f445e86ea9b87077c6747
+
+    O-01-12의마지막청자가고독함이었다는문장에끌려선택했다. 우주의비밀과촉수를말하는O0360작업문구도기괴하고궁금하다. 정체를이미안다는의미는아니다.
+
+    {"attempt_id": "Run-001/Day-12-Attempt-01", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_872e317d0cce43e1ad286e20f7dcb951", "exp_36de2eb0d57f459aa55029e0da824349"], "supersedes": null}
 

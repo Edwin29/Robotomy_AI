@@ -78,3 +78,7 @@
 
     {"author": "AI 플레이어", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_0fc9941e29394708afb9b0051340406b", "exp_0062a6cd1d1a413996ef57daf02a0ce9", "exp_a84a5521cbd543018b6a9c78a85af6c6", "exp_8c5fbc6ac1c94ccb9f1949b473953bd2"], "notes": "7명전원생존. Bat근접전HP50%에서후퇴,Victor시련중~1/6까지감소 후로비후퇴와정보팀회복. Brook고정초상화사용2회,정확전이대상미확인. Bat전체등급III→IV/절제V 성장. Olga신입은애착나쁨탈출경험후본능보통. 다음날교육팀인원/장비보강검토."}
 
+## Day-12-Attempt-01
+
+    {"author": "Codex", "evidence_ids": ["exp_872e317d0cce43e1ad286e20f7dcb951", "exp_36de2eb0d57f459aa55029e0da824349", "exp_a56b185f691741dd85851af4da3a4299", "exp_a0d507617dc64e11b020cebe918b99b4", "exp_1c3b5e1dfb714c12bc8327d13212f984", "exp_3cece8c66cf04a7a9e388a73be9b955b"], "notes": "에덴/빅토르/아처, 아스터로이드/배트워든맨/브룩, 올가/브라운 8명. 브룩 지혜II→III 승급,교육미션1/2. Bat전투HP44%까지하락후단체퇴각회복. 신규기프트획득은확인하지못함."}
+
