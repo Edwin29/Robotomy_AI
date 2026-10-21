@@ -28,3 +28,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:43:19.635308+00:00", "message_id": "msg_083f0162623832c0016ad80aa4e7ac819184c9b120a5f9d17f", "next_event_id": null, "previous_event_id": "exp_3fb1b51ce3be4565a26dc0a2c1a3e21b", "turn_id": "01a15bdb-d880-7410-852b-823907b2967e"}
 
+## 2026-10-21T00:52:49.918Z · commentary
+
+    추가한 모드와 초기화 구분 안내부터 읽고, 남은 정비를 마친 뒤 12일차를 진행할게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:52:50.888713+00:00", "message_id": "msg_083f0162623832c0016ad80ce242b4819181ebbff137b7152b", "next_event_id": null, "previous_event_id": "exp_3fb1b51ce3be4565a26dc0a2c1a3e21b", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
