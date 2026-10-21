@@ -84,3 +84,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:33:52.661057+00:00", "message_id": "msg_083f0162623832c0016ad8167f6698819199f6f311b8b16ec5", "next_event_id": null, "previous_event_id": "exp_a3c357f5a3ec48a3af8b8b86543d4791", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:35:31.754Z · commentary
+
+    190을 채웠고 직원은 모두 살아 있어. 시련을 잡으려다 추격만 길어진 건 아쉽네. 징벌 새가 탈출한 상태라 종료 시 LOB 1 페널티가 표시되지만, 더 싸우다 직원을 잃기 전에 오늘을 마치자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:35:32.331958+00:00", "message_id": "msg_083f0162623832c0016ad816e27ce88191bf2c0c6f3f72e3f4", "next_event_id": "exp_f9bfcc98e91442ce84dad3032f6465a5", "previous_event_id": "exp_02b4d828e9744433a9366253d5422842", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
