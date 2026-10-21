@@ -102,3 +102,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:38:08.857642+00:00", "message_id": "msg_083f0162623832c0016ad8177fcbbc8191878964e66cfc0e89", "next_event_id": null, "previous_event_id": "exp_c607fe8ae5d64555b5ef627a17048863", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:45:31.791Z · commentary
+
+    12일차는 S등급, 8명 전원 생존으로 마쳤어. 브룩이 승급해서 교육팀 미션도 1/2가 됐네. 다음 날 선택과 이야기를 봤고, 교육팀을 확장했어. 준비 화면에서 멈추고, 추격과 후퇴에서 헷갈렸던 점까지 기록해둘게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:45:32.356658+00:00", "message_id": "msg_083f0162623832c0016ad8193c9f8881919f558d8b215a06cc", "next_event_id": "exp_a56b185f691741dd85851af4da3a4299", "previous_event_id": "exp_a474731befda4aad9f510c2dff00466c", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
