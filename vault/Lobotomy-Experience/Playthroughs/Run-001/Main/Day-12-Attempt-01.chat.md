@@ -90,3 +90,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:35:32.331958+00:00", "message_id": "msg_083f0162623832c0016ad816e27ce88191bf2c0c6f3f72e3f4", "next_event_id": "exp_f9bfcc98e91442ce84dad3032f6465a5", "previous_event_id": "exp_02b4d828e9744433a9366253d5422842", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:36:35.511Z · commentary
+
+    O-01-12의 “죽을 때 고독함만이 유일한 청자였다”는 문장이 걸리네. 위험도는 이 문구만으로 모르겠지만, 어떤 이야기인지 궁금해서 이쪽을 선택할게.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:36:35.828208+00:00", "message_id": "msg_083f0162623832c0016ad817234c5081919da336297f74a851", "next_event_id": null, "previous_event_id": "exp_e93899a769074445a431f99410c9d92e", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
