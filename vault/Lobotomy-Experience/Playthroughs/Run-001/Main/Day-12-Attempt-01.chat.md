@@ -48,3 +48,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:00:02.597575+00:00", "message_id": "msg_083f0162623832c0016ad80e9163e08191bbe4b6788b9b62ea", "next_event_id": null, "previous_event_id": "exp_55caef08165542ed8589859faa486cce", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:06:48.639Z · commentary
+
+    새 방은 통찰에서 2개 성공, 10개 실패였어. 아스터로이드도 체력과 정신력을 잃었고. 통찰을 계속 밀 이유는 없겠다. “우주의 비밀”, “촉수”, “웃으려 할 때 공포에 질린다”는 문구도 봤어. 노랫소리라는 소개보다 훨씬 기묘한 모습이네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:06:49.034704+00:00", "message_id": "msg_083f0162623832c0016ad8102681408191923e382688521879", "next_event_id": null, "previous_event_id": "exp_dc809acc9ad544e7a0317dce613074ce", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
