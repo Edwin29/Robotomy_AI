@@ -78,3 +78,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:32:35.346787+00:00", "message_id": "msg_083f0162623832c0016ad81630be308191a4b268f016d8b974", "next_event_id": "exp_9c32bfe884f643ada7f8f490f2354636", "previous_event_id": "exp_52fb638a8b78491c868bc155d2eef997", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:33:52.302Z · commentary
+
+    벌레들이 이동해서 추격이 길어지고 있어. 우선 안전한 쪽의 작업을 병행하자. 징벌 새는 카운터가 0이 됐으니, 나와도 공격 대상으로 섞이지 않게 주의해야겠네.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:33:52.661057+00:00", "message_id": "msg_083f0162623832c0016ad8167f6698819199f6f311b8b16ec5", "next_event_id": null, "previous_event_id": "exp_a3c357f5a3ec48a3af8b8b86543d4791", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
