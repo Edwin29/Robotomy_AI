@@ -54,3 +54,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:06:49.034704+00:00", "message_id": "msg_083f0162623832c0016ad8102681408191923e382688521879", "next_event_id": null, "previous_event_id": "exp_dc809acc9ad544e7a0317dce613074ce", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:13:45.974Z · commentary
+
+    그 창 때문에 폭주 표시까지 가려졌구나. 빈 곳을 눌러 내리고 새 방 타이머부터 확인할게. 브라운에게 맡긴 애착 작업이 실제로 들어갔는지도 같이 보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:13:46.898440+00:00", "message_id": "msg_083f0162623832c0016ad811c9d9a4819190ed96584e0fdc9c", "next_event_id": null, "previous_event_id": "exp_8f77f6814e824adabfb8b6634bce7815", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
