@@ -40,3 +40,11 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:56:06.923565+00:00", "message_id": "msg_083f0162623832c0016ad80da57a588191a2ca3ee26011a216", "next_event_id": "exp_755d1f7e90b2440b805e00018b67c7a2", "previous_event_id": "exp_be0e57f70f9844a0aa7785ec91ec49ca", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:00:02.211Z · commentary
+
+    같은 부위는 마지막 기프트로 교체되고, 불이익도 있을 수 있다는 거네. 선물을 받았다는 표시만 보고 넘기지 않고 효과와 부위도 확인할게.
+    
+    오늘 새 방은 숙련된 직원을 보내 첫 반응을 보고, 익숙한 방은 동시에 돌리자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:00:02.597575+00:00", "message_id": "msg_083f0162623832c0016ad80e9163e08191bbe4b6788b9b62ea", "next_event_id": null, "previous_event_id": "exp_55caef08165542ed8589859faa486cce", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
