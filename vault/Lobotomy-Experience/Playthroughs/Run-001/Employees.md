@@ -74,3 +74,7 @@
 
     {"author": "AI 플레이어", "evidence_ids": ["exp_fdf86973abbc4b9f9708539d594d3e4d", "exp_c1144d32f0164ed59d3e4ed8bb9cf370", "exp_f6f21b237518481780c44fc9eb8a180d", "exp_575b42180d2946deaa0463c479c15442"], "notes": "아처HP17→35 용기II강화1LOB. 올가6LOB:HP38/SP32절제III48 교육팀배치,참회/날갯짓. 부리2자루제조60PE 후Eden/Victor장착. 사망사건은관찰하지않았으며재도전준비명단7명확인. 사용자패치완료후최신상태확인하고retry새시도."}
 
+## Day-11-Attempt-02
+
+    {"author": "AI 플레이어", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_0fc9941e29394708afb9b0051340406b", "exp_0062a6cd1d1a413996ef57daf02a0ce9", "exp_a84a5521cbd543018b6a9c78a85af6c6", "exp_8c5fbc6ac1c94ccb9f1949b473953bd2"], "notes": "7명전원생존. Bat근접전HP50%에서후퇴,Victor시련중~1/6까지감소 후로비후퇴와정보팀회복. Brook고정초상화사용2회,정확전이대상미확인. Bat전체등급III→IV/절제V 성장. Olga신입은애착나쁨탈출경험후본능보통. 다음날교육팀인원/장비보강검토."}
+

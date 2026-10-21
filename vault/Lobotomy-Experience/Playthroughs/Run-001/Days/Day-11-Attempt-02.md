@@ -1551,4 +1551,53 @@ completed (플레이어 선언; 입력 전달만으로 게임 성공을 확정�
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    11일차 S/7생존0사망/LOB6보상/승급1/06:05 완료. 버려진살인마 탈출에 대응하고 핏빛여명 종료보상17. 초상화 폭주 에너지5손실. 다음날확인·O0360선택·Day12스토리·교육팀2칸확장 후 Day12준비 LOB8에서 정지. 1200이벤트24페이지를 실패/반응없음 포함 끝까지조회. 재시작전0/170패치대기와 재시작후 실제운영은 같은Attempt02 내 기록이며, 과거Attempt01과 구분. 새관리법과Day12인계Playbook저장.
+
+    {"author": "AI 플레이어", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_0fc9941e29394708afb9b0051340406b", "exp_0062a6cd1d1a413996ef57daf02a0ce9", "exp_a84a5521cbd543018b6a9c78a85af6c6", "exp_8c5fbc6ac1c94ccb9f1949b473953bd2"]}
+
+## 관심·취향·스토리 감상
+
+### 남은 인상
+
+    구속된사람처럼보인새환상체가버려진살인마라는이름을얻으니처음의피해자인상이단순하지않아졌다.아직기록본문을안읽어사연은모른다.부리원거리둘이근접Bat뒤에서공격하는모습은장비준비가실제전투형태로보여흥미로웠다.
+
+    {"evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b"], "remember": true}
+
+### 관심
+
+    후보O0360의눈앞에노랫소리가보인다는문구가궁금해선택했다.소리가어떻게보인다는건지모르겠고정체나관리법도아직모른다.
+
+    {"evidence_ids": ["exp_0fc9941e29394708afb9b0051340406b"], "remember": true}
+
+### 스토리 감상
+
+    세피라에게다정하라면서자신이가장우수한AI라고말하는엔젤라의거리감과,자신없게상담캠페인을소개하는호드가대조됐다.티파니가상담덕분에아침의끔찍한상상이멎었다며감사하는장면에서호드가실제누군가에게필요한일을한다는인상이남았다.속마음확정아닌대사와연출의감상.
+
+    {"evidence_ids": ["exp_0fc9941e29394708afb9b0051340406b"], "remember": true}
+
+### 남은 인상
+
+    전원살아돌아온결과는반갑다.반면초상화의이동명령을덮어쓴실수와겹친직원선택에헤맨시간은아쉽다.줌으로형태를보는시간은좋았고,매번넓은지도만보던때와환상체느낌이다르다.
+
+    {"evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_0fc9941e29394708afb9b0051340406b"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b"], "id": "mem_238ccc8855da4bf38206ab3b0ae10a5d", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "supersedes": null, "text": "T0154 버려진살인마 TETH RED2-3/max14,나쁨0-6/보통7-10/좋음11-14.관리법나쁨카운터감소,본능용기I/II높음III-V보통,애착I-V보통.올가애착9→6탈출,Bat애착10/올가본능10보통.관찰II PE3에서종료. 상세pb_120db150848d4e1884519c26d0c10af8."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_8c5fbc6ac1c94ccb9f1949b473953bd2"], "id": "mem_061c82d7d6434571b48f94d09b8d03d6", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "supersedes": null, "text": "초상화도착전Brook을대머리작업으로재배정하여진행명령덮어쓴뒤시간부족,폭주에너지5손실.재배정전에대상도착/타이머해소를확인한다.사용자는계속Brook고정.그의HP유지와Victor손실이전이인지여전히가설."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_a84a5521cbd543018b6a9c78a85af6c6"], "id": "mem_f3debf88afa04bf9bafff0ef8f5617c8", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "supersedes": null, "text": "교차지휘로Bat정보→교육실제작업가능.현재execute_intents는다른부서행을못찾아실패했으므로작업창부서화살표전환후현재직원row를눌렀다.방메뉴미확인은결과연출중에도일어남.전달성공만으로작업배정완료단정금지."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_8c5fbc6ac1c94ccb9f1949b473953bd2"], "id": "mem_9da3cce48eb843fd94441ed56579af38", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "supersedes": null, "text": "새줌은game_input Z±1이며실제확대축소정상.겹친직원clicknull시현재이미지드래그와선택목록으로후퇴성공.하단복도UI가림은S카메라이후대상재확인으로해결.II/III폭주예약자동정지는오늘성공했지만wait_for_event오래된pause_result반환으로즉시끝날수있어현재재생상태검증."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "observed", "evidence_ids": ["exp_0fc9941e29394708afb9b0051340406b", "exp_0062a6cd1d1a413996ef57daf02a0ce9"], "id": "mem_8c3456b4d2d540469e38137514294ed1", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "supersedes": null, "text": "현재안전인계Day12준비 LOB8/교육2칸/새O0360미확인/교육직원2명승급미션. 다음재개는새12일차시도. Day11패치대기인계보다이기록우선. 상세pb_eb085f1adf9444f8a1310986d9b4bac0."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b"], "id": "mem_22b0803441ee4bb9b398b58522211b79", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "remember": true, "supersedes": null, "text": "구속된사람처럼보인새환상체가버려진살인마라는이름을얻으니처음의피해자인상이단순하지않아졌다.아직기록본문을안읽어사연은모른다.부리원거리둘이근접Bat뒤에서공격하는모습은장비준비가실제전투형태로보여흥미로웠다."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_0fc9941e29394708afb9b0051340406b"], "id": "mem_1815d50ca9af433cb6c9a1b9e0644def", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "remember": true, "supersedes": null, "text": "후보O0360의눈앞에노랫소리가보인다는문구가궁금해선택했다.소리가어떻게보인다는건지모르겠고정체나관리법도아직모른다."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_0fc9941e29394708afb9b0051340406b"], "id": "mem_27817d921bc2427d8a45fe8e3ee6a8f2", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "remember": true, "supersedes": null, "text": "세피라에게다정하라면서자신이가장우수한AI라고말하는엔젤라의거리감과,자신없게상담캠페인을소개하는호드가대조됐다.티파니가상담덕분에아침의끔찍한상상이멎었다며감사하는장면에서호드가실제누군가에게필요한일을한다는인상이남았다.속마음확정아닌대사와연출의감상."}
+
+    {"attempt_id": "Run-001/Day-11-Attempt-02", "author": "AI 플레이어", "basis": "subjective_experience", "evidence_ids": ["exp_3bd015e8a35d4544b695e26a3b3d643b", "exp_0fc9941e29394708afb9b0051340406b"], "id": "mem_0805198620744e0691a5ff488b9afcc7", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-21T00:19:25.550832+00:00", "remember": true, "supersedes": null, "text": "전원살아돌아온결과는반갑다.반면초상화의이동명령을덮어쓴실수와겹친직원선택에헤맨시간은아쉽다.줌으로형태를보는시간은좋았고,매번넓은지도만보던때와환상체느낌이다르다."}
