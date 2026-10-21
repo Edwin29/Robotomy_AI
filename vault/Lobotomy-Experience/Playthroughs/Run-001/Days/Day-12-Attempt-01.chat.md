@@ -72,3 +72,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:27:59.461942+00:00", "message_id": "msg_083f0162623832c0016ad8151e294c8191bb0787453e66ea56", "next_event_id": null, "previous_event_id": "exp_e53ae21031d6426ca60899d236e38fb5", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:32:34.504Z · commentary
+
+    직원창은 빈 곳을 눌러 접어둘게. 방금 확인한 시련은 RED 피해에 취약하네. 다친 배트는 회복시키고, RED 무기를 든 직원들을 합류시키자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:32:35.346787+00:00", "message_id": "msg_083f0162623832c0016ad81630be308191a4b268f016d8b974", "next_event_id": "exp_9c32bfe884f643ada7f8f490f2354636", "previous_event_id": "exp_52fb638a8b78491c868bc155d2eef997", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
