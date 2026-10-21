@@ -108,3 +108,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-20T23:57:25.343888+00:00", "message_id": "msg_083f0162623832c0016ad7ffe55e5c81918d83246d433d3f6d", "next_event_id": null, "previous_event_id": "exp_0895cf1c99b744ef9f075b84e82ce0d3", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-21T00:00:16.557Z · commentary
+
+    호드는 첫 인사부터 내가 화났는지 걱정하네. 엔젤라의 자신만만한 태도 바로 뒤라 더 조심스러워 보인다. 어떤 캠페인인지 들어보자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:00:17.081610+00:00", "message_id": "msg_083f0162623832c0016ad8009083a08191b84b3aa6cc50403e", "next_event_id": "exp_67b75d913be248049386225a72d588e9", "previous_event_id": "exp_6c26c2af09c4446ca81ae9d460bafda8", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
