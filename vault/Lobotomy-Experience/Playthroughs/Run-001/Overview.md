@@ -38,4 +38,4 @@
 - [Day-09-Attempt-13](Days/Day-09-Attempt-13.md): completed
 - [Day-10-Attempt-01](Days/Day-10-Attempt-01.md): completed
 - [Day-11-Attempt-01](Days/Day-11-Attempt-01.md): interrupted
-- [Day-11-Attempt-02](Days/Day-11-Attempt-02.md): playing
+- [Day-11-Attempt-02](Days/Day-11-Attempt-02.md): completed
