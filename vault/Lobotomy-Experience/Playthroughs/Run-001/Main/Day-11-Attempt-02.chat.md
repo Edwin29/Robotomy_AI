@@ -114,3 +114,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:00:17.081610+00:00", "message_id": "msg_083f0162623832c0016ad8009083a08191b84b3aa6cc50403e", "next_event_id": "exp_67b75d913be248049386225a72d588e9", "previous_event_id": "exp_6c26c2af09c4446ca81ae9d460bafda8", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
 
+## 2026-10-21T00:13:18.075Z · commentary
+
+    상담 덕분에 아침이 덜 무섭다는 직원의 말이 남는다. 호드가 자꾸 자신 없어 하던 것과 달리, 실제로 누군가에게 필요한 일이었네. 교육팀을 더 넓히고 오늘 기록을 마무리하자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T00:13:18.815701+00:00", "message_id": "msg_083f0162623832c0016ad8039eb3c0819198eb15793134c2f2", "next_event_id": "exp_a0002bd2b377409082928e4ab02adb6d", "previous_event_id": "exp_4ef4cf41a5f14bc98cc883053522b289", "turn_id": "01a15ba2-732a-7bc2-a4dd-467c71863d34"}
+
