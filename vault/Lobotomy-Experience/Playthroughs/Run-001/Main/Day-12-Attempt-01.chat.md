@@ -60,3 +60,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:13:46.898440+00:00", "message_id": "msg_083f0162623832c0016ad811c9d9a4819190ed96584e0fdc9c", "next_event_id": null, "previous_event_id": "exp_8f77f6814e824adabfb8b6634bce7815", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
 
+## 2026-10-21T01:20:49.454Z · commentary
+
+    호박빛 여명 예고가 가까워졌어. 빅토르·배트워든맨·브룩을 오른쪽 연결 복도로 모으는 중이야. 출현하면 정지 상태에서 위치를 보고 함께 보내자. 새 환상체는 애착이 첫 통찰보다 나았지만, 아직 좋은 결과를 안정적으로 낼 방법은 못 찾았어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-21T01:20:50.286858+00:00", "message_id": "msg_083f0162623832c0016ad8136fa488819189723384e602f16e", "next_event_id": "exp_30b2b5f70b974c838b9d28c3e640d67c", "previous_event_id": "exp_c8c039197021406cbf3b6b09942c0300", "turn_id": "01a15bf1-f71f-7021-b159-40199a56cfb7"}
+
