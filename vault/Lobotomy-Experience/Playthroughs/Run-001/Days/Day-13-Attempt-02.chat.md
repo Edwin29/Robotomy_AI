@@ -44,3 +44,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-23T03:38:29.541492+00:00", "message_id": "msg_083f0162623832c0016adad6b29f3c819190706a372d893182", "next_event_id": null, "previous_event_id": "exp_65ef5c2f34c04457acb0c0b0e88c7b5d", "turn_id": "01a166cc-92e5-79d2-96e8-a72e41dd038f"}
 
+## 2026-10-23T03:42:58.805Z · commentary
+
+    이상하다. 배트워든맨은 로비로 물렸는데도 체력이 계속 줄고, 살인마와 붙어 있는 브룩은 멀쩡하다. 초상의 피해 전달일 가능성이 있다. 브룩도 빼고, 올가와 브라운에게 맡기자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-23T03:43:42.873643+00:00", "message_id": "msg_083f0162623832c0016adad7c0ed408191a48dd2544d15ee34", "next_event_id": "exp_4743682162da45a592667cf44db7f5ef", "previous_event_id": "exp_5710074f8691442c8d7235f30935ed7b", "turn_id": "01a166cc-92e5-79d2-96e8-a72e41dd038f"}
+
