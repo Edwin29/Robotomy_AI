@@ -50,3 +50,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-23T03:43:42.873643+00:00", "message_id": "msg_083f0162623832c0016adad7c0ed408191a48dd2544d15ee34", "next_event_id": "exp_4743682162da45a592667cf44db7f5ef", "previous_event_id": "exp_5710074f8691442c8d7235f30935ed7b", "turn_id": "01a166cc-92e5-79d2-96e8-a72e41dd038f"}
 
+## 2026-10-23T03:44:05.529Z · commentary
+
+    살인마도 쓰러졌다. 브룩을 뺀 뒤 배트워든맨의 체력이 회복되기 시작한 건 기억해 둬야겠다. 초상을 쓴 직원을 전투에 보내는 건, 그 직원의 체력만 보고 결정할 일이 아니었어.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-23T03:44:06.519462+00:00", "message_id": "msg_083f0162623832c0016adad803d3fc8191bf1ad93e3598a201", "next_event_id": null, "previous_event_id": "exp_c360282167ed46e0ba635d81830382aa", "turn_id": "01a166cc-92e5-79d2-96e8-a72e41dd038f"}
+
