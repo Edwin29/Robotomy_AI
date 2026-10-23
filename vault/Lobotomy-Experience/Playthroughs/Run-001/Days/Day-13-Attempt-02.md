@@ -1341,4 +1341,55 @@ completed (플레이어 선언; 입력 전달만으로 게임 성공을 확정�
 
 ## 사후 회고
 
-아직 작성하지 않았습니다. 사건 목록을 검토한 후 작성합니다.
+    13일차 완료, S/생존8/사망0/승급1/보상8. 패치 후 동일 게임 상태를 이어간 Attempt02이며 실제 재도전·로드 없음. 초상·늙은 여인 폭주를 처리하고 핏빛 여명을 종료했다. 여명 대응은 분산 이동과 낮은 RED 표시피해로 길어졌고 살인마가 탈출했다. 살인마는 제압했으나, 목표 달성 후 우주 속의 조각도 탈출하여 -1LOB 경고를 읽고 전원 생존을 우선해 업무를 종료했다. 다음날 확정과 T-09-94 선택, DAY14 앤젤라 대화(나에게 위해 계획 질문), 교육팀 확장 후 Day14 준비화면까지 도착. 관리시작 미입력. 스크린샷LOB15. 미션 둘은 미완료이며 교육팀은 결과에서1/2. 1003개 경험 사건을 페이지로 검토하고, 직접 관찰/기존 도감·사용자조언/가설/감상을 구분했다. 사전 지식 개입은 새로 자각하지 못했지만 완전한 배제를 보장하지 않는다.
+
+    {"author": "Codex", "evidence_ids": ["exp_b68eb7fc7fd64fbf91f0bec55122b056", "exp_0899e189f0544e4c91ace65be3ff6252", "exp_c9656df6c4e64760869d5793b7f8fa23", "exp_7c76b9410fef47f095ca9c85371ba360"]}
+
+## 관심·취향·스토리 감상
+
+### 관심
+
+    늙은 여인의 끊임없는 이야기와 청중에 대한 집착이 관리법에도이어져있어흥미로웠다. 대화가무의미하고듣는한사람을원한다는작업문구가,겉보기의정적인노인보다더숨막히게느껴졌다.
+
+    {"evidence_ids": ["exp_86a4ba6187564304bcbb489e34dba8e2", "exp_chat_fd2c9a475aba2a9119f01fbb701a4b645bfabb8231ddcc08dd53dd96c61ee719"], "remember": true}
+
+### 스토리 감상
+
+    DAY14 앤젤라는물통의맥주직원,술취한감각에대한궁금함과바이러스때모든것이10배느려보였던경험을말했다. 나에게위해계획을묻는선택후,좋아하게되는중일수있다는말과해칠마음없다는답을들었다. 호의로단정하지않고눈을뜨는표정전환때경계감이남았다.
+
+    {"evidence_ids": ["exp_c871983e1e43499e9e4ad91e382de80b", "exp_fac9ae322c374839b577976a38be6340", "exp_d7d0938dc44c4ddca7e2a6b2b19282af"], "remember": true}
+
+### 관심
+
+    후보T-09-94의기계안에서시술받고건강해졌다는설명을읽고선택했다. T-09-80나무의보답과O-09-95팔찌의욕심경고도읽었다. 기계가어떤방식으로도움을주는지궁금하다. 설명만으로안전성은확정안함.
+
+    {"evidence_ids": ["exp_803309b0ca58483087da95ae3a6ab680", "exp_c9656df6c4e64760869d5793b7f8fa23"], "remember": true}
+
+### 남은 인상
+
+    사망없이마쳤지만깔끔한운영은아니었다. 제압이길어졌고초상효과도실전에서늦게떠올렸다. 그래도수신자와원천직원을함께물리는판단으로회복을확인한장면은이번날의가장선명한경험이다.
+
+    {"evidence_ids": ["exp_7c76b9410fef47f095ca9c85371ba360", "exp_b68eb7fc7fd64fbf91f0bec55122b056"], "remember": true}
+
+
+## 기억 변경
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_2121a51cb3244454b90250e28dd808e5", "exp_8e978894729e4188909d0e9ec2045fad", "exp_d95f150386244afc92e24c48dfd80317"], "id": "mem_343a1f827a3f48afb8dd9ffe6047ebe8", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510350+00:00", "supersedes": null, "text": "늙은 여인O-01-12: TETH WHITE1-3/max14, 좋음11-14/보통6-10/나쁨0-5. 애착I~V높음. 다른환상체작업완료가카운터감소조건,0이면고독발생·입장직원부착,풀릴때까지WHITE지속피해및작업불가. 관리법1~4/기본/애착해금. 실제올가결과9/5,10/4,9/5,8/6은모두보통이었다."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "hypothesis", "evidence_ids": ["exp_1567b0c011ce4c16ad8c4af4c6e6e561", "exp_11c91462b1e246bea841cfa3b180a87b", "exp_49b9b1b8f0af4c5bb3a85913d83a8bf3"], "id": "mem_b5f031de322f4abcbed5b31d437a268b", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510350+00:00", "supersedes": null, "text": "초상 피해전이를 전투에서 놓쳤다. 브룩은HPfull로제압중인데배트워든맨은퇴각한로비에서도HP0.41까지감소. 브룩까지후퇴시킨후배트회복. 브룩캔버스/배트수신자라는인과설명은도감과일치하는가설이며실제그림으로신원확정하지않았다."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "policy", "evidence_ids": ["exp_c394fbcb68a6499387241df6a1e53dd4"], "id": "mem_8bc7610ebcd34fb0ba8f73abee9db561", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510350+00:00", "supersedes": null, "text": "초상수신자만피신시켜서는원격피해를막지못할수있다. 사용자의체력바뿐아니라피해수신자도보고,원천직원도위험작업·전투에서빼는방침을추가한다. 처음캔버스가새겨지는조건과날짜별지속은아직완전해결아님."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_02382f7c52784f698c05c231d5ee1803", "exp_133b8a1dd19a4cfbb3a8c742493ea3bc", "exp_1d45b88cb70149fcb42cab18d88d9421"], "id": "mem_6f09c6bd21754ecd9be94378ea2fbee6", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "supersedes": null, "text": "우주 속의 조각O-03-60: TETH BLACK1-3/max12,좋음8-12/보통4-7/나쁨0-3. 애착I/II높음III이상보통. 브라운애착7/5보통후탈출. 도감관리법1의보통일때보통확률카운터감소와일치하지만당시미해금카운터는모름. 안전확정루틴으로보지않음."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_87b32cf42e6947849bd25184d063f50c", "exp_89f1738203ba4caca7ca24fb73b94073", "exp_220dd8f444b44af4b7521038fa98e497", "exp_33bf04e2e732419a9f443314eedcfd51", "exp_35313beb74b64988b527a14fefdcc749"], "id": "mem_cfb144b839fd4c2b9cfac77a4ce532f4", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "supersedes": null, "text": "신입력 player_action/schedule와일회성폭주자동정지가정상실행됐다.5작업묶음은10초마감에걸려3작업묶음으로줄임. 입력sent/stateconfirmedfalse/빈playback은후속관찰확인. 탈출알림중paused대상불가에Space정지,결과창next_day stale는fresh관찰후같은현재버튼으로성공. 우회·수리없음."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "observed", "evidence_ids": ["exp_6e61f75f7191416a915a08245a9f13c7", "exp_e35cac7cd9ca49b9ad34389082407201"], "id": "mem_8f5ffa564a8f485ab4beb51dae43e431", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "supersedes": null, "text": "살인마탈출정보해금으로관찰4와후회무기TETH RED12-18/느림/보통거리개방. 제조비미확인·제조안함·잔고21. 다음정비에서현재비용과장착조건을읽고검토한다."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_86a4ba6187564304bcbb489e34dba8e2", "exp_chat_fd2c9a475aba2a9119f01fbb701a4b645bfabb8231ddcc08dd53dd96c61ee719"], "id": "mem_ccdca29ff52d45fdb117b3d903577216", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "remember": true, "supersedes": null, "text": "늙은 여인의 끊임없는 이야기와 청중에 대한 집착이 관리법에도이어져있어흥미로웠다. 대화가무의미하고듣는한사람을원한다는작업문구가,겉보기의정적인노인보다더숨막히게느껴졌다."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_c871983e1e43499e9e4ad91e382de80b", "exp_fac9ae322c374839b577976a38be6340", "exp_d7d0938dc44c4ddca7e2a6b2b19282af"], "id": "mem_4163f48aa1da4558af4808c121246909", "kind": "story", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "remember": true, "supersedes": null, "text": "DAY14 앤젤라는물통의맥주직원,술취한감각에대한궁금함과바이러스때모든것이10배느려보였던경험을말했다. 나에게위해계획을묻는선택후,좋아하게되는중일수있다는말과해칠마음없다는답을들었다. 호의로단정하지않고눈을뜨는표정전환때경계감이남았다."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_803309b0ca58483087da95ae3a6ab680", "exp_c9656df6c4e64760869d5793b7f8fa23"], "id": "mem_10ef7ef470e34dc58a79f08de0c9145f", "kind": "interest", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "remember": true, "supersedes": null, "text": "후보T-09-94의기계안에서시술받고건강해졌다는설명을읽고선택했다. T-09-80나무의보답과O-09-95팔찌의욕심경고도읽었다. 기계가어떤방식으로도움을주는지궁금하다. 설명만으로안전성은확정안함."}
+
+    {"attempt_id": "Run-001/Day-13-Attempt-02", "author": "Codex", "basis": "subjective_experience", "evidence_ids": ["exp_7c76b9410fef47f095ca9c85371ba360", "exp_b68eb7fc7fd64fbf91f0bec55122b056"], "id": "mem_5c41b5b009a74e64ba124f8a6db02c3e", "kind": "impression", "origin": "player_retrospective", "recorded_at": "2026-10-23T04:09:06.510852+00:00", "remember": true, "supersedes": null, "text": "사망없이마쳤지만깔끔한운영은아니었다. 제압이길어졌고초상효과도실전에서늦게떠올렸다. 그래도수신자와원천직원을함께물리는판단으로회복을확인한장면은이번날의가장선명한경험이다."}
