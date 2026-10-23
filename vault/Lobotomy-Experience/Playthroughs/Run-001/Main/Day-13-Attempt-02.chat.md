@@ -38,3 +38,9 @@
 
     {"capture_mode": "live_tail", "imported_at": "2026-10-23T03:36:45.871571+00:00", "message_id": "msg_083f0162623832c0016adad64b929c8191a74218d7d9e5e7b3", "next_event_id": null, "previous_event_id": "exp_8eb3e5fcf11c433aafdd77cf9cb33589", "turn_id": "01a166cc-92e5-79d2-96e8-a72e41dd038f"}
 
+## 2026-10-23T03:38:29.046Z · commentary
+
+    二… 두 마리는 사라졌지만, 그 사이 살인마가 탈출했다. 남은 광대를 빨리 정리해야겠다. RED 무기의 표시 피해가 0~1에 머무는 반면 WHITE는 더 잘 들어가니 브룩을 합류시키자.
+
+    {"capture_mode": "live_tail", "imported_at": "2026-10-23T03:38:29.541492+00:00", "message_id": "msg_083f0162623832c0016adad6b29f3c819190706a372d893182", "next_event_id": null, "previous_event_id": "exp_65ef5c2f34c04457acb0c0b0e88c7b5d", "turn_id": "01a166cc-92e5-79d2-96e8-a72e41dd038f"}
+
