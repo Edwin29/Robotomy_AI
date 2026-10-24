@@ -20,7 +20,7 @@ from robotomy.observer_window import ensure_aspect_guard
 def preflight():
     manifest=json.loads((ROOT/'.robotomy/live/isolation.json').read_text(encoding='utf-8'))
     report=check_original(manifest)
-    if not report['ok']: raise ValueError('Original save/preferences integrity failed. Input remains blocked.')
+    if not report['ok']: raise ValueError('Save isolation or original game metadata check failed. Input remains blocked.')
     runtime=ROOT/'.robotomy/runtime/LobotomyCorp'
     if Path(manifest['runtime']).resolve()!=runtime.resolve() or not manifest.get('prepared'):
         raise ValueError('Unrecognized private runtime')

@@ -26,6 +26,7 @@ class OriginalProtectionTests(unittest.TestCase):
         self.metadata.parent.mkdir(parents=True)
         self.metadata.write_bytes(b'original settings')
         self.manifest = {'source': str(source), 'original_save_root': str(self.saves),
+            'isolated_save_path': str(root / 'ai-saves'),
             'original_save_hashes': prepare_live.inventory(self.saves),
             'original_metadata_sha256': prepare_live.digest(self.metadata),
             'original_preferences': {'example': [4, 1]}}
@@ -42,7 +43,7 @@ class OriginalProtectionTests(unittest.TestCase):
         (self.saves / 'progress.dat').write_bytes(b'changed')
         (self.saves / 'new.dat').write_bytes(b'added')
         report = launch_live.check_original(self.manifest)
-        self.assertFalse(report['ok'])
+        self.assertTrue(report['ok'])
         self.assertEqual(report['changed_original_files'], ['new.dat', 'progress.dat'])
         (self.saves / 'progress.dat').unlink()
         self.assertIn('progress.dat', launch_live.check_original(self.manifest)['changed_original_files'])
@@ -55,11 +56,30 @@ class OriginalProtectionTests(unittest.TestCase):
         self.assertFalse(report['original_metadata_unchanged'])
         self.assertFalse(report['original_preferences_unchanged'])
 
-    def test_changed_original_blocks_process_launch(self):
+    def test_preferences_change_is_allowed(self):
+        with patch.object(launch_live, 'prefs_snapshot', return_value={}):
+            self.assertTrue(launch_live.check_original(self.manifest)['ok'])
+
+    def test_overlapping_save_roots_block(self):
+        for path in (self.saves, self.saves / 'child', self.saves.parent):
+            self.manifest['isolated_save_path'] = str(path)
+            self.assertFalse(launch_live.check_original(self.manifest)['ok'])
+
+    def test_changed_save_allows_launch_request_without_rebaselining(self):
+        (self.private / 'live/isolation.json').write_text(json.dumps(self.manifest), encoding='utf-8')
+        (self.saves / 'progress.dat').write_bytes(b'new user progress')
+        with patch.object(sys, 'argv', ['launch_live.py']), patch.object(launch_live, 'request_independent_launch') as request:
+            launch_live.main()
+            request.assert_called_once()
+        self.assertEqual(json.loads((self.private / 'live/isolation.json').read_text()), self.manifest)
+        self.assertEqual((self.saves / 'progress.dat').read_bytes(), b'new user progress')
+
+    def test_changed_metadata_blocks_process_launch(self):
         (self.private / 'live/isolation.json').write_text(json.dumps(self.manifest), encoding='utf-8')
         (self.saves / 'progress.dat').write_bytes(b'changed')
+        self.metadata.write_bytes(b'changed metadata')
         with patch.object(sys, 'argv', ['launch_live.py']), patch.object(launch_live.subprocess, 'Popen') as process:
-            with self.assertRaisesRegex(RuntimeError, 'Original state differs'):
+            with self.assertRaisesRegex(RuntimeError, 'Save isolation or original game metadata'):
                 launch_live.main()
             process.assert_not_called()
 

@@ -2,8 +2,8 @@
 
 이 폴더에서 새 Codex 작업을 열고 `robotomy_player` MCP가 연결되는지 확인한다.
 개발 작업의 대화를 복제하지 말고 RUN-PROMPT.md의 요청으로 시작한다. 처음 폴더를 열 때 Codex의
-프로젝트 신뢰/도구 연결이 필요할 수 있다. 현재 폴더가 로컬 플러그인 방식이라면 Plugins의 Robotomy Local 소스에서
-Robotomy Player 설치 상태를 확인한다. 최초 전환은 기존 MCP의 재연결이 필요하며 앱 재시작이
+프로젝트 신뢰/도구 연결이 필요할 수 있다. 현재 폴더가 로컬 플러그인 방식이라면 Plugins의 Lobotomy Local 소스에서
+Lobotomy Player 설치 상태를 확인한다. 최초 전환은 기존 MCP의 재연결이 필요하며 앱 재시작이
 필요할 수 있다. 게임 창은 그대로 둔다. 다른 플레이어 MCP 호스트를 동시에 실행하지 않는다.
 
 ## 운영자

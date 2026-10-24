@@ -4,6 +4,7 @@ using System;using System.Collections.Generic;using UnityEngine;using UnityEngin
 // counts, cumulative tool use or work-command state is read here.
 public static class ConsoleRoomStatus {
  static string Q(string s){return RobotomyObserver.Quote(s);}
+ [Serializable] class ClickPoint { public float x,y; }
  static string N(float n){return RobotomyObserver.Number(n);}
  static bool Number(ConsoleUI ui,Text t,out int value,out Rect r){
   value=0;r=new Rect();return t!=null && ui.VisibleWorldLabel(t,out r) &&
@@ -24,7 +25,7 @@ public static class ConsoleRoomStatus {
  public static string Capture(ConsoleUI ui){
   var rows=new List<string>();
   foreach(var room in UnityEngine.Object.FindObjectsOfType<IsolateRoom>()){
-   Rect location=new Rect(),r;int number;string counter="null",work="null",stored="null",penalty="null";
+   Rect location=new Rect(),r;int number;string counter="null",work="null",stored="null",penalty="null",narration="null";
    if(Number(ui,room.CumlativeCubeCount,out number,out r)){stored=number.ToString();location=r;}
    var p=room.probReductionText;
    if(p!=null && !String.IsNullOrEmpty(p.text) && ui.VisibleWorldLabel(p,out r) && p.cachedTextGenerator.characterCountVisible>=p.text.Length){penalty=Q(p.text);location=r;}
@@ -44,10 +45,20 @@ public static class ConsoleRoomStatus {
      work="{\"pe_boxes\":"+pe.Value+",\"ne_boxes\":"+ne.Value+",\"generated_total\":"+(pe.Value+ne.Value)+"}";location=r;
     }
    }
-   if(counter=="null" && work=="null" && stored=="null" && penalty=="null")continue;
+   var line=room.WorkNarration;
+   if(line!=null && !String.IsNullOrEmpty(line.text) && ui.VisibleWorldLabel(line,out r) &&
+      line.cachedTextGenerator.characterCountVisible>=line.text.Length){narration=Q(line.text);location=r;}
    string name="null";var label=room.CreatureName;
    if(label!=null && ui.VisibleWorldLabel(label,out r) && label.cachedTextGenerator.characterCountVisible>=label.text.Length)name=Q(label.text);
-   rows.Add("{\"room_id\":"+Q(room.GetInstanceID().ToString())+",\"room_label\":"+name+",\"x\":"+N(location.center.x)+",\"y\":"+N(Screen.height-location.center.y)+",\"click\":"+ConsoleRoomClick.Capture(room)+",\"qliphoth_counter\":"+counter+",\"work_boxes\":"+work+",\"stored_pe_boxes\":"+stored+",\"work_penalty_text\":"+penalty+"}");
+   ConsoleSignals.NarrationObserved(room,narration=="null"?null:line.text,name=="null"?null:label.text);
+   string roomClick=ConsoleRoomClick.Capture(room);
+   string infoClick=ConsoleRoomClick.Capture(room,"OnClickCollectionButton");
+   if(counter=="null" && work=="null" && stored=="null" && penalty=="null" && narration=="null"){
+    var surface=room.RoomSpriteRenderer;
+    if(surface==null || !surface.enabled || !surface.gameObject.activeInHierarchy || !surface.isVisible || surface.sprite==null || surface.color.a<=.05f || ConsoleMotion.CameraGuard(Camera.main)!="" || roomClick=="null")continue;
+    var point=JsonUtility.FromJson<ClickPoint>(roomClick);location=new Rect(point.x,Screen.height-point.y,0,0);
+   }
+   rows.Add("{\"room_id\":"+Q(room.GetInstanceID().ToString())+",\"room_label\":"+name+",\"x\":"+N(location.center.x)+",\"y\":"+N(Screen.height-location.center.y)+",\"click\":"+roomClick+",\"info_click\":"+infoClick+",\"qliphoth_counter\":"+counter+",\"work_boxes\":"+work+",\"stored_pe_boxes\":"+stored+",\"work_penalty_text\":"+penalty+",\"work_narration\":"+narration+"}");
   }
   return "["+String.Join(",",rows.ToArray())+"]";
  }
@@ -106,10 +117,43 @@ public static class ConsoleRoomStatus {
    var a=eq.armorSlot;if(a!=null){Detail(ui,details,"ego_suit",new string[]{"name","grade"},new Text[]{a.ItemName,a.GradeText});
     for(int i=0;i<a.TypeText.Length && i<a.RWBP_Defense.Length;i++)Detail(ui,details,"ego_suit_resistance",new string[]{"type_and_factor","resistance"},new Text[]{a.TypeText[i],a.RWBP_Defense[i]});}
   }
-  if(win.caretakingRoot!=null)foreach(var slot in win.caretakingRoot.GetComponentsInChildren<CreatureInfo.CreatureInfoCaretakingSlot>())
-   Detail(ui,details,"management_tip",new string[]{"label","text"},new Text[]{slot.Title,slot.CaretakingSection});
+  if(win.caretakingRoot!=null)foreach(var slot in win.caretakingRoot.GetComponentsInChildren<CreatureInfo.CreatureInfoCaretakingSlot>()){
+   // OpenArea is the shipped lock overlay. Never ignore it with the authored slot surface.
+   Rect titleRect;string title=Text(ui,slot.Title);
+   if(title=="null" || !ui.Visible(slot.Title,out titleRect))continue;
+   var parts=new List<string>();parts.Add("\"kind\":\"management_tip\"");parts.Add("\"label\":"+title);
+   parts.Add("\"x\":"+N(titleRect.center.x));parts.Add("\"y\":"+N(Screen.height-titleRect.center.y));
+   var body=slot.CaretakingSection;
+   if((slot.Open==null || !slot.Open.gameObject.activeInHierarchy) && body!=null){
+    bool partial;string visible=VisibleTip(ui,body,win.caretakingRoot.transform,out partial);
+    if(visible!=null){parts.Add("\"text\":"+Q(visible));parts.Add("\"partial\":"+(partial?"true":"false"));}
+   }
+   details.Add("{"+String.Join(",",parts.ToArray())+"}");
+  }
   if(stored=="null" && costs.Count==0 && details.Count==0)return "null";
   return "{\"stored_pe_text\":"+stored+",\"costs\":["+String.Join(",",costs.ToArray())+"],\"details\":["+String.Join(",",details.ToArray())+"]}";
+ }
+ static string VisibleTip(ConsoleUI ui,Text text,Transform surface,out bool partial){
+  partial=false;if(String.IsNullOrEmpty(text.text) || text.text.Length>4096 || text.pixelsPerUnit<=0)return null;
+  // Avoid guessing raw-index mappings for Unity rich-text tags. Literal <주의> is not a tag.
+  if(text.supportRichText && System.Text.RegularExpressions.Regex.IsMatch(text.text,@"</?(b|i|color|size|material|quad)([=>\s])",System.Text.RegularExpressions.RegexOptions.IgnoreCase))return null;
+  var verts=text.cachedTextGenerator.verts;if(verts.Count<text.text.Length*4)return null;
+  var result=new System.Text.StringBuilder();bool gap=false;string whitespace="";
+  Camera camera=text.canvas.renderMode==RenderMode.ScreenSpaceOverlay?null:text.canvas.worldCamera;
+  for(int i=0;i<text.text.Length;i++){
+   char c=text.text[i];if(Char.IsWhiteSpace(c)){whitespace+=c;continue;}
+   Vector2 lo=new Vector2(float.MaxValue,float.MaxValue),hi=new Vector2(float.MinValue,float.MinValue);
+   for(int j=0;j<4;j++){Vector2 point=RectTransformUtility.WorldToScreenPoint(camera,text.rectTransform.TransformPoint(verts[i*4+j].position/text.pixelsPerUnit));lo=Vector2.Min(lo,point);hi=Vector2.Max(hi,point);}
+   Rect rect=Rect.MinMaxRect(lo.x,lo.y,hi.x,hi.y);
+   // Glyph quads include subpixel bearings outside the visible ink at this UI scale.
+   // Test the inner 80% (at most one screen pixel inset), not padded quad edges.
+   float ix=Mathf.Min(1f,rect.width*.1f),iy=Mathf.Min(1f,rect.height*.1f);
+   Rect ink=Rect.MinMaxRect(rect.xMin+ix,rect.yMin+iy,rect.xMax-ix,rect.yMax-iy);
+   bool shown=rect.width>.01f && rect.height>.01f && ui.VisibleReadingRegion(text,ink,surface);
+   if(shown){if(gap)result.Append("…");else if(result.Length>0)result.Append(whitespace);result.Append(c);gap=false;}
+   else{partial=true;gap=true;}whitespace="";
+  }
+  if(gap && result.Length>0)result.Append("…");return result.Length>0?result.ToString():null;
  }
  static void Detail(ConsoleUI ui,List<string> rows,string kind,string[] keys,Text[] fields,bool feelingPalette=false){
   var parts=new List<string>();for(int i=0;i<keys.Length;i++){Rect rect;var t=fields[i];string s=feelingPalette?(t!=null && ui.VisibleFeelingLabel(t,out rect) && t.cachedTextGenerator.characterCountVisible>=t.text.Length?Q(t.text):"null"):Text(ui,t);if(s!="null")parts.Add(Q(keys[i])+":"+s);}

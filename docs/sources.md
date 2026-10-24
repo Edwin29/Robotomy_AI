@@ -11,4 +11,4 @@
 - [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410):
   자연어 설명과 실제 결정 원인의 충실성이 자동으로 같아지지 않는다는 근거.
 
-이 자료들은 Robotomy의 실제 게임 클리어·모델 간 동일 경험·인간 트윈 구현을 입증하지 않는다.
+이 자료들은 Lobotomy의 실제 게임 클리어·모델 간 동일 경험·인간 트윈 구현을 입증하지 않는다.

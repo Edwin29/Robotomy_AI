@@ -27,6 +27,6 @@
 input_sequence는 실행 중 예약과 잠금을 소유하는 상주 모듈이므로 기존 MCP 호스트는
 `Resident component changed; MCP reconnection required.`로 차단된다.
 이번 배포는 단순 reload_player_code 호출로 해결할 수 없다.
-Robotomy Player 연결을 완전히 다시 연 다음 `player_runtime_status`, `read_player_guide`,
+Lobotomy Player 연결을 완전히 다시 연 다음 `player_runtime_status`, `read_player_guide`,
 `live_status` 순서로 확인한다. 새 연결 검증은 성공했지만 기존 에이전트 연결의 재생성은 별개다.
 게임을 다시 재시작할 필요는 없다.

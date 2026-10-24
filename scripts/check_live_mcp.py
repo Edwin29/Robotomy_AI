@@ -19,7 +19,7 @@ async def main():
         async with ClientSession(read, write) as client:
             await client.initialize()
             listed = await client.list_tools()
-            response = await client.call_tool('observe_live', {})
+            response = await client.call_tool('observe_live', {'compact': False})
             assert not response.isError, response.content
             observation = response.structuredContent or json.loads(response.content[0].text)
             compact_response = await client.call_tool('observe_live', {'max_items': 16, 'motion_only': True})

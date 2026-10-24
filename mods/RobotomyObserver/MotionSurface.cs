@@ -11,7 +11,7 @@ public static class MotionSurface
     sealed class AlphaMap {
         public Texture2D texture;
         public int width, height, stride;
-        public int[] bad, nonzero;
+        public MotionAlphaTiles tiles;
         public byte maximum;
         public int tileStride;
         public byte[] tileMaximum;
@@ -57,7 +57,7 @@ public static class MotionSurface
         TextureFormat format=texture.format;
         if(format!=TextureFormat.RGBA32 && format!=TextureFormat.ARGB32 && format!=TextureFormat.RGB24 &&
             format!=TextureFormat.Alpha8 && format!=TextureFormat.DXT1 && format!=TextureFormat.DXT5 &&
-            format!=TextureFormat.RGBA4444 && format!=TextureFormat.ARGB4444 && format!=TextureFormat.RGB565) {
+            format!=TextureFormat.BC7 && format!=TextureFormat.RGBA4444 && format!=TextureFormat.ARGB4444 && format!=TextureFormat.RGB565) {
             Fail("atlas_alpha_precision"); return null;
         }
         string failed;
@@ -65,7 +65,7 @@ public static class MotionSurface
         if(atlases.Count>=256) { Fail("atlas_count_limit"); return null; }
         int w=texture.width, h=texture.height;
         int tileStride=(w+7)/8, tileRows=(h+7)/8;
-        long count=(long)w*h, bytes=((long)w+1)*(h+1)*8+(long)tileStride*tileRows;
+        long count=(long)w*h, bytes=count+(long)tileStride*tileRows*2;
         if(w<1 || h<1 || count>TexturePixelLimit || CachedTextureBytes+bytes>CacheLimit) {
             Fail("atlas_memory_limit"); return null;
         }
@@ -90,25 +90,11 @@ public static class MotionSurface
                 pixels=copy.GetPixels32();
             }
             if(pixels==null || pixels.Length!=count) { Fail("atlas_readback_length"); return null; }
-            int stride=w+1;
-            var sums=new int[(w+1)*(h+1)];
-            var nonzero=new int[(w+1)*(h+1)];
-            var tileMaximum=new byte[tileStride*tileRows];
-            byte maximum=0;
-            for(int y=0;y<h;y++) {
-                int row=0, present=0;
-                for(int x=0;x<w;x++) {
-                    if(pixels[y*w+x].a!=255) row++;
-                    if(pixels[y*w+x].a!=0) present++;
-                    if(pixels[y*w+x].a>maximum) maximum=pixels[y*w+x].a;
-                    int tile=(y/8)*tileStride+x/8;
-                    if(pixels[y*w+x].a>tileMaximum[tile]) tileMaximum[tile]=pixels[y*w+x].a;
-                    sums[(y+1)*stride+x+1]=sums[y*stride+x+1]+row;
-                    nonzero[(y+1)*stride+x+1]=nonzero[y*stride+x+1]+present;
-                }
-            }
-            cached=new AlphaMap { texture=texture,width=w,height=h,stride=stride,bad=sums,nonzero=nonzero,maximum=maximum,
-                tileStride=tileStride,tileMaximum=tileMaximum };
+            var values=new byte[w*h];byte maximum=0;
+            for(int i=0;i<values.Length;i++){values[i]=pixels[i].a;if(values[i]>maximum)maximum=values[i];}
+            var tiles=new MotionAlphaTiles(values,w,h);
+            cached=new AlphaMap { texture=texture,width=w,height=h,stride=w,tiles=tiles,maximum=maximum,
+                tileStride=tiles.stride,tileMaximum=tiles.maximum };
             atlases.Add(texture,cached); CachedTextureBytes+=bytes;
             return cached;
         } catch { Fail("atlas_readback_failed"); return null; }
@@ -131,7 +117,9 @@ public static class MotionSurface
         Mesh mesh=filter.sharedMesh;
         if(frame!=Time.frameCount) { meshes.Clear(); frame=Time.frameCount; }
         if(!meshes.TryGetValue(mesh,out geometry)) {
-            if(mesh.vertexCount<3 || mesh.vertexCount>65536 || mesh.subMeshCount<1 || mesh.subMeshCount>32)
+            // Spine can split one legitimate character across many material
+            // runs. Vertex/total triangle bounds already cap the work.
+            if(mesh.vertexCount<3 || mesh.vertexCount>65536 || mesh.subMeshCount<1)
                 return Fail("surface_mesh_limit");
             geometry=new Geometry { vertices=mesh.vertices, uv=mesh.uv, colors=mesh.colors32, triangles=new int[mesh.subMeshCount][] };
             if(geometry.uv.Length!=geometry.vertices.Length || geometry.colors.Length!=geometry.vertices.Length)
@@ -223,9 +211,7 @@ public static class MotionSurface
         if((long)(x1-x0)*(y1-y0)>65536) return Fail("surface_footprint_limit");
         AlphaMap alpha=Atlas(texture);
         if(alpha==null) return false;
-        int stride=alpha.stride;
-        int[] sums=empty?alpha.nonzero:alpha.bad;
-        int bad=sums[y1*stride+x1]-sums[y0*stride+x1]-sums[y1*stride+x0]+sums[y0*stride+x0];
+        int bad=alpha.tiles.Any(x0,y0,x1,y1,empty)?1:0;
         if(empty) {
             int maximum=0;
             for(int ty=y0/8;ty<=(y1-1)/8;ty++)
@@ -491,7 +477,7 @@ public static class MotionSurface
                 int x=Mathf.FloorToInt(uv.x*tex.width),y=Mathf.FloorToInt(uv.y*tex.height);
                 if(x<1 || y<1 || x>=tex.width-1 || y>=tex.height-1)continue;
                 int x0=x-1,y0=y-1,x1=x+2,y1=y+2,stride=alpha.stride;
-                if(alpha.bad[y1*stride+x1]-alpha.bad[y0*stride+x1]-alpha.bad[y1*stride+x0]+alpha.bad[y0*stride+x0]>0)continue;
+                if(alpha.tiles.Any(x0,y0,x1,y1,false))continue;
                 var w=renderer.transform.TransformPoint((g.vertices[a]+g.vertices[b]+g.vertices[c])/3);var q=camera.WorldToScreenPoint(w);
                 if(q.z<camera.nearClipPlane || q.z>camera.farClipPlane || q.x<1 || q.y<1 || q.x>=Screen.width-1 || q.y>=Screen.height-1)continue;
                 var r=new Rect(q.x-1,q.y-1,2,2);if(visible!=null && !visible(r,w))continue;

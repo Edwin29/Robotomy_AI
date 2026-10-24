@@ -1,0 +1,182 @@
+--- a/robotomy/live_control.py
++++ b/robotomy/live_control.py
+@@ -55,7 +55,7 @@
+         return view
+ 
+     def prepare(self, view_id, kind, rationale='', expected='', x=None, y=None, key=None, scroll_y=None,
+-                duration_ms=80, to_x=None, to_y=None):
++                duration_ms=80, to_x=None, to_y=None, employee_token=None):
+         view = self.view()
+         if view['id'] != view_id:
+             raise ValueError('View changed; inspect the new screenshot first.')
+@@ -93,6 +93,9 @@
+         supplied = [name for name, value in extras.items() if value is not None]
+         if supplied:
+             raise ValueError('Arguments not used by ' + kind + ': ' + ', '.join(supplied) + '. Omit these arguments.')
++        if employee_token is not None:
++            if kind != 'click' or view.get('backend') != 'virtual_unity':raise ValueError('Employee target requires virtual left click')
++            self._id(employee_token)
+         now = time.time()
+         expires = min(now + 25, view['captured_epoch'] + 30)
+         if native and expires - now < duration_ms / 1000 + .25:
+@@ -103,6 +106,7 @@
+             'expires_epoch': expires,
+             'process_id': view['process_id'], 'scene': view['scene'], 'bridge_id': view['bridge_id'],
+             'screenshot_id': view['screenshot_id'], 'window_id': view['window_id']}
++        if employee_token is not None:decision['employee_token']=employee_token
+         if kind == 'scroll' and view.get('backend') == 'virtual_unity':
+             decision['scroll_info'] = {
+                 'units_per_notch': 120, 'notches': scroll_y / 120,
+--- a/robotomy/quick_input.py
++++ b/robotomy/quick_input.py
+@@ -106,6 +106,7 @@
+         if context(c['snapshot'])!=context(snapshot):raise ValueError('Screen context changed; no input sent.')
+         if target_ref is not None:
+             point=resolve(c['snapshot'],target_ref);args.update(x=point['x'],y=point['y'])
++            if kind=='click' and point['kind']=='employee':args['employee_token']=point['ref'].split(':',1)[1]
+         d=self.executor.control.prepare(c['view']['id'],kind,**args)
+         return self.executor.execute(d['id'])
+ 
+--- a/robotomy/virtual_input.py
++++ b/robotomy/virtual_input.py
+@@ -45,6 +45,10 @@
+               decision.get('x') or 0, decision.get('y') or 0, decision.get('to_x') or 0,
+               decision.get('to_y') or 0, 'v1', decision['duration_ms'], decision.get('scroll_y') or 0,
+               decision['created_epoch']]
++    if decision.get('employee_token'):
++        LiveControl._id(decision['employee_token'])
++        if decision['kind']!='click':raise ValueError('Targeted employee action must be a click')
++        values[12]='v2';values.append(decision['employee_token'])
+     if any('\n' in str(v) or '\r' in str(v) for v in values):
+         raise ValueError('Invalid protocol field.')
+     return '\n'.join(map(str, values))
+--- a/mods/RobotomyObserver/ConsoleEmployee.cs
++++ b/mods/RobotomyObserver/ConsoleEmployee.cs
+@@ -41,10 +41,15 @@
+  }
+ 
+  static string Click(AgentUnit unit,Camera cam,Vector2 pixel){
+-  var es=EventSystem.current;if(es==null)return "null";
++  Vector2 point;if(!TryClick(unit,cam,pixel,out point))return "null";
++  return "{\"x\":"+RobotomyObserver.Number(point.x)+",\"y\":"+RobotomyObserver.Number(Screen.height-point.y)+"}";
++ }
++ public static bool TryClick(AgentUnit unit,Camera cam,Vector2 pixel,out Vector2 point){
++  point=Vector2.zero;
++  var es=EventSystem.current;if(es==null)return false;
+   // OnPointerClick dispatches to bullets before ordinary selection.
+   if(UnitMouseEventManager.instance==null || UnitMouseEventManager.instance.DefaultClickBlocked ||
+-     (GlobalBulletWindow.CurrentWindow!=null && GlobalBulletWindow.CurrentWindow.CurrentSelectedBullet!=GlobalBulletType.NONE))return "null";
++     (GlobalBulletWindow.CurrentWindow!=null && GlobalBulletWindow.CurrentWindow.CurrentSelectedBullet!=GlobalBulletType.NONE))return false;
+   var points=new List<Vector2>();points.Add(new Vector2(pixel.x,Screen.height-pixel.y));
+   foreach(var target in unit.GetComponentsInChildren<UnitMouseEventTarget>()){
+    if(target.target!=unit)continue;var collider=target.GetComponent<Collider2D>();
+@@ -59,8 +64,8 @@
+    var handler=ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);var trigger=handler==null?null:handler.GetComponent<EventTrigger>();if(trigger==null)continue;
+    bool routed=false;foreach(var entry in trigger.triggers)if(entry.eventID==EventTriggerType.PointerClick)
+     for(int i=0;i<entry.callback.GetPersistentEventCount();i++)if(entry.callback.GetPersistentTarget(i) is UnitMouseEventManager && entry.callback.GetPersistentMethodName(i)=="OnPointerClick")routed=true;
+-   if(routed)return "{\"x\":"+RobotomyObserver.Number(p.x)+",\"y\":"+RobotomyObserver.Number(Screen.height-p.y)+"}";
++   if(routed){point=p;return true;}
+   }
+-  return "null";
++  return false;
+  }
+ }
+--- a/mods/RobotomyObserver/ConsoleMotion.cs
++++ b/mods/RobotomyObserver/ConsoleMotion.cs
+@@ -9,6 +9,16 @@
+ // Unknown render compositions withhold observations. Tokens survive only continuous visibility.
+ public sealed class ConsoleMotion
+ {
++    static readonly Dictionary<string,AgentUnit> clickEmployees=new Dictionary<string,AgentUnit>();
++    static float clickObserved;
++    public static bool TryEmployeeClick(string token,out Vector2 point) {
++        point=Vector2.zero;AgentUnit unit;Camera cam=Camera.main;
++        if(Time.realtimeSinceStartup-clickObserved>.75f || CameraGuard(cam)!="" || !clickEmployees.TryGetValue(token,out unit) || unit==null || unit.model.IsDead())return false;
++        var ui=new ConsoleUI();ui.Capture(new List<ViewRect>(),new List<ViewRect>(),new List<string>());
++        Vector3 world;Rect rect;
++        if(!ConsoleEmployee.Anchor(unit,ui,cam,out world,out rect))return false;
++        return ConsoleEmployee.TryClick(unit,cam,Pixel(cam,world),out point);
++    }
+     sealed class Track {
+         public string token = Guid.NewGuid().ToString("N");
+         public Vector3 world, local;
+@@ -236,6 +246,7 @@
+         return result;
+     }
+     public void Capture(ConsoleUI ui, bool diagnostic=false) {
++        clickEmployees.Clear();clickObserved=Time.realtimeSinceStartup;
+         var timer=System.Diagnostics.Stopwatch.StartNew();
+         rejected.Clear(); details.Clear(); candidates=accepted=unsupportedRenderers=0;
+         targets=null;
+@@ -283,6 +294,7 @@
+                     } else state="discontinuity";
+                 }
+                 track.local=anchor.InverseTransformPoint(world); track.world=world; track.pixel=pixel; track.time=now; next[anchor]=track;
++                if(employeeUnit!=null)clickEmployees[track.token]=employeeUnit;
+                 string employee=ConsoleEmployee.Capture(targets.Owner(body) as AgentUnit,ui,cam,pixel);
+                 items.Add("{\"facility_location\":"+ConsoleFacilityMap.Locate(targets.Owner(body),world)+",\"entity\":"+ConsoleEntity.Capture(targets.Owner(body),ui)+",\"employee\":"+employee+",\"track_id\":"+Q(track.token)+",\"state\":"+Q(state)+",\"position\":"+V(pixel)+
+                     ",\"bounds\":{\"x\":"+N(bounds.x)+",\"y\":"+N(height-bounds.yMax)+",\"width\":"+N(bounds.width)+",\"height\":"+N(bounds.height)+"}"+
+--- a/mods/RobotomyObserver/VirtualInput.cs
++++ b/mods/RobotomyObserver/VirtualInput.cs
+@@ -8,7 +8,7 @@
+ using UnityEngine.SceneManagement;
+ using Harmony;
+ 
+-// Game-local input, not OS injection. No gameplay methods or hidden state are called.
++// Game-local input. Targeted employee clicks reuse the normal pointer-click handler; no goal/state writes.
+ [DefaultExecutionOrder(-32000)]
+ public class RobotomyVirtualInput : MonoBehaviour
+ {
+@@ -136,7 +136,12 @@
+         active=null; phase=0;
+     }
+     bool Accept(string[] c) {
+-        if(c.Length!=16 || c[0].Length!=32 || c[12]!="v1") return false;
++        if((c.Length!=16 && c.Length!=17) || c[0].Length!=32) return false;
++        if(c.Length==16 && c[12]!="v1")return false;
++        if(c.Length==17){
++            if(c[12]!="v2" || c[6]!="click" || c[16].Length!=32)return false;
++            foreach(char ch in c[16])if(!Uri.IsHexDigit(ch)||Char.IsUpper(ch))return false;
++        }
+         foreach(char ch in c[0]) if(!Uri.IsHexDigit(ch) || Char.IsUpper(ch)) return false;
+         if(c[1]!=System.Diagnostics.Process.GetCurrentProcess().Id.ToString() || c[2]!=SceneManager.GetActiveScene().name ||
+            c[3]!=Screen.width.ToString() || c[4]!=Screen.height.ToString()) return false;
+@@ -169,6 +174,15 @@
+                 if(phase<3 && (active[2]!=SceneManager.GetActiveScene().name || active[3]!=Screen.width.ToString() || active[4]!=Screen.height.ToString())) { Release(); Ack("unknown","Scene or resolution changed during gesture"); }
+                 else if(PredatesBarrier(active[15]) || Epoch>Double.Parse(active[5],Inv) || Time.realtimeSinceStartup-started>4) { Release(); Ack("unknown","Input deadline or control barrier exceeded"); }
+                 else if(phase==1) {
++                    if(active.Length==17){
++                        Vector2 target;
++                        if(!ConsoleMotion.TryEmployeeClick(active[16],out target)){Ack("rejected","Employee no longer visible or clickable");return;}
++                        pointer=new Vector3(target.x,target.y,0);
++                        var data=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
++                        data.position=target;data.button=UnityEngine.EventSystems.PointerEventData.InputButton.Left;
++                        UnitMouseEventManager.instance.OnPointerClick(data);
++                        Ack("input_sent","Current visible employee click dispatched");return;
++                    }
+                     started=Time.realtimeSinceStartup; phase=2;
+                     string kind=active[6];
+                     if(kind=="key") downKey=heldKey=Key(active[7]);
+--- a/tests/test_quick_input.py
++++ b/tests/test_quick_input.py
+@@ -33,6 +33,20 @@
+   s=self.sample();ex=Mock();ex.capture.return_value={'snapshot':{**s,'scene':'Story'},'view':{'id':'v'}}
+   with self.assertRaises(ValueError):QuickInput(Path('.'),Mock(),ex).gesture(s,'click',target_ref='button:a')
+   ex.execute.assert_not_called()
++ def test_employee_target_is_preserved_for_unity_dispatch(self):
++  s=self.sample();ex=Mock();ex.capture.return_value={'snapshot':s,'view':{'id':'v'}};ex.control.prepare.return_value={'id':'d'}
++  token='a'*32
++  with patch('robotomy.quick_input.resolve',return_value={'ref':'employee:'+token,'kind':'employee','x':15,'y':20}):
++   QuickInput(Path('.'),Mock(),ex).gesture(s,'click',target_ref='employee:'+token)
++  self.assertEqual(ex.control.prepare.call_args.kwargs['employee_token'],token)
++ def test_target_protocol_is_optional_and_click_only(self):
++  from robotomy.virtual_input import encode_command
++  d={'id':'b'*32,'process_id':1,'scene':'Main','expires_epoch':2,'kind':'click','duration_ms':80,'created_epoch':1}
++  view={'width':100,'height':100}
++  self.assertEqual(len(encode_command(d,view).splitlines()),16)
++  targeted=encode_command(dict(d,employee_token='a'*32),view).splitlines()
++  self.assertEqual(targeted[12],'v2');self.assertEqual(targeted[16],'a'*32)
++  with self.assertRaises(ValueError):encode_command(dict(d,employee_token='a'*32,kind='right_click'),view)
+  def test_does_not_move_when_selection_unconfirmed(self):
+   with tempfile.TemporaryDirectory() as root:
+    q=QuickInput(Path(root),Mock(),Mock());q.executor._snapshot.return_value=self.sample();q.gesture=Mock(return_value={'status':'input_sent'});q.wait=Mock(return_value=(self.sample(),'pending'))

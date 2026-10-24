@@ -1,11 +1,11 @@
 [
   {
     "file": "AGENTS.md",
-    "sha256": "2d2b6d353bbdbb5282d3e65897c2dc83dcafd8342ab47c5920852597b47f02e1"
+    "sha256": "790a40fc1fbc8d2db9b2803fb7b642e900a09243420c79fc02d6968d37783b52"
   },
   {
     "file": "START-HERE.md",
-    "sha256": "e80aa43d791f082264499f39c7fb073d82adb9cecff7c9659097e071cc4cd906"
+    "sha256": "c684bef3f37a560bb7481d8ea960a0b1316c935f8aa13cd031d6f3bbc5fda4fb"
   },
   {
     "file": "RUN-PROMPT.md",
@@ -13,7 +13,11 @@
   },
   {
     "file": "PLUGIN-RELOAD.md",
-    "sha256": "d3633b4ead3502a023b65dd494e6e27bebffc9e9efc9c9995b654f67993d3989"
+    "sha256": "e7a3fc29e5a426e4f912e12aa409697d8bc99a67da28f5f20b0d087aa5501a5f"
+  },
+  {
+    "file": "Adapter-Guide.md",
+    "sha256": "10ad586f770fbd7b30ae865f3262eea3c64aefd779a0164a0d0f1ad9426a2231"
   },
   {
     "file": "Ready-Player.cmd",

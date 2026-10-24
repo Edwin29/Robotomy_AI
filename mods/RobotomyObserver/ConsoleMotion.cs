@@ -10,12 +10,19 @@ using UnityEngine.SceneManagement;
 public sealed class ConsoleMotion
 {
     static readonly Dictionary<string,AgentUnit> clickEmployees=new Dictionary<string,AgentUnit>();
+    static readonly Dictionary<string,CreatureUnit> clickCreatures=new Dictionary<string,CreatureUnit>();
     static float clickObserved;
     public static bool TryEmployeeClick(string token,out Vector2 point) {
         point=Vector2.zero;AgentUnit unit;Camera cam=Camera.main;
-        if(Time.realtimeSinceStartup-clickObserved>.75f || CameraGuard(cam)!="" || !clickEmployees.TryGetValue(token,out unit) || unit==null || unit.model.IsDead())return false;
+        if(Time.realtimeSinceStartup-clickObserved>.75f || CameraGuard(cam)!="")return false;
         var ui=new ConsoleUI();ui.Capture(new List<ViewRect>(),new List<ViewRect>(),new List<string>());
         Vector3 world;Rect rect;
+        if(!clickEmployees.TryGetValue(token,out unit)){
+            CreatureUnit creature;
+            if(!clickCreatures.TryGetValue(token,out creature) || creature==null || !ConsoleEntity.Anchor(creature,ui,cam,out world,out rect))return false;
+            return ConsoleEmployee.TryClick(creature,cam,Pixel(cam,world),out point);
+        }
+        if(unit==null || unit.model.IsDead())return false;
         if(!ConsoleEmployee.Anchor(unit,ui,cam,out world,out rect))return false;
         return ConsoleEmployee.TryClick(unit,cam,Pixel(cam,world),out point);
     }
@@ -246,7 +253,8 @@ public sealed class ConsoleMotion
         return result;
     }
     public void Capture(ConsoleUI ui, bool diagnostic=false) {
-        clickEmployees.Clear();clickObserved=Time.realtimeSinceStartup;
+        ConsoleAppearance.Begin();
+        clickEmployees.Clear();clickCreatures.Clear();clickObserved=Time.realtimeSinceStartup;
         var timer=System.Diagnostics.Stopwatch.StartNew();
         rejected.Clear(); details.Clear(); candidates=accepted=unsupportedRenderers=0;
         targets=null;
@@ -263,6 +271,7 @@ public sealed class ConsoleMotion
             // this frame; never reuse them across frames where masks can change.
             Renderer[] renderers=UnityEngine.Object.FindObjectsOfType<Renderer>();
             targets=new MotionTargets(renderers);
+            foreach(var native in targets.NativeAppearance)ConsoleAppearance.SeenNative(native,ui);
             unsupportedRenderers=targets.UnsupportedRenderers;
             MotionStencil.Prepare(cam,renderers);
             List<Cover> all=Covers(cam,renderers);
@@ -295,8 +304,11 @@ public sealed class ConsoleMotion
                 }
                 track.local=anchor.InverseTransformPoint(world); track.world=world; track.pixel=pixel; track.time=now; next[anchor]=track;
                 if(employeeUnit!=null)clickEmployees[track.token]=employeeUnit;
+                var creatureUnit=targets.Owner(body) as CreatureUnit;if(creatureUnit!=null)clickCreatures[track.token]=creatureUnit;
                 string employee=ConsoleEmployee.Capture(targets.Owner(body) as AgentUnit,ui,cam,pixel);
-                items.Add("{\"facility_location\":"+ConsoleFacilityMap.Locate(targets.Owner(body),world)+",\"entity\":"+ConsoleEntity.Capture(targets.Owner(body),ui)+",\"employee\":"+employee+",\"track_id\":"+Q(track.token)+",\"state\":"+Q(state)+",\"position\":"+V(pixel)+
+                ConsoleCombat.Motion(targets.Owner(body),targets.Skeletons[anchor],pixel);
+                ConsoleAppearance.Seen(targets.Owner(body),targets.Skeletons[anchor]);
+                items.Add("{\"entity_id\":"+Q(ConsoleSignals.Identity(targets.Owner(body)))+",\"facility_location\":"+ConsoleFacilityMap.Locate(targets.Owner(body),world)+",\"entity\":"+ConsoleEntity.Capture(targets.Owner(body),ui,cam,pixel)+",\"employee\":"+employee+",\"track_id\":"+Q(track.token)+",\"state\":"+Q(state)+",\"position\":"+V(pixel)+
                     ",\"bounds\":{\"x\":"+N(bounds.x)+",\"y\":"+N(height-bounds.yMax)+",\"width\":"+N(bounds.width)+",\"height\":"+N(bounds.height)+"}"+
                     ",\"interval_ms\":"+N(dt*1000)+",\"screen_velocity\":"+screen+",\"object_velocity\":"+obj+",\"camera_velocity\":"+camera+"}");
                 accepted++;

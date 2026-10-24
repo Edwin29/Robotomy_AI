@@ -132,6 +132,22 @@ class ConsoleContractTests(unittest.TestCase):
             self.assertIsNone(frame)
             self.assertEqual(status["reason"], "frame_generation_mismatch")
 
+    def test_unchanged_png_requires_fresh_verified_pixel_check(self):
+        self.obj["screen"] = {"width": 1, "height": 1}
+        self.publish()
+        data = self.publish_frame(age=60)
+        meta = {"session":"a"*32, "process_id":123, "scene":self.obj["scene"],
+                "unity_frame":11, "captured_at_utc":self.now.isoformat(),
+                "sha256":hashlib.sha256(data).hexdigest()}
+        path = self.reader.directory / "frame-meta.json"
+        path.write_text(json.dumps(meta), encoding="utf-8")
+        self.assertEqual(self.reader.frame()[1], data)
+        meta["captured_at_utc"] = (self.now-timedelta(seconds=60)).isoformat()
+        path.write_text(json.dumps(meta), encoding="utf-8")
+        status, frame = self.reader.frame()
+        self.assertIsNone(frame)
+        self.assertEqual(status["reason"], "frame_stale")
+
     def add_motion(self):
         self.obj['console']['motion'] = {
             'version': 1, 'basis': 'display_projection_v1', 'coordinates': 'top_left_pixels',

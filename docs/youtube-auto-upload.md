@@ -14,7 +14,7 @@
 
 1. [Google Cloud Console](https://console.cloud.google.com/)에서 개인 프로젝트를 만든다. 이 구현에는 유료 모델, 별도 서버, OBS가 필요하지 않다. 결제 계정이나 유료 서비스 연결은 이 설정에 포함하지 않는다.
 2. [YouTube Data API v3](https://console.cloud.google.com/apis/library/youtube.googleapis.com)를 선택하여 사용 설정한다.
-3. Google Auth Platform에서 앱 이름(예: Robotomy Upload), 지원 이메일/연락 이메일을 설정한다. 개인 Google 계정이면 대상은 External이며, Testing 상태에서는 자신의 계정을 테스트 사용자에 추가한다.
+3. Google Auth Platform에서 앱 이름(예: Lobotomy Upload), 지원 이메일/연락 이메일을 설정한다. 개인 Google 계정이면 대상은 External이며, Testing 상태에서는 자신의 계정을 테스트 사용자에 추가한다.
 4. Clients에서 **Desktop app** 유형 OAuth 클라이언트를 만든다. API 키 또는 서비스 계정으로 대체하지 않는다.
 5. 내려받은 JSON을 아래 위치에 `oauth-client.json`이라는 이름으로 저장한다. 채팅에 내용을 붙여넣거나 Git에 추가하지 않는다.
 

@@ -16,7 +16,7 @@
 
 ## 2026-10-18 로컬 플러그인 / 무중단 코드 재로딩
 
-- Robotomy Local / Robotomy Player 설치 확인. 전역 disabled, Robotomy_Player 프로젝트 enabled.
+- Lobotomy Local / Lobotomy Player 설치 확인. 전역 disabled, Robotomy_Player 프로젝트 enabled.
 - 직접 MCP는 프로젝트 설정 enabled=false로 보존; 이전 설정 백업은 verification/plugin-reload.
 - 안정적인 stdio 호스트가 26개 도구를 제공. 입력/관찰 코드만 세대별 로딩, 호출/저장 큐 종료 후 교체.
 - 저장/전원/호스트/스키마 변경은 재연결 필요. 실제 게임 DLL 및 프로세스/일시정지 변경 없음.

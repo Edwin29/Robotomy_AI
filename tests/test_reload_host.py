@@ -20,6 +20,38 @@ class ReloadTests(unittest.IsolatedAsyncioTestCase):
         p=self.source/'live.py';s=p.read_text(encoding='utf-8')
         s=s.replace('return summary\n\n    def frame', "return {**summary, 'reload_probe': 'updated'}\n\n    def frame")
         p.write_text(s,encoding='utf-8')
+    async def test_generation_resolves_all_relative_imports_including_lazy_tools(self):
+        import ast, importlib
+        for reloaded in (False, True):
+            if reloaded:
+                self.change()
+                await self.host.call('reload_player_code',{})
+            for name in HOT:
+                tree=ast.parse((self.source/(name+'.py')).read_text(encoding='utf-8'))
+                for node in ast.walk(tree):
+                    if isinstance(node,ast.ImportFrom) and node.level:
+                        module=importlib.import_module('.'*node.level+(node.module or ''),self.host.prefix)
+                        for alias in node.names:
+                            if alias.name!='*':
+                                self.assertTrue(hasattr(module,alias.name),(name,node.lineno,alias.name))
+    async def test_adapter_state_uses_resident_input_lock_after_reload(self):
+        from unittest.mock import Mock
+        for reloaded in (False, True):
+            if reloaded:
+                self.change()
+                await self.host.call('reload_player_code',{})
+            adapter=self.host.backend._player_adapter
+            quick=adapter.quick
+            adapter.quick=Mock()
+            try:
+                for setting,value,shown in [('paused',True,'paused'),('speed',2,'2x')]:
+                    snapshot={'ui_texts':[{'panel':'playback','text':shown}]}
+                    adapter.quick.executor._snapshot.return_value=snapshot
+                    adapter.set_state({'kind':'state','setting':setting,'value':value})
+                    adapter.quick.offered.assert_called_with({'status':'already_set','setting':setting,'value':value},snapshot,'ready')
+                adapter.quick.input.assert_not_called()
+            finally:
+                adapter.quick=quick
     async def test_reload_changes_result_preserves_storage_and_stop(self):
         before=self.host.revision;experience=self.host.experience;power=self.host.power
         stop=self.root/'.robotomy/live/control/PAUSED';stop.parent.mkdir(parents=True);stop.write_text('operator stop')

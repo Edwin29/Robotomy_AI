@@ -1,6 +1,9 @@
-> **Current architecture / research handoff (2026-10-20):** [Start here](docs/research-entrypoint-20261020.md). [Diff bottleneck evidence](docs/diff-optimization-audit-20261020.md). Older reports below describe their original implementation dates.
+# Lobotomy AI
 
-# Robotomy AI
+최신 소스 게시 범위와 문서 읽기 기준: [2026-10-24 게시 안내](docs/publication-20261024.md).
+
+표시 이름은 Lobotomy로 통일했습니다. 호환성을 위해 기존 `Robotomy_AI` 폴더,
+`robotomy_player` MCP 식별자 및 AI 세이브 경로는 유지합니다.
 
 LLM이 주요 판단을 내리고 실행기가 조작하며, 판단과 경험을 관찰·대화·이전할 수 있는
 Lobotomy Corporation 플레이어 프로젝트.

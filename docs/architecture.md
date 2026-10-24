@@ -1,5 +1,3 @@
-> Current live structure: [2026-10-20 research entrypoint](research-entrypoint-20261020.md). The v0.1 content below is historical.
-
 # v0.1 구조와 구현 경계
 
 이 문서는 초기 v0.1 구현 당시의 구조 기록입니다. 향후 설계 기준은
@@ -71,3 +69,8 @@ SQLite 트랜잭션으로 모의 세계 변경과 outcome 기록을 함께 저�
 
 합성 원장 및 MCP 왕복, 중복·오래된 명령·중지·예산·이전 기록의 출처 보존을 검사한다.
 실제 게임 적용, 세이브 복원, LLM의 판단 개선, 모델 간 경험 활용 효과는 아직 검증하지 않았다.
+# AI용 어댑터 확장 (2026-10-23)
+
+검증용으로 구현한 공통 관찰/입력 참조, 전투 표시 이벤트, 짧은 예약과 대상 이미지는
+[구현·검증 보고서](ai-first-adapter-implementation-20261023.md)에 정리되어 있다.
+기존 도구와 diff 경로를 유지하며 그 위에 모델용 `player_view_v1`을 제공한다.

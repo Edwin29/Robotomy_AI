@@ -75,7 +75,7 @@ class LiveControl:
                 key = key.strip().lower()
                 key = {'esc': 'Escape', 'escape': 'Escape', 'return': 'Return',
                        'enter': 'Return', 'spacebar': 'space'}.get(key, key)
-            if not isinstance(key, str) or key not in {'space', 'Escape', 'Return', '1', '2', '3', 'w', 'a', 's', 'd', 'f', 'g'}:
+            if not isinstance(key, str) or key not in {'space', 'pause_only', 'Escape', 'Return', '1', '2', '3', 'w', 'a', 's', 'd', 'f', 'g'}:
                 raise ValueError('Unsupported key. Use W/A/S/D/F/G, Space, Escape, Enter/Return, 1/2/3 (case-insensitive).')
         elif any(type(v) not in (int, float) for v in (x, y)) or not (0 <= x < view['width'] and (0 if native else 24) <= y < view['height']):
             raise ValueError('Pointer must be inside the captured game client.')

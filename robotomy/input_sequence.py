@@ -8,12 +8,14 @@ from pathlib import Path
 import threading
 import time
 import uuid
+
 from .live_control import atomic
 from .experience import record
 
 
 @contextmanager
-def input_lock(root):
+def input_lock(root,priority=False):
+    if not priority and (Path(root)/'.robotomy/live/control/pause-pending').exists():raise ValueError('Pause reservation firing; no new input sent')
     path = Path(root)/'.robotomy/live/control/input-sequence.lock'
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('a+b') as stream:
@@ -25,6 +27,7 @@ def input_lock(root):
         except OSError:
             raise ValueError('Another input or sequence is active; wait or cancel it.')
         try:
+            if not priority and (Path(root)/'.robotomy/live/control/pause-pending').exists():raise ValueError('Pause reservation firing; no new input sent')
             yield
         finally:
             stream.seek(0); msvcrt.locking(stream.fileno(), msvcrt.LK_UNLCK, 1)
@@ -116,6 +119,7 @@ class Sequences:
         last_sequence = None
         try:
             for identity in job['decision_ids']:
+                if (self.root/'.robotomy/live/control/pause-pending').exists():job['stop_reason']='pause_reservation';break
                 with self.guard:
                     if job['cancel_requested']:
                         job['stop_reason']='cancel_requested'; break

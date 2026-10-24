@@ -11,6 +11,7 @@ public sealed class MotionTargets
     public readonly Dictionary<Transform,Spine.Unity.SkeletonRenderer> Skeletons =
         new Dictionary<Transform,Spine.Unity.SkeletonRenderer>();
     public int UnsupportedRenderers;
+    public readonly HashSet<CreatureUnit> NativeAppearance = new HashSet<CreatureUnit>();
 
     static bool Supported(MonoBehaviour value) {
         return value is WorkerUnit || value is CreatureUnit || value is ProjectileUnit ||
@@ -56,6 +57,11 @@ public sealed class MotionTargets
             // Never infer a body from unrelated health bars, selection markers or
             // arbitrary descendants of a unit. Only its explicit visual branch.
             if(root==null || !renderer.transform.IsChildOf(root)) continue;
+            // Nothing's authored Puppet2D branches use SpriteRenderer/skinned
+            // parts, not SkeletonRenderer. Identity of its worker disguise is
+            // deliberately not inferred here.
+            var creature=owner as CreatureUnit;
+            if(creature!=null&&creature.animTarget!=null){string type=creature.animTarget.GetType().Name;if(type=="NothingAnim"||type=="OldLadyAnim")NativeAppearance.Add(creature);}
             var skeleton=renderer.GetComponentInParent<Spine.Unity.SkeletonRenderer>();
             if(skeleton==null || !skeleton.transform.IsChildOf(root)) { UnsupportedRenderers++; continue; }
             // A projectile can move a display child while its controller is stationary.

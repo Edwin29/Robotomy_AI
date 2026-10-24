@@ -19,6 +19,7 @@ public class RobotomyVirtualInput : MonoBehaviour
     public static Rect PointerOverlayRect { get { return new Rect(pointer.x-8,pointer.y-8,98,30); } }
     static Vector2 wheel;
     static KeyCode heldKey = KeyCode.None, downKey = KeyCode.None, upKey = KeyCode.None;
+    static bool pauseOnlyKey;
     static int heldButton = -1, downButton = -1, upButton = -1;
     string[] active;
     int phase;
@@ -127,7 +128,7 @@ public class RobotomyVirtualInput : MonoBehaviour
         var match=System.Text.RegularExpressions.Regex.Match(File.ReadAllText(path),"\"epoch\"\\s*:\\s*([0-9.Ee+-]+)");
         return !match.Success || Double.Parse(created,Inv)<Double.Parse(match.Groups[1].Value,Inv);
     }
-    void Release() { upKey=heldKey; upButton=heldButton; heldKey=KeyCode.None; heldButton=-1; }
+    void Release() { pauseOnlyKey=false; upKey=heldKey; upButton=heldButton; heldKey=KeyCode.None; heldButton=-1; }
     void Ack(string status,string reason) {
         if(active == null) return;
         Write(Path.Combine(directory,"virtual-acks/"+active[0]+".json"),
@@ -151,13 +152,13 @@ public class RobotomyVirtualInput : MonoBehaviour
         if(c[6]!="key") for(int i=8;i<=11;i++) {
             float v=Num(c[i]); if(Single.IsNaN(v)||v<0||v>=(i%2==0?Screen.width:Screen.height)) return false;
         }
-        if(c[6]=="key" && !new List<string>{"space","Escape","Return","1","2","3","w","a","s","d","f","g"}.Contains(c[7])) return false;
+        if(c[6]=="key" && !new List<string>{"space","pause_only","Escape","Return","1","2","3","w","a","s","d","f","g"}.Contains(c[7])) return false;
         if(!new List<string>{"key","click","right_click","drag","right_drag","move","scroll"}.Contains(c[6])) return false;
         float scroll=Num(c[14]); if(Single.IsNaN(scroll)||Math.Abs(scroll)>600) return false;
         return !File.Exists(Path.Combine(directory,"virtual-acks/"+c[0]+".json"));
     }
     static KeyCode Key(string s) {
-        if(s=="space") return KeyCode.Space;
+        if(s=="space"||s=="pause_only") return KeyCode.Space;
         if(s.Length==1 && s[0]>='1' && s[0]<='3') return KeyCode.Alpha0+(s[0]-'0');
         return (KeyCode)Enum.Parse(typeof(KeyCode),s,true);
     }
@@ -176,16 +177,16 @@ public class RobotomyVirtualInput : MonoBehaviour
                 else if(phase==1) {
                     if(active.Length==17){
                         Vector2 target;
-                        if(!ConsoleMotion.TryEmployeeClick(active[16],out target)){Ack("rejected","Employee no longer visible or clickable");return;}
+                        if(!ConsoleMotion.TryEmployeeClick(active[16],out target)){Ack("rejected","Unit no longer visible or unambiguously clickable");return;}
                         pointer=new Vector3(target.x,target.y,0);
                         var data=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
                         data.position=target;data.button=UnityEngine.EventSystems.PointerEventData.InputButton.Left;
                         UnitMouseEventManager.instance.OnPointerClick(data);
-                        Ack("input_sent","Current visible employee click dispatched");return;
+                        Ack("input_sent","Current visible unit click dispatched");return;
                     }
                     started=Time.realtimeSinceStartup; phase=2;
                     string kind=active[6];
-                    if(kind=="key") downKey=heldKey=Key(active[7]);
+                    if(kind=="key") { pauseOnlyKey=active[7]=="pause_only"; downKey=heldKey=Key(active[7]); }
                     else if(kind=="click"||kind=="drag") downButton=heldButton=0;
                     else if(kind=="right_click"||kind=="right_drag") downButton=heldButton=1;
                     else if(kind=="scroll") wheel=new Vector2(0,-Num(active[14])/120f);
@@ -227,8 +228,9 @@ public class RobotomyVirtualInput : MonoBehaviour
         public static bool GetMouseButton(int b){return heldButton==b;}
         public static bool GetMouseButtonDown(int b){return downButton==b;}
         public static bool GetMouseButtonUp(int b){return upButton==b;}
-        public static bool GetKey(KeyCode k){return k!=KeyCode.None&&heldKey==k;}
-        public static bool GetKeyDown(KeyCode k){return k!=KeyCode.None&&downKey==k;}
+        static bool AllowedKey(KeyCode k){return !pauseOnlyKey||k!=KeyCode.Space||(GameManager.currentGameManager!=null&&GameManager.currentGameManager.state==GameState.PLAYING);}
+        public static bool GetKey(KeyCode k){return k!=KeyCode.None&&heldKey==k&&AllowedKey(k);}
+        public static bool GetKeyDown(KeyCode k){return k!=KeyCode.None&&downKey==k&&AllowedKey(k);}
         public static bool GetKeyUp(KeyCode k){return k!=KeyCode.None&&upKey==k;}
         public static bool get_anyKey(){return heldKey!=KeyCode.None||heldButton>=0;}
         public static bool get_anyKeyDown(){return downKey!=KeyCode.None||downButton>=0;}
@@ -243,6 +245,6 @@ public class RobotomyVirtualInput : MonoBehaviour
         public static void set_compositionCursorPos(Vector2 value){}
         public static float GetAxis(string name){return name=="Mouse ScrollWheel"?wheel.y*.1f:GetAxisRaw(name);}
         public static float GetAxisRaw(string name){return name=="Horizontal"?(heldKey==KeyCode.D?1:heldKey==KeyCode.A?-1:0):name=="Vertical"?(heldKey==KeyCode.W?1:heldKey==KeyCode.S?-1:0):0;}
-        public static bool GetButtonDown(string name){return name=="Submit"?(downKey==KeyCode.Return||downKey==KeyCode.Space):name=="Cancel"&&downKey==KeyCode.Escape;}
+        public static bool GetButtonDown(string name){return name=="Submit"?(GetKeyDown(KeyCode.Return)||GetKeyDown(KeyCode.Space)):name=="Cancel"&&downKey==KeyCode.Escape;}
     }
 }

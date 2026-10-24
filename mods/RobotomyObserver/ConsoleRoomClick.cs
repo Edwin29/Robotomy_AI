@@ -2,14 +2,14 @@ using System;using System.Collections.Generic;using UnityEngine;using UnityEngin
 
 // Resolve the authored IsolateRoom.OnClick event, not a HUD label position.
 public static class ConsoleRoomClick {
- public static string Capture(IsolateRoom room){
+ public static string Capture(IsolateRoom room,string method="OnClick"){
   var es=EventSystem.current;if(es==null)return "null";
   foreach(var trigger in room.GetComponentsInChildren<EventTrigger>()){
    bool roomClick=false;
    foreach(var entry in trigger.triggers){
     if(entry.eventID!=EventTriggerType.PointerClick)continue;
     for(int i=0;i<entry.callback.GetPersistentEventCount();i++)
-     if(entry.callback.GetPersistentTarget(i)==room && entry.callback.GetPersistentMethodName(i)=="OnClick")roomClick=true;
+     if(entry.callback.GetPersistentTarget(i)==room && entry.callback.GetPersistentMethodName(i)==method)roomClick=true;
    }
    if(!roomClick || !trigger.isActiveAndEnabled)continue;
    var rect=trigger.GetComponent<RectTransform>();var canvas=trigger.GetComponentInParent<Canvas>();Rect area;

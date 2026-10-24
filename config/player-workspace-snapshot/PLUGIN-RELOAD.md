@@ -2,14 +2,14 @@
 
 ## 현재 등록
 
-- 마켓플레이스: `Robotomy Local` (`robotomy-local`)
-- 설치 플러그인: `Robotomy Player` (`robotomy-player@robotomy-local`)
+- 마켓플레이스: `Lobotomy Local` (`robotomy-local`)
+- 설치 플러그인: `Lobotomy Player` (`robotomy-player@robotomy-local`)
 - 로컬 MCP 서버: `robotomy_player`, 26개 도구
 - 프로젝트별 활성화 고정 없음. 설정 화면의 전역 스위치로 켜고 끈다. 직접 MCP 등록 블록은 제거했다.
 - 전역에서 켜면 다른 프로젝트에도 게임 도구가 보일 수 있으며, 사용자가 이를 허용했다.
 - 게임 실행 파일/세이브/로그/경험 DB는 플러그인 패키지에 포함하지 않는다.
 
-플러그인 목록에서 로컬 소스 `Robotomy Local`을 선택해 `Robotomy Player`를 찾는다.
+플러그인 목록에서 로컬 소스 `Lobotomy Local`을 선택해 `Lobotomy Player`를 찾는다.
 최초 설치가 기존 앱/채팅 목록에 아직 보이지 않으면 앱 재시작이 한 번 필요할 수 있다.
 현재 실행 중인 오래된 MCP 프로세스에 새 호스트 코드를 주입하지 않는다.
 게임 창은 그대로 둔다. 직접 등록과 플러그인을 동시에 활성화하지 않는다.

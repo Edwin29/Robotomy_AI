@@ -1,0 +1,577 @@
+--- a/robotomy/facility.py
++++ b/robotomy/facility.py
+@@ -106,7 +106,7 @@
+     executor=VirtualExecutor(root)
+     with input_lock(root):
+         # Resolves at call time: old map/screen coordinates supplied by the player are never accepted.
+-        capture=executor.capture(record_observation=False)
++        capture=executor.capture(record_observation=False,include_frame=False)
+         point=resolve(capture['snapshot'],identity)
+         d=executor.control.prepare(capture['view']['id'],'right_click' if point['button']=='right' else 'click',
+                                    rationale=rationale,x=point['x'],y=point['y'])
+--- a/robotomy/input_sequence.py
++++ b/robotomy/input_sequence.py
+@@ -183,7 +183,7 @@
+             return copy.deepcopy(job)
+ 
+ 
+-def register_sequence_tools(server, root, executor=None):
++def register_sequence_tools(server, root, executor=None, after_input=None):
+     sequences=Sequences(root, executor)
+     server._input_sequences=sequences
+ 
+@@ -200,11 +200,17 @@
+     @server.tool()
+     def input_sequence_status(sequence_id: str) -> dict:
+         """Read asynchronous input progress. Completion means delivery, not game success."""
+-        return sequences.status(sequence_id)
++        result=sequences.status(sequence_id)
++        if after_input and result['status']!='running' and result.get('receipts'):
++            result['after']=after_input(result['receipts'][-1])
++        return result
+ 
+     @server.tool()
+     def cancel_input_sequence(sequence_id: str) -> dict:
+         """Cancel pending steps; current bounded input may finish (up to 3s plus acknowledgement).
+         No global pause and no game pause; cancellation does not undo delivered input.
+         """
+-        return sequences.cancel(sequence_id)
++        result=sequences.cancel(sequence_id)
++        if after_input and result['status']!='running' and result.get('receipts'):
++            result['after']=after_input(result['receipts'][-1])
++        return result
+--- a/robotomy/live.py
++++ b/robotomy/live.py
+@@ -397,6 +397,7 @@
+             click=employee.get('click')
+             item['employee']={'name':None if employee.get('name') is None else _string(employee['name'],256),
+                               'condition':condition,'click':None if click is None else vector(click,True)}
++            if type(employee.get('selected')) is bool:item['employee']['selected']=employee['selected']
+             if 'status' in employee:
+                 status=employee['status']
+                 if status not in EMPLOYEE_STATUS_LABELS: raise ValueError('invalid employee status')
+@@ -605,7 +606,7 @@
+         self.directory = self.root / ".robotomy" / "live"
+         self.snapshot_path = self.directory / "latest.json"
+         self.clock = clock or (lambda: datetime.now(timezone.utc))
+-        self._lock = threading.Lock()
++        self._lock = threading.RLock()
+         self._offered_baseline = None
+         self._audio = AudioJournal(self.directory)
+         self._audio_cursor = (None,0)
+@@ -748,6 +749,17 @@
+                         'waited_ms':round((time.monotonic()-started)*1000)}, None
+             time.sleep(min(.03, max(0, deadline-time.monotonic())))
+ 
++    def offer_audio(self,snapshot):
++        with self._lock:
++            session=snapshot.get('console',{}).get('session')
++            if session is None:return {'events':[]}
++            cursor=self._audio_cursor[1] if self._audio_cursor[0]==session else 0
++            delivery=self._audio.read(session,cursor,100)
++            delivery['producer_dropped']=snapshot['console'].get('audio_dropped',0)
++            if delivery['status']=='ok':self._audio_cursor=(session,delivery['next_event_id'])
++            elif delivery['status']=='journal_reset':self._audio_cursor=(session,0)
++            return player_audio(delivery)
++
+     def observe(self, max_items=100, motion_only=False, compact=False, after_sequence=None, wait_ms=350):
+         """Record exactly the bounded response; Markdown is deferred to day review."""
+         from .experience import record
+@@ -794,13 +806,19 @@
+                 bounded.update(reading_panels(bounded))
+                 bounded['visible_employees']=visible_employees(bounded)
+                 bounded['visible_entities']=visible_entities(bounded)
+-                bounded['facility_map']=bounded.get('console',{}).get('facility_map')
++                fm=bounded.get('console',{}).get('facility_map')
++                if fm is not None:
++                    import hashlib
++                    revision=hashlib.sha256(json.dumps(fm['known'],sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:16]
++                    bounded['facility_map']={'revision':revision,'visible':fm['visible']}
++                    bounded['facility_map_known']={'revision':revision,**fm['known']}
++                else:bounded['facility_map']=None
+                 bounded['dead_employees']=bounded.get('console',{}).get('dead_employees',[])
+                 states=[x['text'] for x in bounded.get('ui_texts',[]) if x.get('panel')=='playback' and x['text'] in ('paused','1x','1.5x','2x')]
+                 bounded['playback']={'state':states[0] if len(states)==1 else None,'basis':'visible_selected_control'}
+                 if 'console' in bounded:
+                     bounded['console']={k:v for k,v in bounded['console'].items()
+-                                        if k not in ('audio_dropped','audio_basis','facility_map')}
++                                        if k not in ('audio_dropped','audio_basis','audio_events','facility_map')}
+             response = {**summary, "observation_id": event_id, "recorded_at_utc": now,
+                         "snapshot": bounded, "truncated": truncated}
+             selection = {'max_items':max_items,'motion_only':motion_only}
+@@ -839,15 +857,7 @@
+             finally:
+                 os.close(descriptor)
+             if not motion_only and snapshot.get('console'):
+-                session=snapshot['console']['session']
+-                cursor=self._audio_cursor[1] if self._audio_cursor[0]==session else 0
+-                delivery=self._audio.read(session,cursor,100)
+-                delivery['producer_dropped']=snapshot['console']['audio_dropped']
+-                response['audio_delivery']=player_audio(delivery)
+-                if delivery['status']=='ok':
+-                    self._audio_cursor=(session,delivery['next_event_id'])
+-                elif delivery['status']=='journal_reset':
+-                    self._audio_cursor=(session,0)
++                response['audio_delivery']=self.offer_audio(snapshot)
+             response['experience_recording'] = record(self.root, 'observation_offered', response)
+             self._offered_baseline = copy.deepcopy({'id':event_id,'sections':observation_sections(bounded),
+                 'identity':identity,'selection':selection,'captured_at_utc':bounded['captured_at_utc'],
+--- a/robotomy/mcp_server.py
++++ b/robotomy/mcp_server.py
+@@ -21,6 +21,8 @@
+     store = Store(root)
+     live = LiveReader(root)
+     control = LiveControl(root)
++    from .quick_input import QuickInput
++    quick = QuickInput(root,live)
+     from .game_power import GamePower
+     power = power if power is not None else GamePower(root)
+     history = HistoryReader(root)
+@@ -45,6 +47,24 @@
+     ))
+ 
+     @server.tool()
++    async def game_input(command: list) -> dict:
++        """One explicit gesture: ["L", target], ["R", target], ["H", target], ["K", "Space"].
++        target is a visible facility ID, button:<target_id>, work:<name>, row:<row_id>,
++        employee:<track_id>, an unambiguous visible label, or [x,y] pixels.
++        Returns input receipt and complete relevant current UI, without images or view/decision plumbing.
++        ready means fresh UI response, never proof of action success. pending means inspect later; do not replay.
++        """
++        return await asyncio.to_thread(quick.input,command)
++
++    @server.tool()
++    async def move_employee(employee: str, destination: str) -> dict:
++        """Select the specified visible employee (employee:track_id or unique name), confirm its displayed
++        selection, then right-click a currently visible corridor/lobby facility ID. No route/policy/teleport.
++        Returns both input receipts and current UI. Sending an order does not prove arrival.
++        """
++        return await asyncio.to_thread(quick.move,employee,destination)
++
++    @server.tool()
+     def read_facility_map() -> dict:
+         """Read persistent previously observed facility anchors. Never live coordinates or hidden map nodes."""
+         from .facility import read_map
+@@ -57,7 +77,9 @@
+         Select staff first to order corridor movement. Offscreen/locked/covered targets send no input.
+         """
+         from .facility import click_facility as run
+-        return await asyncio.to_thread(run, root, facility_id, rationale)
++        result=await asyncio.to_thread(run, root, facility_id, rationale)
++        result['after']=await asyncio.to_thread(quick.finish,result['receipt'])
++        return result
+ 
+     @server.tool()
+     async def start_game() -> dict:
+@@ -138,7 +160,8 @@
+         """
+         from .virtual_input import VirtualExecutor
+         from robotomy.input_sequence import execute_with_lock
+-        return await asyncio.to_thread(execute_with_lock, VirtualExecutor(root), decision_id)
++        receipt=await asyncio.to_thread(execute_with_lock, VirtualExecutor(root), decision_id)
++        return await asyncio.to_thread(quick.finish,receipt)
+ 
+     @server.tool()
+     def live_action_receipt(decision_id: str) -> dict:
+@@ -404,7 +427,7 @@
+ 
+     from robotomy.input_sequence import register_sequence_tools
+     from .virtual_input import VirtualExecutor
+-    register_sequence_tools(server, root, VirtualExecutor(root))
++    register_sequence_tools(server, root, VirtualExecutor(root), quick.finish)
+ 
+     if player_only:
+         for name in ('start_session','list_sessions','observe','record_decision','execute_decision',
+--- /dev/null
++++ b/robotomy/quick_input.py
+@@ -0,0 +1,148 @@
++"""Small, explicit gestures; no policy, hidden lookup or OS input."""
++import time
++from datetime import datetime
++from .live import command_window, visible_employees, visible_entities, reading_panels
++from .virtual_input import VirtualExecutor
++from robotomy.input_sequence import input_lock
++from .experience import record
++
++
++def targets(snapshot):
++    result=[]
++    for b in snapshot.get('buttons',[]):
++        if b.get('input_verified') and b.get('interactable') and b.get('target_id'):
++            result.append({'ref':'button:'+b['target_id'],'label':b.get('text'),'kind':'button',
++                           'x':b.get('hit_x',b['x']+b['width']/2),'y':b.get('hit_y',b['y']+b['height']/2)})
++    for row in (command_window(snapshot) or {}).get('work_types',[]):
++        if row.get('click'):result.append({'ref':'work:'+row['name'],'label':row['name'],'kind':'work',**row['click']})
++    for row in (command_window(snapshot) or {}).get('employees',[]):
++        if row.get('click'):result.append({'ref':'row:'+row['row_id'],'label':row['name'],'kind':'row',**row['click']})
++    for row in visible_employees(snapshot):
++        if row.get('click'):result.append({'ref':'employee:'+row['track_id'],'label':row.get('name'),'kind':'employee',**row['click']})
++    fm=snapshot.get('console',{}).get('facility_map',{})
++    known={x['id']:x for x in fm.get('known',{}).get('landmarks',[])}
++    for row in fm.get('visible',[]):
++        if row.get('click'):result.append({'ref':row['id'],'label':known.get(row['id'],{}).get('label'),'kind':'facility',**row['click']})
++    return result
++
++
++def resolve(snapshot,ref,kind=None):
++    rows=targets(snapshot)
++    if kind:rows=[r for r in rows if r['kind']==kind]
++    exact=[r for r in rows if r['ref']==ref]
++    matches=exact or [r for r in rows if r['label']==ref]
++    # The same native button can have both button: and work:/row: aliases.
++    unique={(r['x'],r['y']):r for r in matches}
++    if len(unique)!=1:raise ValueError('Target missing or ambiguous; use one current target ref.')
++    return next(iter(unique.values()))
++
++
++def current(snapshot):
++    window=command_window(snapshot)
++    # Keep the grouped fields, omit the duplicate raw text for those groups.
++    if window:
++        common={'summary','window'}|{'result_'+r['result'] for r in window['work_results']}
++        common|={r['row_id'] for r in window['employees']}
++        window={**window,'text_groups':[g for g in window['text_groups'] if g['group'] not in common and not g['group'].startswith('work_')]}
++    states=[x['text'] for x in snapshot.get('ui_texts',[]) if x.get('panel')=='playback']
++    panels=reading_panels(snapshot)
++    return {'scene':snapshot['scene'],'sequence':snapshot['sequence'],'captured_at_utc':snapshot['captured_at_utc'],
++        'command_window':window,'targets':[{k:v for k,v in r.items() if k not in ('x','y','target_id','basis')} for r in targets(snapshot)],
++        'visible_employees':visible_employees(snapshot),'visible_entities':visible_entities(snapshot),
++        'playback':states,'hazards':snapshot.get('console',{}).get('hazards'),
++        'gauges':snapshot.get('console',{}).get('gauges',[]),'dead_employees':snapshot.get('console',{}).get('dead_employees',[]),
++        'other_text':[{'panel':t.get('panel'),'text':t['text']} for t in snapshot.get('ui_texts',[]) if t.get('panel') not in ('command','playback','ego','creature_record')],
++        **{k:v for k,v in panels.items() if v}}
++
++
++def context(s):return (s['process_id'],s['scene'],s['screen'])
++def timestamp(s):return datetime.fromisoformat(s['captured_at_utc'].replace('Z','+00:00')).timestamp()
++
++
++class QuickInput:
++    def __init__(self,root,reader,executor=None):
++        self.root=root;self.reader=reader;self.executor=executor or VirtualExecutor(root)
++
++    def wait(self,before,receipt,predicate=None):
++        deadline=time.monotonic()+1.2;last=None;stable=None;stable_since=None;seen_sequence=None;stable_samples=0
++        threshold=receipt.get('at_epoch',0)
++        while True:
++            status,s=self.reader._read()
++            if s is not None and timestamp(s)>threshold and s['sequence']>before['sequence']:
++                last=s
++                if context(s)!=context(before):return s,'context_changed'
++                # Stabilize only actionable UI, not moving staff, timers or scrolling text.
++                sig=[(t.get('target_id'),t.get('text'),round(t.get('hit_x',0),1),round(t.get('hit_y',0),1)) for t in s.get('buttons',[]) if t.get('interactable')]
++                now=time.monotonic()
++                if s['sequence']!=seen_sequence:
++                    if sig!=stable:stable=sig;stable_since=now;stable_samples=1
++                    else:stable_samples+=1
++                    seen_sequence=s['sequence']
++                if predicate is not None:
++                    if predicate(s) and stable_samples>=2 and now-stable_since>=.12:return s,'ready'
++                elif stable_samples>=2 and now-stable_since>=.12:return s,'ready'
++            if time.monotonic()>=deadline:return last,'pending' if last else 'unavailable'
++            time.sleep(.025)
++
++    def offered(self,result,snapshot,readiness):
++        response={**result,'result_status':readiness,'current':current(snapshot) if snapshot else None}
++        if snapshot:response['audio_delivery']=self.reader.offer_audio(snapshot)
++        response['experience_recording']=record(self.root,'action_result_offered',response.copy())
++        return response
++
++    def finish(self,receipt,before=None,predicate=None):
++        # Never replay uncertain or failed input. The result remains explicitly separate.
++        if receipt.get('status')!='input_sent':return self.offered(receipt,None,'input_not_confirmed')
++        if before is None:
++            status,before=self.reader._read()
++            if before is None:return self.offered(receipt,None,'unavailable')
++            before={**before,'sequence':-1}
++        try:s,state=self.wait(before,receipt,predicate)
++        except (OSError,ValueError,KeyError):s,state=None,'unavailable'
++        return self.offered(receipt,s,state)
++
++    def gesture(self,snapshot,kind,target_ref=None,**args):
++        c=self.executor.capture(record_observation=False,include_frame=False)
++        if context(c['snapshot'])!=context(snapshot):raise ValueError('Screen context changed; no input sent.')
++        if target_ref is not None:
++            point=resolve(c['snapshot'],target_ref);args.update(x=point['x'],y=point['y'])
++        d=self.executor.control.prepare(c['view']['id'],kind,**args)
++        return self.executor.execute(d['id'])
++
++    def input(self,command):
++        if not isinstance(command,list) or len(command)!=2 or command[0] not in ('L','R','K','H'):raise ValueError('Use [L/R/H, target ref or [x,y]], or [K, key].')
++        op,ref=command
++        with input_lock(self.root):
++            s=self.executor._snapshot();predicate=None
++            if op=='K':
++                if not isinstance(ref,str):raise ValueError('Key must be text')
++                receipt=self.gesture(s,'key',key=ref)
++            else:
++                if isinstance(ref,str):
++                    t=resolve(s,ref);x,y=t['x'],t['y']
++                    if t['kind']=='work':predicate=lambda n:bool((command_window(n) or {}).get('employees'))
++                    elif t['kind']=='facility' and ref.startswith('containment:') and op=='L':predicate=lambda n:command_window(n) is not None
++                elif isinstance(ref,list) and len(ref)==2:x,y=ref
++                else:raise ValueError('Target must be a current ref or [x,y]')
++                receipt=self.gesture(s,{'L':'click','R':'right_click','H':'move'}[op],target_ref=t['ref'] if isinstance(ref,str) else None,x=x,y=y)
++            return self.finish(receipt,s,predicate)
++
++    def move(self,employee,destination):
++        with input_lock(self.root):
++            s=self.executor._snapshot();person=resolve(s,employee,'employee');place=resolve(s,destination,'facility')
++            if place.get('button')!='right':raise ValueError('Choose a corridor/lobby destination; containment rooms are work targets.')
++            # Normal left selection replaces prior selection in the shipped game.
++            selected_ref=person['ref'];receipt=self.gesture(s,'click',target_ref=person['ref'],x=person['x'],y=person['y'])
++            if receipt.get('status')!='input_sent':return self.finish(receipt,s)
++            def selected(n):
++                return any('employee:'+r['track_id']==selected_ref and r.get('selected') is True for r in visible_employees(n))
++            after,state=self.wait(s,receipt,selected)
++            if state!='ready':return self.offered({'status':'stopped','reason':'Employee selection not confirmed','selection_receipt':receipt},after,state)
++            try:
++                # Re-resolve both after selection, never use old screen coordinates.
++                fresh=self.executor._snapshot()
++                if context(fresh)!=context(s) or not selected(fresh):raise ValueError('Selection or screen changed')
++                place=resolve(fresh,destination,'facility')
++                sent=self.gesture(fresh,'right_click',target_ref=place['ref'],x=place['x'],y=place['y'])
++            except ValueError as e:return self.offered({'status':'stopped','reason':str(e),'selection_receipt':receipt},after,'stopped')
++            return self.finish({**sent,'selection_receipt':receipt,'movement':'order_sent_not_arrival_confirmed'},fresh)
+--- a/robotomy/reload_host.py
++++ b/robotomy/reload_host.py
+@@ -15,7 +15,7 @@
+ from mcp.server.lowlevel import Server
+ from mcp.server.stdio import stdio_server
+ 
+-HOT = ('playbook', 'facility', 'live', 'live_control', 'virtual_input', 'history', 'mcp_server')
++HOT = ('playbook', 'facility', 'live', 'live_control', 'virtual_input', 'history', 'quick_input', 'mcp_server')
+ PINNED = ('experience', 'store', 'mock', 'game_power', 'observer_window', '__init__', 'reload_host', 'input_sequence')
+ 
+ 
+--- a/robotomy/virtual_input.py
++++ b/robotomy/virtual_input.py
+@@ -70,22 +70,25 @@
+             raise ValueError('Virtual game input is unavailable or stale. No OS fallback.')
+         return snapshot
+ 
+-    def capture(self, record_observation=True):
++    def capture(self, record_observation=True, include_frame=True):
+         snapshot = self._snapshot()
+-        status, frame = self.control.reader.frame()
+-        for _ in range(4):
+-            if frame is not None or status.get('reason') != 'frame_unreadable': break
+-            time.sleep(.02)
++        frame=None
++        if not include_frame and record_observation:raise ValueError('Structured private capture must not be offered as an image')
++        if include_frame:
+             status, frame = self.control.reader.frame()
+-        if frame is None: raise ValueError('Fresh game frame required: ' + str(status))
+-        if status.get('process_id') != snapshot['process_id'] or status.get('scene') != snapshot['scene']:
+-            raise ValueError('Scene or process changed while capturing; observe again.')
+-        # frame() reads its own fresh snapshot. A resize between those two reads
+-        # must not associate new PNG coordinates with an older control view.
+-        dimensions = {'width':int.from_bytes(frame[16:20], 'big'),
+-                      'height':int.from_bytes(frame[20:24], 'big')}
+-        if dimensions != snapshot['screen']:
+-            raise ValueError('Resolution changed while capturing; observe again.')
++            for _ in range(4):
++                if frame is not None or status.get('reason') != 'frame_unreadable': break
++                time.sleep(.02)
++                status, frame = self.control.reader.frame()
++            if frame is None: raise ValueError('Fresh game frame required: ' + str(status))
++            if status.get('process_id') != snapshot['process_id'] or status.get('scene') != snapshot['scene']:
++                raise ValueError('Scene or process changed while capturing; observe again.')
++            # frame() reads its own fresh snapshot. A resize between those two reads
++            # must not associate new PNG coordinates with an older control view.
++            dimensions = {'width':int.from_bytes(frame[16:20], 'big'),
++                          'height':int.from_bytes(frame[20:24], 'big')}
++            if dimensions != snapshot['screen']:
++                raise ValueError('Resolution changed while capturing; observe again.')
+         identity = uuid.uuid4().hex
+         view = {'id': identity, 'backend': 'virtual_unity', 'coordinate_space': 'unity_client_pixels',
+                 'captured_epoch': time.time(), 'process_id': snapshot['process_id'], 'scene': snapshot['scene'],
+@@ -93,11 +96,11 @@
+                 'screenshot_id': identity, 'sequence': snapshot['sequence']}
+         directory = self.control.directory / 'views'
+         directory.mkdir(parents=True, exist_ok=True)
+-        (directory / (identity+'.png')).write_bytes(frame)
++        if frame is not None:(directory / (identity+'.png')).write_bytes(frame)
+         atomic(directory / (identity+'.json'), view)
+         atomic(self.control.directory / 'view.json', view)
+         from .experience import record
+-        response = {'view': view, 'frame_path': str(directory / (identity+'.png')), 'snapshot': snapshot}
++        response = {'view': view, 'frame_path': str(directory / (identity+'.png')) if frame is not None else None, 'snapshot': snapshot}
+         if record_observation:
+             response['experience_recording'] = record(self.root, 'control_view_offered',
+                 {**response, 'image_delivery':'reference_only_not_proof_of_viewing'}, frame)
+--- a/mods/RobotomyObserver/ConsoleEmployee.cs
++++ b/mods/RobotomyObserver/ConsoleEmployee.cs
+@@ -16,7 +16,11 @@
+   string name=unit.ui==null?"null":Label(ui,unit.ui.Name);
+   var hud=unit.agentUI;if(name=="null" && hud!=null)name=Label(ui,hud.Name);
+   string status=Status(unit.model);
+-  return "{\"name\":"+name+",\"status\":"+Q(status)+",\"click\":"+(status=="dead"?"null":Click(unit,cam,pixel))+"}";
++  // Shipped AgentUI.SetSelectState paints the visible HUD texture orange.
++  var texture=hud==null?null:hud.Texture;Rect selectedRect;
++  bool selected=texture!=null && ui.VisibleWorldLabel(hud.Name,out selectedRect) && texture.enabled && texture.gameObject.activeInHierarchy &&
++   Mathf.Abs(texture.color.r-1f)<.005f && Mathf.Abs(texture.color.g-.5803922f)<.005f && Mathf.Abs(texture.color.b-13f/51f)<.005f && texture.color.a>.05f;
++  return "{\"selected\":"+(selected?"true":"false")+",\"name\":"+name+",\"status\":"+Q(status)+",\"click\":"+(status=="dead"?"null":Click(unit,cam,pixel))+"}";
+  }
+  public static string Status(AgentModel model){
+   if(model==null)return "unknown";
+--- a/config/player/AGENTS.md
++++ b/config/player/AGENTS.md
+@@ -66,7 +66,7 @@
+ 
+ - `observe_live`로 표시 정보를, `view_live_frame`으로 실제 화면과 이야기 장면을 본다.
+   누락·가림·모호함을 숨은 정보나 사전 지식으로 채우지 않는다. 필요한 장면을 직접 확인한다.
+-- 조작 순서: `capture_live_control` → `prepare_live_action` → `execute_live_action` → 새 관찰.
++- 보통 입력은 `game_input(command=["L", 대상])`를 사용하고 응답의 `current`에서 결과를 확인한다. 좌표·길게 누르기·드래그·예약 등 세부 제어에는 기존 `capture_live_control` → `prepare_live_action` → `execute_live_action`을 사용한다.
+   최신 view_id와 게임기 PNG의 좌표를 사용한다. 이미지 경로만 받았다는 사실은 관람의 증명이 아니다.
+ - 키 이름은 대소문자를 구분하지 않는다. W/A/S/D/F/G, 1/2/3, Space(Spacebar),
+   Escape(Esc), Return(Enter)를 사용한다. 조합키나 동시 키는 지원하지 않는다.
+@@ -178,7 +178,7 @@
+ 
+ ### 소리 관찰과 지연된 이벤트
+ 
+-`observe_live`의 `audio_delivery`는 이전 관찰 이후의 소리 기록을 최대 100개 전달한다.
++`observe_live`와 입력 결과의 `audio_delivery`는 같은 연결에서 아직 반환하지 않은 소리 기록을 최대 100개 전달한다.
+ `at_utc`는 소리가 난 시각이다. `has_more=true`이면
+ `read_audio_events(session=반환된 session, after_event_id=next_event_id, limit=100)`으로
+ 이어서 읽을 수 있다. 같은 session/event_id는 중복 기록이므로 새 사건으로 세지 않는다.
+@@ -313,3 +313,20 @@
+ 엔티티의 `facility_location`은 현재 보이는 시설과의 위치 관계다. `facility_id`와 `facility_label`로 지도에 연결하고, `map_position`은 카메라와 무관한 고정 좌표다. `relative.u`는 시설 표시 영역의 왼쪽→오른쪽, `relative.v`는 아래→위의 연속 비율이다(0=시작 끝, 1=반대 끝). 3개 구역 분류가 아니다. `extent.width/height`는 같은 지도 단위의 표시 영역 크기다. 기준점은 관찰된 몸체/이름표 표본이라 발 위치와 같지 않을 수 있고, 영역 밖 표본은 0~1 밖의 값을 가질 수 있다. 클릭에는 기존 화면 click 좌표 또는 click_facility를 사용한다. 시설 연결이 확인되지 않으면 facility_location은 null이며 근처 시설로 임의 배정하지 않는다.
+ 
+ 표면 효과는 확인된 외형에 따라 흑백 노이즈 / 불꽃·불티 / 무지개색 물결 / 녹색 안개·빛 입자로 제공한다. 이 명칭은 외형 설명이며 원인 환상체나 피해·상태이상에 관한 설명이 아니다. 미분류 효과는 필요할 때 화면으로 확인한다.
++
++## 간단 입력과 함께 받는 결과
++
++- `game_input(command=["L", "containment:…"])`: 현재 보이는 격리실 좌클릭.
++- `game_input(command=["L", "work:통찰"])`: 현재 표시된 작업 종류 선택.
++- `game_input(command=["L", "row:현재 row_id"])`: 현재 표시된 직원 행 클릭.
++- `game_input(command=["L", "2x"])`: 이름이 유일한 현재 버튼 클릭.
++- `game_input(command=["H", 대상])`: 포인터 올리기. `R`은 우클릭, `["K", "Space"]`는 키 입력이다. 픽셀 입력은 `["L", [x,y]]`로 가능하다.
++- `move_employee(employee="직원 이름", destination="corridor:…")`: 보이는 직원 선택을 확인한 뒤 보이는 목적지를 우클릭한다. 경로·전략을 대신 정하지 않는다.
++
++이름이 중복되면 `button:target_id`, `employee:track_id` 등 응답 `current.targets`의 ref를 사용한다. 고정 시설 ID 외의 ID는 현재 관찰에서 얻는다. 보이지 않는 대상은 입력하지 않는다. 선택된 작업 버튼 등 현재 클릭 불가능한 항목은 targets에서 빠질 수 있다.
++
++입력 응답 `current`는 해당 시점의 작업창·직원 행·상태·장비/기록 창·위험 표시·입력 대상을 제공한다. 기존 execute_live_action도 current를, click_facility와 완료된 예약 상태 조회는 after.current를 반환한다. 필요한 결과가 이미 있으면 곧바로 다음 판단을 해도 되며 관성적으로 observe_live를 다시 호출하지 않는다. current는 독립된 관찰이며 observe_live diff 기준을 바꾸지 않는다.
++
++`result_status=ready`는 새 UI 표본이 준비됐다는 뜻이다. 성공 여부는 내용으로 판단한다. pending/unavailable은 관찰을 보충할 상황이지 입력을 재전송할 이유가 아니다. 이동 명령의 완료는 도착을 뜻하지 않는다. 스토리·새 연출·모호한 장면은 기존대로 화면을 본다.
++
++고정 지도는 `/facility_map_known`, 현재 보이는 시설은 `/facility_map`으로 나뉜다. compact 첫 응답/reset이나 지도 변경에만 known이 다시 온다. 소리는 입력 결과와 observe_live가 커서를 공유하므로 어느 쪽에서 받았든 한 번만 처리한다. 재연결 후 재전달 가능성은 소리 식별자와 발생 시각으로 구분한다.
+--- a/tests/mcp_smoke.py
++++ b/tests/mcp_smoke.py
+@@ -77,7 +77,9 @@
+                 assert queued['status']=='rejected'  # Legacy/fixture view must never reach Win32.
+                 assert 'virtual control view' in queued['reason']
+                 assert (await call('execute_live_action',{'decision_id':d['id']}))==queued
+-                assert (await call('live_action_receipt',{'decision_id':d['id']}))==queued
++                receipt=await call('live_action_receipt',{'decision_id':d['id']})
++                assert all(queued[k]==v for k,v in receipt.items())
++                assert queued['current'] is None
+                 timeline = await call('read_live_timeline',{})
+                 if isinstance(timeline, dict): timeline = timeline['result']
+                 assert len(timeline)==3
+--- a/tests/reload_mcp_smoke.py
++++ b/tests/reload_mcp_smoke.py
+@@ -19,7 +19,7 @@
+             async with ClientSession(incoming,outgoing) as client:
+                 await client.initialize()
+                 names={t.name for t in (await client.list_tools()).tools}
+-                assert len(names)==35 and {'hover_live_control','player_runtime_status','reload_player_code','start_game',
++                assert len(names)==37 and {'hover_live_control','player_runtime_status','reload_player_code','start_game',
+                     'submit_input_sequence','input_sequence_status','cancel_input_sequence'}<=names
+                 async def call(name):
+                     response=await client.call_tool(name,{})
+@@ -37,5 +37,5 @@
+                 p.write_text(original,encoding='utf-8')
+                 assert (await call('live_status'))['status']=='never_connected'
+                 assert (await call('player_runtime_status'))['code_revision']==first['code_revision']
+-                print('Reload MCP smoke passed: 35 tools; same connection applied change, blocked bad edit, recovered.')
++                print('Reload MCP smoke passed: 37 tools; same connection applied change, blocked bad edit, recovered.')
+ if __name__=='__main__':asyncio.run(main())
+--- a/tests/test_console.py
++++ b/tests/test_console.py
+@@ -44,6 +44,29 @@
+         self.assertNotIn('audio_basis',first['snapshot']['console'])
+         self.assertNotIn('producer_dropped',first['audio_delivery'])
+         self.assertEqual(self.reader.observe()['audio_delivery']['events'],[])
++
++    def test_action_audio_and_observe_share_cursor(self):
++        self.publish()
++        path=self.reader.directory/('audio-'+self.obj['console']['session']+'.jsonl')
++        event=dict(self.obj['console']['audio_events'][0],sound_id='first_trumpet')
++        path.write_text(json.dumps(event)+'\n',encoding='utf-8')
++        self.assertEqual(len(self.reader.offer_audio(self.obj)['events']),1)
++        offered=self.reader.observe()
++        self.assertEqual(offered['audio_delivery']['events'],[])
++        self.assertNotIn('audio_events',offered['snapshot']['console'])
++
++    def test_visible_map_changes_do_not_repeat_known_geometry(self):
++        self.obj['console']['facility_map']={'known':{'version':1,'landmarks':[{'id':'corridor:1:2','kind':'corridor','x':1,'y':2}]},'visible':[{'id':'corridor:1:2','kind':'corridor','position':{'x':10,'y':20},'click':{'x':12,'y':20,'button':'right'}}]}
++        self.publish()
++        first=self.reader.observe(compact=True)
++        self.assertIn('facility_map_known',first['snapshot'])
++        self.obj['console']['facility_map']['visible'][0]['click']['x']=30
++        self.obj['sequence']+=1
++        self.publish()
++        second=self.reader.observe(compact=True)
++        changes=second['change_summary']['replacements']
++        self.assertIn('/facility_map',changes)
++        self.assertNotIn('/facility_map_known',changes)
+ 
+     def test_transient_missing_snapshot_retries_only_read(self):
+         self.publish()
+--- a/tests/test_player_setup.py
++++ b/tests/test_player_setup.py
+@@ -17,7 +17,7 @@
+         with tempfile.TemporaryDirectory() as temp:
+             server=create_server(Path(temp),player_only=True)
+             names={tool.name for tool in asyncio.run(server.list_tools())}
+-            self.assertEqual(len(names),33)
++            self.assertEqual(len(names),35)
+             self.assertTrue({'read_playbook','save_playbook_entry'} <= names)
+             self.assertTrue({'read_facility_map','click_facility'} <= names)
+             self.assertIn('read_audio_events',names)
+--- /dev/null
++++ b/tests/test_quick_input.py
+@@ -0,0 +1,42 @@
++import copy,tempfile,unittest
++from pathlib import Path
++from unittest.mock import Mock,patch
++from robotomy.quick_input import QuickInput,resolve,current
++from robotomy.live import visible_employees
++
++class QuickTests(unittest.TestCase):
++ def sample(self):
++  return {'process_id':1,'scene':'Main','screen':{'width':100,'height':100},'sequence':1,'captured_at_utc':'2026-10-19T00:00:00Z','ui_texts':[],
++   'buttons':[{'target_id':'a','text':'통찰','input_verified':True,'interactable':True,'x':10,'y':10,'width':10,'height':10,'hit_x':15,'hit_y':15,'role':'work_type','panel':'command'}],
++   'console':{'facility_map':{'known':{'landmarks':[]},'visible':[]},'motion':{'status':'available','tracks':[]}}}
++ def test_alias_and_ambiguity(self):
++  s=self.sample();self.assertEqual(resolve(s,'work:통찰')['x'],15);self.assertEqual(resolve(s,'통찰')['x'],15)
++  s['buttons'].append({**s['buttons'][0],'target_id':'b','hit_x':50})
++  with self.assertRaises(ValueError):resolve(s,'통찰')
++  s['buttons']=[]
++  with self.assertRaises(ValueError):resolve(s,'button:a')
++ def test_current_has_no_geometry_or_raw_audio(self):
++  s=self.sample();s['console']['audio_events']=[{'secret':'raw'}]
++  out=current(s);self.assertNotIn('console',out);self.assertNotIn('facility_map',out)
++  self.assertIn('work:통찰',[x['ref'] for x in out['targets']])
++ def test_unknown_receipt_never_reexecutes(self):
++  with tempfile.TemporaryDirectory() as root:
++   executor=Mock();q=QuickInput(Path(root),Mock(),executor)
++   result=q.finish({'status':'unknown'})
++   executor.execute.assert_not_called();self.assertIsNone(result['current'])
++ def test_no_frame_required_for_internal_gesture(self):
++  s=self.sample();ex=Mock();ex.capture.return_value={'snapshot':s,'view':{'id':'v'}};ex.control.prepare.return_value={'id':'d'};ex.execute.return_value={'status':'input_sent'}
++  q=QuickInput(Path('.'),Mock(),ex);q.gesture(s,'click',target_ref='button:a')
++  ex.capture.assert_called_once_with(record_observation=False,include_frame=False)
++  self.assertEqual(ex.control.prepare.call_args.kwargs['x'],15)
++ def test_context_change_prevents_input(self):
++  s=self.sample();ex=Mock();ex.capture.return_value={'snapshot':{**s,'scene':'Story'},'view':{'id':'v'}}
++  with self.assertRaises(ValueError):QuickInput(Path('.'),Mock(),ex).gesture(s,'click',target_ref='button:a')
++  ex.execute.assert_not_called()
++ def test_does_not_move_when_selection_unconfirmed(self):
++  with tempfile.TemporaryDirectory() as root:
++   q=QuickInput(Path(root),Mock(),Mock());q.executor._snapshot.return_value=self.sample();q.gesture=Mock(return_value={'status':'input_sent'});q.wait=Mock(return_value=(self.sample(),'pending'))
++   refs=[{'ref':'employee:t','x':1,'y':1},{'ref':'corridor:1:2','button':'right','x':5,'y':5}]
++   with patch('robotomy.quick_input.resolve',side_effect=refs):r=q.move('a','b')
++   self.assertEqual(q.gesture.call_count,1);self.assertEqual(r['status'],'stopped')
++if __name__=='__main__':unittest.main()

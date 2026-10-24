@@ -5,6 +5,20 @@ from robotomy.quick_input import QuickInput,resolve,current
 from robotomy.live import visible_employees
 
 class QuickTests(unittest.TestCase):
+ def test_zoom_uses_native_keys_without_pointer_or_click(self):
+  for amount,key,duration in [(1,'f',300),(-2,'g',600),(5,'f',1500)]:
+   with tempfile.TemporaryDirectory() as root:
+    q=QuickInput(Path(root),Mock(),Mock());q.executor._snapshot.return_value=self.sample()
+    q.gesture=Mock(return_value={'status':'input_sent'});q.finish=Mock(side_effect=lambda r,*args:r)
+    r=q.input(['Z',amount])
+    q.gesture.assert_called_once_with(self.sample(),'key',key=key,duration_ms=duration)
+    self.assertEqual(r['zoom']['amount'],abs(amount))
+ def test_invalid_zoom_is_rejected_before_input_including_batches(self):
+  for amount in (0,6,-6,True,1.5,'in',None):
+   q=QuickInput(Path('.'),Mock(),Mock())
+   with self.assertRaises(ValueError):q.input(['Z',amount])
+   with self.assertRaises(ValueError):q.intents([{'kind':'input','command':['K','Space']},{'kind':'input','command':['Z',amount]}])
+   q.executor._snapshot.assert_not_called();q.executor.execute.assert_not_called()
  def sample(self):
   return {'process_id':1,'scene':'Main','screen':{'width':100,'height':100},'sequence':1,'captured_at_utc':'2026-10-19T00:00:00Z','ui_texts':[],
    'buttons':[{'target_id':'a','text':'통찰','input_verified':True,'interactable':True,'x':10,'y':10,'width':10,'height':10,'hit_x':15,'hit_y':15,'role':'work_type','panel':'command'}],
@@ -51,6 +65,8 @@ class QuickTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as root:
    q=QuickInput(Path(root),Mock(),Mock());q.executor._snapshot.return_value=self.sample();q.gesture=Mock(return_value={'status':'input_sent'});q.wait=Mock(return_value=(self.sample(),'pending'))
    refs=[{'ref':'employee:t','x':1,'y':1},{'ref':'corridor:1:2','button':'right','x':5,'y':5}]
+   q.reader.offer_audio.return_value={'events':[]}
+   q.reader.deliver.return_value={}
    with patch('robotomy.quick_input.resolve',side_effect=refs):r=q.move('a','b')
    self.assertEqual(q.gesture.call_count,1);self.assertEqual(r['status'],'stopped')
 if __name__=='__main__':unittest.main()

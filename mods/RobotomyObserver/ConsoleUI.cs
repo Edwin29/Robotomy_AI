@@ -125,9 +125,12 @@ public sealed class ConsoleUI
     // Empty overload slots still occupy the displayed bar layout. No model count is read.
     public bool VisibleGaugeSlot(Image g,out Rect rect) { return Visible(g,out rect,false,true); }
     public bool VisibleWorldLabel(Text g,out Rect rect) { return Visible(g,out rect,false,false,true); }
+    public bool VisibleResearch(Graphic g,Transform surface,out Rect rect) { return Visible(g,out rect,false,false,false,null,surface,false,true); }
+    public bool VisibleStory(Graphic g,out Rect rect) { return Visible(g,out rect,false,false,false,null,null,false,true,true); }
     public bool VisibleWorldGraphic(Graphic g,out Rect rect) { return Visible(g,out rect,false,false,true); }
     public bool VisibleWorldRegion(Graphic g,Rect rect) { Rect unused;return Visible(g,out unused,false,false,true,rect); }
     public bool VisibleTextRegion(Text g,Rect region){Rect r;return Visible(g,out r,false,false,false,region);}
+    public bool VisibleReadingRegion(Text g,Rect region,Transform surface){Rect r;return Visible(g,out r,false,false,false,region,surface);}
     // Command window uses intentionally translucent artwork/text. Transparent or
     // culled graphics still disappear; ancestor groups, masks and external covers remain checked.
     public bool VisibleCommandGraphic(Graphic g,Transform surface,out Rect rect) {
@@ -143,7 +146,7 @@ public sealed class ConsoleUI
     }
     // Feeling-state palette uses alpha 200/255 in the shipped game. Other fades remain rejected.
     public bool VisibleFeelingLabel(Text g,out Rect rect){return Visible(g,out rect,false,false,false,null,null,true);}
-    bool Visible(Graphic g, out Rect rect, bool playbackIcon, bool emptySlot=false, bool worldLabel=false,Rect? region=null,Transform surface=null,bool feelingPalette=false) {
+    bool Visible(Graphic g, out Rect rect, bool playbackIcon, bool emptySlot=false, bool worldLabel=false,Rect? region=null,Transform surface=null,bool feelingPalette=false,bool authoredRotation=false,bool storyCanvas=false) {
         rect = new Rect();
         inspecting=g==null?"null":g.name;
         if (emptySlot) {
@@ -153,12 +156,12 @@ public sealed class ConsoleUI
         string disclosure=ConsoleDisclosure.RejectReason(g.transform);
         if (disclosure!=null) return Reject(disclosure);
         if (unsafeEffects) return Reject("unverified_effect");
-        if(!worldLabel && (g.canvas.renderMode==RenderMode.WorldSpace || (g.canvas.worldCamera!=null && g.canvas.worldCamera.name=="MainCamera")))
+        if(!worldLabel && !storyCanvas && (g.canvas.renderMode==RenderMode.WorldSpace || (g.canvas.worldCamera!=null && g.canvas.worldCamera.name=="MainCamera")))
             return Reject("world_render_unverified");
         if (g.material != null && g.material != g.defaultMaterial) return Reject("custom_material");
         if (!(region.HasValue ? ((rect=region.Value).width>0) : GraphicRect(g,out rect)) || !Contains(new Rect(0,0,Screen.width,Screen.height),rect))
             return Reject("outside_screen:"+rect.ToString());
-        if (Mathf.Abs(Mathf.DeltaAngle(g.rectTransform.eulerAngles.z,0)) > .1f) return Reject("rotated");
+        if (!authoredRotation && Mathf.Abs(Mathf.DeltaAngle(g.rectTransform.eulerAngles.z,0)) > .1f) return Reject("rotated");
         // Our own diagnostic crosshair is not a game occluder for an audited
         // playback icon. Game panels/masks still pass through all checks below.
         // Device-owned pointer is an observation aid, not a game information mask.
@@ -192,11 +195,17 @@ public sealed class ConsoleUI
             if (PossiblyInFront(other,g)) {
                 // Only the game's normal pause decoration is eligible. Other covers stay effective.
                 if(ClearPauseCover(other,box,rect)) continue;
+                // Normal pause decoration tints the facility; it does not hide its HUD.
+                var worldPause=other as Image;
+                if(worldLabel && speedUI!=null && worldPause==speedUI.pauseFilter &&
+                   (worldPause.sprite==speedUI.pauseDefSprite || worldPause.sprite==speedUI.observeSprite))continue;
                 // Normal pause artwork tints this command panel but does not hide its text.
                 // Limit the exception to the game's two known pause sprites and this UI root.
                 var command=CommandWindow.CommandWindow.CurrentWindow;
                 var pause=other as Image;
-                if(surface!=null && command!=null && command.RootControl!=null && surface==command.RootControl.transform && speedUI!=null && pause==speedUI.pauseFilter && (pause.sprite==speedUI.pauseDefSprite || pause.sprite==speedUI.observeSprite))continue;
+                var aw=AgentInfoWindow.currentWindow;
+                bool knownPanel=surface!=null && ((command!=null && command.RootControl!=null && surface==command.RootControl.transform) || (aw!=null && surface==aw.transform));
+                if(knownPanel && speedUI!=null && pause==speedUI.pauseFilter && (pause.sprite==speedUI.pauseDefSprite || pause.sprite==speedUI.observeSprite))continue;
                  inspecting+="<-"+other.name; return Reject("front_graphic"); }
         }
         if(worldLabel && !ConsoleWorldLabels.Clear(g,rect))return Reject("world_label_cover");
@@ -271,12 +280,15 @@ public sealed class ConsoleUI
                     if(entry.callback.GetPersistentTarget(i)==row && entry.callback.GetPersistentMethodName(i)=="OnClick") click=true;
             }
             if(!click) continue;
-            // Click reachability is not game orderability. Never read IsOrderable/State/CurrentAgent.
+            // Identity binding only, after rendered row and click-handler checks.
+            // No model vitals/orderability are exported.
             ViewRect item=new ViewRect{text=anchor.text,panel="command",row_id=id,role="click",
                 x=anchor.x,y=anchor.y,width=anchor.width,height=anchor.height,
                 hit_x=point.x,hit_y=Screen.height-point.y,interactable=true,
                 target_id=target.GetInstanceID().ToString(),input_verified=true};
             buttons.Add(item);
+            if(row.CurrentAgent!=null && row.CurrentAgent.GetUnit()!=null)
+                item.subject_ref="unit:"+ConsoleSignals.Identity(row.CurrentAgent.GetUnit());
         }
     }
     void CapturePlayback(List<ViewRect> texts) {
@@ -364,9 +376,11 @@ public sealed class ConsoleUI
             panel.Bind(entry.root); ReadPanel(panel,entry.source,texts,buttons);
         }
         ConsoleReading.Capture(this,texts,buttons);
+        ConsoleNarrative.Capture(this,texts);
         CaptureCommandTargets(texts,buttons);
         CommandWindowReading.Capture(this,buttons);
         CapturePlayback(texts);
+        ConsoleScreen.Capture(this,texts,buttons);
         var expired=new List<GameObject>();
         foreach(var root in extraPanels.Keys) if(root==null || !retained.Contains(root)) expired.Add(root);
         foreach(var root in expired) extraPanels.Remove(root);

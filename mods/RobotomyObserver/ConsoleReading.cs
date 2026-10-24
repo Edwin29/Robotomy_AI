@@ -5,26 +5,27 @@ using System;using System.Collections.Generic;using UnityEngine;using UnityEngin
 public static class ConsoleReading {
  static ViewRect Item(Rect r,string text,string panel,string id,string role){return new ViewRect{text=text,panel=panel,row_id=id,role=role,x=r.x,y=Screen.height-r.yMax,width=r.width,height=r.height};}
  static string Plain(Text t){return t.supportRichText?System.Text.RegularExpressions.Regex.Replace(t.text,"<[^>]*>",""):t.text;}
- static ViewRect Add(ConsoleUI ui,Text t,string panel,string id,string role,List<ViewRect> output,Transform surface=null){
+ internal static ViewRect Add(ConsoleUI ui,Text t,string panel,string id,string role,List<ViewRect> output,Transform surface=null){
   Rect r;if(t==null || String.IsNullOrEmpty(t.text) || !(surface==null?ui.Visible(t,out r):ui.VisibleSurface(t,surface,out r)))return null;
   string plain=Plain(t);if(plain.Length>2048 || t.cachedTextGenerator.characterCountVisible<plain.Length)return null;
   if(t.supportRichText && System.Text.RegularExpressions.Regex.IsMatch(t.text,@"<(size|color)\b",System.Text.RegularExpressions.RegexOptions.IgnoreCase))return null;
   var v=Item(r,plain,panel,id,role);output.Add(v);return v;
  }
- static void Click(ConsoleUI ui,Graphic graphic,GameObject expected,string id,string role,string label,List<ViewRect> buttons,Transform surface=null){
+ internal static void Click(ConsoleUI ui,Graphic graphic,GameObject expected,string id,string role,string label,List<ViewRect> buttons,Transform surface=null,string panel="ego"){
   Rect r;var es=EventSystem.current;if(es==null || graphic==null || !ui.VisibleHitSurface(graphic,surface,out r))return;
   var data=new PointerEventData(es);data.position=r.center;var hits=new List<RaycastResult>();es.RaycastAll(data,hits);
   if(hits.Count==0)return;var target=ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
   if(target==null || target!=expected)return;
   var button=target.GetComponent<Button>();if(button!=null && !button.IsInteractable())return;
   var trigger=target.GetComponent<EventTrigger>();if(button==null && (trigger==null || !trigger.triggers.Exists(x=>x.eventID==EventTriggerType.PointerClick)))return;
-  var v=Item(r,label,"ego",id,role);v.interactable=true;v.input_verified=true;v.target_id=target.GetInstanceID().ToString();v.hit_x=r.center.x;v.hit_y=Screen.height-r.center.y;buttons.Add(v);
+  var v=Item(r,label,panel,id,role);v.interactable=true;v.input_verified=true;v.target_id=target.GetInstanceID().ToString();v.hit_x=r.center.x;v.hit_y=Screen.height-r.center.y;buttons.Add(v);
  }
  static void Button(ConsoleUI ui,Button b,string id,string role,List<ViewRect> buttons,Transform surface=null){
   if(b==null || !b.isActiveAndEnabled)return;
   foreach(var t in b.GetComponentsInChildren<Text>()){Rect r;if(!ui.VisibleHitSurface(t,surface??b.transform,out r))continue;Click(ui,t,b.gameObject,id,role,Plain(t),buttons,surface??b.transform);break;}
  }
  public static void Capture(ConsoleUI ui,List<ViewRect> texts,List<ViewRect> buttons){
+  ConsoleGifts.Capture(ui,texts,buttons);
   var win=Inventory.InventoryUI.CurrentWindow;
   if(win!=null && win.gameObject.activeInHierarchy){
    var ctl=win.ItemController;

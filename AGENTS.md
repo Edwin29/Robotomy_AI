@@ -1,4 +1,4 @@
-# Robotomy AI contributor instructions
+# Lobotomy AI contributor instructions
 
 This repository is an engineering workspace, not a clean player environment.
 
@@ -11,6 +11,15 @@ This repository is an engineering workspace, not a clean player environment.
 
 - Product goal: a player that makes meaningful choices, exposes concise decision records,
   learns from observed outcomes, and transfers attributed experience across models.
+- AI-first interface principle (2026-10-23): optimize the player-facing adapter for the
+  AI consumer. The console should handle coordinate conversion, reference resolution,
+  state reconstruction, mechanical aggregation and compact formatting; the player
+  retains interpretation and choices. Prefer directly reusable target references,
+  consistent action/observation responses and useful observed results over exposing
+  internal plumbing. Reduce model calls and reconstruction work, not just byte count.
+  This does not authorize hidden-information disclosure, automatic strategic choices,
+  or invented causal explanations. See docs/ai-first-adapter-review-20261023.md for
+  the design review; proposed interfaces there are not implemented features.
 - Session/decision/execution tools run a synthetic integration fixture. Live tools
   separately read UI and screenshots from a private copied game runtime. Never label fixture results as
   Lobotomy gameplay, actual LLM learning, game clearance, or proven model transfer.

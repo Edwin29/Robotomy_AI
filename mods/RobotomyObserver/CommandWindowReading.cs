@@ -7,6 +7,16 @@ using UnityEngine.EventSystems;
 public static class CommandWindowReading {
  public static void Tag(Text text, ViewRect item) {
   var w=CommandWindow.CommandWindow.CurrentWindow;if(w==null)return;
+  var enemy=w.CretureSuppress;
+  if(enemy!=null){
+   string role=text==enemy.Name?"name":text==enemy.CodeNo?"code":text==enemy.RiskLevel?"risk":null;
+   string[] types={"red","white","black","pale"};
+   for(int i=0;i<4;i++){
+    if(i<enemy.DefenseType.Length && text==enemy.DefenseType[i])role="resist_"+types[i];
+    if(i<enemy.DefenseFactor.Length && text==enemy.DefenseFactor[i])role="factor_"+types[i];
+   }
+   if(role!=null){item.row_id="selected_enemy";item.role=role;return;}
+  }
   var a=w.WorkAllocate;
   if(a!=null){
    string role=text==a.Name?"name":text==a.CodeNo?"code":text==a.RiskLevel?"risk":text==a.MaximumCubeGenerate?"max_pe_boxes":text==a.WorkDamageType?"damage_type":text==a.WorkDamageRange?"damage_range":null;

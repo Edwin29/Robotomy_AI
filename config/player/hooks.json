@@ -1,0 +1,31 @@
+{
+  "description": "Pause Robotomy before context compaction; never automatically resume.",
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"D:/Projects/Robotomy_AI/.venv/Scripts/python.exe\" -X utf8 \"D:/Projects/Robotomy_AI/scripts/compaction_hook.py\"",
+            "timeout": 15,
+            "statusMessage": "게임 정지 확인 후 컨텍스트 압축"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"D:/Projects/Robotomy_AI/.venv/Scripts/python.exe\" -X utf8 \"D:/Projects/Robotomy_AI/scripts/compaction_hook.py\"",
+            "timeout": 15,
+            "statusMessage": "게임 정지 유지: 상태 확인 후 직접 재개"
+          }
+        ]
+      }
+    ]
+  }
+}

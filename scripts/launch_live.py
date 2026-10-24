@@ -53,14 +53,20 @@ def request_independent_launch():
 
 
 def check_original(manifest: dict) -> dict:
-    current = inventory(Path(manifest['original_save_root']))
+    # Original play is independent: historical save/preferences drift is diagnostic.
+    # Resolve junctions too; neither save root may contain the other.
+    original = Path(manifest['original_save_root']).resolve()
+    isolated = Path(manifest['isolated_save_path']).resolve()
+    separate = original != isolated and original not in isolated.parents and isolated not in original.parents
+    current = inventory(original)
     baseline = manifest['original_save_hashes']
     changed = sorted(k for k in set(current) | set(baseline) if current.get(k) != baseline.get(k))
     metadata_ok = digest(Path(manifest['source']) / 'LobotomyCorp_Data/globalgamemanagers') == manifest['original_metadata_sha256']
     preferences_ok = prefs_snapshot() == manifest['original_preferences']
     report = {'checked_at_utc': datetime.now(timezone.utc).isoformat(), 'original_files': len(baseline),
         'changed_original_files': changed, 'original_preferences_unchanged': preferences_ok,
-        'original_metadata_unchanged': metadata_ok, 'ok': not changed and preferences_ok and metadata_ok}
+        'original_metadata_unchanged': metadata_ok, 'save_paths_separate': separate,
+        'original_changes_policy': 'diagnostic_only', 'ok': separate and metadata_ok}
     (PRIVATE / 'live/integrity-latest.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     return report
 
@@ -74,7 +80,7 @@ def main() -> None:
     report = check_original(manifest)
     print(json.dumps(report, ensure_ascii=False), flush=True)
     if not report['ok']:
-        raise RuntimeError('Original state differs from backup. Stop and review before launching.')
+        raise RuntimeError('Save isolation or original game metadata check failed. Stop and review before launching.')
     if args.verify_only:
         return
     if not args.scheduled_worker:

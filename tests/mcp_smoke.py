@@ -95,7 +95,8 @@ async def main():
                 events = await call('read_experience_events', {'attempt_id':attempt['id'],'limit':2})
                 assert len(events['events'])==2 and events['has_more']
                 exact = await call('read_experience_event', {'event_id':eid})
-                assert exact['data']['snapshot']==delivered['snapshot']
+                assert exact['data']['state']==delivered['state']
+                assert delivered['schema']=='player_delta_v2' and delivered['mode']=='full'
                 await call('finish_player_attempt', {'attempt_id':attempt['id'],'status':'completed','evidence_ids':[eid]})
                 review = await call('complete_day_review', {'attempt_id':attempt['id'],'author':'test harness',
                     'summary':'MCP plumbing test, no game was played','evidence_ids':[eid],

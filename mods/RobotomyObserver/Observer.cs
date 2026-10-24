@@ -20,7 +20,7 @@ public class Harmony_Patch
     }
 }
 
-[Serializable] public class ViewRect { public string text, panel, target_id, row_id, role; public bool input_verified; public float hit_x, hit_y; public float x, y, width, height; public bool interactable; }
+[Serializable] public class ViewRect { public string text, panel, target_id, row_id, role, subject_ref; public bool input_verified; public float hit_x, hit_y; public float x, y, width, height; public bool interactable; }
 [Serializable] public class ViewSize { public int width, height; }
 [Serializable] public class IsolationInfo { public string persistent_data_path, company_name, product_name; }
 [Serializable] public class Observation
@@ -45,6 +45,12 @@ public class RobotomyObserver : MonoBehaviour
     private readonly ConsoleMotion motion = new ConsoleMotion();
     private readonly ConsoleFacilityMap facility = new ConsoleFacilityMap();
     private float nextFrame;
+    private byte[] storyPixels;
+    private byte[] storyPng;
+    private string storyHash;
+    private string previousFrameScene;
+    private string storyKey;
+    private float storyRefresh;
     private double frameMs;
     private int frameSequence;
     private string frameTimestamp = "";
@@ -76,6 +82,9 @@ public class RobotomyObserver : MonoBehaviour
             ConsoleHistory.Capacity("ROBOTOMY_HISTORY_FRAMES",30,60)); }
         catch(Exception ex) { Debug.LogError("Robotomy history disabled; latest observation continues: "+ex); }
         ConsoleAudio.Install();
+        ConsoleSignals.Install();
+        try { ConsoleCombat.Install(); var errorPath=Path.Combine(output,"combat-startup-error.txt");if(File.Exists(errorPath))File.Delete(errorPath); }
+        catch(Exception ex) { File.WriteAllText(Path.Combine(output,"combat-startup-error.txt"),ex.ToString()); throw; }
         MotionCanvasGeometry.Install();
         ConsoleMotion.Initialize(output);
         facility.Initialize(output);
@@ -85,6 +94,7 @@ public class RobotomyObserver : MonoBehaviour
         while (true)
         {
             yield return new WaitForEndOfFrame();
+            try { ConsoleCombat.PollFrame(ui); } catch(Exception ex) { Debug.LogError("Combat observation: "+ex); }
             if(Time.realtimeSinceStartup<nextSample) continue;
             nextSample=Time.realtimeSinceStartup+.1f;
             try { Capture(); }
@@ -111,6 +121,7 @@ public class RobotomyObserver : MonoBehaviour
         foreach (ViewRect item in items)
             result.Add("{\"panel\":" + Quote(item.panel ?? "") + ",\"text\":" + Quote(item.text) + ",\"x\":" + Number(item.x) + ",\"y\":" + Number(item.y)
                 + ",\"row_id\":" + Quote(item.row_id ?? "") + ",\"role\":" + Quote(item.role ?? "")
+                + ",\"subject_ref\":" + Quote(item.subject_ref ?? "")
                 + ",\"width\":" + Number(item.width) + ",\"height\":" + Number(item.height)
                 + (buttons ? ",\"target_id\":" + Quote(item.target_id ?? "") + ",\"input_verified\":" + (item.input_verified ? "true" : "false") + ",\"hit_x\":" + Number(item.hit_x) + ",\"hit_y\":" + Number(item.hit_y) : "")
                 + (buttons ? ",\"interactable\":" + (item.interactable ? "true" : "false") : "") + "}");
@@ -155,6 +166,7 @@ public class RobotomyObserver : MonoBehaviour
         double audioMs = costs.Elapsed.TotalMilliseconds-uiMs;
         string facilityMap=facility.Capture(ui);
         motion.Capture(ui);
+        ConsoleCombat.Sample(ui);
         string hazards=ConsoleHazards.Capture(ui);
         if(facility.PendingSave!=null){publisher.Text(facility.PathName,facility.PendingSave,false);facility.PendingSave=null;}
         double motionMs = motion.Milliseconds;
@@ -171,14 +183,24 @@ public class RobotomyObserver : MonoBehaviour
         body = body.Substring(0,body.Length-1) + ",\"console\":{\"version\":1,\"session\":"+Quote(session)+
             ",\"unity_frame\":"+unityFrame+",\"policy\":\"conservative_display_v1\",\"valid_for_ms\":750,"+
             "\"audio_basis\":\"playback_state_approximation\",\"audio_dropped\":"+ConsoleAudio.Dropped+
-            ",\"facility_map\":"+facilityMap+",\"hazards\":"+hazards+",\"gauges\":["+String.Join(",",gauges.ToArray())+"],\"audio_events\":"+ConsoleAudio.Snapshot()+",\"dead_employees\":"+ConsoleEmployee.DeadRoster()+",\"motion\":"+motion.Snapshot+"}}";
+            ",\"signal_epoch\":"+ConsoleSignals.Epoch+",\"signals\":"+ConsoleSignals.Capture(ui)+",\"facility_map\":"+facilityMap+",\"hazards\":"+hazards+",\"gauges\":["+String.Join(",",gauges.ToArray())+"],\"audio_events\":"+ConsoleAudio.Snapshot()+",\"dead_employees\":"+ConsoleEmployee.DeadRoster()+",\"motion\":"+motion.Snapshot+"}}";
+        body=body.Substring(0,body.Length-2)+",\"combat\":"+ConsoleCombat.Snapshot()+",\"appearance\":"+ConsoleAppearance.Capture(ui)+"}}";
         publisher.Text(Path.Combine(output, "latest.json"), body, false);
+        string combat=ConsoleCombat.Drain();
+        if(combat.Length>0)publisher.Text(Path.Combine(output,"combat-"+session+".jsonl"),combat,true);
         string audio=ConsoleAudio.Drain();
         if(audio.Length>0) publisher.Text(Path.Combine(output,"audio-"+session+".jsonl"),audio,true);
         double publishMs=costs.Elapsed.TotalMilliseconds-uiMs-audioMs-motionMs;
         bool captured=false;
         byte[] historyPng=null;
-        if(Time.realtimeSinceStartup>=nextFrame) {
+        bool storyScene=observation.scene.StartsWith("Story",StringComparison.Ordinal);
+        string currentStoryKey=storyScene?ConsoleNarrative.FrameKey(observation.ui_texts):null;
+        bool narrativeChange=storyScene && (previousFrameScene!=observation.scene || currentStoryKey!=storyKey);
+        string requestPath=Path.Combine(output,"frame-request.txt");
+        bool frameRequested=File.Exists(requestPath);
+        if(frameRequested)try{File.Delete(requestPath);}catch{}
+        if(frameRequested || (Time.realtimeSinceStartup>=nextFrame &&
+           (narrativeChange || !storyScene || Time.realtimeSinceStartup>=storyRefresh))) {
             double before=costs.Elapsed.TotalMilliseconds;
             if(frame==null || frame.width!=Screen.width || frame.height!=Screen.height) {
                 if(frame!=null) UnityEngine.Object.Destroy(frame);
@@ -186,12 +208,24 @@ public class RobotomyObserver : MonoBehaviour
             }
             frame.ReadPixels(new Rect(0,0,Screen.width,Screen.height),0,0,false);
             // CPU EncodeToPNG consumes ReadPixels data; no redundant GPU upload via Apply.
-            byte[] png=frame.EncodeToPNG();
-            historyPng=png;
-            publisher.Put(Path.Combine(output,"frame.png"),png,false);
+            bool story=observation.scene.StartsWith("Story",StringComparison.Ordinal);
+            byte[] pixels=story?frame.GetRawTextureData():null;
+            bool same=story && previousFrameScene==observation.scene && SamePixels(storyPixels,pixels);
+            byte[] png=same?storyPng:frame.EncodeToPNG();
+            historyPng=same || (story && !narrativeChange && !frameRequested)?null:png;
+            if(!same) publisher.Put(Path.Combine(output,"frame.png"),png,false);
             frameSequence=unityFrame; frameTimestamp=observation.captured_at_utc;
             string hash;
-            using(var sha=System.Security.Cryptography.SHA256.Create()) hash=BitConverter.ToString(sha.ComputeHash(png)).Replace("-","").ToLowerInvariant();
+            if(same) hash=storyHash;
+            else using(var sha=System.Security.Cryptography.SHA256.Create()) hash=BitConverter.ToString(sha.ComputeHash(png)).Replace("-","").ToLowerInvariant();
+            storyPixels=pixels; storyPng=story?png:null; storyHash=story?hash:null;
+            previousFrameScene=observation.scene;
+            storyKey=currentStoryKey;
+            // Stable dialogue: inspect again within three seconds for effects not
+            // represented by UI strings/sprites. Transitions still sample at 1 Hz.
+            bool hasDialogue=false;
+            foreach(var t in observation.ui_texts)if(t.panel=="story" && (t.role=="dialogue" || t.role=="narration" || t.role=="letter"))hasDialogue=true;
+            storyRefresh=Time.realtimeSinceStartup+(hasDialogue?3f:1f);
             publisher.Text(Path.Combine(output,"frame-motion.json"),"{\"session\":"+Quote(session)+",\"unity_frame\":"+unityFrame+",\"sha256\":"+Quote(hash)+",\"snapshot\":"+body+"}",false);
             publisher.Text(Path.Combine(output,"frame-meta.json"),"{\"session\":"+Quote(session)+
                 ",\"process_id\":"+observation.process_id+",\"scene\":"+Quote(observation.scene)+",\"unity_frame\":"+unityFrame+
@@ -203,9 +237,10 @@ public class RobotomyObserver : MonoBehaviour
         // device-only gate never exports pause callers or hidden boss flags.
         bool historyActive=GameManager.currentGameManager!=null &&
             GameManager.currentGameManager.state==GameState.PLAYING && Time.timeScale>0f;
-        if(history!=null && historyActive && !ConsoleMotion.ProbeActive && GetComponent<ConsoleProbe>()==null)
+        bool storyChanged=observation.scene.StartsWith("Story",StringComparison.Ordinal) && historyPng!=null;
+        if(history!=null && (storyChanged || (historyActive && !observation.scene.StartsWith("Story",StringComparison.Ordinal))) && !ConsoleMotion.ProbeActive && GetComponent<ConsoleProbe>()==null)
             history.Offer(observation.sequence,unityFrame,body,historyPng);
-        string diagnostics="{\"at_utc\":"+Quote(DateTime.UtcNow.ToString("o"))+",\"session\":"+Quote(session)+
+        string diagnostics="{\"appearance_ms\":"+Number((float)ConsoleAppearance.Milliseconds)+",\"at_utc\":"+Quote(DateTime.UtcNow.ToString("o"))+",\"session\":"+Quote(session)+
             ",\"process_id\":"+observation.process_id+",\"scene\":"+Quote(observation.scene)+",\"unity_frame\":"+unityFrame+
             ",\"ui_ms\":"+uiMs.ToString("R",CultureInfo.InvariantCulture)+",\"audio_ms\":"+audioMs.ToString("R",CultureInfo.InvariantCulture)+
             ",\"motion_ms\":"+motionMs.ToString("R",CultureInfo.InvariantCulture)+",\"motion\":"+motion.Diagnostics()+
@@ -217,6 +252,12 @@ public class RobotomyObserver : MonoBehaviour
             ",\"last_disk_write_ms\":"+publisher.LastWriteMs.ToString("R",CultureInfo.InvariantCulture)+",\"ui\":"+ui.Diagnostics()+"}";
         publisher.Text(Path.Combine(output,"console-diagnostics.json"),diagnostics,false);
         publisher.Text(Path.Combine(output,"metrics-"+session+".jsonl"),diagnostics+"\n",true);
+    }
+
+    private static bool SamePixels(byte[] a,byte[] b) {
+        if(a==null || b==null || a.Length!=b.Length)return false;
+        for(int i=0;i<a.Length;i++)if(a[i]!=b[i])return false;
+        return true;
     }
 
     // Save identity is shown in the observer page/window title. No banner obscures the energy HUD.

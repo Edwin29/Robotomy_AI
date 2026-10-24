@@ -11,11 +11,12 @@ from pathlib import Path
 import sys
 import types
 import uuid
+import time
 from mcp import types as mt
 from mcp.server.lowlevel import Server
 from mcp.server.stdio import stdio_server
 
-HOT = ('playbook', 'facility', 'live', 'live_control', 'virtual_input', 'history', 'quick_input', 'mcp_server')
+HOT = ('appearance', 'combat', 'perception', 'playbook', 'facility', 'live', 'live_control', 'virtual_input', 'history', 'quick_input', 'player_adapter', 'realtime', 'mcp_server')
 PINNED = ('experience', 'store', 'mock', 'game_power', 'observer_window', '__init__', 'reload_host', 'input_sequence')
 
 
@@ -31,6 +32,7 @@ class ReloadHost:
         self.active = 0
         self.reloading = False
         self.backend = None
+        self.last_response_time=None
         self.prefix = None
         self.revision = None
         self.error = None
@@ -91,6 +93,9 @@ class ReloadHost:
             sequences = getattr(self.backend, '_input_sequences', None)
             if sequences is not None and sequences.has_active():
                 raise RuntimeError('Input sequence active; cancel or finish before code reload.')
+            adapter = getattr(self.backend, '_player_adapter', None)
+            if adapter is not None and any(j['status']=='running' for j in adapter.jobs.values()):
+                raise RuntimeError('Player schedule active; cancel or finish before code reload.')
             self.reloading = True
             await self.condition.wait_for(lambda: self.active == 0)
             # Freeze the newest complete bytes after waiting for existing calls.
@@ -107,6 +112,7 @@ class ReloadHost:
             except BaseException:
                 self.discard(prefix)
                 raise
+            if self.backend is not None and hasattr(self.backend,'_realtime'):await asyncio.to_thread(self.backend._realtime.close)
             old = self.prefix
             self.prefix, self.backend, self.catalog = prefix, candidate, catalog
             self.revision, self.error = revision, None
@@ -135,13 +141,36 @@ class ReloadHost:
             if name in ('player_runtime_status','reload_player_code'):
                 return self.status()
             # A pending command must remain inspectable even while reload is blocked.
-            if self.error and name not in ('live_action_receipt','input_sequence_status','cancel_input_sequence'):
+            if self.error and name not in ('live_action_receipt','input_sequence_status','cancel_input_sequence','player_schedule_status'):
                 raise RuntimeError(self.error)
             backend = self.backend
             self.active += 1
+        started=time.perf_counter();gap=None if self.last_response_time is None else started-self.last_response_time
+        result=None
         try:
-            return await backend.call_tool(name, arguments)
+            result=await backend.call_tool(name, arguments)
+            return result
         finally:
+            ended=time.perf_counter();self.last_response_time=ended
+            try:
+                def text_size(value):
+                    if getattr(value,'type',None)=='image' or isinstance(value,dict) and value.get('type')=='image':return 0
+                    if isinstance(value,str):return len(value)
+                    if isinstance(value,dict):return sum(len(str(k))+text_size(v) for k,v in value.items())
+                    if isinstance(value,(tuple,list)):return sum(text_size(v) for v in value)
+                    if hasattr(value,'model_dump'):return text_size(value.model_dump())
+                    return len(str(value))
+                chars=text_size(result)
+                measure={'tool':name,'at_epoch':time.time(),'tool_ms':round((ended-started)*1000,2),
+                         'previous_response_to_request_ms':None if gap is None else round(gap*1000,2),
+                         'response_text_chars':chars,'estimate_only_text_tokens':round(chars/3),
+                         'scope':'tool and host interval; not model inference time or billed subscription usage'}
+                folder=self.root/'.robotomy/metrics';folder.mkdir(parents=True,exist_ok=True)
+                path=folder/'tool-latency.jsonl'
+                if path.exists() and path.stat().st_size>5242880:path.replace(folder/'tool-latency.previous.jsonl')
+                with path.open('a',encoding='utf-8') as f:f.write(json.dumps(measure)+'\n')
+            except (OSError,TypeError,ValueError):pass
+
             async with self.condition:
                 self.active -= 1
                 self.condition.notify_all()
@@ -169,5 +198,6 @@ async def serve(root):
         async with stdio_server() as (incoming,outgoing):
             await server.run(incoming,outgoing,server.create_initialization_options())
     finally:
+        if hasattr(host.backend,'_realtime'):await asyncio.to_thread(host.backend._realtime.close)
         await asyncio.to_thread(host.experience.flush)
         host.discard(host.prefix)

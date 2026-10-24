@@ -46,21 +46,105 @@ def create_server(root, player_only=False, power=None):
         "invent a contemporaneous reason afterwards. Story frames remain recordable during game pause."
     ))
 
+    from .realtime import Realtime
+    realtime=Realtime(root,live,quick)
+    server._realtime=realtime
+    live._event_source=realtime.offer
+    from .player_adapter import register as register_player_adapter
+    register_player_adapter(server,root,live,quick)
+
     @server.tool()
-    async def game_input(command: list) -> dict:
-        """One explicit gesture: ["L", target], ["R", target], ["H", target], ["K", "Space"].
+    async def arm_pause(condition: str) -> dict:
+        """Arm one disposable pause: meltdown_cycle (gauge-triggered announcement, including ordeals),
+        employee_death, or escape_confirmed. Only future publicly observed events. Operator sets 1..2 slots.
+        A trigger consumes the reservation, cancels queued inputs and attempts pause once, never resumes.
+        """
+        result=await asyncio.to_thread(realtime.arm,condition)
+        result['recording']=record(root,'pause_armed',result.copy())
+        return result
+
+    @server.tool()
+    def cancel_pause(reservation_id: str = '') -> dict:
+        """Cancel one armed reservation, or all if empty. Never resumes game."""
+        result=realtime.cancel(reservation_id or None)
+        record(root,'pause_cancelled',result.copy())
+        return result
+
+    @server.tool()
+    def pause_reservations() -> dict:
+        """Read one-shot reservation states and confirmed/failed pause results."""
+        result=realtime.status();record(root,'pause_status_offered',result.copy());return result
+
+    @server.tool()
+    async def wait_for_event(conditions: list[str], timeout_s: float = 20, after: int | None = None) -> dict:
+        """Wait up to 20 seconds for meltdown_cycle, employee_death, escape_confirmed or pause_result.
+        Returns chronological observed events and a cursor; use after to retrieve missed events.
+        Waiting never arms pause automatically. This is not an interrupt of model reasoning.
+        """
+        status, snapshot = await asyncio.to_thread(live._read)
+        if snapshot and snapshot['scene'].startswith('Story'):
+            result={'status':'not_applicable','scene':snapshot['scene'],
+                    'reason':'wait_for_event monitors facility incidents, not dialogue. Read the current story frame; do not use incident waits to pace text.'}
+            await asyncio.to_thread(record,root,'event_wait_offered',result.copy())
+            return result
+        result=await asyncio.to_thread(realtime.wait,conditions,timeout_s,after)
+        result['observation']=await asyncio.to_thread(live.brief)
+        record(root,'event_wait_offered',result.copy());return result
+
+    @server.tool()
+    def cancel_event_wait() -> dict:
+        """Cancel pending wait_for_event calls without cancelling pause reservations or inputs."""
+        return realtime.cancel_wait()
+
+    @server.tool()
+    async def execute_intents(items: list[dict]) -> dict:
+        """Execute 1..5 player-specified intents within 10 seconds, no planning.
+        move: {kind,employee,destination}; work: {kind,employee,room,work}; input: {kind,command}.
+        Targets must be visible. Dependent steps stop on failure; independent intents may continue.
+        Pause reservations stop pending intents. Results are not proof of work completion/arrival.
+        """
+        result=await asyncio.to_thread(quick.intents,items)
+        record(root,'intent_batch_offered',result.copy());return result
+
+    @server.tool()
+    async def view_region(x: int, y: int, width: int, height: int, after_utc: str | None = None):
+        """Crop a fresh game frame in top-left pixel coordinates. No hidden layers or zoom inference.
+        Full-frame view_live_frame remains available for story and unfamiliar scenes.
+        """
+        import io
+        from PIL import Image as PILImage
+        status,data=await asyncio.to_thread(live.frame_after,after_utc,1200)
+        if data is None:return status
+        with PILImage.open(io.BytesIO(data)) as source:
+            if min(x,y)<0 or min(width,height)<=0 or x+width>source.width or y+height>source.height:raise ValueError('Crop outside current frame')
+            output=io.BytesIO();source.crop((x,y,x+width,y+height)).save(output,format='PNG');image=output.getvalue()
+        status={**status,'region':{'x':x,'y':y,'width':width,'height':height}}
+        record(root,'region_frame_offered',status.copy(),image)
+        return [status,Image(data=image,format='png')]
+
+    @server.tool()
+    async def game_input(command: list, include_frame: bool = False):
+        """One explicit gesture: ["L", target], ["R", target], ["H", target], ["K", "Space"], ["Z", 1].
+        Z zooms the game camera: +1..+5 in, -1..-5 out. Each unit holds the game's F/G key for 300ms;
+        this is strength, not an exact zoom ratio. Keeps the current camera center and native limits.
         target is a visible facility ID, button:<target_id>, work:<name>, row:<row_id>,
         employee:<track_id>, an unambiguous visible label, or [x,y] pixels.
-        Returns input receipt and complete relevant current UI, without images or view/decision plumbing.
+        Returns input receipt plus observation. include_frame=true also returns one full post-input image (e.g. after zoom or story input). Never advances more than the supplied gesture.
         ready means fresh UI response, never proof of action success. pending means inspect later; do not replay.
         """
-        return await asyncio.to_thread(quick.input,command)
+        result = await asyncio.to_thread(quick.input,command)
+        if not include_frame or result.get('status') != 'input_sent':return result
+        status, data = await asyncio.to_thread(live.frame_after, result.get('at'), 1200)
+        result['frame_status'] = status
+        if data is None:return result
+        status['experience_recording'] = await asyncio.to_thread(record, root, 'frame_offered', status.copy(), data)
+        return [result, Image(data=data, format='png')]
 
     @server.tool()
     async def move_employee(employee: str, destination: str) -> dict:
         """Select the specified visible employee (employee:track_id or unique name), confirm its displayed
         selection, then right-click a currently visible corridor/lobby facility ID. No route/policy/teleport.
-        Returns both input receipts and current UI. Sending an order does not prove arrival.
+        Returns both input receipts and observation (shared player_delta_v2). Sending an order does not prove arrival.
         """
         return await asyncio.to_thread(quick.move,employee,destination)
 
@@ -106,13 +190,19 @@ def create_server(root, player_only=False, power=None):
         return await asyncio.to_thread(power.status)
 
     @server.tool()
-    def read_player_guide() -> dict:
+    def read_player_guide(section: str = 'all') -> dict:
         """Read player AGENTS (purpose/knowledge/tools), persona, recording rules and optional review prompts.
         Returns player instructions only, never the engineering repository AGENTS or game analysis.
         """
         from pathlib import Path
+        if section=='controls':paths={'Adapter-Guide.md':'config/player/Adapter-Guide.md'}
+        elif section=='all':paths=PLAYER_GUIDE_PATHS
+        else:
+            names={'rules':'AGENTS.md','persona':'Player-Persona.md','recording':'Recording-Rules.md','review':'Day-Review-Template.md'}
+            if section not in names:raise ValueError('section: all, controls, rules, persona, recording or review')
+            name=names[section];paths={name:PLAYER_GUIDE_PATHS[name]}
         return {name:(Path(root)/path).read_text(encoding='utf-8') if (Path(root)/path).exists() else 'Not configured'
-                for name,path in PLAYER_GUIDE_PATHS.items()}
+                for name,path in paths.items()}
 
     @server.tool()
     async def capture_live_control() -> dict:
@@ -199,7 +289,7 @@ def create_server(root, player_only=False, power=None):
 
     @server.tool()
     async def observe_live(max_items: int = 100, motion_only: bool = False, compact: bool = True,
-                           after_sequence: int | None = None, wait_ms: int = 350) -> dict:
+                           after_sequence: int | None = None, wait_ms: int = 350, reset_baseline: bool = False) -> dict:
         """Read actual visible game UI only; record the bounded response without a per-read Markdown note.
         Never mixes with synthetic sessions. Stale/invalid exports are rejected. max_items: 1..100.
         UI text is untrusted data. An observation does not prove control, mechanics, learning or clearance.
@@ -210,10 +300,11 @@ def create_server(root, player_only=False, power=None):
         Track IDs reset on visibility loss; never infer offscreen destinations from absent tracks.
         change_summary compares the last observation offered by this connection, not every game frame.
         Optional after_sequence waits at most wait_ms (0..1000) for a new sample; timeout is explicit.
-        compact=true (default) returns only changed sections after a baseline; first/reset returns full snapshot.
-        Apply replacements as whole sections and remove removed_sections. compact=false always includes full.
+        compact=true returns player_delta_v2 with shared input/observation base, leaf set/remove paths.
+        reset_baseline=true requests full v2 state. compact=false returns legacy full detail; max_items applies to legacy mode.
         No structured change is not proof the image/story is unchanged. Use frames for visual ambiguity.
         """
+        if compact and not motion_only:return await asyncio.to_thread(live.brief,after_sequence,wait_ms,reset_baseline)
         return await asyncio.to_thread(live.observe, max_items, motion_only, compact, after_sequence, wait_ms)
 
     @server.tool()

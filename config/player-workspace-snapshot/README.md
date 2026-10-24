@@ -1,5 +1,5 @@
 # Player workspace reference snapshot
 
-Captured 2026-10-20 from D:/Projects/Robotomy_Player. Reference only; do not run the .cmd files on another PC without adapting paths.
-Not a second live player workspace. Manual pages, .codex settings, credentials and runtime state are excluded.
-config/player remains the generation template; this folder documents the actual local instructions at capture time.
+Captured 2026-10-24 from D:/Projects/Robotomy_Player. Reference only; adapt absolute paths before use.
+Manual pages, .codex settings, credentials and runtime data are excluded.
+config/player contains templates; this snapshot records actual local instructions.

@@ -1,0 +1,30 @@
+--- a/robotomy/mcp_server.py
++++ b/robotomy/mcp_server.py
+@@ -81,7 +81,7 @@
+         No game input. Windows local executor needs no Codex/sky bridge or model API credentials.
+         Inspect the image via view_live_frame when visual ambiguity matters; expires in 30 seconds.
+         """
+-        from .virtual_input import VirtualExecutor
++        from robotomy.input_sequence import ScheduledExecutor as VirtualExecutor
+         return await asyncio.to_thread(VirtualExecutor(root).capture)
+ 
+     @server.tool()
+@@ -105,7 +105,7 @@
+         """Execute one recorded action through the isolated Unity virtual input mod, including bounded key holds and pointer motion.
+         Idempotent; never auto-retry unknown. Operator pause/time limits release virtual input; focus is not required.
+         """
+-        from .virtual_input import VirtualExecutor
++        from robotomy.input_sequence import ScheduledExecutor as VirtualExecutor
+         return await asyncio.to_thread(VirtualExecutor(root).execute, decision_id)
+ 
+     @server.tool()
+@@ -320,6 +320,9 @@
+         """Write a portable JSON bundle and an Obsidian session note. Does not commit/push Git."""
+         return store.export(session_id)
+ 
++    from robotomy.input_sequence import register_sequence_tools
++    register_sequence_tools(server, root)
++
+     if player_only:
+         for name in ('start_session','list_sessions','observe','record_decision','execute_decision',
+                      'record_reflection','read_timeline','reply_to_human','search_memory','checkpoint',

@@ -13,7 +13,7 @@ class ReadingTest(unittest.TestCase):
   texts=_ui_items([item('첫 줄','line','creature_record','p1'),item('둘째 줄','line','creature_record','p1'),item('다음 문단','line','creature_record','p2')],100)
   self.assertEqual(reading_panels({'ui_texts':texts})['creature_record'],[{'paragraph_id':'p1','text':'첫 줄\n둘째 줄'},{'paragraph_id':'p2','text':'다음 문단'}])
  def test_closed_window_does_not_retain_rows(self):
-  self.assertEqual(reading_panels({'ui_texts':[],'buttons':[]}),{'equipment_rows':[],'equipment_controls':[],'creature_record':[],'selected_equipment':None})
+  self.assertEqual(reading_panels({'ui_texts':[],'buttons':[]}),{'gifts':None,'equipment_rows':[],'equipment_controls':[],'creature_record':[],'selected_equipment':None})
  def test_diff_unchanged_and_retract(self):
   s={'captured_at_utc':'2026-10-19T00:00:00+00:00',**reading_panels({'ui_texts':[item('참회','name')]})}
   previous={'captured_at_utc':s['captured_at_utc'],'id':'o1','identity':'same','selection':{},'sections':observation_sections(s)}
